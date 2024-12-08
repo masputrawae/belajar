@@ -1,0 +1,7 @@
+@use '../utils/mixins' as mix;
+@use '../utils/variables' as var;
+
+header {
+    background-color: var(--primary-bg);
+    border-bottom: 3px solid black;
+}
