@@ -1,0 +1,76 @@
+DB
+
+-- Menghapus tabel yang sudah ada
+DROP TABLE IF EXISTS administrator;
+DROP TABLE IF EXISTS articles;
+DROP TABLE IF EXISTS historis;
+DROP TABLE IF EXISTS tags;
+DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS members;
+DROP TABLE IF EXISTS comments;
+
+-- Tabel Administrator
+CREATE TABLE administrator (
+    id INT AUTO_INCREMENT PRIMARY KEY,  -- Auto increment untuk id
+    username VARCHAR(50) NOT NULL UNIQUE, 
+    password VARCHAR(100) NOT NULL, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Menambahkan default untuk waktu pembuatan
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  -- Update otomatis
+) COMMENT = 'Tabel untuk Administrator';
+
+-- Tabel Artikel
+CREATE TABLE articles (
+    id INT AUTO_INCREMENT PRIMARY KEY,  -- Auto increment untuk id
+    title VARCHAR(50) NOT NULL UNIQUE, 
+    author VARCHAR(50) NOT NULL, 
+    content LONGTEXT NOT NULL, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,  -- Waktu pembuatan otomatis
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL  -- Waktu update otomatis
+) COMMENT = 'Tabel untuk menyimpan artikel';
+
+-- Tabel Historis (Riwayat Perubahan Artikel)
+CREATE TABLE historis (
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    article_id INT NOT NULL, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, 
+    update_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL, 
+    change_history LONGTEXT NOT NULL,
+    FOREIGN KEY (article_id) REFERENCES articles(id) ON DELETE CASCADE ON UPDATE CASCADE  -- Cascade pada penghapusan dan update
+) COMMENT = 'Tabel untuk menyimpan riwayat perubahan artikel';
+
+-- Tabel Tags
+CREATE TABLE tags (
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    article_id INT NOT NULL, 
+    tag VARCHAR(255) NOT NULL,
+    FOREIGN KEY (article_id) REFERENCES articles(id) ON DELETE CASCADE ON UPDATE CASCADE  -- Cascade pada penghapusan dan update artikel
+) COMMENT = 'Tabel untuk tag artikel';
+
+-- Tabel Categories
+CREATE TABLE categories (
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    article_id INT NOT NULL, 
+    category VARCHAR(255) NOT NULL,
+    FOREIGN KEY (article_id) REFERENCES articles(id) ON DELETE CASCADE ON UPDATE CASCADE  -- Cascade pada penghapusan dan update artikel
+) COMMENT = 'Tabel untuk kategori artikel';
+
+-- Tabel Members
+CREATE TABLE members (
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    name VARCHAR(100) NOT NULL, 
+    username VARCHAR(100) NOT NULL UNIQUE, 
+    password VARCHAR(500) NOT NULL,  -- Menggunakan panjang 500 untuk password terenkripsi
+    email VARCHAR(100) NOT NULL UNIQUE, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  -- Waktu pendaftaran otomatis
+) COMMENT = 'Tabel untuk member yang terdaftar';
+
+-- Tabel Comments
+CREATE TABLE comments (
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    article_id INT NOT NULL, 
+    member_id INT NOT NULL, 
+    comment TEXT NOT NULL, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, 
+    FOREIGN KEY (article_id) REFERENCES articles(id) ON DELETE CASCADE ON UPDATE CASCADE,  -- Cascade pada penghapusan dan update artikel
+    FOREIGN KEY (member_id) REFERENCES members(id) ON DELETE CASCADE ON UPDATE CASCADE  -- Cascade pada penghapusan dan update member
+) COMMENT = 'Tabel untuk komentar pada artikel';
