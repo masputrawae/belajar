@@ -1,0 +1,88 @@
+/* Universal Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%; /* Prevent font resizing in iOS */
+  -ms-text-size-adjust: 100%; /* Prevent font resizing in IE */
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* Atur font default */
+  line-height: 1.5;
+  background-color: #fff;
+  color: #333; /* Warna teks default */
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* Menggunakan warna teks default */
+  cursor: pointer; /* Agar pointer muncul pada link */
+}
+
+ul, ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th, td {
+  text-align: left;
+  vertical-align: middle; /* Sesuaikan vertikal align */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  color: inherit; /* Warna teks mengikuti konteks */
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
+}
+
+::selection {
+  background-color: #005fcc;
+  color: #fff;
+}
+
+/* Reset for form elements */
+input, textarea, select, button {
+  appearance: none; /* Menonaktifkan gaya default di beberapa browser */
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none; /* Menghilangkan ikon pencarian di beberapa browser */
+}
