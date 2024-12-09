@@ -9,7 +9,7 @@
     <meta name="keywords" content=" ">
 
     <title>Home</title>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="assets/js/script.js" defer></script>
 </head>
@@ -18,12 +18,12 @@
 <body>
     <!--=- START: CONTAINER =--->
     <div class="container">
-        <!--=- START: LEFT SIDE =--->
-        <button class="toggle-btn offcanvas-btn" onclick="toggleOffCanvas()">☰</button>
-        <aside class="left-side" id="offCanvas">
-            <section class="header-left-side">
-                <img src="https://picsum.photos/100" alt="Logo Masputrawae">
-                <h2>Putra Jaya</h2>
+        
+        <!--=- START: SIDEBAR DESKTOP (offcanvas in mobile) =--->
+        <aside id="offcanvas" class="offcanvas" aria-hidden="true">
+            <section class="header-sidebar">
+                <img src="https://picsum.photos/100" alt="Logo Owner">
+                <h2>My Notes</h2>
             </section>
             <nav>
                 <h3>Main Menu</h3>
@@ -36,66 +36,68 @@
                 </ul>
                 <h3>Other</h3>
                 <ul>
+                    <li><a href="">History</a></li>
                     <li><a href="">Categories</a></li>
                     <li><a href="">Tags</a></li>
-                    <li><a href="">History</a></li>
+                    <li><a href="">Draft</a></li>
+                </ul>
+                <h3>Info</h3>
+                <ul>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">Help</a></li>
                 </ul>
             </nav>
         </aside>
+        <!--=- END: SIDEBAR DESKTOP (offcanvas in mobile) =--->
 
-        <!--=- END: LEFT SIDE =--->
+        <!--=- START: MAIN CONTAINER (header - main -footer) =--->
+        <div class="main-container">
 
-        <!--=- START: MAIN CONTAINER =--->
-        <div>
             <!--=- START: HEADER =--->
             <header>
-                <h1>My Notes</h1>
-                <form class="search-bar" action="" method="post">
+                <form class="search-bar-desktop" action="" method="post">
                     <input type="search" name="search" id="search" placeholder="search">
                     <button type="submit" name="search" >Search</button>
                 </form>
-                <nav>
-                    <section class="nav-tab">
-                        <button id="tab-read" onclick="showTab('read')">Read</button>
-                        <button id="tab-discussion" onclick="showTab('discussion')">Discussion</button>
-                        <button id="tab-history" onclick="showTab('history')">History</button>
-                    </section>
-                    <ul>
-                        <li><a href="">Login</a></li>
-                        <li><a href="">Daftar</a></li>
-                        <li><a href="">Logout</a></li>
-                    </ul>
-                </nav>
+                <button><i class="bi bi-lightbulb-fill"></i></button>
+                <button class="offcanvas-btn" id="toggleOffcanvasBtn" aria-expanded="false" aria-controls="offcanvas"><i class="bi bi-justify-left"></i></button>
             </header>
             <!--=- END: HEADER =--->
 
-            <!--=- START: MAIN & TABS =--->
+            <!--=- START: MAIN =--->
             <main>
-                <div class="tabs-content">
-                    
-                    <article id="readTabs">
+                <div class="btn-tabs">
+                    <button class="tab-btn" data-tab="read">Read</button>
+                    <button class="tab-btn" data-tab="history">History</button>
+                    <button class="tab-btn" data-tab="discussion">Discussion</button>
+                </div>
+
+                <!-- START: TABS -->
+                <div class="tabs">
+                    <article class="tab-content tab-read">
                         READ
                     </article>
 
-                    <article id="discussionTabs">
-                        Discussion
+                    <article class="tab-content tab-history">
+                        HISTORY
                     </article>
 
-                    <article id="historyTabs">
-                        History
+                    <article class="tab-content tab-discussion">
+                        DISCUSSION
                     </article>
-
                 </div>
+                <!-- END: TABS -->
             </main>
-            <!--=- END: MAIN & TABS =--->
+            <!--=- END: MAIN =--->
 
             <!--=- START: FOOTER =--->
             <footer>
-                <p>&copy; 2024 - Putra Jaya | My Notes | Semua Hak Cipta Dilindungi</p>
+                <p>&copy; 2024 - Putra Jaya | My Notes : Semua Hak Cipta Dilindungi</p>
             </footer>
             <!--=- END: FOOTER =--->
         </div>
-        <!--=- END: MAIN CONTAINER =--->
+        <!--=- END: MAIN CONTAINER (header - main -footer) =--->
     </div>
     <!--=- END: CONTAINER =--->
 </body>

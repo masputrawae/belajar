@@ -1,2 +1,14 @@
-@use '../utils/mixins' as mix;
 @use '../utils/variables' as var;
+@use '../utils/mixins' as mix;
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.tab-content.active {
+    display: block;
+}

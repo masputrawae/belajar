@@ -1,0 +1,36 @@
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mix;
+
+.offcanvas {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    transition: left 0.3s ease;
+    padding-top: 60px;
+    overflow-x: auto;
+    z-index: 20;
+
+    @media (min-width: 1024px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: white;
+    }
+}
+
+#toggleOffcanvasBtn {
+    z-index: 1050;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    cursor: pointer;
+
+    @media (min-width: 1024px) {
+        display: none;
+    }
+}

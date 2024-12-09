@@ -1,0 +1,23 @@
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mix;
+
+
+button {
+    border-radius: 5px;
+    padding: 3px 6px;
+    box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.3);
+    transition: all 50ms ease;
+    font-size: 14px;
+    
+}
+button:hover{
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.8),inset 0px 0px 1px 0px rgba(0,0,0,0.8);
+}
+button:active{
+    transform: scale(0.95);
+    box-shadow: inset 0px 0px 1px 1px rgba(0,0,0,0.1),inset 0px 0px 10px 1px rgba(0,0,0,0.3),0px 0px 0px 0px rgba(0,0,0,0.1);
+}
+button.active{
+    transform: scale(0.95);
+    box-shadow: inset 0px 0px 1px 1px rgba(0,0,0,0.1),inset 0px 0px 10px 1px rgba(0,0,0,0.3),0px 0px 0px 0px rgba(0,0,0,0.1);
+}

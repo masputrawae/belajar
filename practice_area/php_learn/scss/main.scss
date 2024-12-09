@@ -1,13 +1,24 @@
-// main.scss
+// Mengimpor file dari folder utils
+@use 'utils/variables' as var;
+@use 'utils/mixins' as mix;
+@use 'utils/css_theme';
+
+// Mengimpor file dari folder base
 @use 'base/reset';
 @use 'base/typography';
-@use 'base/interactive';
+@use 'base/layouts';
 
-@use 'layouts/layout';
-@use 'layouts/header';
-@use 'layouts/left_side';
-@use 'layouts/main';
+// Mengimpor file dari folder components
+@use 'components/button';
+@use 'components/card';
+@use 'components/interactive';
+
+// Mengimpor file dari folder layouts
 @use 'layouts/footer';
+@use 'layouts/header';
+@use 'layouts/main';
+@use 'layouts/sidebar';
 
-@use 'utils/mixins' as mix;
-@use 'utils/variables' as var;
+// Mengimpor file dari folder pages
+@use 'pages/about';
+@use 'pages/home';

@@ -1,7 +1,10 @@
-@use '../utils/mixins' as mix;
 @use '../utils/variables' as var;
+@use '../utils/mixins' as mix;
+
+// HEADER
 
 header {
-    background-color: var(--primary-bg);
-    border-bottom: 3px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
 }
