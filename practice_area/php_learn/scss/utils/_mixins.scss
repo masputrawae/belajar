@@ -1,0 +1,8 @@
+// mixins.scss
+
+
+@mixin flex-justify($justify: space-between, $align-items: center){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align-items;
+}

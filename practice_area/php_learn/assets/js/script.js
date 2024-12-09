@@ -1,50 +1,57 @@
-// Ambil elemen-elemen dari DOM
-const toggleBtn = document.getElementById('toggleOffcanvasBtn');
-const offcanvas = document.getElementById('offcanvas');
-const body = document.body;
+const toggleBtn = document.querySelector('.toggle-btn');
+const offcanvas = document.querySelector('.offcanvas');
 
-// Fungsi untuk toggle offcanvas (buka atau tutup)
-toggleBtn.addEventListener('click', () => {
-  const isOpen = offcanvas.style.left === '0px'; // Cek apakah offcanvas sudah terbuka
-  
-  if (isOpen) {
-    offcanvas.style.left = '-100%'; // Kembalikan offcanvas ke luar layar
-    offcanvas.setAttribute('aria-hidden', 'true');
-    toggleBtn.setAttribute('aria-expanded', 'false');
-    body.classList.remove('offcanvas-open'); // Kembalikan konten utama
+let isOpen = false;
+
+// Fungsi untuk memeriksa ukuran layar
+function checkScreenSize() {
+  if (window.innerWidth > 1024) {
+    // Jika layar lebih besar dari 1024px, matikan fungsionalitas offcanvas
+    offcanvas.style.left = '0'; // Pastikan offcanvas selalu terbuka
+    toggleBtn.removeEventListener('click', toggleOffcanvas); // Hapus event listener
   } else {
-    offcanvas.style.left = '0'; // Pindahkan offcanvas ke layar
-    offcanvas.setAttribute('aria-hidden', 'false');
-    toggleBtn.setAttribute('aria-expanded', 'true');
-    body.classList.add('offcanvas-open'); // Geser konten utama
+    // Jika layar lebih kecil dari 1024px, hidupkan fungsionalitas offcanvas
+    toggleBtn.addEventListener('click', toggleOffcanvas); // Pasang event listener
   }
-});
-
-//TABS
-// Ambil semua tombol tab dan semua konten tab
-const tabButtons = document.querySelectorAll('.tab-btn');
-const tabContents = document.querySelectorAll('.tab-content');
-
-// Fungsi untuk menampilkan konten tab yang dipilih
-function switchTab(event) {
-  // Ambil nilai data-tab dari tombol yang diklik
-  const selectedTab = event.target.getAttribute('data-tab');
-
-  // Hapus kelas 'active' dari semua tombol dan konten
-  tabButtons.forEach(button => button.classList.remove('active'));
-  tabContents.forEach(content => content.classList.remove('active'));
-
-  // Tambahkan kelas 'active' pada tombol yang diklik
-  event.target.classList.add('active');
-
-  // Tambahkan kelas 'active' pada konten tab yang sesuai
-  document.querySelector(`.tab-${selectedTab}`).classList.add('active');
 }
 
-// Tambahkan event listener untuk setiap tombol tab
-tabButtons.forEach(button => {
-  button.addEventListener('click', switchTab);
-});
+// Fungsi untuk membuka/menutup offcanvas
+function toggleOffcanvas() {
+  if (isOpen) {
+    offcanvas.style.left = '-250px';
+  } else {
+    offcanvas.style.left = '0';
+  }
+  isOpen = !isOpen;
+}
 
-// Set tab pertama agar aktif saat halaman pertama kali dimuat
-document.querySelector('.tab-btn').click(); // Klik pertama kali untuk menampilkan tab pertama
+// Periksa ukuran layar saat pertama kali dimuat dan saat diubah ukurannya
+checkScreenSize();
+window.addEventListener('resize', checkScreenSize);
+
+
+// TOGLE THEMES
+const themeToggleBtn = document.querySelector('.theme-toggle');
+const themeIcon = themeToggleBtn.querySelector('i');
+
+// Cek tema yang disimpan di localStorage
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  themeIcon.classList.replace('bi-lightbulb-fill', 'bi-lightbulb'); // Ganti ikon
+}
+
+// Fungsi untuk toggle tema
+themeToggleBtn.addEventListener('click', () => {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  
+  // Jika tema saat ini "dark", ubah menjadi "light", dan sebaliknya
+  if (currentTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    themeIcon.classList.replace('bi-lightbulb', 'bi-lightbulb-fill'); // Ganti ikon
+    localStorage.setItem('theme', 'light'); // Simpan pilihan tema di localStorage
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeIcon.classList.replace('bi-lightbulb-fill', 'bi-lightbulb'); // Ganti ikon
+    localStorage.setItem('theme', 'dark'); // Simpan pilihan tema di localStorage
+  }
+});

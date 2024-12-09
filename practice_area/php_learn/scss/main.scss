@@ -1,24 +1,10 @@
-// Mengimpor file dari folder utils
-@use 'utils/variables' as var;
-@use 'utils/mixins' as mix;
-@use 'utils/css_theme';
-
-// Mengimpor file dari folder base
 @use 'base/reset';
-@use 'base/typography';
-@use 'base/layouts';
+@use 'base/root';
+@use 'base/grid';
 
-// Mengimpor file dari folder components
-@use 'components/button';
-@use 'components/card';
-@use 'components/interactive';
-
-// Mengimpor file dari folder layouts
-@use 'layouts/footer';
 @use 'layouts/header';
-@use 'layouts/main';
 @use 'layouts/sidebar';
+@use 'layouts/main';
+@use 'layouts/footer';
 
-// Mengimpor file dari folder pages
-@use 'pages/about';
-@use 'pages/home';
+@use 'components/button';

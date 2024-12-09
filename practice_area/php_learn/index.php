@@ -7,99 +7,78 @@
     <meta name="description" content=" ">
     <meta name="author" content="Nama Anda">
     <meta name="keywords" content=" ">
-
-    <title>Home</title>
+    <title>Percobaan Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
-    <script src="assets/js/script.js" defer></script>
 </head>
-
-<!--[]=----------------=[] START: BODY []=----------------=[]-->
 <body>
-    <!--=- START: CONTAINER =--->
+    <!-- START : CONTAINER -->
     <div class="container">
-        
-        <!--=- START: SIDEBAR DESKTOP (offcanvas in mobile) =--->
-        <aside id="offcanvas" class="offcanvas" aria-hidden="true">
-            <section class="header-sidebar">
-                <img src="https://picsum.photos/100" alt="Logo Owner">
-                <h2>My Notes</h2>
-            </section>
+        <!-- START : HEADER -->
+        <header>
+            <h1>My Notes</h1>
+            <form class="desktop">
+                <input type="search">
+                <button><i class="bi-search"></i></button>
+            </form>
             <nav>
-                <h3>Main Menu</h3>
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Notes</a></li>
-                    <li><a href="">Recent Change</a></li>
-                    <li><a href="">Last Modified</a></li>
-                    <li><a href="">Archives</a></li>
-                </ul>
-                <h3>Other</h3>
-                <ul>
-                    <li><a href="">History</a></li>
-                    <li><a href="">Categories</a></li>
-                    <li><a href="">Tags</a></li>
-                    <li><a href="">Draft</a></li>
-                </ul>
-                <h3>Info</h3>
-                <ul>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href="">Help</a></li>
-                </ul>
+                <button><i class="bi-search"></i></button>
+                <button class="theme-toggle" ><i class="bi bi-lightbulb-fill"></i></button>
+                <button class="toggle-btn mobile" ><i class="bi bi-text-indent-left"></i></button>
             </nav>
-        </aside>
-        <!--=- END: SIDEBAR DESKTOP (offcanvas in mobile) =--->
-
-        <!--=- START: MAIN CONTAINER (header - main -footer) =--->
+        </header>
+        <!-- END : HEADER -->
+        
+        <!-- START : MAIN CONTAINER -->
         <div class="main-container">
-
-            <!--=- START: HEADER =--->
-            <header>
-                <form class="search-bar-desktop" action="" method="post">
-                    <input type="search" name="search" id="search" placeholder="search">
-                    <button type="submit" name="search" >Search</button>
-                </form>
-                <button><i class="bi bi-lightbulb-fill"></i></button>
-                <button class="offcanvas-btn" id="toggleOffcanvasBtn" aria-expanded="false" aria-controls="offcanvas"><i class="bi bi-justify-left"></i></button>
-            </header>
-            <!--=- END: HEADER =--->
-
-            <!--=- START: MAIN =--->
+            <!-- SIDEBAR -->
+            <aside class="offcanvas">
+                <div class="header-sidebar">
+                    <img src="https://picsum.photos/100" alt="logo">
+                    <h2>Putra Jaya</h2>
+                </div>
+                <nav>
+                    <h3>Main Menu</h3>
+                    <ul>
+                        <li><a href="#"><i class="bi bi-house-door"></i> Home</a></li>
+                        <li><a href="#"><i class="bi bi-file-earmark-text"></i> Notes</a></li>
+                        <li><a href="#"><i class="bi bi-clock"></i> Recent Change</a></li>
+                        <li><a href="#"><i class="bi bi-pencil-square"></i> Last Modified</a></li>
+                        <li><a href="#"><i class="bi bi-list-ul"></i> Categories</a></li>
+                        <li><a href="#"><i class="bi bi-tag"></i> Tags</a></li>
+                        <li><a href="#"><i class="bi bi-archive"></i> Archives</a></li>
+                    </ul>
+                    
+                    <h3>Info</h3>
+                    <ul>
+                        <li><a href="#"><i class="bi bi-info-circle"></i> About</a></li>
+                        <li><a href="#"><i class="bi bi-person-workspace"></i> Portfolio</a></li>
+                        <li><a href="#"><i class="bi bi-question-circle"></i> Help</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            
+            <!-- Main -->
             <main>
-                <div class="btn-tabs">
-                    <button class="tab-btn" data-tab="read">Read</button>
-                    <button class="tab-btn" data-tab="history">History</button>
-                    <button class="tab-btn" data-tab="discussion">Discussion</button>
-                </div>
-
-                <!-- START: TABS -->
-                <div class="tabs">
-                    <article class="tab-content tab-read">
-                        READ
-                    </article>
-
-                    <article class="tab-content tab-history">
-                        HISTORY
-                    </article>
-
-                    <article class="tab-content tab-discussion">
-                        DISCUSSION
-                    </article>
-                </div>
-                <!-- END: TABS -->
+                CONTENT
             </main>
-            <!--=- END: MAIN =--->
-
-            <!--=- START: FOOTER =--->
-            <footer>
-                <p>&copy; 2024 - Putra Jaya | My Notes : Semua Hak Cipta Dilindungi</p>
-            </footer>
-            <!--=- END: FOOTER =--->
+            
         </div>
-        <!--=- END: MAIN CONTAINER (header - main -footer) =--->
+        <!-- END : MAIN CONTAINER -->
+        
+        <footer>
+            <div cs="social-link">
+                <a href=""><i class="bi-facebook"></i></a>
+                <a href=""><i class="bi-x"></i></a>
+                <a href=""><i class="bi-instagram"></i></a>
+                <a href=""><i class="bi-youtube"></i></a>
+                <a href=""><i class="bi-discord"></i></a>
+                <a href=""><i class="bi-github"></i></a>
+            </div>
+            <p>&copy; 2024 - Putra Jaya | My Notes</p>
+        </footer>
     </div>
-    <!--=- END: CONTAINER =--->
+    <!-- END : CONTAINER -->
+    <script src="assets/js/script.js" ></script>    
 </body>
-<!--[]=----------------=[] END: BODY []=----------------=[]-->
 </html>

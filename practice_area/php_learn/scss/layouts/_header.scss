@@ -1,10 +1,19 @@
-@use '../utils/variables' as var;
+// header.scss
 @use '../utils/mixins' as mix;
-
-// HEADER
-
+@use '../utils/variables' as var;
 header {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
+    @include mix.flex-justify();
+
+    padding: 10px;
+    background: var(--primary-bg);
+    h1 {
+        color: var(--primary-text);
+    }
+    .desktop {display: none;}
+
+    @media (min-width: 1024px ) {
+        .mobile{
+            display: none;
+        }
+    }
 }
