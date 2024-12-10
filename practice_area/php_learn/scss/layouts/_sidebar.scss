@@ -5,24 +5,26 @@
     position: absolute;
     left: -250px;
     width: 250px;
-    background-color: var(--secondary-bg);
+    background-color: var(--primary-bg);
     color: var(--secondary-text);
     transition: left 1s ease-in-out;
 
     padding: 1rem;
+    border-right: 3px solid var(--border);
+    height: 100%;
     
     .header-sidebar {
         padding: 2rem 5px;
         text-align: center;
         border-radius: 10px;
-        box-shadow:  3px 3px 5px var(--shadow), -3px -3px 5px var(--shadow), inset -1px -1px 5px var(--shadow);
+        box-shadow:   inset -1px -1px 20px 5px var(--shadow);
         img {
             width: 150px;
             height: 150px;
 
             border: 3px solid var(--primary-accent);
             border-radius: 5px;
-            box-shadow:  3px 3px 5px var(--shadow), -3px -3px 5px var(--shadow), inset -1px -1px 5px var(--shadow);
+            box-shadow:  3px 3px 20px 5px var(--shadow), -3px -3px 5px var(--shadow), inset -1px -1px 5px var(--shadow);
         }
     }
 

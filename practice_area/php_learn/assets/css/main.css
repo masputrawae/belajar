@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.875rem; /* Menyesuaikan ukuran font lebih kecil dari 1rem */
@@ -193,12 +197,33 @@ textarea {
   --addition: #8b6f40;
 }
 
+@media (min-width: 1024px) {
+  .container .main-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto;
+  }
+  .container .main-container main {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .container .main-container .offcanvas {
+    grid-column: 1;
+    grid-row: 1/3;
+  }
+  .container .main-container footer {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   background: var(--primary-bg);
+  border-bottom: 3px solid var(--border);
 }
 header h1 {
   color: var(--primary-text);
@@ -216,23 +241,25 @@ header .desktop {
   position: absolute;
   left: -250px;
   width: 250px;
-  background-color: var(--secondary-bg);
+  background-color: var(--primary-bg);
   color: var(--secondary-text);
   transition: left 1s ease-in-out;
   padding: 1rem;
+  border-right: 3px solid var(--border);
+  height: 100%;
 }
 .offcanvas .header-sidebar {
   padding: 2rem 5px;
   text-align: center;
   border-radius: 10px;
-  box-shadow: 3px 3px 5px var(--shadow), -3px -3px 5px var(--shadow), inset -1px -1px 5px var(--shadow);
+  box-shadow: inset -1px -1px 20px 5px var(--shadow);
 }
 .offcanvas .header-sidebar img {
   width: 150px;
   height: 150px;
   border: 3px solid var(--primary-accent);
   border-radius: 5px;
-  box-shadow: 3px 3px 5px var(--shadow), -3px -3px 5px var(--shadow), inset -1px -1px 5px var(--shadow);
+  box-shadow: 3px 3px 20px 5px var(--shadow), -3px -3px 5px var(--shadow), inset -1px -1px 5px var(--shadow);
 }
 .offcanvas ul {
   padding-left: 2rem;
@@ -256,6 +283,21 @@ header .desktop {
   .offcanvas {
     left: 0;
   }
+}
+
+.main-container {
+  position: relative;
+}
+.main-container main {
+  padding: 10px;
+}
+
+footer {
+  padding: 1rem;
+  background-color: var(--primary-bg);
+  text-align: center;
+  height: 100%;
+  border-top: 3px solid var(--border);
 }
 
 button {
