@@ -1,0 +1,43 @@
+// Utils
+@use '../utils/mixins' as mix;
+@use '../utils/variables' as var;
+
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+
+    header {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .main-container {
+        grid-column: 1;
+        grid-row: 2;
+        
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: auto;
+
+        .left-side {
+            grid-column: 1;
+            grid-row: 1;
+        }
+    
+        .main-content {
+            grid-column: 2;
+            grid-row: 1;
+        }
+    
+        .right-side {
+            grid-column: 3;
+            grid-row: 1;
+        }
+    }
+    
+    footer {
+        grid-column: 1;
+        grid-row: 3;
+    }
+}

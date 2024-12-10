@@ -1,0 +1,22 @@
+// main.scss
+
+// Base
+@use 'base/reset.scss';
+@use 'base/root';
+@use 'base/typography';
+
+// Layouts
+@use 'layouts/grid';
+@use 'layouts/header';
+@use 'layouts/left-side';
+@use 'layouts/main-content';
+@use 'layouts/right-side';
+@use 'layouts/footer';
+
+// Components
+@use 'components/button';
+@use 'components/card';
+@use 'components/link';
+
+// Pags
+@use 'pages/home';

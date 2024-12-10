@@ -1,0 +1,73 @@
+:root[data-theme=dark] {
+    --primary-bg: #121212; /* Gelap pekat untuk suasana elegan */
+    --primary-text: #e5e5e5; /* Putih lembut untuk teks utama */
+    --primary-accent: #bb86fc; /* Ungu mewah sebagai aksen */
+
+    --tertiary-bg: #1e1e1e; /* Abu gelap untuk elemen sekunder */
+    --tertiary-text: #c8c8c8; /* Abu terang untuk teks */
+    --tertiary-accent: #03dac6; /* Turquoise untuk kesan modern */
+
+    --secondary-bg: #2c2c2c; /* Abu gelap tambahan */
+    --secondary-text: #ffffff; /* Putih untuk kontras */
+    --secondary-accent: #ffb74d; /* Emas lembut sebagai highlight */
+
+    --additional-bg: #181818; /* Variasi untuk elemen tambahan */
+    --additional-text: #d3d3d3; /* Abu terang */
+    --additional-accent: #ffd700; /* Emas cerah mewah */
+
+    --grad-primary: linear-gradient(45deg, #bb86fc, #03dac6);
+    --grad-secondary: linear-gradient(45deg, #2c2c2c, #121212);
+    --grad-tertiary: linear-gradient(45deg, #ffb74d, #ffd700);
+
+    --border: #373737; /* Abu-abu gelap untuk batas */
+    
+    --link: #bb86fc;
+    --link-hover: #03dac6;
+
+    --shadow: rgba(0, 0, 0, 0.5);
+    --strong-shadow: rgba(0, 0, 0, 0.8);
+    --shadow-hover: rgba(0, 0, 0, 0.6);
+    --shadow-inset: rgba(255, 255, 255, 0.1);
+
+    --button-bg: #03dac6; /* Tombol dengan warna turquoise */
+    --button: #121212; /* Kontras tombol */
+
+    --addition: #4caf50; /* Warna aksen tambahan */
+}
+:root[data-theme=light] {
+    --primary-bg: #ffffff; /* Putih bersih untuk kesan elegan */
+    --primary-text: #121212; /* Hitam untuk kontras tinggi */
+    --primary-accent: #6200ea; /* Ungu royal sebagai aksen mewah */
+
+    --tertiary-bg: #f4f4f4; /* Abu terang untuk elemen sekunder */
+    --tertiary-text: #333333; /* Abu gelap untuk teks */
+    --tertiary-accent: #018786; /* Hijau gelap untuk aksen modern */
+
+    --secondary-bg: #e0e0e0; /* Abu terang tambahan */
+    --secondary-text: #000000; /* Hitam untuk kontras */
+    --secondary-accent: #ff9800; /* Oranye keemasan sebagai highlight */
+
+    --additional-bg: #fafafa; /* Variasi untuk elemen tambahan */
+    --additional-text: #4f4f4f; /* Abu gelap */
+    --additional-accent: #ffc107; /* Emas terang mewah */
+
+    --grad-primary: linear-gradient(45deg, #6200ea, #018786);
+    --grad-secondary: linear-gradient(45deg, #e0e0e0, #ffffff);
+    --grad-tertiary: linear-gradient(45deg, #ff9800, #ffc107);
+
+    --border: #cccccc; /* Abu terang untuk batas */
+    
+    --link: #6200ea;
+    --link-hover: #018786;
+    
+
+    --shadow: rgba(0, 0, 0, 0.2);
+    --strong-shadow: rgba(0, 0, 0, 0.4);
+    --shadow-hover: rgba(0, 0, 0, 0.3);
+    --shadow-inset: rgba(0, 0, 0, 0.05);
+
+    --button-bg: #018786; /* Tombol dengan warna hijau gelap */
+    --button: #ffffff; /* Kontras tombol */
+
+    --addition: #ff5722; /* Warna aksen tambahan */
+}

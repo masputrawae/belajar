@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+        }
+
+        .left-side {
+            grid-column: 1;
+        }
+
+        .main {
+            grid-column: 2;
+        }
+
+        .right-side {
+            grid-column: 3;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn" id="toggleLeftSideBar">Left</button>
+    <button class="btn" id="rightSideBar">Right</button>
+
+    <div class="container">
+        <div class="left-side">
+            Left
+        </div>
+
+        <div class="main">
+            Main
+        </div>
+
+        <div class="right-side">
+            Right
+        </div>
+    </div>
+
+    <script>
+        let isDefaultLayout = true; // State awal
+        const leftSideBar = document.querySelector('.container');
+        const toggleLeftSideBar = document.getElementById('toggleLeftSideBar');
+
+        toggleLeftSideBar.addEventListener('click', function () {
+            console.log('Tombol diklik!'); // Debugging
+            const currentColumns = window.getComputedStyle(leftSideBar).gridTemplateColumns;
+            console.log('Current Columns:', currentColumns); // Debugging
+
+            if (currentColumns.trim() === "1fr 3fr 1fr") {
+                leftSideBar.style.gridTemplateColumns = "2fr 1fr";
+                console.log('Set ke: 2fr 1fr'); // Debugging
+            } else {
+                leftSideBar.style.gridTemplateColumns = "1fr 3fr 1fr";
+                console.log('Set ke: 1fr 3fr 1fr'); // Debugging
+            }
+        });
+
+    </script>
+</body>
+</html>
