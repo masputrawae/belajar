@@ -1,0 +1,17 @@
+// Mixins
+@use 'variables' as var;
+
+// Flex Justify
+@mixin flex-justify($justify: space-between, $align-items: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align-items;
+}
+
+// Hover Scale
+@mixin hover-scale($scale: 1.1, $time-scale: 0.1s) {
+    transition: all $time-scale ease;
+    &:hover {
+        transform: scale($scale);
+    }
+}
