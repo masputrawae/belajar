@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="dark">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Judul halaman</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -24,8 +25,6 @@
                 <input type="search" placeholder="Cari...">
                 <button type="submit"><i class="bi-search"></i></button>
             </form>
-            <button id="toggle-left" class="toggle-btn">Open Left Sidebar</button>
-            <button id="toggle-right" class="toggle-btn">Open Right Sidebar</button>
         </header>
         <!-- END : HEADER -->
         
@@ -128,6 +127,18 @@
     </div>
     <!-- END : CONTAINER -->
 
-    <script src="assets/js/script.js"></script>
+    <!--=- START: MOBILE NAVIGATION =--->
+    <div class="mobile-navigation">
+        <button id="toggle-left" class="toggle-btn">
+            <i class="bi bi-arrow-right-square-fill"></i>
+        </button>
+
+        <button id="toggle-right" class="toggle-btn">
+            <i class="bi bi-arrow-left-square-fill"></i>
+        </button>
+    </div>
+    <!--=- END: MOBILE NAVIGATION =--->
+
+    <script src="assets/js/script.js" defer></script>
 </body>
 </html>

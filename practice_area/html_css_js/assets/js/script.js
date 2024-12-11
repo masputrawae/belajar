@@ -1,25 +1,49 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const leftToggle = document.querySelector("#toggle-left");
-    const rightToggle = document.querySelector("#toggle-right");
-    const mainContainer = document.querySelector(".main-container");
+document.addEventListener('DOMContentLoaded', () => {
+    // Sidebar dan tombol referensi
+    const leftSidebar = document.querySelector('.left-side');
+    const rightSidebar = document.querySelector('.right-side');
+    const toggleLeftButton = document.getElementById('toggle-left');
+    const toggleRightButton = document.getElementById('toggle-right');
+    
+    // Fungsi untuk menutup sidebar
+    const closeSidebar = (sidebar) => {
+        sidebar.classList.remove('open');
+    };
 
-    // Toggle left sidebar
-    leftToggle.addEventListener("click", () => {
-        const currentGrid = getComputedStyle(mainContainer).gridTemplateColumns;
-        if (currentGrid === "1fr") { 
-            mainContainer.style.gridTemplateColumns = "250px 1fr"; // Tampilkan left-side
-        } else if (currentGrid === "250px 1fr") {
-            mainContainer.style.gridTemplateColumns = "1fr"; // Sembunyikan left-side
+    // Fungsi untuk membuka sidebar
+    const openSidebar = (sidebar) => {
+        sidebar.classList.add('open');
+    };
+
+    // Fungsi untuk menutup sidebar lain jika satu sidebar dibuka
+    const closeOtherSidebar = (sidebarToClose) => {
+        if (sidebarToClose === 'left') {
+            closeSidebar(rightSidebar);
+        } else {
+            closeSidebar(leftSidebar);
         }
+    };
+
+    // Event listener untuk toggle sidebar kiri
+    toggleLeftButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Mencegah event lain yang tidak diperlukan
+        closeOtherSidebar('left');
+        leftSidebar.classList.toggle('open'); // Toggle sidebar kiri
     });
 
-    // Toggle right sidebar
-    rightToggle.addEventListener("click", () => {
-        const currentGrid = getComputedStyle(mainContainer).gridTemplateColumns;
-        if (currentGrid === "1fr") { 
-            mainContainer.style.gridTemplateColumns = "1fr 250px"; // Tampilkan right-side
-        } else if (currentGrid === "1fr 250px") {
-            mainContainer.style.gridTemplateColumns = "1fr"; // Sembunyikan right-side
+    // Event listener untuk toggle sidebar kanan
+    toggleRightButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        closeOtherSidebar('right');
+        rightSidebar.classList.toggle('open'); // Toggle sidebar kanan
+    });
+
+    // Tutup sidebar jika klik di luar sidebar
+    document.addEventListener('click', (event) => {
+        if (!leftSidebar.contains(event.target) && !rightSidebar.contains(event.target) &&
+            event.target !== toggleLeftButton && event.target !== toggleRightButton) {
+            closeSidebar(leftSidebar);
+            closeSidebar(rightSidebar);
         }
     });
 });
