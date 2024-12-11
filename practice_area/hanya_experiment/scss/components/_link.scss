@@ -1,3 +1,38 @@
 // Utils
 @use '../utils/mixins' as mix;
 @use '../utils/variables' as var;
+
+a {
+    color: var(--link);
+    display: inline-block;
+    transition: all 0.1s ease;
+    border-radius: 5px;
+    position: relative; /* Penting untuk posisi pseudo-element */
+
+    &:hover {
+        transform: scale(1.1);
+        color: var(--link-hover);
+    }
+
+    &:active {
+        transform: scale(0.95);
+        color: var(--active);
+    }
+
+    /* Garis bawah yang melebar */
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px; /* Tebal garis bawah */
+        background-color: var(--link-hover); /* Warna garis bawah */
+        transition: width 0.3s ease;
+    }
+
+    /* Efek garis bawah melebar saat hover */
+    &:hover::after {
+        width: 100%; /* Garis bawah akan melebar sepenuhnya */
+    }
+}

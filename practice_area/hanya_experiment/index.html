@@ -22,21 +22,21 @@
         <div class="container" id="container">
             <!-- START : LEFT SIDE -->
             <aside class="left-side desktop">
-                <header>
+                <header class="header-sidebar">
                     <img src="https://picsum.photos/150" alt="Logo">
                     <h3>
                         <a href="">My Notes</a>
                     </h1>
                 </header>
                 <nav>
-                    <h4>Main Menu</h3>
+                    <h4>Main Menu</h4>
                     <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Terbaru</a></li>
-                        <li><a href="">Terakhir Diubah</a></li>
-                        <li><a href="">Categories</a></li>                   
-                        <li><a href="">Tags</a></li>
-                        <li><a href="">Archives</a></li>
+                        <li><a href=""><i class="bi bi-house-door"></i> Home</a></li>
+                        <li><a href=""><i class="bi bi-newspaper"></i> Terbaru</a></li>
+                        <li><a href=""><i class="bi bi-clock-history"></i> Terakhir Diubah</a></li>
+                        <li><a href=""><i class="bi bi-folder2"></i> Categories</a></li>
+                        <li><a href=""><i class="bi bi-tags"></i> Tags</a></li>
+                        <li><a href=""><i class="bi bi-archive"></i> Archives</a></li>
                     </ul>
                 </nav>
             </header>
@@ -48,20 +48,32 @@
                 
                 <!-- START : HEADER -->
                 <header>
-                    <button id="toggleSidebar" class="btn-left-side"><i class="bi-list"></i></button>
-                    <button id="toggleCollapse"><i class="bi-list mobile"></i></button>
+                    <div class="btn-header">
+                        <button id="themeToggle" class="theme-toggle">
+                            <i id="themeIcon" class="bi bi-sun"></i>
+                        </button>
+
+                        <button id="toggleSidebar" class="btn-left-side">
+                            <i class="bi bi-layout-sidebar"></i>
+                        </button>
+                        
+                        <button id="toggleCollapse" class="mobile">
+                            <i class="bi bi-menu-button-wide"></i>
+                        </button>
+                    </div>
+                    
                     <nav id="navbar">
-                        <ul class="nav-collaps">
-                            <li><a href="">About</a></li>
-                            <li><a href="">Portfolio</a></li>
-                            <li><a href="">Gallery</a></li>
-                            <li><a href="">Blog</a></li>
-                            <li><a href="">Help</a></li>
-                        </ul>
                         <form action="" method="get">
                             <input type="search" name="search" placeholder="cari">
                             <button type="submit"><i class="bi-search"></i></button>
                         </form>
+                        <ul class="nav-collaps">
+                            <li><a href=""><i class="bi bi-info-circle"></i> About</a></li>
+                            <li><a href=""><i class="bi bi-briefcase"></i> Portfolio</a></li>
+                            <li><a href=""><i class="bi bi-images"></i> Gallery</a></li>
+                            <li><a href=""><i class="bi bi-journal-text"></i> Blog</a></li>
+                            <li><a href=""><i class="bi bi-question-circle"></i> Help</a></li>
+                        </ul>                        
                     </nav>
                 </header>
                 <!-- END : HEADER -->
@@ -86,7 +98,27 @@
                 <!-- END : MAIN CONTENT -->
                 
                 <footer>
-                    <p>&copy; 2024 - Putra Jaya | My Notes </p>
+                    <div class="social-link">
+                        <a href="" class="social-btn facebook"><i class="bi-facebook"></i></a>
+                        <a href="" class="social-btn twitter"><i class="bi-twitter-x"></i></a>
+                        <a href="" class="social-btn instagram"><i class="bi-instagram"></i></a>
+                        <a href="" class="social-btn youtube"><i class="bi-youtube"></i></a>
+                        <a href="" class="social-btn discord"><i class="bi-discord"></i></a>
+                        <a href="" class="social-btn github"><i class="bi-github"></i></a>
+                    </div>                    
+                    <section class="text-footer-area">
+                        <p>
+                            <a href="" class="text-decoration-none">Privacy Policy</a> |
+                            <a href="" class="text-decoration-none">Terms of Service</a> |
+                            <a href="" class="text-decoration-none">Disclaimer</a> |
+                            <a href="#" class="text-decoration-none">Back To Top</a>
+                        </p>
+                    </section>
+        
+                    <!-- Copyright -->
+                    <div class="copyright">
+                        <span class="text-muted">&copy 2024 - Putra Jaya | My Notes. Semua hak dilindungi.</span>
+                    </div>
                 </footer>
             </div>
             

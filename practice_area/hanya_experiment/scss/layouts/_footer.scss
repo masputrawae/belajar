@@ -1,3 +1,86 @@
 // Utils
 @use '../utils/mixins' as mix;
 @use '../utils/variables' as var;
+
+footer {
+    border-top: 3px solid var(--border);
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 10rem;
+
+    @media (min-width: 1024px) {
+        margin-bottom: 0rem;
+    }
+
+    .social-link {
+        @include mix.flex-justify(center);
+        gap: 10px; /* Jarak antar tombol */
+    }
+    .social-btn {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 40px; /* Vertikal tengah ikon */
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        color: var(--primary-text);
+        font-size: 20px; /* Ukuran ikon */
+    }
+
+    .social-btn:hover {
+        transform: scale(1.1); /* Efek membesar saat hover */
+    }
+    
+    /* Background sesuai dengan masing-masing ikon sosial */
+    .social-btn.facebook {
+        background-color: #3b5998; /* Warna khas Facebook */
+    }
+    
+    .social-btn.twitter {
+        background-color: #1da1f2; /* Warna khas Twitter */
+    }
+    
+    .social-btn.instagram {
+        background-color: #e4405f; /* Warna khas Instagram */
+    }
+    
+    .social-btn.youtube {
+        background-color: #ff0000; /* Warna khas YouTube */
+    }
+    
+    .social-btn.discord {
+        background-color: #7289da; /* Warna khas Discord */
+    }
+    
+    .social-btn.github {
+        background-color: #333333; /* Warna khas GitHub */
+    }
+    
+    /* Efek hover untuk masing-masing ikon */
+    .social-btn.facebook:hover {
+        background-color: #365899; /* Warna lebih gelap untuk hover */
+    }
+    
+    .social-btn.twitter:hover {
+        background-color: #0d95cc;
+    }
+    
+    .social-btn.instagram:hover {
+        background-color: #c13584;
+    }
+    
+    .social-btn.youtube:hover {
+        background-color: #cc0000;
+    }
+    
+    .social-btn.discord:hover {
+        background-color: #5a6bb9;
+    }
+    
+    .social-btn.github:hover {
+        background-color: #444444;
+    }
+    
+}
+

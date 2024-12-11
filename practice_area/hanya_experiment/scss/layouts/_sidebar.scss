@@ -1,3 +1,35 @@
 // Utils
 @use '../utils/mixins' as mix;
 @use '../utils/variables' as var;
+
+.left-side {
+    border-right: 3px solid var(--border);
+    .header-sidebar {
+        text-align: center;
+        padding: 50px 0px;
+
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 2px;
+            border: 2px solid var(--border);
+            transition: all 0.1s ease;
+
+            &:hover {
+                transform: scale(1.1);
+                border: 2px solid var(--link);
+            }
+        }
+    }
+
+    nav {
+        padding: 5px;
+
+        ul {
+            list-style: none;
+            a {
+                font-size: 14px;
+            }
+        }
+    }
+}

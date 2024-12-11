@@ -1,3 +1,8 @@
 // Utils
 @use '../utils/mixins' as mix;
 @use '../utils/variables' as var;
+
+main {
+    background-color: var(--additional-bg);
+    padding: 1rem;
+}

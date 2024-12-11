@@ -1,3 +1,36 @@
 // Utils
 @use '../utils/mixins' as mix;
 @use '../utils/variables' as var;
+button {
+    border-radius: 10px;
+    padding: 10px 15px;
+    box-shadow:
+        2px 2px 5px 1px var(--shadow),
+        -2px -2px 5px 1px var(--shadow),
+        inset 0px 0px 1px 1px var(--shadow-inset);
+        
+    color: var(--link);
+    transition: all 0.1s ease;
+    transform: scale(1.05);
+    background-color: var(--additional-bg);
+}
+
+button:hover {
+    transform: scale(1);
+    box-shadow:
+        5px 5px 10px 1px var(--shadow-hover),
+        -5px -5px 10px 1px var(--shadow-hover),
+        inset 0px 0px 1px 1px var(--shadow-inset);
+        
+    color: var(--link-hover);
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow:
+        1px 1px 1px 1px var(--shadow),
+        -1px -1px 1px 1px var(--shadow),
+        inset 0px 0px 1px 1px var(--shadow-inset);
+        
+    color: var(--active);
+}
