@@ -1,3 +1,46 @@
 // Utils
 @use '../utils/mixins' as mix;
 @use '../utils/variables' as var;
+
+.main-container {
+    header {
+        @include mix.flex-justify();
+        position: fixed;
+        background-color: none;
+        padding: 5px;
+        bottom: 0;
+        right: 0;
+
+        @media (min-width: 1024px) {
+            background-color: var(--primary-bg);
+            position: relative;
+        }
+    }
+}
+
+/* Default state: Sidebar tertutup pada layar kecil */
+#navbar {
+    border-radius: 5px;
+    padding: 20px;
+    background-color: var(--primary-bg);
+    transition: top 0.3s ease-in-out;
+    position: fixed;
+    width: 100vh;
+    top: -300px;
+    left: 0;
+    form {
+        margin-top: 20px;
+    }
+
+    /* Menyembunyikan navigasi pada layar kecil */
+    &.collapsed {
+        top: 0px;
+    }
+
+    @media (min-width: 1024px) {
+        position: absolute;
+        &.collapsed {
+            top: 30px;
+        }
+    }
+}

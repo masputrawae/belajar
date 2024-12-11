@@ -1,73 +1,75 @@
-:root[data-theme=dark]{
-    --primary-bg: ;
-    --primary-bg-gradien: ;
-    --primary-text: ;
-    --primary-accent: ;
+/* Dark Theme */
+:root[data-theme=dark] {
+    --primary-bg: #0f0f1c; /* Background utama gelap seperti langit malam */
+    --primary-bg-gradien: linear-gradient(135deg, #1c1c29, #020212); /* Gradien biru dan hitam seperti galaksi */
+    --primary-text: #f0f0f0; /* Putih terang untuk teks utama */
+    --primary-accent: #5c6bc0; /* Biru terang, seperti cahaya bintang */
     
-    --tertiary-bg: ;
-    --tertiary-bg-gradien: ;
-    --tertiary-text: ;
-    --tertiary-accent: ;
+    --tertiary-bg: #1e1e2f; /* Background untuk elemen tambahan, seperti nebula gelap */
+    --tertiary-bg-gradien: linear-gradient(135deg, #263238, #212121); /* Gradien gelap dan biru */
+    --tertiary-text: #9e9e9e; /* Abu-abu terang untuk teks tambahan */
+    --tertiary-accent: #ff4081; /* Aksen merah muda neon */
     
-    --secondary-bg: ;
-    --secondary-bg-gradien: ;
-    --secondary-text: ;
-    --secondary-accent: ;
+    --secondary-bg: #212121; /* Warna latar belakang sekunder */
+    --secondary-bg-gradien: linear-gradient(135deg, #424242, #212121); /* Gradien lebih gelap untuk bagian kedua */
+    --secondary-text: #b0bec5; /* Teks abu-abu cerah untuk sekunder */
+    --secondary-accent: #ff9800; /* Aksen oranye untuk memberi kontras */
     
-    --additional-bg: ;
-    --additional-bg-gradien: ;
-    --additional-text: ;
-    --additional-accent: ;
+    --additional-bg: #121212; /* Latar belakang tambahan gelap */
+    --additional-bg-gradien: linear-gradient(135deg, #000000, #121212); /* Gradien hitam untuk nuansa lebih dalam */
+    --additional-text: #90a4ae; /* Teks tambahan abu muda */
+    --additional-accent: #03a9f4; /* Aksen biru langit */
     
-    --link:;
-    --link-hover:;
-    --muted: ;
-    --active:;
-    --visited:;
-    --warning:;
-    --danger:;
-    --accent:;
+    --link: #03a9f4; /* Warna link biru terang */
+    --link-hover: #0288d1; /* Warna hover biru lebih gelap */
+    --muted: #757575; /* Warna untuk elemen kurang penting */
+    --active: #ff5722; /* Aksen merah-oranye untuk elemen aktif */
+    --visited: #673ab7; /* Warna untuk link yang sudah dikunjungi */
+    --warning: #ffeb3b; /* Warna untuk peringatan kuning terang */
+    --danger: #f44336; /* Merah cerah untuk pesan bahaya */
+    --accent: #9c27b0; /* Ungu terang untuk aksen */
     
-    --border:;
+    --border: #37474f; /* Border abu gelap */
     
-    --shadow: ;
-    --shadow-hover: ;
-    --shadow-inset: ;
+    --shadow: rgba(0, 0, 0, 0.8); /* Shadow hitam untuk memberikan kedalaman */
+    --shadow-hover: rgba(0, 0, 0, 0.6); /* Shadow saat hover */
+    --shadow-inset: rgba(0, 0, 0, 0.5); /* Shadow untuk efek inset */
 }
 
-:root[data-theme=light]{
-    --primary-bg: ;
-    --primary-bg-gradien: ;
-    --primary-text: ;
-    --primary-accent: ;
+/* Light Theme */
+:root[data-theme=light] {
+    --primary-bg: #ffffff; /* Background putih terang */
+    --primary-bg-gradien: linear-gradient(135deg, #e3f2fd, #ffffff); /* Gradien biru muda dan putih */
+    --primary-text: #212121; /* Teks utama gelap untuk kontras */
+    --primary-accent: #1976d2; /* Biru cerah untuk aksen utama */
     
-    --tertiary-bg: ;
-    --tertiary-bg-gradien: ;
-    --tertiary-text: ;
-    --tertiary-accent: ;
+    --tertiary-bg: #f5f5f5; /* Background elemen tambahan, terang */
+    --tertiary-bg-gradien: linear-gradient(135deg, #e0e0e0, #f5f5f5); /* Gradien terang */
+    --tertiary-text: #757575; /* Teks sekunder abu-abu */
+    --tertiary-accent: #f50057; /* Aksen merah cerah */
     
-    --secondary-bg: ;
-    --secondary-bg-gradien: ;
-    --secondary-text: ;
-    --secondary-accent: ;
+    --secondary-bg: #eeeeee; /* Background sekunder terang */
+    --secondary-bg-gradien: linear-gradient(135deg, #fafafa, #eeeeee); /* Gradien lebih terang */
+    --secondary-text: #212121; /* Teks sekunder gelap */
+    --secondary-accent: #ff5722; /* Aksen oranye terang */
     
-    --additional-bg: ;
-    --additional-bg-gradien: ;
-    --additional-text: ;
-    --additional-accent: ;
+    --additional-bg: #fafafa; /* Latar belakang tambahan lebih terang */
+    --additional-bg-gradien: linear-gradient(135deg, #ffffff, #fafafa); /* Gradien terang */
+    --additional-text: #9e9e9e; /* Teks tambahan abu terang */
+    --additional-accent: #03a9f4; /* Aksen biru terang */
     
-    --link:;
-    --link-hover:;
-    --muted: ;
-    --active:;
-    --visited:;
-    --warning:;
-    --danger:;
-    --accent:;
+    --link: #1976d2; /* Link biru terang */
+    --link-hover: #1565c0; /* Hover biru lebih gelap */
+    --muted: #9e9e9e; /* Teks kurang penting */
+    --active: #f44336; /* Warna untuk elemen aktif */
+    --visited: #673ab7; /* Warna untuk link yang sudah dikunjungi */
+    --warning: #ffeb3b; /* Warna peringatan kuning cerah */
+    --danger: #e53935; /* Merah terang untuk bahaya */
+    --accent: #9c27b0; /* Aksen ungu terang */
     
-    --border:;
+    --border: #bdbdbd; /* Border abu muda */
     
-    --shadow: ;
-    --shadow-hover: ;
-    --shadow-inset: ;
+    --shadow: rgba(0, 0, 0, 0.1); /* Shadow ringan untuk tema terang */
+    --shadow-hover: rgba(0, 0, 0, 0.05); /* Shadow hover lebih ringan */
+    --shadow-inset: rgba(0, 0, 0, 0.1); /* Shadow inset */
 }
