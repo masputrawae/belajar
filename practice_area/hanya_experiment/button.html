@@ -1,66 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Judul halaman</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <style>
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 3fr 1fr;
-        }
+    <link rel="stylesheet" href="reset.css">
+    
+    
 
-        .left-side {
-            grid-column: 1;
-        }
+<style>
+body {
+    margin: 5rem;
+    background-color: #1A1A1A;
+}
 
-        .main {
-            grid-column: 2;
-        }
+button {
+    border-radius: 10px;
+    padding: 10px 15px;
+    box-shadow:
+        5px 5px 10px 1px rgba(0,0,0,0.1),
+        -5px -5px 10px 1px rgba(0,0,0,0.1),
+        inset 0px 0px 1px 1px #dc7600;
+        
+    color: #dc7600;
+    transition: all 0.1s ease;
+    transform: scale(1.05)
+}
+button:hover {
+    transform: scale(1);
+    box-shadow:
+        5px 5px 20px 1px rgba(0,0,0,0.1),
+        -5px -5px 30px 1px rgba(0,0,0,0.1),
+        inset 0px 0px 1px 1px #a27100;
+        
+    color: #a27100;
+}
 
-        .right-side {
-            grid-column: 3;
-        }
-    </style>
+button:active {
+    transform: scale(0.95);
+    box-shadow:
+        1px 1px 1px 1px rgba(0,0,0,0.1),
+        -1px -1px 1px 1px rgba(0,0,0,0.1),
+        inset 0px 0px 1px 1px #0082dc;
+        
+    color: #0082dc;
+}
+
+i {font-size: 18px;}
+</style>
 </head>
 <body>
-    <button class="btn" id="toggleLeftSideBar">Left</button>
-    <button class="btn" id="rightSideBar">Right</button>
-
-    <div class="container">
-        <div class="left-side">
-            Left
-        </div>
-
-        <div class="main">
-            Main
-        </div>
-
-        <div class="right-side">
-            Right
-        </div>
-    </div>
-
-    <script>
-        let isDefaultLayout = true; // State awal
-        const leftSideBar = document.querySelector('.container');
-        const toggleLeftSideBar = document.getElementById('toggleLeftSideBar');
-
-        toggleLeftSideBar.addEventListener('click', function () {
-            console.log('Tombol diklik!'); // Debugging
-            const currentColumns = window.getComputedStyle(leftSideBar).gridTemplateColumns;
-            console.log('Current Columns:', currentColumns); // Debugging
-
-            if (currentColumns.trim() === "1fr 3fr 1fr") {
-                leftSideBar.style.gridTemplateColumns = "2fr 1fr";
-                console.log('Set ke: 2fr 1fr'); // Debugging
-            } else {
-                leftSideBar.style.gridTemplateColumns = "1fr 3fr 1fr";
-                console.log('Set ke: 1fr 3fr 1fr'); // Debugging
-            }
-        });
-
-    </script>
+    <button><i class="bi-list"></i></button>
+    <button><i class="bi-house"></i></button>
+    <button><i class="bi-search"></i></button>
 </body>
 </html>
