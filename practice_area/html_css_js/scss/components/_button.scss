@@ -1,0 +1,34 @@
+// button.scss
+// utils
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mix;
+.primary-btn {
+    box-shadow: 
+        4px 4px 12px 4px var(--shadow),
+        inset 0px 0px 15px 5px var(--shadow-inset);
+    background-color: var(--btn-bg);
+    border-radius: 10px;
+    border: 3px solid var(--btn-border);
+    cursor: pointer;
+    color: var(--btn-text);
+    padding: 8px 12px;
+    @include mix.hover-scale(1.1);
+
+    &:hover {
+        border-color: var(--btn-accent-hover);
+        color: var(--btn-accent-hover);
+        box-shadow: 
+            5px 5px 15px 6px var(--shadow-hover),
+            inset 0px 0px 20px 6px var(--shadow-inset);
+    }
+
+    &:active {
+        transform: scale(0.95);
+        position: relative;
+        border-color: var(--btn-accent-active);
+        color: var(--btn-accent-active);
+        box-shadow: 
+            6px 6px 18px 7px var(--shadow),
+            inset 0px 0px 25px 8px var(--shadow-inset);
+    }
+}

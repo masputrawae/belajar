@@ -1,0 +1,96 @@
+:root[data-theme=dark] {
+    --primary-bg: #121212; /* Dark background */
+    --primary-bg-gradient: linear-gradient(45deg, #111, #222);
+    --primary-text: #e0e0e0; /* Light text */
+    --primary-accent: #00d1b2; /* Neon teal accent */
+
+    --secondary-bg: #1e1e1e; /* Slightly lighter dark background */
+    --secondary-bg-gradient: linear-gradient(45deg, #333, #444);
+    --secondary-text: #cccccc; /* Subtle light text */
+    --secondary-accent: #ff6347; /* Neon red accent */
+
+    --tertiary-bg: #2c2c2c; /* Dark gray for tertiary */
+    --tertiary-bg-gradient: linear-gradient(45deg, #444, #555);
+    --tertiary-text: #b0b0b0; /* Lighter text */
+    --tertiary-accent: #9c27b0; /* Neon purple accent */
+
+    --link: #00bcd4; /* Cyan link color */
+    --hover: #00e5ff; /* Brighter cyan on hover */
+    --active: #ff4081; /* Pink on active */
+    --visited: #9c27b0; /* Purple for visited links */
+    --focus: #ff4081; /* Pink focus */
+    --danger: #f44336; /* Red for danger */
+    --warning: #ff9800; /* Orange for warnings */
+    --border: #333333; /* Dark borders */
+    --muted: #777777; /* Muted text */
+    --additional: #3f51b5; /* Blue accent for extra elements */
+
+    --quote-text: #f5f5f5; /* Light text for quotes */
+    --quote-border: #999999; /* Light gray border for quotes */
+
+    --pre: #121212; /* Dark background for preformatted text */
+    --code: #00e5ff; /* Cyan code text */
+
+    --shadow: rgba(0, 0, 0, 0.8); /* Deep shadow */
+    --shadow-hover: rgba(0, 0, 0, 0.9); /* More intense shadow on hover */
+    --shadow-inset: rgba(0, 0, 0, 0.6); /* Inset shadow */
+
+    --btn-bg: #00d1b2; /* Neon teal for buttons */
+    --btn-bg-hover: #00e5ff; /* Hover effect for buttons */
+    --btn-bg-active: #ff4081; /* Active state color for buttons */
+    --btn-text: #ffffff; /* White text on buttons */
+    --btn-border: #00bcd4; /* Cyan border */
+    --btn-border-hover: #ff6347; /* Red border on hover */
+    --btn-border-active: #9c27b0; /* Purple border on active */
+    --btn-accent: #00e5ff; /* Accent button color */
+    --btn-accent-hover: #ff6347; /* Red accent on hover */
+    --btn-accent-active: #9c27b0; /* Purple accent on active */
+}
+:root[data-theme=light] {
+    --primary-bg: #f5f5f5; /* Light background */
+    --primary-bg-gradient: linear-gradient(45deg, #ffffff, #f0f0f0);
+    --primary-text: #212121; /* Dark text */
+    --primary-accent: #00d1b2; /* Neon teal accent */
+
+    --secondary-bg: #e0e0e0; /* Lighter background */
+    --secondary-bg-gradient: linear-gradient(45deg, #ffffff, #cccccc);
+    --secondary-text: #616161; /* Soft gray text */
+    --secondary-accent: #ff6347; /* Neon red accent */
+
+    --tertiary-bg: #dcdcdc; /* Even lighter background */
+    --tertiary-bg-gradient: linear-gradient(45deg, #e5e5e5, #f1f1f1);
+    --tertiary-text: #757575; /* Light gray text */
+    --tertiary-accent: #9c27b0; /* Neon purple accent */
+
+    --link: #00bcd4; /* Cyan link color */
+    --hover: #00e5ff; /* Brighter cyan on hover */
+    --active: #ff4081; /* Pink on active */
+    --visited: #9c27b0; /* Purple for visited links */
+    --focus: #ff4081; /* Pink focus */
+    --danger: #f44336; /* Red for danger */
+    --warning: #ff9800; /* Orange for warnings */
+    --border: #dddddd; /* Light border */
+    --muted: #999999; /* Muted text */
+    --additional: #3f51b5; /* Blue accent for extra elements */
+
+    --quote-text: #212121; /* Dark text for quotes */
+    --quote-border: #aaaaaa; /* Light gray border for quotes */
+
+    --pre: #f5f5f5; /* Light background for preformatted text */
+    --code: #00e5ff; /* Cyan code text */
+
+    --shadow: rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    --shadow-hover: rgba(0, 0, 0, 0.2); /* More intense shadow on hover */
+    --shadow-inset: rgba(0, 0, 0, 0.05); /* Inset shadow */
+
+    --btn-bg: #00d1b2; /* Neon teal for buttons */
+    --btn-bg-hover: #00e5ff; /* Hover effect for buttons */
+    --btn-bg-active: #ff4081; /* Active state color for buttons */
+    --btn-text: #ffffff; /* White text on buttons */
+    --btn-border: #00bcd4; /* Cyan border */
+    --btn-border-hover: #ff6347; /* Red border on hover */
+    --btn-border-active: #9c27b0; /* Purple border on active */
+    --btn-accent: #00e5ff; /* Accent button color */
+    --btn-accent-hover: #ff6347; /* Red accent on hover */
+    --btn-accent-active: #9c27b0; /* Purple accent on active */
+}
