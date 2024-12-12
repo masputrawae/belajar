@@ -3,119 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Isi Nanti">
-    <title>Home - My Notes</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content=" ">
+    <meta name="author" content="Nama Anda">
+    <meta name="keywords" content=" ">
+
+    <title>Judul Halaman</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="assets/js/script.js" defer></script>
 </head>
+
+<!--[]=----------------=[] START: BODY []=----------------=[]-->
 <body>
+    <!--[]=----------------=[] START: CONTAINER []=----------------=[]-->
     <div class="container">
-        <header class="main-header">
-            <img src="https://placehold.co/50" alt="Logo My Notes">
-            <h1>My Notes</h1>
+        
+        <!--=- START: LEFTSIDE =--->
+        <aside class="leftside" id="leftSide">
+            
+            <form class="search-bar" action="" method="get">
+                <input type="search" name="search" id="search">
+                <button type="submit"><i class="bi bi-search"></i></button>
+            </form>
+            
+            <nav class="leftside-nav">
+                <ul>
+                    <h3>Main Menu</h3>
+                    <li><a href=""><i class="bi bi-house"></i> Beranda</a></li>
+                    <li><a href=""><i class="bi bi-newspaper"></i> Terbaru</a></li>
+                    <li><a href=""><i class="bi bi-clock-history"></i> Terakhir Diperbarui</a></li>
+                    <li><a href=""><i class="bi bi-archive"></i> Arsip</a></li>
 
-            <div>
-                <button><i class="bi bi-sun"></i></button>
-                <button><i class="bi bi-menu-down"></i></button>
-                <button><i class="bi bi-info"></i></button>
-                <button id="sideBarToggle"><i class="bi bi-list"></i></button>
-            </div>
-        </header>
+                    <h3>Kategori</h3>
+                    <li><a href="">Kategori A</a></li>
+                    <li><a href="">Kategori B</a></li>
+                    <li><a href="">Kategori C</a></li>
+                    <li><a href="">Kategori D</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <!--=- END: LEFTSIDE =--->
 
-        <!--=- START: MAIN CONTAINER =--->
+        <!--[]=----------------=[] START: MAIN CONTAINER []=----------------=[]-->
         <div class="main-container">
-            <aside class="sidebar">
-                <div class="search-bar">
-                    <form action="" method="get">
-                        <input type="search" name="search" id="search">
-                        <button type="submit"><i class="bi bi-search"></i></button>
-                    </form>
+
+            <header class="main-header">
+                
+                <div class="logo-title">
+                    <img src="https://placehold.co/50" alt="Logo Situs My Notes">
+                    <h1>My Notes</h1>
                 </div>
-                <nav>
-                    <h2>Menu Utama</h2>
+
+                <nav class="header-nav">
                     <ul>
-                        <li><a href="">Beranda</a></li>
-                        <li><a href="">Terbaru</a></li>
-                        <li><a href="">Terakhir Diubah</a></li>
-                        <li><a href="">Arsip</a></li>
-                    </ul>
-                    <h2>Halaman Lainnya</h2>
-                    <ul>
-                        <li><a href="">Kategori</a></li>
-                        <li><a href="">Tags</a></li>
-                        <li><a href="">Draft</a></li>
-                        <li><a href="">Comming Soon..</a></li>
+                        <li><button class="btn" id="toggleLeftSide"><i class="bi bi-list"></i></button></li>
+                        <li><button class="btn" id="toggleTopSide"><i class="bi bi-menu-down"></i></button></li>
+                        <li><button class="btn" id="toggleSwitchTheme"><i class="bi bi-sun"></i></button></li>
+                        <li><button class="btn" id="toggleDropdownInfo"><i class="bi bi-info"></i></button></li>
+                        <li><button class="btn" id="toggleRightSide"><i class="bi bi-caret-left-square"></i></button></li>
                     </ul>
                 </nav>
-            </aside>
-            <!--=- END: SIDEBAR =--->
+
+            </header>
 
             <main>
-                <nav>
-                    <ul>
-                        <li><button class="btn-tab" id="tabReadId">Read</button></li>
-                        <li><button class="btn-tab" id="tabHistoryId">History</button></li>
-                        <li><button class="btn-tab" id="tabDiscussionId">Discussion</button></li>
-                    </ul>
-                </nav>
+                <article>
 
-                <div class="tab-content" id="tabReadContent">
-                    <article>
+                    <header class="article-header">
+                        <h1>Title Content</h1>
+                        <p>
+                            <span>Author: Poeple<br></span>
+                            <span>Publish on: YYYY-MM-DD<br></span>
+                            <span>Description: Officia ad culpa elit deserunt exercitation ut minim occaecat minim magna laboris sint amet ut.<br></span>
+                        </p>
+                    </header>
 
-                        <header class="header-article">
-                            <h1>Content Title</h1>
-                            <p>
-                                <span>Author: Humman<br></span>
-                                <span>Publish on: YYYY-MM-DD<br></span>
-                            </p>
-                            <hr>
-                        </header>
+                    <section class="content">
+                        <h2>Lorem Ipsum</h2>
+                        <p>Sint ad adipisicing adipisicing ullamco labore aliqua ea veniam adipisicing. Ad in incididunt enim consequat proident. Adipisicing dolor duis id nostrud quis nulla veniam minim do eiusmod adipisicing dolore.</p>
+                    </section>
 
-                        <section>
-                            <h2>Lorem Ipsum</h2>
-                            <p>Eu culpa consequat mollit dolor adipisicing laborum pariatur et sint. Sunt veniam ex cillum velit laborum voluptate nisi proident in deserunt. Occaecat aliqua culpa dolore proident laborum eiusmod commodo. Excepteur ea velit exercitation tempor ex tempor sunt qui fugiat quis ipsum. Enim aliquip nostrud qui proident velit. Anim ullamco Lorem quis ut duis adipisicing.</p>
+                    <footer class="article-footer">
+                        <h5>Terkait:</h5>
+                        <ul>
+                            <li><a href="">Link 1</a></li>
+                            <li><a href="">Link 2</a></li>
+                        </ul>
+                        <p>
+                            <span>Categories: Category A, Category B<br></span>
+                            <span>Tags: tag-a, tag-b, tag-c<br></span>
+                            <span>Last Modified: YYYY-MM-DD<br></span>
+                        </p>
+                    </footer>
 
-                            <h3>Lorem Ipsum</h3>
-                            <p>Dolor velit in consectetur ullamco excepteur in est culpa minim anim anim aliqua proident. Aute exercitation irure sint non dolore commodo cillum eu. Ea commodo irure ea voluptate pariatur sit voluptate elit dolore eiusmod anim minim ullamco sit. Elit est deserunt Lorem ad dolore.Irure aliqua labore aliqua voluptate officia et consequat consectetur aute. Sit ea commodo sint incididunt dolor incididunt laboris labore nostrud cupidatat. Duis irure fugiat nisi adipisicing laboris anim laborum veniam dolore sint. Magna do ex occaecat eiusmod aliquip ex aliquip. Et magna mollit id qui ullamco voluptate nostrud non irure quis. Reprehenderit dolore quis aliqua dolore laborum ea qui eu sint elit anim. Ea cupidatat consequat do in dolor ea.</p>
-
-                            <h4>Lorem Ipsum</h4>
-                            <p>Voluptate consequat irure laborum esse magna. Dolor incididunt do nulla ex Lorem. Est magna magna cupidatat ex quis consectetur labore ullamco. Excepteur ea quis duis laboris. Fugiat excepteur cupidatat tempor officia laborum cillum adipisicing aliqua. Laboris mollit mollit ex exercitation elit dolor. Dolore minim ipsum exercitation Lorem occaecat elit laboris laborum reprehenderit sunt.</p>
-                            <hr>
-                        </section>
-                        <footer class="footer-article">
-                            <h5>Konten Terkait:</h5>
-                            <ul>
-                                <li><a href="">Konten A</a></li>
-                                <li><a href="">Konten B</a></li>
-                                <li><a href="">Konten C</a></li>
-                            </ul>
-                            <p>
-                                <span>Tags: #tag_a, #tag_b<br></span>
-                                <span>Kategori: Kategori A, Kategori B<br></span>
-                                <span>Terakhir Diperbarui: YYYY-MM-DD<br></span>
-                            </p>
-                        </footer>
-                    </article>
-                </div>
-
-                <div class="tab-content" id="TabHistoryContent">
-                    History
-                </div>
-                
-                <div class="tab-content" id="TabDiscussionContent">
-                    Discussion
-                </div>
+                </article>
             </main>
-        </div>
-        <!--=- END: MAIN CONTAINER =--->
 
-        <!--=- START: FOOTER =--->
-        <footer>
-            <p>&copy; 2024 - Putra Jaya - My Notes | Semua Hak Dilindungi</p>
+            <aside class="rightside" id="rightSide">
+                <div class="tabs">
+
+                    <ul>
+                        <li><button class="btn-tab" id="btnTabToc">ToC</button></li>
+                        <li><button class="btn-tab" id="btnTabCategories">Categories</button></li>
+                        <li><button class="btn-tab" id="btnTabTag">Tags</button></li>
+                    </ul>
+
+                    <div class="tab" id="tocTab">
+                        TOC
+                    </div>
+
+                    <div class="tab" id="categoriesTab">
+                        Categories
+                    </div>
+
+                    <div class="tab" id="tagsTab">
+                        Tags
+                    </div>
+
+                </div>
+            </aside>
+        </div>
+        <!--[]=----------------=[] END: MAIN CONTAINER []=----------------=[]-->
+        
+        <footer class="main-footer">
+            <p>&copy; 2024 Putra Jaya - My Notes | Semua Hak Dilindungi</p>
         </footer>
-        <!--=- END: FOOTER =--->
     </div>
+    <!--[]=----------------=[] END: CONTAINER []=----------------=[]-->
 </body>
+<!--[]=----------------=[] END: BODY []=----------------=[]-->
 </html>

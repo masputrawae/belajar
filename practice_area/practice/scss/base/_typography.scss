@@ -1,0 +1,64 @@
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+  
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: var(--primary-text);
+}
+  
+h1 { font-size: 3rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.6rem; }
+h5 { font-size: 1.4rem; }
+h6 { font-size: 1.2rem; }
+  
+p { 
+    margin-bottom: 1.5rem;
+    color: var(--secondary-text);
+}
+  
+a {
+    text-decoration: none;
+}
+  
+blockquote {
+    font-style: italic;
+    border-left: 4px solid var(--border);
+    padding-left: 1rem;
+    margin: 1rem 0;
+    color: var(--primary-text);
+}
+  
+strong { font-weight: bold; }
+em { font-style: italic; }
+  
+  /* Media Queries */
+@media (max-width: 768px) {
+    body { font-size: 0.8rem; } /* Menyesuaikan sedikit ukuran font pada perangkat kecil */
+    h1 { font-size: 2.3rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.7rem; }
+    h4 { font-size: 1.5rem; }
+    h5 { font-size: 1.3rem; }
+    h6 { font-size: 1.1rem; }
+}
+  
+@media (max-width: 480px) {
+    body { font-size: 0.75rem; } /* Menyesuaikan lebih kecil untuk perangkat sangat kecil */
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.4rem; }
+    h4 { font-size: 1.2rem; }
+    h5 { font-size: 1.1rem; }
+    h6 { font-size: 1rem; }
+}
+code {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    color: var(--additional-text);
+}
