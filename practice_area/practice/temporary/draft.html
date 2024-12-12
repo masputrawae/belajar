@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swipeable Offcanvas</title>
+  <style>
+    /* Gaya dasar offcanvas */
+    .offcanvas {
+      position: fixed;
+      background-color: #f8f9fa;
+      transition: transform 0.3s ease;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    /* Offcanvas dari kiri */
+    .offcanvas-left {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 300px;
+      transform: translateX(-100%);
+    }
+
+    /* Offcanvas dari kanan */
+    .offcanvas-right {
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      transform: translateX(100%);
+    }
+
+    /* Offcanvas dari atas */
+    .offcanvas-top {
+      top: -100%;
+      left: 0;
+      right: 0;
+      height: 200px;
+      transform: translateY(-100%);
+    }
+
+    /* Offcanvas dari bawah */
+    .offcanvas-bottom {
+      bottom: -100%;
+      left: 0;
+      right: 0;
+      height: 200px;
+      transform: translateY(100%);
+    }
+
+    /* Tampilkan offcanvas */
+    .offcanvas.show {
+      transform: translate(0, 0);
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 998;
+    }
+    .overlay.active {
+      display: block;
+    }
+
+    /* Tombol */
+    .btn {
+      padding: 10px 15px;
+      margin: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tombol untuk membuka offcanvas -->
+  <button class="btn" id="openButtonLeft">Open Offcanvas Left</button>
+  <button class="btn" id="openButtonRight">Open Offcanvas Right</button>
+  <button class="btn" id="openButtonTop">Open Offcanvas Top</button>
+  <button class="btn" id="openButtonBottom">Open Offcanvas Bottom</button>
+
+  <!-- Offcanvas Kiri -->
+  <div class="offcanvas offcanvas-left" id="offcanvasLeft">
+    <div>
+      <h5>Offcanvas Left</h5>
+      <button class="btn" id="closeButtonLeft">Close</button>
+    </div>
+  </div>
+
+  <!-- Offcanvas Kanan -->
+  <div class="offcanvas offcanvas-right" id="offcanvasRight">
+    <div>
+      <h5>Offcanvas Right</h5>
+      <button class="btn" id="closeButtonRight">Close</button>
+    </div>
+  </div>
+
+  <!-- Offcanvas Atas -->
+  <div class="offcanvas offcanvas-top" id="offcanvasTop">
+    <div>
+      <h5>Offcanvas Top</h5>
+      <button class="btn" id="closeButtonTop">Close</button>
+    </div>
+  </div>
+
+  <!-- Offcanvas Bawah -->
+  <div class="offcanvas offcanvas-bottom" id="offcanvasBottom">
+    <div>
+      <h5>Offcanvas Bottom</h5>
+      <button class="btn" id="closeButtonBottom">Close</button>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <script>
+    // Variabel elemen-elemen
+    const offcanvasElements = {
+      left: document.getElementById('offcanvasLeft'),
+      right: document.getElementById('offcanvasRight'),
+      top: document.getElementById('offcanvasTop'),
+      bottom: document.getElementById('offcanvasBottom')
+    };
+    const overlay = document.getElementById('overlay');
+
+    // Fungsi untuk membuka offcanvas
+    function openOffcanvas(direction) {
+      offcanvasElements[direction].classList.add('show');
+      overlay.classList.add('active');
+    }
+
+    // Fungsi untuk menutup offcanvas
+    function closeOffcanvas(direction) {
+      offcanvasElements[direction].classList.remove('show');
+      overlay.classList.remove('active');
+    }
+
+    // Event listener untuk tombol membuka offcanvas
+    document.getElementById('openButtonLeft').addEventListener('click', () => openOffcanvas('left'));
+    document.getElementById('openButtonRight').addEventListener('click', () => openOffcanvas('right'));
+    document.getElementById('openButtonTop').addEventListener('click', () => openOffcanvas('top'));
+    document.getElementById('openButtonBottom').addEventListener('click', () => openOffcanvas('bottom'));
+
+    // Event listener untuk tombol menutup offcanvas
+    document.getElementById('closeButtonLeft').addEventListener('click', () => closeOffcanvas('left'));
+    document.getElementById('closeButtonRight').addEventListener('click', () => closeOffcanvas('right'));
+    document.getElementById('closeButtonTop').addEventListener('click', () => closeOffcanvas('top'));
+    document.getElementById('closeButtonBottom').addEventListener('click', () => closeOffcanvas('bottom'));
+
+    // Event listener untuk menutup offcanvas ketika overlay diklik
+    overlay.addEventListener('click', function () {
+      Object.keys(offcanvasElements).forEach(direction => {
+        closeOffcanvas(direction);
+      });
+    });
+
+    // Variabel untuk mendeteksi geseran
+    let startX = 0;
+    let endX = 0;
+    let startY = 0;
+    let endY = 0;
+
+    // Mendeteksi awal sentuhan
+    document.addEventListener('touchstart', function (e) {
+      startX = e.changedTouches[0].pageX; // Mengambil posisi sentuh awal
+      startY = e.changedTouches[0].pageY;
+    });
+
+    // Mendeteksi akhir sentuhan (gestur swipe)
+    document.addEventListener('touchend', function (e) {
+      endX = e.changedTouches[0].pageX; // Mengambil posisi sentuh akhir
+      endY = e.changedTouches[0].pageY;
+
+      // Geser dari kiri ke kanan untuk membuka offcanvas kiri
+      if (startX < endX) openOffcanvas('left');
+
+      // Geser dari kanan ke kiri untuk membuka offcanvas kanan
+      if (startX > endX) openOffcanvas('right');
+
+      // Geser dari atas ke bawah untuk membuka offcanvas bawah
+      if (startY < endY) openOffcanvas('bottom');
+
+      // Geser dari bawah ke atas untuk membuka offcanvas atas
+      if (startY > endY) openOffcanvas('top');
+    });
+  </script>
+</body>
+</html>

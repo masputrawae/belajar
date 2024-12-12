@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-directional Offcanvas</title>
+  <style>
+    /* Gaya dasar offcanvas */
+    .offcanvas {
+      position: fixed;
+      background-color: #f8f9fa;
+      transition: transform 0.3s ease;
+      z-index: 999;
+    }
+
+    /* Offcanvas dari kiri */
+    .offcanvas-start {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 300px;
+      transform: translateX(-100%);
+    }
+
+    /* Offcanvas dari kanan */
+    .offcanvas-end {
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      transform: translateX(100%);
+    }
+
+    /* Offcanvas dari atas */
+    .offcanvas-top {
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      transform: translateY(-100%);
+    }
+
+    /* Offcanvas dari bawah */
+    .offcanvas-bottom {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      transform: translateY(100%);
+    }
+
+    /* Tampilkan offcanvas */
+    .offcanvas.show {
+      transform: translate(0, 0);
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 998;
+    }
+    .overlay.active {
+      display: block;
+    }
+
+    /* Tombol */
+    .btn {
+      padding: 10px 15px;
+      margin: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Tombol untuk membuka offcanvas -->
+  <button class="btn" data-toggle="offcanvas" data-target="#offcanvasLeft">Offcanvas Left</button>
+  <button class="btn" data-toggle="offcanvas" data-target="#offcanvasRight">Offcanvas Right</button>
+  <button class="btn" data-toggle="offcanvas" data-target="#offcanvasTop">Offcanvas Top</button>
+  <button class="btn" data-toggle="offcanvas" data-target="#offcanvasBottom">Offcanvas Bottom</button>
+
+  <!-- Offcanvas Kiri -->
+  <div class="offcanvas offcanvas-start" id="offcanvasLeft">
+    <div>
+      <h5>Offcanvas Left</h5>
+      <button class="btn" data-dismiss="offcanvas">Close</button>
+    </div>
+  </div>
+
+  <!-- Offcanvas Kanan -->
+  <div class="offcanvas offcanvas-end" id="offcanvasRight">
+    <div>
+      <h5>Offcanvas Right</h5>
+      <button class="btn" data-dismiss="offcanvas">Close</button>
+    </div>
+  </div>
+
+  <!-- Offcanvas Atas -->
+  <div class="offcanvas offcanvas-top" id="offcanvasTop">
+    <div>
+      <h5>Offcanvas Top</h5>
+      <button class="btn" data-dismiss="offcanvas">Close</button>
+    </div>
+  </div>
+
+  <!-- Offcanvas Bawah -->
+  <div class="offcanvas offcanvas-bottom" id="offcanvasBottom">
+    <div>
+      <h5>Offcanvas Bottom</h5>
+      <button class="btn" data-dismiss="offcanvas">Close</button>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <script>
+    // Ambil semua tombol dan overlay
+    const toggleButtons = document.querySelectorAll('[data-toggle="offcanvas"]');
+    const overlay = document.querySelector('.overlay');
+
+    // Event listener untuk tombol buka offcanvas
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        const target = document.querySelector(this.dataset.target); // Ambil target ID
+        target.classList.add('show'); // Tambahkan kelas 'show'
+        overlay.classList.add('active'); // Tampilkan overlay
+      });
+    });
+
+    // Event listener untuk tombol tutup offcanvas
+    document.querySelectorAll('[data-dismiss="offcanvas"]').forEach(button => {
+      button.addEventListener('click', function () {
+        const offcanvas = this.closest('.offcanvas');
+        offcanvas.classList.remove('show');
+        overlay.classList.remove('active');
+      });
+    });
+
+    // Klik overlay untuk menutup offcanvas
+    overlay.addEventListener('click', function () {
+      document.querySelectorAll('.offcanvas.show').forEach(offcanvas => {
+        offcanvas.classList.remove('show');
+      });
+      overlay.classList.remove('active');
+    });
+  </script>
+</body>
+</html>
