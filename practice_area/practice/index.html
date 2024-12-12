@@ -5,18 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Isi Nanti">
     <title>Home - My Notes</title>
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="assets/js/script.js" defer></script>
 </head>
 <body>
-    <!-- START : CONTAINER -->
     <div class="container">
         <header class="main-header">
-            
+            <img src="https://placehold.co/50" alt="Logo My Notes">
+            <h1>My Notes</h1>
+
+            <div>
+                <button><i class="bi bi-sun"></i></button>
+                <button><i class="bi bi-menu-down"></i></button>
+                <button><i class="bi bi-info"></i></button>
+                <button id="sideBarToggle"><i class="bi bi-list"></i></button>
+            </div>
         </header>
+
+        <!--=- START: MAIN CONTAINER =--->
+        <div class="main-container">
+            <aside class="sidebar">
+                <div class="search-bar">
+                    <form action="" method="get">
+                        <input type="search" name="search" id="search">
+                        <button type="submit"><i class="bi bi-search"></i></button>
+                    </form>
+                </div>
+                <nav>
+                    <h2>Menu Utama</h2>
+                    <ul>
+                        <li><a href="">Beranda</a></li>
+                        <li><a href="">Terbaru</a></li>
+                        <li><a href="">Terakhir Diubah</a></li>
+                        <li><a href="">Arsip</a></li>
+                    </ul>
+                    <h2>Halaman Lainnya</h2>
+                    <ul>
+                        <li><a href="">Kategori</a></li>
+                        <li><a href="">Tags</a></li>
+                        <li><a href="">Draft</a></li>
+                        <li><a href="">Comming Soon..</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <!--=- END: SIDEBAR =--->
+
+            <main>
+                <nav>
+                    <ul>
+                        <li><button class="btn-tab" id="tabReadId">Read</button></li>
+                        <li><button class="btn-tab" id="tabHistoryId">History</button></li>
+                        <li><button class="btn-tab" id="tabDiscussionId">Discussion</button></li>
+                    </ul>
+                </nav>
+
+                <div class="tab-content" id="tabReadContent">
+                    <article>
+
+                        <header class="header-article">
+                            <h1>Content Title</h1>
+                            <p>
+                                <span>Author: Humman<br></span>
+                                <span>Publish on: YYYY-MM-DD<br></span>
+                            </p>
+                            <hr>
+                        </header>
+
+                        <section>
+                            <h2>Lorem Ipsum</h2>
+                            <p>Eu culpa consequat mollit dolor adipisicing laborum pariatur et sint. Sunt veniam ex cillum velit laborum voluptate nisi proident in deserunt. Occaecat aliqua culpa dolore proident laborum eiusmod commodo. Excepteur ea velit exercitation tempor ex tempor sunt qui fugiat quis ipsum. Enim aliquip nostrud qui proident velit. Anim ullamco Lorem quis ut duis adipisicing.</p>
+
+                            <h3>Lorem Ipsum</h3>
+                            <p>Dolor velit in consectetur ullamco excepteur in est culpa minim anim anim aliqua proident. Aute exercitation irure sint non dolore commodo cillum eu. Ea commodo irure ea voluptate pariatur sit voluptate elit dolore eiusmod anim minim ullamco sit. Elit est deserunt Lorem ad dolore.Irure aliqua labore aliqua voluptate officia et consequat consectetur aute. Sit ea commodo sint incididunt dolor incididunt laboris labore nostrud cupidatat. Duis irure fugiat nisi adipisicing laboris anim laborum veniam dolore sint. Magna do ex occaecat eiusmod aliquip ex aliquip. Et magna mollit id qui ullamco voluptate nostrud non irure quis. Reprehenderit dolore quis aliqua dolore laborum ea qui eu sint elit anim. Ea cupidatat consequat do in dolor ea.</p>
+
+                            <h4>Lorem Ipsum</h4>
+                            <p>Voluptate consequat irure laborum esse magna. Dolor incididunt do nulla ex Lorem. Est magna magna cupidatat ex quis consectetur labore ullamco. Excepteur ea quis duis laboris. Fugiat excepteur cupidatat tempor officia laborum cillum adipisicing aliqua. Laboris mollit mollit ex exercitation elit dolor. Dolore minim ipsum exercitation Lorem occaecat elit laboris laborum reprehenderit sunt.</p>
+                            <hr>
+                        </section>
+                        <footer class="footer-article">
+                            <h5>Konten Terkait:</h5>
+                            <ul>
+                                <li><a href="">Konten A</a></li>
+                                <li><a href="">Konten B</a></li>
+                                <li><a href="">Konten C</a></li>
+                            </ul>
+                            <p>
+                                <span>Tags: #tag_a, #tag_b<br></span>
+                                <span>Kategori: Kategori A, Kategori B<br></span>
+                                <span>Terakhir Diperbarui: YYYY-MM-DD<br></span>
+                            </p>
+                        </footer>
+                    </article>
+                </div>
+
+                <div class="tab-content" id="TabHistoryContent">
+                    History
+                </div>
+                
+                <div class="tab-content" id="TabDiscussionContent">
+                    Discussion
+                </div>
+            </main>
+        </div>
+        <!--=- END: MAIN CONTAINER =--->
+
+        <!--=- START: FOOTER =--->
+        <footer>
+            <p>&copy; 2024 - Putra Jaya - My Notes | Semua Hak Dilindungi</p>
+        </footer>
+        <!--=- END: FOOTER =--->
     </div>
-    <!-- END : CONTAINER -->
 </body>
 </html>
