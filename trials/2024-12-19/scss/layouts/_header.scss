@@ -1,0 +1,36 @@
+// UTILS
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mix;
+// Extend
+@use '../utils/extend';
+
+.layout__header {
+    @extend .extend__full-flex-justify;
+    @extend .extend_p1;
+
+    .header__brand {
+        @extend .extend__full-flex-justify;
+    }
+
+    .header__nav {
+        .header__nav-menu {
+            @include mix.full-screen(-100vh);
+            transition: top 1s ease;
+
+            &.header__nav-menu--open{
+                @include mix.full-screen(0);
+            }
+
+            @include mix.respond-to(lg){
+                @include mix.area-calculation(auto, auto);
+                top: 0;
+                position: sticky;
+
+                &,ul {
+                    @include mix.flex-justify(space-between, center, 15px, row);
+                    list-style: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+// UTILS
+@use 'variables' as var;
+@use 'mixins' as mix;
+// extend
+.extend__full-flex-justify {
+    @include mix.flex-justify(space-between, center, 15px, row);
+}
+
+.extend_p1 {
+    padding: 1rem;
+}
