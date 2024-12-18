@@ -117,6 +117,7 @@ composer.phar
 # Backup
 *.tmp
 *.old
+Gemfile.lock
 
 # Kompresi
 *.zip
