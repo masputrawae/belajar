@@ -10,9 +10,9 @@
 
     <title>Home</title>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
-    <script src="assets/js/script.js" defer></script>
 </head>
 <body>
     <!-- START : LAYOUT -->
@@ -20,31 +20,164 @@
         
         <!-- START : HOME HEADER -->
         <header class="home__header">
-            
-            <nav>
-                <ul>
-                    <li><a href=""> Home</a></li>
-                    <li><a href=""> Blog</a></li>
-                    <li><a href=""> Portfolio</a></li>
-                </ul>
-            </nav>
-            
-            <a href="">
-                <img src="https://placehold.co/50" alt="">
-                <strong>Masputrawae</strong>
-            </a>
-            
-            <nav>
-                <ul>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Social</a></li>
-                    <li><a href="">Help</a></li>
-                </ul>
-            </nav>
-            
+            <div class="home__header-top">
+                <!-- Navigasi Kiri -->
+                <nav class="header__nav-left">
+                    <a class="header__nav-left--link" href="/">
+                        <span class="link-text">Home</span>
+                        <i class="link-icon bi-house"></i>
+                    </a>
+        
+                    <a class="header__nav-left--link" href="#">
+                        <span class="link-text">Blog</span>
+                        <i class="link-icon bi-pencil"></i>
+                    </a>
+                </nav>
+        
+                <!-- Logo di Tengah -->
+                <a href="/">
+                    <img class="header__logo-center" src="https://placehold.co/50" alt="Logo">
+                </a>
+        
+                <!-- Navigasi Kanan -->
+                <nav class="header__nav-right">
+                    <a class="header__nav-right--link" href="#">
+                        <span class="link-text">Portfolio</span>
+                        <i class="link-icon bi-person-workspace"></i>
+                    </a>
+        
+                    <a class="header__nav-right--link" href="#">
+                        <span class="link-text">About</span>
+                        <i class="link-icon bi-info-circle"></i>
+                    </a>
+                </nav>
+            </div>
+        
+            <div class="home__header-center">
+                <section class="header__center-hero">
+                    <h1 class="hero__welcome">Selamat Datang</h1>
+                    <p>Eiusmod laboris duis id sit ex magna velit Lorem. Id labore voluptate eiusmod quis amet.</p>
+                    <div class="hero__cta">
+                        <a href="">
+                            <span>Join Discord</span>
+                            <i class="bi-discord"></i>
+                        </a>
+                        <a href="#homeMain">
+                            <span>Explore More</span>
+                            <i class="bi-menu-down"></i>
+                        </a>
+                    </div>
+                </section>
+            </div>
         </header>
         <!-- END : HOME HEADER -->
-        
+
+        <main class="home__main" id="homeMain">
+            <!-- START : BLOG LIST -->
+            <section class="header__center-blog">
+                <h2>Beberapa Artikel Menarik</h2>
+                <div class="blog__container">
+                    <div class="blog__container-card">
+                        <h3>Kategori Satu</h3>
+
+                        <div class="card-item">
+                            <h4>Artikel Satu</h4>
+                            <p>Eu consectetur incididunt dolore ipsum nostrud dolore ad duis quis.</p>
+                            <a href="">Read more...</a>
+                        </div>
+
+                        <div class="card-item">
+                            <h4>Artikel Dua</h4>
+                            <p>Eu consectetur incididunt dolore ipsum nostrud dolore ad duis quis.</p>
+                            <a href="">Read more...</a>
+                        </div>
+
+                        <div class="card-item">
+                            <h4>Artikel Tiga</h4>
+                            <p>Eu consectetur incididunt dolore ipsum nostrud dolore ad duis quis.</p>
+                            <a href="">Read more...</a>
+                        </div>
+
+                    </div>
+
+                    <div class="blog__container-card">
+                        <h3>Kategori Dua</h3>
+
+                        <div class="card-item">
+                            <h4>Artikel Satu</h4>
+                            <p>Eu consectetur incididunt dolore ipsum nostrud dolore ad duis quis.</p>
+                            <a href="">Read more...</a>
+                        </div>
+
+                        <div class="card-item">
+                            <h4>Artikel Dua</h4>
+                            <p>Eu consectetur incididunt dolore ipsum nostrud dolore ad duis quis.</p>
+                            <a href="">Read more...</a>
+                        </div>
+
+                        <div class="card-item">
+                            <h4>Artikel Tiga</h4>
+                            <p>Eu consectetur incididunt dolore ipsum nostrud dolore ad duis quis.</p>
+                            <a href="">Read more...</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+            <!-- END : BLOG LIST -->
+        </main>
+
+        <!-- START : FOOTER -->
+        <footer class="home__footer">
+
+            <!-- START : SOCIAL LINK -->
+            <section class="footer__social">
+                <h5>Social Link: </h5>
+                <ul class="footer__social-list">
+                    <li class="footer__social-link"><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li>
+                    <li class="footer__social-link"><a href="#"><i class="bi bi-twitter-x"></i> Twitter/X</a></li>
+                    <li class="footer__social-link"><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li>
+                    <li class="footer__social-link"><a href="#"><i class="bi bi-youtube"></i> Youtube</a></li>
+                    <li class="footer__social-link"><a href="#"><i class="bi bi-linkedin"></i> Linkedin</a></li>
+                    <li class="footer__social-link"><a href="#"><i class="bi bi-github"></i> Github</a></li>
+                    <li class="footer__social-link"><a href="#"><i class="bi bi-discord"></i> Discord</a></li>
+                </ul>
+            </section>
+            <!-- END : SOCIAL LINK -->
+    
+            <!-- START : FORM -->
+            <section class="footer__form">
+                <h5>Kritik/Saran: </h5>
+                <form action="" method="post">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Masukkan Email Anda.." required><br>
+                    <label for="username">Nama:</label>
+                    <input type="text" name="username" id="username" placeholder="Masukkan Nama Anda..." required><br>
+                    <label for="pesan">Pesan:</label>
+                    <textarea name="pesan" id="pesan" placeholder="Tulis pesan di sini.." required></textarea>
+                    <button type="submit">Kirim</button>
+                </form>
+            </section>
+            <!-- END : FORM -->
+    
+            <!-- START : COPYRIGHT -->
+            <section class="footer__copyright">
+                <p>Dibuat dengan: <strong>♥️</strong> | Powered by:
+                    <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/">Github Pages</a>.
+                </p>
+                <p>
+                    | <a href="">Privacy Policy</a>
+                    | <a href="">Terms of Service</a>
+                    | <a href="">Disclaimer</a>
+                    | <a href="">Back To Top</a> |
+                </p>
+                <p>&copy; 2024 - Putra Jaya | Semua Hak Dilindungi.</p>
+            </section>
+            <!-- END : COPYRIGHT -->
+        </footer>
+        <!-- END : FOOTER -->
     </div>
     <!-- END : LAYOUT -->
 </body>
