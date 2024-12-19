@@ -2,177 +2,142 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content=" ">
-    <meta name="author" content="Nama Anda">
-    <meta name="keywords" content=" ">
-
-    <title>Judul Halaman</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <script src="assets/js/script.js" defer></script>
+    <title>Judul halaman</title>
 </head>
-
-<!--[]=----------------=[] START: BODY []=----------------=[]-->
-<body class="home-page">
-
+<body>
+    
     <!-- START : LAYOUT -->
     <div class="layout">
-
+        
         <!-- START : HEADER -->
         <header class="layout__header">
-
+            
+            <!-- START : BRAND -->
             <a class="header__brand" href="">
-                <img src="https://placehold.co/50" alt="Logo MasPutraWae">
-                <h1>Masputrawae</h1>
+                <img class="header__brand-logo" src="https://placehold.co/50" alt="">
+                <h1 class="header__brand-title">Masputrawae</h1>
             </a>
-
+            <!-- END : BRAND -->
+            
             <!-- START : NAV HEADER -->
             <nav class="header__nav">
-                <button class="btn btn-menu hide-desktop" id="btnMenuOpen">
+                <button class="btn btn-menu" id="btnMenuOpen">
                     <i class="bi bi-list"></i>
                 </button>
-                <div class="nav-menu">
-                    <button class="btn btn-menu hide-desktop" id="btnMenuClose">
+                <div class="nav__menu">
+                    <button class="btn btn-menu" id="btnMenuClose">
                         <i class="bi bi-x"></i>
                     </button>
-
-                    <form action="" method="get">
-                        <input type="search" name="search" id="search" placeholder="Pencarian..." required>
-                        <button type="submit">
+                    <form action="" metode="get">
+                        <input type="search">
+                        <button class="btn btn-search" type="submit">
                             <i class="bi bi-search"></i>
                         </button>
                     </form>
-
-                    <ul class="justify-between flex items-center">
-                        <li><a href=""><i class="bi bi-house-door"></i> Home</a></li>
-                        <li><a href=""><i class="bi bi-briefcase"></i> Portfolio</a></li>
-                        <li><a href=""><i class="bi bi-pencil-square"></i> Blog</a></li>
-                        <li><a href=""><i class="bi bi-person"></i> About</a></li>
-                        <li><a href=""><i class="bi bi-tools"></i> Service</a></li>
-                        <li><a href=""><i class="bi bi-question-circle"></i> Help</a></li>
-                    </ul>                    
+                    
+                    <ul class="nav__menu-list">
+                        <li class="nav__menu-list--item"><a href=""> Home</a></li>
+                        <li class="nav__menu-list--item"><a href=""> Blog</a></li>
+                        <li class="nav__menu-list--item"><a href=""> Portfolio</a></li>
+                        <li class="nav__menu-list--item"><a href=""> About</a></li>
+                        <li class="nav__menu-list--item"><a href=""> Help</a></li>
+                    </ul>
                     
                 </div>
             </nav>
             <!-- END : NAV HEADER -->
-
         </header>
         <!-- END : HEADER -->
         
         <!-- START : MAIN -->
         <main class="layout__main">
-
-            <!-- START : HERO SECTION -->
-            <section class="main__hero">
-
-                <div class="hero__welcome">
-                    <h2>Selamat Datang</h2>
-                    <p>Adipisicing tempor est voluptate qui tempor sint veniam cillum sint excepteur adipisicing sint. Amet voluptate amet reprehenderit amet fugiat mollit id pariatur. Amet ea incididunt nulla duis ipsum ullamco proident exercitation proident tempor culpa ipsum consectetur. Cupidatat labore anim esse ex enim. Sint ex ullamco ut anim reprehenderit excepteur exercitation enim non sint nulla commodo ut. Incididunt ex ad aliqua sit. Ex magna anim et dolor dolor consequat ullamco pariatur ad.</p>
-                </div>
-
-                <div class="hero__skill">
-                    <div class="skill__card">
-
-                        <div class="skill__card-item">
-                            <h3>Skill 1</h3>
-                            <img src="https://placehold.co/150x200" alt="">
-                            <p>Pariatur exercitation proident aute velit voluptate anim ipsum.</p>
-                        </div>
-
-                        <div class="skill__card-item">
-                            <h3>Skill 2</h3>
-                            <img src="https://placehold.co/150x200" alt="">
-                            <p>Pariatur exercitation proident aute velit voluptate anim ipsum.</p>
-                        </div>
-
-                        <div class="skill__card-item">
-                            <h3>Skill 3</h3>
-                            <img src="https://placehold.co/150x200" alt="">
-                            <p>Pariatur exercitation proident aute velit voluptate anim ipsum.</p>
-                        </div>
-
-                        <div class="skill__card-item">
-                            <h3>Skill 4</h3>
-                            <img src="https://placehold.co/150x200" alt="">
-                            <p>Pariatur exercitation proident aute velit voluptate anim ipsum.</p>
-                        </div>
-
-                        <div class="skill__card-item">
-                            <h3>Skill 5</h3>
-                            <img src="https://placehold.co/150x200" alt="">
-                            <p>Pariatur exercitation proident aute velit voluptate anim ipsum.</p>
-                        </div>
-
-                        <div class="skill__card-item">
-                            <h3>Skill 6</h3>
-                            <img src="https://placehold.co/150x200" alt="">
-                            <p>Pariatur exercitation proident aute velit voluptate anim ipsum.</p>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="hero__blog">
-                    <div class="blog__card">
-
-                        <!-- START : LOOPING -->
-                        <div class="blog__card-item">
-                            <h3>Article 1</h3>
-                            <img src="https://placehold.co/150x200" alt="">
-                            <p>Pariatur exercitation proident aute velit voluptate anim ipsum.</p>
-                            <a href="">Read more..</a>
-                        </div>
-
-                        <div class="blog__card-item">
-                            <h3>Article 2</h3>
-                            <img src="https://placehold.co/150x200" alt="">
-                            <p>Pariatur exercitation proident aute velit voluptate anim ipsum.</p>
-                            <a href="">Read more..</a>
-                        </div>
-
-                        <div class="blog__card-item">
-                            <h3>Article 3</h3>
-                            <img src="https://placehold.co/150x200" alt="">
-                            <p>Pariatur exercitation proident aute velit voluptate anim ipsum.</p>
-                            <a href="">Read more..</a>
-                        </div>
-
-                        <div class="blog__card-item">
-                            <h3>Article 4</h3>
-                            <img src="https://placehold.co/150x200" alt="">
-                            <p>Pariatur exercitation proident aute velit voluptate anim ipsum.</p>
-                            <a href="">Read more..</a>
-                        </div>
-
-                        <div class="blog__card-item">
-                            <h3>Article 5</h3>
-                            <img src="https://placehold.co/150x200" alt="">
-                            <p>Pariatur exercitation proident aute velit voluptate anim ipsum.</p>
-                            <a href="">Read more..</a>
-                        </div>
-
-                        <div class="blog__card-item">
-                            <h3>Article 6</h3>
-                            <img src="https://placehold.co/150x200" alt="">
-                            <p>Pariatur exercitation proident aute velit voluptate anim ipsum.</p>
-                            <a href="">Read more..</a>
-                        </div>
-                        <!-- END : LOOPING -->
-
-                    </div>
-                </div>
-            </section>
-            <!-- END : HERO SECTION -->
             
+            <!-- START : HERO -->
+            <section class="main__hero">
+                <div class="hero__welcome">
+                    <h2>Selamat datang</h2>
+                    <p>Hei, kamu yang lagi nyasar ke sini! Selamat datang, semoga betah ya. Di sini nggak ada aturan ribet, cuma ada halaman-halaman seru buat kamu jelajahi. Duduk santai dulu, kopi atau teh juga boleh disiapin. Klik-klik aja sesuka hati, siapa tahu ada sesuatu yang bikin kamu senyum atau bahkan ketawa. Pokoknya anggap aja rumah sendiri, tapi jangan lupa bawa pulang inspirasi ya!</p>
+                </div>
+                
+                <div class="hero__skill">
+                    <h3>My Skill: </h3>
+                    <div class="hero__skill-list--vertical">
+                        
+                        <!-- Skill 1 -->
+                        <div class="skill__card card">
+                            <h3>Tukang Belajar Web Development</h3>
+                            <img src="https://picsum.photos/150/200?1" alt="">
+                            <p>HTML, CSS, PHP? Semua kayak jodoh yang lagi PDKT—aku dekati satu-satu, biar klop dan nggak PHP-in user.</p>
+                        </div>
+                        
+                        <!-- Skill 2 -->
+                        <div class="skill__card card">
+                            <h3>Ahli Desain Responsif (Ngaku-ngaku)</h3>
+                            <img src="https://picsum.photos/150/200?1" alt="">
+                            <p>Mau desktop, tablet, atau ponsel kentang, layout-ku tetap cakep. Kalau nggak, tinggal rapihin grid, siapa takut!</p>
+                        </div>
+                        
+                        <!-- Skill 3 -->
+                        <div class="skill__card card">
+                            <h3>Backend Starter Pack</h3>
+                            <img src="https://picsum.photos/150/200?1" alt="">
+                            <p>PHP dan MySQL itu kayak kopi pahit, awalnya susah ditelen, tapi lama-lama bikin melek! CRUD? Itu kayak jurus ninja andalanku!</p>
+                        </div>
+                        
+                        <!-- Skill 4 -->
+                        <div class="skill__card card">
+                            <h3>Dewa Terminal Linux</h3>
+                            <img src="https://picsum.photos/150/200?1" alt="">
+                            <p>Terminal itu sahabatku, biar keliatan keren sambil ngetik-ngetik kode. Vim? Hah, itu alien buatku!</p>
+                        </div>
+                        
+                        <!-- Skill 5 -->
+                        <div class="skill__card card">
+                            <h3>Tukang Ngulik Bootstrap & Tailwind</h3>
+                            <img src="https://picsum.photos/150/200?1" alt="">
+                            <p>Kalau desain mulai pusing, ya udah pakai framework, biar hidup lebih simpel, kayak mager versi coding.</p>
+                        </div>
+                        
+                        <!-- Skill 6 -->
+                        <div class="skill__card card">
+                            <h3>CorelDraw Veteran</h3>
+                            <img src="https://picsum.photos/150/200?1" alt="">
+                            <p>Pernah berantem sama raster warna waktu kerja sablon. Sekarang? Masih trauma, tapi tetep cinta desain!</p>
+                        </div>
+                        
+                        <!-- Skill 7 -->
+                        <div class="skill__card card">
+                            <h3>Jurus Ngatasi Listrik Mati</h3>
+                            <img src="https://picsum.photos/150/200?1" alt="">
+                            <p>Kalau mati lampu, otakku malah nyala. Inspirasi sering muncul di saat gelap, literally.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- START : LOOPING ARTICLE -->
+                <div class="hero__blog">
+                    <h3 class="hero__blog-category">Nama Kategori: </h3>
+                    <div class="hero__card-article">
+                        <p>except</p>
+                        <h4><a href="">Judul Artikel</a></h4>
+                        <a href="">Read more...</a>
+                    </div>
+                </div>
+                <!-- END LOOPING ARTICLE -->
+            </section>
+            <!-- END : HERO -->
         </main>
         <!-- END : MAIN -->
-
+        
         <!-- START : FOOTER -->
         <footer class="layout__footer">
-
+            
+            <section class="footer__about">
+                <h4>Tentang Saya: </h4>
+                <p>......</p>
+            </section>
+            
             <!-- START : SOCIAL LINK -->
             <section class="footer__social">
                 <h5>Social Link: </h5>
@@ -187,32 +152,27 @@
                 </ul>
             </section>
             <!-- END : SOCIAL LINK -->
-    
+            
             <!-- START : FORM -->
-            <section class="footer__form">
+            <section class="footer__message">
                 <h5>Kritik/Saran: </h5>
                 <form action="" method="post">
                     <label for="email">Email:</label>
                     <input type="email" name="email" id="email" placeholder="Masukkan Email Anda.." required><br>
-    
                     <label for="username">Nama:</label>
                     <input type="text" name="username" id="username" placeholder="Masukkan Nama Anda..." required><br>
-    
                     <label for="pesan">Pesan:</label>
                     <textarea name="pesan" id="pesan" placeholder="Tulis pesan di sini.." required></textarea>
-    
                     <button type="submit">Kirim</button>
                 </form>
             </section>
             <!-- END : FORM -->
-    
+            
             <!-- START : COPYRIGHT -->
             <section class="footer__copyright">
-
                 <p>Dibuat dengan: <strong>♥️</strong> | Powered by:
-                    <a href="https://jekyllrb.com/">Jekyll</a>,
-                    <a href="https://pages.github.com/">Github Pages</a>,
-                    <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a>.
+                    <a href="https://jekyllrb.com/">Jekyll</a> -
+                    <a href="https://pages.github.com/">Github Pages</a>.
                 </p>
                 <p>
                     | <a href="">Privacy Policy</a>
@@ -221,15 +181,12 @@
                     | <a href="">Back To Top</a> |
                 </p>
                 <p>&copy; 2024 - Putra Jaya • My Notes | Semua Hak Dilindungi.</p>
-
             </section>
             <!-- END : COPYRIGHT -->
-    
         </footer>
         <!-- END : FOOTER -->
     </div>
-    <!-- END : LAYOUT -->
-
+    <!-- START : LAYOUT -->
+    
 </body>
-<!--[]=----------------=[] END: BODY []=----------------=[]-->
 </html>
