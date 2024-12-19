@@ -1,0 +1,13 @@
+//utils
+@use '../utils/mixins' as mix;
+@use '../utils/variables' as var;
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row: auto;
+
+    .layout__header {
+        grid-column: 1;
+    }
+}

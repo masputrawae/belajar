@@ -1,8 +1,18 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <title>Judul halaman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content=" ">
+    <meta name="author" content="Nama Anda">
+    <meta name="keywords" content=" ">
+
+    <title>Judul Halaman</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/script.js" defer></script>
 </head>
 <body>
     
@@ -18,23 +28,30 @@
                 <h1 class="header__brand-title">Masputrawae</h1>
             </a>
             <!-- END : BRAND -->
-            
+
             <!-- START : NAV HEADER -->
             <nav class="header__nav">
-                <button class="btn btn-menu" id="btnMenuOpen">
+                <!-- BUTTON OPEN MENU FOR MOBILE -->
+                <button class="btn btn-menu mobile" id="btnMenuOpen">
                     <i class="bi bi-list"></i>
                 </button>
-                <div class="nav__menu">
-                    <button class="btn btn-menu" id="btnMenuClose">
+                
+                <div class="nav__menu" id="navMenuMobile">
+
+                    <!-- BUTTON CLOSE MENU FOR MOBILE-->
+                    <button class="btn btn-menu mobile" id="btnMenuClose">
                         <i class="bi bi-x"></i>
                     </button>
+
+                    <!-- SEARCH BAR -->
                     <form action="" metode="get">
-                        <input type="search">
+                        <input type="search" name="search" id="search" placeholder="Cari...?">
                         <button class="btn btn-search" type="submit">
                             <i class="bi bi-search"></i>
                         </button>
                     </form>
                     
+                    <!-- LINK NAV -->
                     <ul class="nav__menu-list">
                         <li class="nav__menu-list--item"><a href=""> Home</a></li>
                         <li class="nav__menu-list--item"><a href=""> Blog</a></li>
