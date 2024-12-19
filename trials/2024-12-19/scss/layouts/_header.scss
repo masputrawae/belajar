@@ -1,15 +1,20 @@
 // UTILS
 @use '../utils/variables' as var;
 @use '../utils/mixins' as mix;
-// Extend
-@use '../utils/extend';
 
 .layout__header {
-    @extend .extend__full-flex-justify;
-    @extend .extend_p1;
+    padding: 1rem;
+    &,.header__brand {
+        @include mix.flex-justify(space-between, center, 15px, row);
 
-    .header__brand {
-        @extend .extend__full-flex-justify;
+        h1 {
+            color: var(--accent-color);
+        }
+
+        img {
+            @include mix.area-calculation(50px, 50px);
+            border-radius: 5px;
+        }
     }
 
     .header__nav {
@@ -27,7 +32,7 @@
                 position: sticky;
 
                 &,ul {
-                    @include mix.flex-justify(space-between, center, 15px, row);
+                    @include mix.flex-justify(space-between, center, 20px, row);
                     list-style: none;
                 }
             }

@@ -1,47 +1,31 @@
 // UTILS
 @use '../utils/variables' as var;
 @use '../utils/mixins' as mix;
-// Extend
-@use '../utils/extend';
+
+.wrapper--bg {
+    @include mix.bg-cover(var(--background-img));
+}
 
 .layout__main {
-    @extend .extend_p1;
-    
-    .main__hero-welcome {
-        @extend .extend_p1;
-    }
+    padding: 10px;
 
-    .main__skill {
-        .main__skill-card {
-            @extend .extend__full-flex-justify;
-            @extend .extend_p1;
-            overflow-x: auto;
+    .main__skill-card {
+        @include mix.flex-justify(space-between, center, 20px, row);
+        align-items: center;
+        overflow-y: auto;
+        word-wrap: nowrap;
 
-            .main__skill-card-item {
-                min-width: 150px;
-                text-align: center;
+        .main__skill-card-item {
+            text-align: center;
+            min-width: 250px;
+            padding: 10px;
 
-                .main__skill-card-item img {
-                    width: 100%; 
-                    height: auto;
-                }
+            p {
+                display: inline-block;
+                position: relative;
             }
-        }
-    }
-
-    .main__blog {
-        .main__blog-card {
-            @extend .extend__full-flex-justify;
-            @extend .extend_p1;
-            overflow-x: auto;
-
-            .main__blog-card--item {
-                @extend .main__skill-card-item;
-
-                .main__blog-card--item img {
-                    width: 100%; 
-                    height: auto;
-                }
+            img {
+                width: 320px;
             }
         }
     }

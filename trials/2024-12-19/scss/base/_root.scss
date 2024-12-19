@@ -1,0 +1,39 @@
+:root[data-theme=dark] {
+    --base-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --primary-font: 'Open Sans', sans-serif;
+    --secondary-font: 'Lato', sans-serif;
+    --tertiary-font: 'Montserrat', sans-serif;
+    --additional-font: 'Source Sans Pro', sans-serif;
+    --monospace-font: 'Courier New', monospace;
+
+    --background-color: #1E1E1E;
+    --primary-color: #0A84FF;
+    --secondary-color: #FF3B30;
+    --tertiary-color: #34C759;
+    --additional-color: #FFD60A;
+    
+    --accent-color: #5E5CE6;
+    --text-color: #FFFFFF;
+    
+    --background-img: url("../img/bg-dark-vertical-1.jpeg");
+}
+
+:root[data-theme=light] {
+    --base-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --primary-font: 'Open Sans', sans-serif;
+    --secondary-font: 'Lato', sans-serif;
+    --tertiary-font: 'Montserrat', sans-serif;
+    --additional-font: 'Source Sans Pro', sans-serif;
+    --monospace-font: 'Courier New', monospace;
+
+    --background-color: #FFFFFF;
+    --primary-color: #007AFF;
+    --secondary-color: #FF2D55;
+    --tertiary-color: #32D74B;
+    --additional-color: #FFCC00;
+    
+    --accent-color: #5856D6;
+    --text-color: #000000;
+
+    --background-img: url("../img/bg-light-vertical-1.jpeg");
+}
