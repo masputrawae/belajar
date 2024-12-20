@@ -1,55 +1,6 @@
-<!DOCTYPE html>
-<html lang="in">
-<head>
-    <meta charset="UTF-8">
-    <title>Judul halaman</title>
-</head>
-<body>
-    <!-- START : LAYOUT -->
-    <div class="page">
-        
-        <!-- START : HEADER -->
-        <header class="page__header">
-            <!-- START LEFT : NAV -->
-            <nav class="page__header-nav--left">
-                <a class="page__header-nav--link" href="">
-                    <span class="text-link">Blog</span>
-                    <i class="icon-link"></i>
-                </a>
-                <a class="page__header-nav--link" href="">
-                    <span class="text-link">Portfolio</span>
-                    <i class="icon-link"></i>
-                </a>
-            </nav>
-            <!-- END LEFT : NAV -->
-            
-            <!-- START CENTER : LOGO -->
-            <a href="">
-                <img src="https://placehold.co/50" alt="Logo Masputrawae">
-            </a>
-            <!-- END CENTER : LOGO -->
-            
-            <!-- STATT RIGHT : NAV -->
-            <nav class="page__header-nav--right">
-                <a class="page__header-nav--link" href="">
-                    <span class="text-link">About</span>
-                    <i class="icon-link"></i>
-                </a>
-                <a class="page__header-nav--link" href="">
-                    <span class="text-link">Help</span>
-                    <i class="icon-link"></i>
-                </a>
-            </nav>
-            <!-- END RIGHT : NAV -->
-        </header>
-        <!-- END : HEADER -->
-        
-        <!-- START : MAIN -->
-        <main class="page__main">
-            {{ content }}
-        </main>
-        <!-- END : MAIN -->
-    </div>
-    <!-- END : LAYOUT -->
-</body>
-</html>
+---
+layout: default
+---
+{% include partials/header-page.html %}
+{{ content }}
+{% include partials/footer.html %}
