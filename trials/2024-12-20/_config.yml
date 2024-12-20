@@ -1,0 +1,64 @@
+#=================================[=]
+title: "Masputrawae"
+lang: "id"
+keywords: ""
+owner: ""
+description: ""
+google_analytics: ""
+timezone: Asia/Jakarta
+
+#=================================[=] 
+url: ""
+baseurl: ""
+
+#=================================[=]
+github: ""
+twitter: ""
+facebook: ""
+instagram: ""
+discord: ""
+email: ""
+youtube: ""
+linkedin: ""
+
+#=================================[=]
+paginate: 5
+paginate_path: "/page:num/"
+excerpt_separator: ""
+
+#=================================[=]
+collections:
+  pages:
+    output: true
+  tabs:
+    output: true
+    sort_by: order
+    
+#=================================[=]
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      permalink: "/:title/"      
+      
+#=================================[=]
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-toc
+  - jekyll-sitemap
+  
+#=================================[=]
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - drafts
+  - .sass-cache/
+  - .jekyll-cache/
+#=================================[=]
+markdown: kramdown

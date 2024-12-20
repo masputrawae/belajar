@@ -1,0 +1,7 @@
+.dropdown-menu {
+    display: none;
+}
+  
+.dropdown-menu.active {
+    display: block;
+}
