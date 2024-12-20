@@ -9,127 +9,175 @@
     <meta name="keywords" content=" ">
 
     <title>Home</title>
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <!-- START : LAYOUT -->
-    <div class="home">
+    <div class="layout">
         
-        <!-- START : HOME HEADER -->
-        <header class="home__header">
-            <div class="home__header-top">
-                <!-- Navigasi Kiri -->
-                <nav class="header__nav-left">
-                    <a class="header__nav-left--link" href="/">
-                        <span class="link-text">Home</span>
-                        <i class="link-icon bi-house"></i>
-                    </a>
-        
-                    <a class="header__nav-left--link" href="#">
-                        <span class="link-text">Blog</span>
-                        <i class="link-icon bi-pencil"></i>
-                    </a>
-                </nav>
-        
-                <!-- Logo di Tengah -->
-                <a href="/">
-                    <img class="header__logo-center" src="https://placehold.co/50" alt="Logo">
+        <!-- START : HEADER -->
+        <header class="layout__header header--page">
+            
+            <!-- START : NAV -->
+            <nav class="header__nav">
+                
+                                <!-- START : NAV LIST LEFT -->
+                <ul class="nav__list">
+                    <li class="nav__list-item">
+                        <a class="nav__link" href="#">
+                            <span class="link--text">Blog</span>
+                            <i class="link--icon bi-pen"></i>
+                        </a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a class="nav__link" href="#">
+                            <span class="link--text">portfolio</span>
+                            <i class="link--icon bi-briefcase"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END : NAV LIST LEFT -->
+                
+                <a class="header__nav-logo" href="/">
+                    <img src="https://picsum.photos/50" alt="">
                 </a>
-        
-                <!-- Navigasi Kanan -->
-                <nav class="header__nav-right">
-                    <a class="header__nav-right--link" href="#">
-                        <span class="link-text">Portfolio</span>
-                        <i class="link-icon bi-person-workspace"></i>
-                    </a>
-        
-                    <a class="header__nav-right--link" href="#">
-                        <span class="link-text">About</span>
-                        <i class="link-icon bi-info-circle"></i>
-                    </a>
-                </nav>
-            </div>
-        
-            <div class="home__header-center">
-                <section class="header__center-hero">
-                    <h1 class="hero__welcome">Selamat Datang</h1>
-                    <p>Eiusmod laboris duis id sit ex magna velit Lorem. Id labore voluptate eiusmod quis amet.</p>
-                    <div class="hero__cta">
-                        <a href="">
-                            <span>Join Discord</span>
-                            <i class="bi-discord"></i>
+                
+                <!-- START : NAV LIST RIGHT -->
+                <ul class="nav__list">
+                    <li class="nav__list-item">
+                        <a class="nav__link" href="#">
+                            <span class="link--text">About</span>
+                            <i class="link--icon bi-person"></i>
                         </a>
-                        <a href="#homeMain">
-                            <span>Explore More</span>
-                            <i class="bi-menu-down"></i>
+                    </li>
+                    <li class="nav__list-item">
+                        <a class="nav__link" href="#">
+                            <span class="link--text">Help</span>
+                            <i class="link--icon bi-info-circle"></i>
                         </a>
-                    </div>
-                </section>
-            </div>
+                    </li>
+                </ul>
+                <!-- END : NAV LIST RIGHT -->
+            </nav>
+            <!-- END : NAV -->
         </header>
-        <!-- END : HOME HEADER -->
-
-        <main class="home__main" id="homeMain">
-            <!-- START : BLOG LIST -->
-            <section class="header__center-blog">
-                <h2>Beberapa Artikel Menarik</h2>
-                <div class="blog__container">
-                    <div class="blog__container-card">
-                        <h3>Kategori Satu</h3>
-
-                        <div class="card-item">
-                            <h4>Artikel Satu</h4>
-                            <p>Eu consectetur incididunt dolore ipsum nostrud dolore ad duis quis.</p>
-                            <a href="">Read more...</a>
-                        </div>
-
-                        <div class="card-item">
-                            <h4>Artikel Dua</h4>
-                            <p>Eu consectetur incididunt dolore ipsum nostrud dolore ad duis quis.</p>
-                            <a href="">Read more...</a>
-                        </div>
-
-                        <div class="card-item">
-                            <h4>Artikel Tiga</h4>
-                            <p>Eu consectetur incididunt dolore ipsum nostrud dolore ad duis quis.</p>
-                            <a href="">Read more...</a>
-                        </div>
-
-                    </div>
-
-                    <div class="blog__container-card">
-                        <h3>Kategori Dua</h3>
-
-                        <div class="card-item">
-                            <h4>Artikel Satu</h4>
-                            <p>Eu consectetur incididunt dolore ipsum nostrud dolore ad duis quis.</p>
-                            <a href="">Read more...</a>
-                        </div>
-
-                        <div class="card-item">
-                            <h4>Artikel Dua</h4>
-                            <p>Eu consectetur incididunt dolore ipsum nostrud dolore ad duis quis.</p>
-                            <a href="">Read more...</a>
-                        </div>
-
-                        <div class="card-item">
-                            <h4>Artikel Tiga</h4>
-                            <p>Eu consectetur incididunt dolore ipsum nostrud dolore ad duis quis.</p>
-                            <a href="">Read more...</a>
-                        </div>
-
-                    </div>
+        <!-- END : HEADER -->
+        
+        <!-- START : MAIN -->
+        <main class="layout__main main--home">
+            
+            <!-- START : HERO -->
+            <section class="hero">
+                <div class="hero-welcome">
+                    <h1>
+                        <span>Hi, I'm </span>
+                        <span>Putra,</span>
+                        <span>Passionate Web Developer in the Making!</span>
+                    </h1>
+                    <p>Selamat datang di dunia saya! Saya sedang belajar membangun website yang keren, responsif, dan penuh fungsi. 
+            Ini adalah langkah pertama dari perjalanan saya—semoga kamu suka!</p>
                 </div>
-
+                <div class="hero-cta">
+                    <a href="#">Gabung Di Discord</a>
+                    <a href="#">Jelajah Lebih Lanjut</a>
+                </div>
             </section>
-            <!-- END : BLOG LIST -->
+            <!-- END : HERO -->
+            
+            <!-- START : LEARNING SKILL -->
+            <section class="skill">
+                <h2>Apa saja yang sedang saya pelajari</h2>
+                <p>Belajar itu seru, walaupun terkadang bikin pusing. Tapi dengan semangat, kesabaran, kerja keras, dan doa, semua pasti bisa dipelajari. Ini dia beberapa hal yang sedang saya pelajari sekarang:
+                <div class="skill-highlight">
+                    
+                    <article class="card card--skill">
+                        <div class="header-card">
+                            <img src="https://picsum.photos/50" alt="">
+                            <h3>HTML & CSS</h3>
+                        </div>
+                        <p>HTML & CSS itu seperti seni, ibarat kanvas dan cat. Saya suka bagaimana elemen-elemen kecil bisa berubah menjadi website yang cantik dan menarik!</p>
+                    </article>
+                    
+                    <article class="card card--skill">
+                        <div class="header-card">
+                            <img src="https://picsum.photos/50" alt="">
+                            <h3>Javascript</h3>
+                        </div>
+                        <p>JavaScript? Wah, ini tantangan besar buat saya. Rasanya rumit, tapi saya yakin, dengan latihan dan doa, suatu hari nanti saya akan menguasainya. 😅</p>
+                    </article>
+                    
+                    <article class="card card--skill">
+                        <div class="header-card">
+                            <img src="https://picsum.photos/50" alt="">
+                            <h3>PHP</h3>
+                        </div>
+                        <p>PHP bikin saya penasaran. Mungkin belum se-populer dulu, tapi siapa tahu ini akan jadi senjata rahasia saya di dunia back-end development!</p>
+                    </article>
+                    
+                    <article class="card card--skill">
+                        <div class="header-card">
+                            <img src="https://picsum.photos/50" alt="">
+                            <h3>Python</h3>
+                        </div>
+                        <p>Python itu katanya mudah dipelajari. Saya anggap ini seperti <b>ular</b> yang harus dijinakkan. Sedikit usaha, dan semoga saya bisa menjadi pawangnya. 🐍</p>
+                    </article>
+                    
+                    <article class="card card--skill">
+                        <div class="header-card">
+                            <img src="https://picsum.photos/50" alt="">
+                            <h3>Bootstrap & Tailwind</h3>
+                        </div>
+                        <p>Framework ini seperti shortcut untuk bikin desain responsif. Tapi saya masih penasaran, apakah ini benar-benar mempermudah atau justru bikin saya malas? Hehe.</p>
+                    </article>
+                    
+                    <article class="card card--skill">
+                        <div class="header-card">
+                            <img src="https://picsum.photos/50" alt="">
+                            <h3>Linux</h3>
+                        </div>
+                        <p>Linux si penguin ini sudah jadi teman coding saya. Sekarang cuma sekadar pakai, tapi suatu saat saya ingin mendalami lebih jauh kemampuannya.</p>
+                    </article>
+                    
+                    <article class="card card--skill">
+                        <div class="header-card">
+                            <img src="https://picsum.photos/50" alt="">
+                            <h3>Jekyll</h3>
+                        </div>
+                        <p>Jekyll adalah alat favorit saya untuk membuat website statis. Cepat, sederhana, dan sangat efektif. Saya suka mempelajarinya lebih dalam.</p>
+                    </article>
+                    
+                    <article class="card card--skill">
+                        <div class="header-card">
+                            <img src="https://picsum.photos/50" alt="">
+                            <h3>Ilmu copy paste</h3>
+                        </div>
+                        <p>Siapa yang tidak suka copy-paste? Teknik ini memang menyelamatkan hidup saya, meskipun kadang bikin pusing kalau kode yang dipaste error. 😅</p>
+                    </article>
+                    
+                </div>
+            </section>
+            <!-- END : LEARNING SKILL-->
+            
+            <!-- START : BLOG HIGHLIGHT -->
+            <section class="blog">
+                <h2>Catatan Belajarku: Tempat Aku Berbagi, Belajar, dan Berkembang</h2>
+                <div class="blog-highlight">
+                    <h3>Nama Kategori</h3>
+                    
+                    <article class="card card--blog">
+                        <h3>Judul Artikel</h3>
+                        <p>Elit ut cillum magna amet anim aute tempor ullamco anim ad nostrud exercitation quis ea. Nisi non cillum amet est amet dolore dolor adipisicing pariatur laborum.</p>
+                        <a href="">Read More...</a>
+                    </article>
+                    
+                </div>
+            </section>
+            <!-- END : BLOG HIGHLIGHT -->
         </main>
-
+        <!-- START : MAIN -->
+        
         <!-- START : FOOTER -->
-        <footer class="home__footer">
+        <footer class="layout__footer">
 
             <!-- START : SOCIAL LINK -->
             <section class="footer__social">
@@ -163,9 +211,10 @@
     
             <!-- START : COPYRIGHT -->
             <section class="footer__copyright">
-                <p>Dibuat dengan: <strong>♥️</strong> | Powered by:
-                    <a href="https://jekyllrb.com/">Jekyll</a> &
-                    <a href="https://pages.github.com/">Github Pages</a>.
+                <p>Dibuat dengan: <strong>♥️</strong> dan semangat <strong>Belajar</strong>| Powered by:
+                    <a href="https://jekyllrb.com/">Jekyll</a>,
+                    <a href="https://pages.github.com/">Github Pages</a>,
+                    <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a>.
                 </p>
                 <p>
                     | <a href="">Privacy Policy</a>
@@ -173,12 +222,12 @@
                     | <a href="">Disclaimer</a>
                     | <a href="">Back To Top</a> |
                 </p>
-                <p>&copy; 2024 - Putra Jaya | Semua Hak Dilindungi.</p>
+                <p>&copy; 2024 - Putra Jaya • My Notes | Semua Hak Dilindungi.</p>
             </section>
             <!-- END : COPYRIGHT -->
+    
         </footer>
         <!-- END : FOOTER -->
     </div>
-    <!-- END : LAYOUT -->
 </body>
 </html>
