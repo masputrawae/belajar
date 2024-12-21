@@ -1,0 +1,23 @@
+# ============[]
+title: "Masputrawae"
+description: ""
+lang: "id"
+keywoard: ""
+# ============[]
+url: ""
+baseurl: ""
+# ============[]
+collections:
+  projects:
+    output: true
+  pages:
+    output: true
+# ============[]
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - drafts
+  - .sass-cache/
+  - .jekyll-cache/
