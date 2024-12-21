@@ -1,8 +1,0 @@
-@use '../utils/variables' as var;
-@use '../utils/mixins' as mix;
-
-@include mix.respond-to(lg){
-    #btnMenuClose, #btnMenuOpen {
-        display: none;
-    }
-}
