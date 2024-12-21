@@ -1,8 +1,9 @@
 # ============[]
 title: "Masputrawae"
-description: ""
+description: "Tempat Berbagi Keluh Kesah"
 lang: "id"
 keywoard: ""
+timezone: Asia/Jakarta
 # ============[]
 url: ""
 baseurl: ""
@@ -13,6 +14,22 @@ collections:
   pages:
     output: true
 # ============[]
+facebook: ""
+twitter: ""
+instagram: ""
+youtube: ""
+linkedin: ""
+github: ""
+discord: ""
+# ============[]
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      permalink: "/:title/"
+# ============[]
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -21,3 +38,10 @@ exclude:
   - drafts
   - .sass-cache/
   - .jekyll-cache/
+# ============[]
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-toc
+  - jekyll-sitemap

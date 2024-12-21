@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<main class="layout__main main-post">
+    <div class="main-post--toc">
+        <button>Daftar Isi: </button>
+        <ul>
+            {% include tools/toc.html html=content %}
+        </ul>
+    </div>
+    {{ content }}
+</main>

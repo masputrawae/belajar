@@ -1,0 +1,23 @@
+<header class="layout__header">
+    <button class="btn btn-menu">
+        <i class="bi-list"></i>
+    </button>
+    <button class="btn btn-menu" id="btnMenuOpen">
+        <i class="bi-list"></i>
+    </button>
+    <nav class="nav--menu">
+        <button class="btn btn-menu" id="btnMenuClose">
+            <i class="bi-x"></i>
+        </button>
+
+        {% include tools/search.html %}
+
+        <ul class="nav-list">
+            <li><a href="{{ '/' | relative_url }}"> Home</a></li>
+            <li><a href="{{ '/blog.html' | relative_url }}"> Blog</a></li>
+            <li><a href="{{ '/portfolio.html' | relative_url }}"> Portfolio</a></li>
+            <li><a href="{{ '/gallery.html' | relative_url }}"> Gallery</a></li>
+            <li><a href="{{ '/about.html' | relative_url }}"> About</a></li>
+        </ul>
+    </nav>
+</header>

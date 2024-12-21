@@ -1,0 +1,43 @@
+<footer class="layout__footer">
+    <section class="footer__form">
+        <form action="" method="post">
+            <label for="name">Nama: </label>
+            <input type="text" name="name" id="name" placeholder="Masukkan Nama Anda..." required><br>
+            
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" placeholder="Masukkan Email Anda..." required><br>
+            
+            <label for="pesan">Pesan: </label>
+            <textarea name="pesan" id="pesan" cols="30" rows="10" placeholder="Tulis Pesan/Kritik/Saran..." required></textarea><br>
+            
+            <button type="submit">Kirim</button>
+        </form>
+    </section>
+
+    <section class="footer__social">
+        <h4>Social Link: </h4>
+        <ul class="nav-list">
+            <li><a href="{{ site.facebook }}" aria-label="Facebook"><i class="bi-facebook"></i> Facebook</a></li>
+            <li><a href="{{ site.twitter }}" aria-label="Twitter"><i class="bi-twitter"></i> Twitter</a></li>
+            <li><a href="{{ site.instagram }}" aria-label="Instagram"><i class="bi-instagram"></i> Instagram</a></li>
+            <li><a href="{{ site.youtube }}" aria-label="Youtube"><i class="bi-youtube"></i> Youtube</a></li>
+            <li><a href="{{ site.linkedin }}" aria-label="LinkedIn"><i class="bi-linkedin"></i> Linkedin</a></li>
+            <li><a href="{{ site.github }}" aria-label="GitHub"><i class="bi-github"></i> Github</a></li>
+            <li><a href="{{ site.discord }}" aria-label="Discord"><i class="bi-discord"></i> Discord</a></li>
+        </ul>
+    </section>
+
+    <section class="footer__copyright">
+        <p>
+            <a href="{{ '/privacy-policy.html' | relative_url }}">Privacy Policy</a> |
+            <a href="{{ '/terms.html' | relative_url }}">Terms of Service</a> |
+            <a href="{{ '/disclaimer.html' | relative_url }}">Disclaimer</a> |
+            <a href="#top">Back To Top</a>
+        </p>
+        <p>
+            Dibuat dengan <strong>❤️</strong> dan Semangat <strong>Belajar</strong> | Powered by:
+            <a href="">Jekyll</a>, & <a href="">Github pages</a>.
+        </p>
+        <p>&copy; {{ site.time | date: '%Y' }} - {{ site.owner }} | Semua hak Dilindungi.</p>
+    </section>
+</footer>
