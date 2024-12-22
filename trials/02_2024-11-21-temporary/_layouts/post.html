@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<main class="main__content content--post">
+    <article class="post">
+        <header class="post-header">
+            <h1>{{ page.title }}</h1>
+            <p>{{ page.excerpt }}</p> <!-- Menggunakan excerpt jika tidak ada description -->
+        </header>
+        
+        <section class="post-main">
+            {{ content }}
+        </section>
+        
+        <footer class="post-footer">
+            <img src="https://placehold.co/100" alt="Placeholder image">
+            <p class="post--info">
+                <span>Author: {{ page.author }}</span><br>
+                <span>Publish on: {{ page.date | date: "%B %d, %Y" }}</span><br> <!-- Format tanggal -->
+                <span>Last Modified: {{ page.last_modified_at }}</span><br> <!-- Periksa plugin -->
+                {% if page.categories %}
+                    <span>Categories: {{ page.categories | join: ', ' }}</span><br> <!-- Menangani kategori -->
+                {% endif %}
+                {% if page.tags %}
+                    <span>Tags: {{ page.tags | join: ', ' }}</span><br> <!-- Menangani tag -->
+                {% endif %}
+            </p>
+        </footer>
+    </article>
+    <aside class="main__rightside">
+        <div class="toc">
+            <h4>Daftar Isi: </h4>
+            {% include components/toc.html html=content %}
+        </div>
+    </aside>
+</main>

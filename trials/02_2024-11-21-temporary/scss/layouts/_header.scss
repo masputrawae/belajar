@@ -1,0 +1,22 @@
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mix;
+
+.main__header {
+    background-color: aquamarine;
+    @include mix.flex-justify();
+
+    .main__header-search {
+        display: none;
+    }
+    .main__header-menu {
+        @include mix.position(fixed, 0, auto, auto, -100%);
+        @include mix.area-calculation(100%, 100vh);
+        background-color: aquamarine;
+        transition: left 1s ease;
+
+        &.leftside--open {
+            left: 0;
+        }
+    }
+    
+}

@@ -1,0 +1,122 @@
+// mixins.scss
+
+// Mixin untuk media query dengan min-width
+@mixin breakpoint($device) {
+    @if $device == mobile {
+        @media (min-width: 320px) { @content; }
+    }
+    @else if $device == tablet {
+        @media (min-width: 768px) { @content; }
+    }
+    @else if $device == desktop {
+        @media (min-width: 1024px) { @content; }
+    }
+    @else {
+        @warn "Device type not recognized. Use 'mobile', 'tablet', or 'desktop'.";
+    }
+}
+
+// Mixin untuk grid
+@mixin grid-setting($columns, $rows, $gap){
+    display: grid;
+    grid-template-columns: $columns;
+    grid-template-rows: $rows;
+    gap: $gap;
+}
+
+// Mixin untuk flex justify
+@mixin flex-justify($justify: space-between, $align-items: center, $flex-direction: row,$gap: 0px) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align-items;
+    flex-direction: $flex-direction;
+    gap: $gap;
+}
+
+// WIDTH AND HEIGHT
+@mixin area-calculation($width: auto, $height: auto) {
+    width: $width;
+    height: $height;
+}
+
+// HOVER SCALE
+@mixin hover-scale($scale: 1.1, $time-scale: 0.3s, $ease: ease-in-out, $opacity: 1) {
+    transition: all $time-scale $ease;
+    &:hover {
+        transform: scale($scale);
+        opacity: $opacity;
+    }
+}
+
+// SHADOW
+@mixin shadow($level: 1) {
+    @if $level == 1 {
+      box-shadow: 
+        0px 2px 5px rgba(0, 0, 0, 0.12),
+        0px 1px 10px rgba(0, 0, 0, 0.16);
+    } @else if $level == 2 {
+      box-shadow: 
+        0px 3px 8px rgba(0, 0, 0, 0.15),
+        0px 4px 12px rgba(0, 0, 0, 0.2),
+        0px 1px 6px rgba(0, 0, 0, 0.18);
+    } @else if $level == 3 {
+      box-shadow: 
+        0px 5px 15px rgba(0, 0, 0, 0.18),
+        0px 8px 18px rgba(0, 0, 0, 0.25),
+        0px 3px 10px rgba(0, 0, 0, 0.2);
+    } @else if $level == 4 {
+      box-shadow: 
+        0px 8px 20px rgba(0, 0, 0, 0.22),
+        0px 12px 30px rgba(0, 0, 0, 0.3), 
+        0px 6px 15px rgba(0, 0, 0, 0.25);
+    }
+  }
+  
+
+// CIRCLE 
+@mixin circular($size: 50px) {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+}
+
+// POSITIONING 
+@mixin position($type: absolute, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+    position: $type;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+// FULL SCREEN 
+@mixin full-screen($top: 0) {
+    position: fixed;
+    top: $top;
+    width: 100vw;
+    height: 100vh;
+}
+
+// BACKGROUND IMAGE 
+@mixin bg-cover($image: none, $position: center) {
+    background-image: url($image);
+    background-size: cover;
+    background-position: $position;
+    background-repeat: no-repeat;
+}
+
+// Debuging 
+@mixin debug{
+    * {
+        border: 0.1px dashed red;
+    }
+}
+@mixin debug-size {
+    * {
+        background-color: rgba(255, 0, 0, 0.081);
+        content: attr(class);
+        display: block;
+        padding: 5px;
+        border: 1px solid rgba(255, 166, 0, 0.508);
+    }
+}
