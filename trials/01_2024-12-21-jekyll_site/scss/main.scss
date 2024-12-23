@@ -1,0 +1,19 @@
+/main.scss
+
+@use 'base/_reset.scss';
+@use 'base/_root.scss';
+@use 'base/_layout.scss';
+@use 'base/_typography.scss';
+@use 'base/_hide-show.scss';
+
+@use 'layouts/_header.scss';
+@use 'layouts/_left-side.scss';
+@use 'layouts/_right-side.scss';
+@use 'layouts/_footer.scss';
+@use 'layouts/_page.scss';
+@use 'layouts/_post.scss';
+
+@use 'pages/_home.scss';
+
+@use 'utils/_variables.scss' as var;
+@use 'utils/_mixins.scss' as mix;
