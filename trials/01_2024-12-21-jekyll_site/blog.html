@@ -1,0 +1,32 @@
+---
+layout: post
+title: Blog
+---
+<section class="blog">
+    
+    <div class="intro-section">
+        <h2>Blog / Catatan Saya (Sangat Mendalam... atau mungkin tidak)</h2>
+        <p>Selamat datang di blog saya! Di sini saya akan menulis tentang banyak hal, seperti tips pemrograman, kejadian lucu di dunia coding, dan tentunya kesalahan-kesalahan keren yang saya buat! Siap untuk membaca?</p>
+    </div>
+    
+    <!-- START : CARD LOOPING -->
+    <div class="card card-blog">
+        {% assign categories = site.categories %}
+        {% for category in categories %}
+        <div class="category-section">
+            <h3>{{ category[0] }}</h3>
+            <div class="category-articles">
+                {% for post in category[1] %}
+                <article class="card-item">
+                    <h4>{{ post.title }}</h4>
+                    <p>{{ post.excerpt | strip_html | truncate: 150 }}</p> <!-- Optional Excerpt -->
+                    <a href="{{ post.url | relative_url }}">Read more...</a>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- END : CARD LOOPING -->
+     
+</section>

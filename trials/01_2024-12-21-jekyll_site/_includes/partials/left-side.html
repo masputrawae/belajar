@@ -1,0 +1,19 @@
+<aside class="main__left">
+    <div class="main__left-top">
+        <h2>List Article</h2>
+        <button class="btn" id="btnLeftSideClose"><i class="bi-x"></i></button>
+    </div>
+    <nav class="main__left-nav">
+        {% assign categories = site.categories %}
+        {% for category in categories %}
+            <div class="main__left-nav--categories">
+                <h3>{{ category[0] }}</h3>
+                <ul>
+                    {% for post in category[1] %}
+                        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </nav>
+</aside>
