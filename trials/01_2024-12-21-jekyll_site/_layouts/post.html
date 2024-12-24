@@ -1,52 +1,54 @@
 ---
 layout: default
 ---
-{% include partials/left-side.html %}
-<main class="main__content content-post">
-    
-    <div class="btn-toggle--aside">
-        <button class="btn" id="btnLeftSide" ><i class="bi-border-left"></i></button>
-        <button class="btn" id="btnSide"><i class="bi-border-right"></i></button>
-    </div>
+<div class="main main-post">
+    {% include partials/left-side.html %}
+    <main class="main__content content-post">
+        
+        <div class="btn-toggle--aside">
+            <button class="btn" id="btnLeftSide" ><i class="bi-border-left"></i></button>
+            <button class="btn" id="btnSide"><i class="bi-border-right"></i></button>
+        </div>
 
-    <article class="main__content-post">
-        <header class="post-header">
-            <h1>{{ page.title }}</h1>
-            <p>{{ page.description }}</p>
-        </header>
+        <article class="main__content-post">
+            <header class="post-header">
+                <h1>{{ page.title }}</h1>
+                <p>{{ page.description }}</p>
+            </header>
 
-        <section class="post-article">
-            {{ content }}
-        </section>
+            <section class="post-article">
+                {{ content }}
+            </section>
 
-        <footer class="post-footer">
-            <img src="{{ page.author_image | default: 'https://placehold.co/100' }}" alt="Logo Author">
-            <p class="post-footer--info">
-                <span>Author: {{ page.author }}</span><br>
-                <span>Publish on: {{ page.date | date: "%d %b %Y" }}</span><br>
-                <span>Last Modified: 
-                    {% if page.last_modified_at %}
-                        {{ page.last_modified_at | date: "%d %b %Y" }}
-                    {% else %}
-                        Not modified yet.
-                    {% endif %}
-                </span><br>
-            </p>
-        </footer>
-    </article>
+            <footer class="post-footer">
+                <img src="{{ page.author_image | default: 'https://placehold.co/100' }}" alt="Logo Author">
+                <p class="post-footer--info">
+                    <span>Author: {{ page.author }}</span><br>
+                    <span>Publish on: {{ page.date | date: "%d %b %Y" }}</span><br>
+                    <span>Last Modified: 
+                        {% if page.last_modified_at %}
+                            {{ page.last_modified_at | date: "%d %b %Y" }}
+                        {% else %}
+                            Not modified yet.
+                        {% endif %}
+                    </span><br>
+                </p>
+            </footer>
+        </article>
 
-    <div class="btn-prev-next">
-        {% if page.previous %}
-            <a href="{{ page.previous.url | relative_url }}" class="btn-prev">
-                <button><i class="bi bi-arrow-left-circle"></i> Previous</button>
-            </a>
-        {% endif %}
-        {% if page.next %}
-            <a href="{{ page.next.url | relative_url }}" class="btn-next">
-                <button>Next <i class="bi bi-arrow-right-circle"></i></button>
-            </a>
-        {% endif %}
-    </div>
+        <div class="btn-prev-next">
+            {% if page.previous %}
+                <a href="{{ page.previous.url | relative_url }}" class="btn-prev">
+                    <button><i class="bi bi-arrow-left-circle"></i> Previous</button>
+                </a>
+            {% endif %}
+            {% if page.next %}
+                <a href="{{ page.next.url | relative_url }}" class="btn-next">
+                    <button>Next <i class="bi bi-arrow-right-circle"></i></button>
+                </a>
+            {% endif %}
+        </div>
 
-</main>
-{% include partials/right-side.html %}
+    </main>
+    {% include partials/right-side.html %}
+</div>
