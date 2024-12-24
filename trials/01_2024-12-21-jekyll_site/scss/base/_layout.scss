@@ -1,16 +1,2 @@
 @use '../utils/_variables.scss' as var;
 @use '../utils/_mixins.scss' as mix;
-
-// 
-.container {
-
-    .main-post {
-        @include mix.breakpoint(desktop){
-            @include mix.grid-setting(250px 1fr 250px, auto, 0px);
-        }
-    }
-
-    .footer {
-
-    }
-}
