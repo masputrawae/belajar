@@ -3,6 +3,7 @@ layout: layout
 ---
 <div class="main main__post">
     <aside class="main__post-left">
+        <button class="btn" id="btnLeftClose"><i class="bi-x"></i></button>
         <h2>List Article</h2>
         <nav>
             {% assign categories = site.categories %}
@@ -20,6 +21,12 @@ layout: layout
     </aside>
 
     <main class="main__post-area">
+
+        <div class="btn-area">
+            <button class="btn" id="btnLeftOpen"><i class="bi-border-left"></i></button>
+            <button class="btn" id="btnRightOpen"><i class="bi-border-right"></i></button>
+        </div>
+
         <article>
             <header class="post-header">
                 <h1>{{ page.title }}</h1>
@@ -42,6 +49,7 @@ layout: layout
     </main>
 
     <aside class="main__post-right">
+        <button class="btn" id="btnRightClose"><i class="bi-x"></i></button>
         <nav>
             <div class="toc">
                 <h4>Daftar Isi: </h4>
