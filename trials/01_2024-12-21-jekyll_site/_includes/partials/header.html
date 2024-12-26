@@ -1,0 +1,21 @@
+<header class="header">
+    <div class="header__brand">
+        <img src="https://placehold.co/50" alt="Logo {{ site.title }}">
+        <a href="{{ '/' | relative_url }}">
+            <h1>{{ site.title }}</h1>
+            <p>{{ site.description }}</p>
+        </a>
+    </div>
+    <nav class="header__nav">
+        <button class="btn"><i class="bi-search"></i></button>
+        <button class="btn" id="btnMenuOpen"><i class="bi-menu-down"></i></button>
+        <ul class="header__nav-menu">
+            <button class="btn" id="btnMenuClose"><i class="bi-x"></i></button>
+            <li><a href="{{ '/' | relative_url }}"> Home</a></li>
+            <li><a href="{{ '/blog.html' | relative_url }}"> Blog</a></li>
+            <li><a href="{{ '/portfolio.html' | relative_url }}"> Portfolio</a></li>
+            <li><a href="{{ '/gallery.html' | relative_url }}"> Gallery</a></li>
+            <li><a href="{{ '/projects.html' | relative_url }}"> Projects</a></li>
+        </ul>
+    </nav>
+</header>

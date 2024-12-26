@@ -1,0 +1,64 @@
+---
+layout: layout
+---
+<div class="main main__post">
+    <aside class="main__post-left">
+        <h2>List Article</h2>
+        <nav>
+            {% assign categories = site.categories %}
+            {% for category in categories %}
+                <div class="main__post-left--categories">
+                    <h3>{{ category[0] }}</h3>
+                    <ul>
+                        {% for post in category[1] %}
+                            <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </nav>
+    </aside>
+
+    <main class="main__post-area">
+        <article>
+            <header class="post-header">
+                <h1>{{ page.title }}</h1>
+                <p>{{ page.description }}</p>
+            </header>
+
+            <section class="post-content">
+                {{ content }}
+            </section>
+
+            <footer class="post-footer">
+                <img src="https://placehold.co/100" alt="Logo {{ page.author}}">
+                <p>
+                    <span>Author: {{ page.author }}</span><br>
+                    <span>Publish on: {{ page.date | date: "%B %d, %Y" }}</span><br>
+                    <span>Last Modified: {{ page.last_modified_at }}</span><br>
+                </p>
+            </footer>
+        </article>
+    </main>
+
+    <aside class="main__post-right">
+        <nav>
+            <div class="toc">
+                <h4>Daftar Isi: </h4>
+                {% include components/toc.html html=content %}
+            </div>
+            <div class="related">
+                <h4>Related:</h4>
+                {% for category in page.categories %}
+                <ul>
+                    {% for post in site.posts %}
+                        {% if post.categories contains category and post.url != page.url %}
+                            <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+            </div>
+        </nav>
+    </aside>
+</div>
