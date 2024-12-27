@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="in">
+<head>
+    <meta charset="UTF-8">
+    <title>Judul halaman</title>
+</head>
+<body>
+    
+    <!-- START : CONTAINER -->
+    <div class="container">
+        
+        <!-- START : LEFT SIDE -->
+        <aside class="left">
+            
+            <!-- START : LEFT HEADER -->
+            <header class="left__header">
+                <img src="https://placehold.co/50" alt="">
+                <a href="">
+                    <h1>{{ site.title }}</h1>
+                    <p>{{ site.description }}</p>
+                </a>
+                <button class="btn">⬅️</button>
+            </header>
+            <!-- END : LEFT HEADER -->
+            
+            <!-- START : LEFT SEARCH -->
+            <form class="left__serach">
+                <input type="search">
+                <button>🔍</button>
+            </form>
+            <!-- END : LEFT SEARCH -->
+            
+            <!-- START : LEFT NAV -->
+            <nav class="left__nav">
+                {% assign categories = site.categories %}
+                {% for category in categories %}
+                <div class="left__nav-categories">
+                    <h3>{{ category[0] }}</h3>
+                    <ul>
+                        {% for post in category[1] %}
+                        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </nav>
+            <!-- END : LEFT NAV -->
+            
+        </aside>
+        <!-- END : LEFT SIDE -->
+        
+        <!-- START : MAIN AREA -->
+        <div class="main-area">
+            <article>
+                <header class="main__header">
+                    <button>➡️</button>
+                    <h1>{{ page.title }}</h1>
+                </header>
+                <main class="main__content">
+                    {{ content }}
+                </main>
+            </article>
+        </div>
+        <!-- END : MAIN AREA -->
+    </div>
+    <!-- END : CONTAINER -->
+    
+</body>
+</html>
