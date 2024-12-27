@@ -3,63 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <title>Judul halaman</title>
+    <style>
+        body {
+            font-size: small;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .header{
+            background-color: aquamarine;
+        }
+        .header__left {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header ul {
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0;
+        }
+
+        .main {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 <body>
-    
-    <!-- START : CONTAINER -->
-    <div class="container">
-        
-        <!-- START : HEADER -->
-        <header class="header">
-            
-            <div class="header__left">
-                <img src="https://placehold.co/50" alt="">
-                <div class="header__left-brand">
-                    <h1>{{ site.title }}</h1>
-                    <p>{{ site.description }}</p>
-                </div>
+    <!-- START : HEADER -->
+    <header class="header">
+        <div class="header__left">
+            <img src="https://placehold.co/50" alt="">
+            <div class="header__left-brand">
+                <h1>{{ site.title }}</h1>
+                <p>{{ site.description }}</p>
             </div>
-            
-            <nav class="header__right">
-                <button>📥</button>
-                <div class="header__left-menu">
-                    <button>❌</button>
-                    <ul>
-                        <li><a href=""> Home</a></li>
-                        <li><a href=""> Blog</a></li>
-                        <li><a href=""> Portfolio</a></li>
-                        <li><a href=""> Projects</a></li>
-                        <li><a href=""> About</a></li>
-                    </ul>
-                </div>
+        </div>
+        <nav style="background-color: blueviolet;">
+            <ul>
+                <li><button>=</button></li>
+                
+                <li><button>=</button></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- END : HEADER -->
+
+    <!-- START : MAIN -->
+    <main class="main">
+        <aside class="left-side">
+            <nav>
+                <h3>Main Menu</h3>
+                <ul>
+                    <li><a href=""> Home</a></li>
+                    <li><a href=""> Blog</a></li>
+                    <li><a href=""> Portfolio</a></li>
+                    <li><a href=""> Projects</a></li>
+                    <li><a href=""> About</a></li>
+                </ul>
             </nav>
-            
-        </header>
-        <!-- END : HEADER -->
-        
-        <!-- START : MAIN -->
-        <main class="main">
-            <aside class="main__left-side">
-                
-            </aside>
-            
-            <article class="main__content">
-                
-            </article>
-            
-            <aside class="main__right-side">
-                
-            </aside>
-        </main>
-        <!-- END : MAIN -->
-        
-        <!-- START : FOOTER -->
-        <footer class="footer">
-            
-        </footer>
-        <!-- END : FOOTER -->
-    </div>
-    <!-- END : CONTAINER -->
-    
+        </aside>
+        <article class="post">
+            <header class="post__header">
+                <h1>{{ page.title }}</h1>
+                <p>Publish on {{ page.title }} by {{ page.title }}</p>
+            </header>
+            <section class="post__content">
+                {{ content }}
+            </section>
+        </article>
+        <aside class="right-side">
+            <div class="recent-change">
+                <h3>Recent Change</h3>
+                <ul>
+                    <li><a href=""> Artikel 1</a></li>
+                </ul>
+            </div>
+            <div class="last-modified">
+                <h3>Last Modified</h3>
+                <ul>
+                    <li><a href=""> Artikel 1</a></li>
+                </ul>
+            </div>
+            <div class="related">
+                <h3>Related</h3>
+                <ul>
+                    <li><a href=""> Artikel 1</a></li>
+                </ul>
+            </div>
+            <div class="toc">
+                <h3>Table of content</h3>
+            </div>
+        </aside>
+    </main>
+    <!-- END : MAIN -->
+
+    <footer class="footer">
+
+    </footer>
 </body>
 </html>
