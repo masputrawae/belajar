@@ -3,107 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <title>Judul halaman</title>
-    <style>
-        body {
-            font-size: small;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .header{
-            background-color: aquamarine;
-        }
-        .header__left {
-            display: flex;
-            justify-content: start;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .header ul {
-            display: flex;
-            justify-content: space-between;
-            list-style: none;
-            padding: 0;
-        }
-
-        .main {
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
 </head>
 <body>
-    <!-- START : HEADER -->
-    <header class="header">
-        <div class="header__left">
+    <!-- START : LEFT SIDEBAR -->
+    <aside class="left">
+        
+        <!-- START : LEFT HEADER -->
+        <header class="left__header">
             <img src="https://placehold.co/50" alt="">
-            <div class="header__left-brand">
+            <div class="left__header-title">
                 <h1>{{ site.title }}</h1>
                 <p>{{ site.description }}</p>
             </div>
-        </div>
-        <nav style="background-color: blueviolet;">
-            <ul>
-                <li><button>=</button></li>
-                
-                <li><button>=</button></li>
-            </ul>
+            <button class="btn">❌</button>
+        </header>
+        <!-- END : LEFT HEADER -->
+        
+        <!-- START : LEFT NAVIGATION -->
+        <nav>
+            <form class="left__nav-search">
+                <input type="search">
+                <button>🔍</button>
+            </form>
+            <div class="left__nav-categories">
+                {% assign categories = site.categories %}
+                {% for category in categories %}
+                <div class="left__nav-categories-item">
+                    <h3>{{ category[0] }}</h3>
+                    <ul>
+                        {% for post in category[1] %}
+                        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
         </nav>
-    </header>
-    <!-- END : HEADER -->
-
-    <!-- START : MAIN -->
-    <main class="main">
-        <aside class="left-side">
-            <nav>
-                <h3>Main Menu</h3>
-                <ul>
-                    <li><a href=""> Home</a></li>
-                    <li><a href=""> Blog</a></li>
-                    <li><a href=""> Portfolio</a></li>
-                    <li><a href=""> Projects</a></li>
-                    <li><a href=""> About</a></li>
-                </ul>
+        <!-- END : LEFT NAVIGATION -->
+        
+    </aside>
+    <!-- END : LEFT SIDEBAR -->
+    
+    <!-- START : RIGHT -->
+    <div class="right">
+        
+        <header class="right__header">
+            <button>➡️</button>
+            <h1>{{ site.title }}</h1>
+            <button>⬅️</button>
+        </header>
+        
+        <main class="right__main">
+            
+            <article class="right__main-content">
+                
+            </article>
+            
+            <nav class="right__main-nav">
+                
+                <button>❌</button>
+                
+                <div class="setting">
+                    <button>Switch Theme</button>
+                    <button>Adjust Font Size</button>
+                </div>
+                
+                <div class="recent-change">
+                    <ul>
+                        <li><a href=""></a></li>
+                    </ul>
+                </div>
+                
+                <div class="last-modified">
+                    <ul>
+                        <li><a href=""></a></li>
+                    </ul>
+                </div>
+                
+                <div class="toc">
+                    <ul>
+                        <li><a href=""></a></li>
+                    </ul>
+                </div>
+                
             </nav>
-        </aside>
-        <article class="post">
-            <header class="post__header">
-                <h1>{{ page.title }}</h1>
-                <p>Publish on {{ page.title }} by {{ page.title }}</p>
-            </header>
-            <section class="post__content">
-                {{ content }}
-            </section>
-        </article>
-        <aside class="right-side">
-            <div class="recent-change">
-                <h3>Recent Change</h3>
-                <ul>
-                    <li><a href=""> Artikel 1</a></li>
-                </ul>
-            </div>
-            <div class="last-modified">
-                <h3>Last Modified</h3>
-                <ul>
-                    <li><a href=""> Artikel 1</a></li>
-                </ul>
-            </div>
-            <div class="related">
-                <h3>Related</h3>
-                <ul>
-                    <li><a href=""> Artikel 1</a></li>
-                </ul>
-            </div>
-            <div class="toc">
-                <h3>Table of content</h3>
-            </div>
-        </aside>
-    </main>
-    <!-- END : MAIN -->
-
-    <footer class="footer">
-
-    </footer>
+            
+        </main>
+        
+        <footer class="right__footer">
+            
+        </footer>
+        
+    </div>
+    <!-- END : RIGHT -->
 </body>
 </html>
