@@ -9,59 +9,55 @@
     <!-- START : CONTAINER -->
     <div class="container">
         
-        <!-- START : LEFT SIDE -->
-        <aside class="left">
+        <!-- START : HEADER -->
+        <header class="header">
             
-            <!-- START : LEFT HEADER -->
-            <header class="left__header">
+            <div class="header__left">
                 <img src="https://placehold.co/50" alt="">
-                <a href="">
+                <div class="header__left-brand">
                     <h1>{{ site.title }}</h1>
                     <p>{{ site.description }}</p>
-                </a>
-                <button class="btn">⬅️</button>
-            </header>
-            <!-- END : LEFT HEADER -->
+                </div>
+            </div>
             
-            <!-- START : LEFT SEARCH -->
-            <form class="left__serach">
-                <input type="search">
-                <button>🔍</button>
-            </form>
-            <!-- END : LEFT SEARCH -->
-            
-            <!-- START : LEFT NAV -->
-            <nav class="left__nav">
-                {% assign categories = site.categories %}
-                {% for category in categories %}
-                <div class="left__nav-categories">
-                    <h3>{{ category[0] }}</h3>
+            <nav class="header__right">
+                <button>📥</button>
+                <div class="header__left-menu">
+                    <button>❌</button>
                     <ul>
-                        {% for post in category[1] %}
-                        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-                        {% endfor %}
+                        <li><a href=""> Home</a></li>
+                        <li><a href=""> Blog</a></li>
+                        <li><a href=""> Portfolio</a></li>
+                        <li><a href=""> Projects</a></li>
+                        <li><a href=""> About</a></li>
                     </ul>
                 </div>
-                {% endfor %}
             </nav>
-            <!-- END : LEFT NAV -->
             
-        </aside>
-        <!-- END : LEFT SIDE -->
+        </header>
+        <!-- END : HEADER -->
         
-        <!-- START : MAIN AREA -->
-        <div class="main-area">
-            <article>
-                <header class="main__header">
-                    <button>➡️</button>
-                    <h1>{{ page.title }}</h1>
-                </header>
-                <main class="main__content">
-                    {{ content }}
-                </main>
+        <!-- START : MAIN -->
+        <main class="main">
+            <aside class="main__left-side">
+                
+            </aside>
+            
+            <article class="main__content">
+                
             </article>
-        </div>
-        <!-- END : MAIN AREA -->
+            
+            <aside class="main__right-side">
+                
+            </aside>
+        </main>
+        <!-- END : MAIN -->
+        
+        <!-- START : FOOTER -->
+        <footer class="footer">
+            
+        </footer>
+        <!-- END : FOOTER -->
     </div>
     <!-- END : CONTAINER -->
     
