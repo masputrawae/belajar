@@ -5,82 +5,141 @@
     <title>Judul halaman</title>
 </head>
 <body>
-    
-    <!-- START : CONTAINER -->
-    <div class="container">
+    <!-- START : LEFT -->
+    <aside class="left">
         
-        <!-- START : LEFT SIDE -->
-        <aside class="left">
-            <header class="left__header">
-                <img src="https://placehold.co/100" alt="">
-                <a href="">
-                    <h1>Masputrawae</h1>
-                    <p>deskripsi singkat</p>
-                </a>
-            </header>
-            <form>
-                <input type="search">
-                <button>🔍</button>
-            </form>
-            
-            <nav>
-                {% assign categories = site.categories %}
-                {% for category in categories %}
-                <div class="left__categories">
+        <!-- START : LEFT HEADER -->
+        <header class="left__header">
+            <img src="https://placehold.co/50" alt="">
+            <a href="">
+                <h1>{{ site.title }}</h1>
+                <p>{{ site.description }}</p>
+            </a>
+            <button class="btn" id="btnLeftClose">⬅️</button>
+        </header>
+        <!-- END : LEFT HEADER -->
+        
+        <!-- START : LEFT SEARCHBAR -->
+        <form class="left__search">
+            <input type="search">
+            <button>🔍</button>
+        </form>
+        <!-- END : LEFT SEARCHBAR -->
+        
+        <!-- START : LEFT NAV -->
+        <nav class="left__nav">
+            {% assign categories = site.categories %}
+            {% for category in categories %}
+                <div class="left__nav-categories">
                     <h3>{{ category[0] }}</h3>
                     <ul>
                         {% for post in category[1] %}
-                        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+                            <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
-                {% endfor %}
-            </nav>
-        </aside>
-        <!-- END : LEFT SIDE -->
+            {% endfor %}
+        </nav>
+        <!-- END : LEFT NAV -->
         
-        <!-- START : MAIN -->
-        <div class="main">
-            <header class="main__header">
-                <button class="btn">⬅️</button>
-                <nav>
-                    <button>📥</button>
-                    <ul class="main__header-menu">
+    </aside>
+    <!-- END : LEFT -->
+    
+    <!-- START : MAIN -->
+    <div class="main">
+        
+        <!-- START : MAIN HEADER -->
+        <header class="header">
+            <h1>{{ site.title }}</h1>
+            <nav class="header__nav">
+                <button class="btn" id="openMenuDown">⬇️</button>
+                <div class="header__nav-menu">
+                    <button class="btn" id="closeMenuUp">⬆️</button>
+                    <ul>
                         <li><a href=""> Home</a></li>
                         <li><a href=""> Blog</a></li>
                         <li><a href=""> Portfolio</a></li>
-                        <li><a href=""> Gallery</a></li>
-                        <li><a href=""> Projects</a></li>
+                        <li><a href=""> About</a></li>
+                        <li><a href=""> Help</a></li>
                     </ul>
-                </nav>
-            </header>
+                </div>
+            </nav>
+        </header>
+        <!-- END : MAIN HEADER -->
+        
+        <!-- START : MAIN CONTENT -->
+        <main class="post">
             
-            <main class="main__post">
-                <article>
-                    <header class="main__post-header">
-                        <h1>{{ page.title }}</h1>
-                        <p>{{ page.description }}</p>
-                    </header>
-                    
-                    <section class="main__post-content">
-                        <div class="article">
-                            {{ content }}
-                        </div>
-                        <aside class="info">
-                            
-                        </aside>
-                    </section>
-                    
-                    <footer class="main__post-footer">
-                        
-                    </footer>
-                </article>
-            </main>
-        </div>
-        <!-- START : MAIN -->
+            <!-- START : POST CONTENT -->
+            <article>
+                
+                <!-- START : POST HEADER -->
+                <header class="post__header">
+                    <h1>{{ page.title }}</h1>
+                    <p>
+                        <span>{{ page.description }}</span><br>
+                        <span><strong>Publish on:</strong> {{ page.date | date: "%d %B %Y" }}</span><br>
+                        {% if page.last_modified_at %}
+                        <span><strong>Last modified at:</strong> {{ page.last_modified_at | date: "%d %B %Y" }}</span><br>
+                        {% endif %}
+                        {% if page.image %}
+                    </p>
+                    <img src="{{ page.image }}" alt="{{ page.title }}">
+                    {% endif %}
+                </header>
+                <!-- END : POST HEADER -->
+                
+                <!-- START : POST CONTENT -->
+                <section class="post__content">
+                    {{ content }}
+                </section>
+                <!-- END : POST CONTENT -->
+                
+                <!-- START : POST FOOTER -->
+                <footer class="post__footer">
+                    <p><strong>Kategori:</strong> {{ page.categories | join: ", " }}</p>
+                    <p><strong>Tag:</strong> {{ page.#tags | join: ", " }}</p>
+                </footer>
+                <!-- END : POST FOOTER -->
+            </article>
+            <!-- END : POST CONTENT -->
+        </main>
+        <!-- END : MAIN CONTENT -->
+        
+        <!-- START : MAIN FOOTER -->
+        <footer class="footer">
+            
+            <!-- START : SOSIAL LINK -->
+            <section class="footer__social">
+                <h4>Social Link</h4>
+                <ul>
+                    <li><a href="{{ site.facebook }}" aria-label="Facebook"><i class="bi-facebook"></i> Facebook</a></li>
+                    <li><a href="{{ site.twitter }}" aria-label="Twitter"><i class="bi-twitter"></i> Twitter</a></li>
+                    <li><a href="{{ site.instagram }}" aria-label="Instagram"><i class="bi-instagram"></i> Instagram</a></li>
+                    <li><a href="{{ site.youtube }}" aria-label="Youtube"><i class="bi-youtube"></i> Youtube</a></li>
+                    <li><a href="{{ site.linkedin }}" aria-label="LinkedIn"><i class="bi-linkedin"></i> Linkedin</a></li>
+                    <li><a href="{{ site.github }}" aria-label="GitHub"><i class="bi-github"></i> Github</a></li>
+                    <li><a href="{{ site.discord }}" aria-label="Discord"><i class="bi-discord"></i> Discord</a></li>
+                </ul>
+            </section>
+            <!-- END : SOSIAL LINK -->
+            
+            <!-- START : COPYRIGHT -->
+            <section class="footer__copyright">
+                <p>
+                    <a href="{{ '/privacy-policy.html' | relative_url }}">Privacy Policy</a> |
+                    <a href="{{ '/terms.html' | relative_url }}">Terms of Service</a> |
+                    <a href="{{ '/disclaimer.html' | relative_url }}">Disclaimer</a> |
+                    <a href="#top">Back To Top</a>
+                </p>
+                <p>Dibuat dengan <strong>❤️</strong> dan Semangat <strong>Belajar</strong> | Powered by:<a href="">Jekyll</a>, & <a href="">Github pages</a>.</p>
+                <p>&copy; {{ site.time | date: '%Y' }} - {{ site.owner }} | Semua hak Dilindungi.</p>
+            </section>
+            <!-- END : COPYRIGHT -->
+        </footer>
+        <!-- END : MAIN FOOTER -->
         
     </div>
-    <!-- END : CONTAINER -->
-    
+    <!-- END : MAIN -->
 </body>
 </html>
