@@ -50,11 +50,13 @@
         
         <!-- START : MAIN HEADER -->
         <header class="header">
+            <button class="btn" id="btnLeftOpen">➡️</button>
             <h1>{{ site.title }}</h1>
             <nav class="header__nav">
-                <button class="btn" id="openMenuDown">⬇️</button>
+                <button class="btn" id="btnRightOpen">⬅️</button>
+                <button class="btn" id="btnMenuOpen">⬇️</button>
                 <div class="header__nav-menu">
-                    <button class="btn" id="closeMenuUp">⬆️</button>
+                    <button class="btn" id="btnMenuClose">⬆️</button>
                     <ul>
                         <li><a href=""> Home</a></li>
                         <li><a href=""> Blog</a></li>
@@ -78,7 +80,7 @@
                     <h1>{{ page.title }}</h1>
                     <p>
                         <span>{{ page.description }}</span><br>
-                        <span><strong>Publish on:</strong> {{ page.date | date: "%d %B %Y" }}</span><br>
+                        <span><strong>Publish on:</strong> {{ page.date | date: "%d %B %Y" }} by {{ site.author }}</span><br>
                         {% if page.last_modified_at %}
                         <span><strong>Last modified at:</strong> {{ page.last_modified_at | date: "%d %B %Y" }}</span><br>
                         {% endif %}
@@ -101,6 +103,38 @@
                     <p><strong>Tag:</strong> {{ page.#tags | join: ", " }}</p>
                 </footer>
                 <!-- END : POST FOOTER -->
+                
+                <!-- START : POST NAV -->
+                <aside class="post__right">
+                    <button class="btn" id="btnRightClose">➡️</button>
+                    <nav class="post__nav">
+                        
+                        <!-- START : TOC -->
+                        <div class="post__nav-toc">
+                            <h4>Daftar Isi</h4>
+                            {% include components/toc.html html=content %}
+                        </div>
+                        <!-- END : TOC -->
+                        
+                        <!-- START : RELATED -->
+                        <div class="post__nav-related">
+                            <h4>Related</h4>
+                            {% for category in page.categories %}
+                            <ul>
+                                {% for post in site.posts %}
+                                {% if post.categories contains category and post.url != page.url %}
+                                <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                            {% endfor %}
+                        </div>
+                        <!-- END : RELATED -->
+                        
+                    </nav>
+                </aside>
+                <!-- END : POST NAV -->
+                
             </article>
             <!-- END : POST CONTENT -->
         </main>
@@ -136,6 +170,7 @@
                 <p>&copy; {{ site.time | date: '%Y' }} - {{ site.owner }} | Semua hak Dilindungi.</p>
             </section>
             <!-- END : COPYRIGHT -->
+            
         </footer>
         <!-- END : MAIN FOOTER -->
         
