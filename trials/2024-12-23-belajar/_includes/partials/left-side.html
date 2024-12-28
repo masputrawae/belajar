@@ -1,0 +1,36 @@
+<!-- START : LEFT -->
+<aside class="left">
+        
+    <!-- START : LEFT HEADER -->
+    <header class="left__header">
+        <img src="https://placehold.co/50" alt="">
+        <a href="">
+            <h1>{{ site.title }}</h1>
+            <p>{{ site.description }}</p>
+        </a>
+        <button class="btn" id="btnLeftClose"><i class="bi-arrow-left-circle"></i></button>
+    </header>
+    <!-- END : LEFT HEADER -->
+    
+    <!-- START : LEFT SEARCHBAR -->
+    {% include components/search.html %}
+    <!-- END : LEFT SEARCHBAR -->
+    
+    <!-- START : LEFT NAV -->
+    <nav class="left__nav">
+        {% assign categories = site.categories %}
+        {% for category in categories %}
+            <div class="left__nav-categories">
+                <h3>{{ category[0] }}</h3>
+                <ul>
+                    {% for post in category[1] %}
+                        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </nav>
+    <!-- END : LEFT NAV -->
+    
+</aside>
+<!-- END : LEFT -->

@@ -1,0 +1,6 @@
+@use '../utils/variables' as v;
+@use '../utils/mixins' as m;
+
+.left {
+    background-color: var(--background-color);
+}

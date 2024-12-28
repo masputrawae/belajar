@@ -1,0 +1,43 @@
+@use '../utils/variables' as v;
+@use '../utils/mixins' as m;
+
+.container {
+    .left {
+        @include m.position(fixed, 0, auto, auto, -100%);
+        @include m.area-calculation(100%, 100%);
+        overflow-x: auto;
+        transition: left 0.5s ease;
+
+        &.open {
+            left: 0;
+        }
+
+        .left__nav {
+            font-size: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @include m.breakpoint(desktop){
+        @include m.grid-setting(0px auto, auto, 0px);
+        transition: grid-template-columns 0.5s ease;
+        .left {
+            @include m.area-calculation(320px, 100%);
+            position: relative;
+            grid-column: 1;
+            left: -320px;
+        }
+
+        &.open {
+            grid-template-columns: 320px auto;
+            .left {
+                left: 0;
+            }
+        }
+
+        .main {
+            grid-column: 2;
+        }
+    }
+}

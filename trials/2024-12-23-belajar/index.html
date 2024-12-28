@@ -1,180 +1,143 @@
-<!DOCTYPE html>
-<html lang="in">
-<head>
-    <meta charset="UTF-8">
-    <title>Judul halaman</title>
-</head>
-<body>
-    <!-- START : LEFT -->
-    <aside class="left">
-        
-        <!-- START : LEFT HEADER -->
-        <header class="left__header">
-            <img src="https://placehold.co/50" alt="">
-            <a href="">
-                <h1>{{ site.title }}</h1>
-                <p>{{ site.description }}</p>
-            </a>
-            <button class="btn" id="btnLeftClose">⬅️</button>
-        </header>
-        <!-- END : LEFT HEADER -->
-        
-        <!-- START : LEFT SEARCHBAR -->
-        <form class="left__search">
-            <input type="search">
-            <button>🔍</button>
-        </form>
-        <!-- END : LEFT SEARCHBAR -->
-        
-        <!-- START : LEFT NAV -->
-        <nav class="left__nav">
-            {% assign categories = site.categories %}
-            {% for category in categories %}
-                <div class="left__nav-categories">
-                    <h3>{{ category[0] }}</h3>
-                    <ul>
-                        {% for post in category[1] %}
-                            <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endfor %}
-        </nav>
-        <!-- END : LEFT NAV -->
-        
-    </aside>
-    <!-- END : LEFT -->
-    
-    <!-- START : MAIN -->
-    <div class="main">
-        
-        <!-- START : MAIN HEADER -->
-        <header class="header">
-            <button class="btn" id="btnLeftOpen">➡️</button>
-            <h1>{{ site.title }}</h1>
-            <nav class="header__nav">
-                <button class="btn" id="btnRightOpen">⬅️</button>
-                <button class="btn" id="btnMenuOpen">⬇️</button>
-                <div class="header__nav-menu">
-                    <button class="btn" id="btnMenuClose">⬆️</button>
-                    <ul>
-                        <li><a href=""> Home</a></li>
-                        <li><a href=""> Blog</a></li>
-                        <li><a href=""> Portfolio</a></li>
-                        <li><a href=""> About</a></li>
-                        <li><a href=""> Help</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- END : MAIN HEADER -->
-        
-        <!-- START : MAIN CONTENT -->
-        <main class="post">
-            
-            <!-- START : POST CONTENT -->
-            <article>
-                
-                <!-- START : POST HEADER -->
-                <header class="post__header">
-                    <h1>{{ page.title }}</h1>
-                    <p>
-                        <span>{{ page.description }}</span><br>
-                        <span><strong>Publish on:</strong> {{ page.date | date: "%d %B %Y" }} by {{ site.author }}</span><br>
-                        {% if page.last_modified_at %}
-                        <span><strong>Last modified at:</strong> {{ page.last_modified_at | date: "%d %B %Y" }}</span><br>
-                        {% endif %}
-                        {% if page.image %}
-                    </p>
-                    <img src="{{ page.image }}" alt="{{ page.title }}">
-                    {% endif %}
-                </header>
-                <!-- END : POST HEADER -->
-                
-                <!-- START : POST CONTENT -->
-                <section class="post__content">
-                    {{ content }}
-                </section>
-                <!-- END : POST CONTENT -->
-                
-                <!-- START : POST FOOTER -->
-                <footer class="post__footer">
-                    <p><strong>Kategori:</strong> {{ page.categories | join: ", " }}</p>
-                    <p><strong>Tag:</strong> {{ page.#tags | join: ", " }}</p>
-                </footer>
-                <!-- END : POST FOOTER -->
-                
-                <!-- START : POST NAV -->
-                <aside class="post__right">
-                    <button class="btn" id="btnRightClose">➡️</button>
-                    <nav class="post__nav">
-                        
-                        <!-- START : TOC -->
-                        <div class="post__nav-toc">
-                            <h4>Daftar Isi</h4>
-                            {% include components/toc.html html=content %}
-                        </div>
-                        <!-- END : TOC -->
-                        
-                        <!-- START : RELATED -->
-                        <div class="post__nav-related">
-                            <h4>Related</h4>
-                            {% for category in page.categories %}
-                            <ul>
-                                {% for post in site.posts %}
-                                {% if post.categories contains category and post.url != page.url %}
-                                <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-                                {% endif %}
-                                {% endfor %}
-                            </ul>
-                            {% endfor %}
-                        </div>
-                        <!-- END : RELATED -->
-                        
-                    </nav>
-                </aside>
-                <!-- END : POST NAV -->
-                
-            </article>
-            <!-- END : POST CONTENT -->
-        </main>
-        <!-- END : MAIN CONTENT -->
-        
-        <!-- START : MAIN FOOTER -->
-        <footer class="footer">
-            
-            <!-- START : SOSIAL LINK -->
-            <section class="footer__social">
-                <h4>Social Link</h4>
-                <ul>
-                    <li><a href="{{ site.facebook }}" aria-label="Facebook"><i class="bi-facebook"></i> Facebook</a></li>
-                    <li><a href="{{ site.twitter }}" aria-label="Twitter"><i class="bi-twitter"></i> Twitter</a></li>
-                    <li><a href="{{ site.instagram }}" aria-label="Instagram"><i class="bi-instagram"></i> Instagram</a></li>
-                    <li><a href="{{ site.youtube }}" aria-label="Youtube"><i class="bi-youtube"></i> Youtube</a></li>
-                    <li><a href="{{ site.linkedin }}" aria-label="LinkedIn"><i class="bi-linkedin"></i> Linkedin</a></li>
-                    <li><a href="{{ site.github }}" aria-label="GitHub"><i class="bi-github"></i> Github</a></li>
-                    <li><a href="{{ site.discord }}" aria-label="Discord"><i class="bi-discord"></i> Discord</a></li>
-                </ul>
-            </section>
-            <!-- END : SOSIAL LINK -->
-            
-            <!-- START : COPYRIGHT -->
-            <section class="footer__copyright">
-                <p>
-                    <a href="{{ '/privacy-policy.html' | relative_url }}">Privacy Policy</a> |
-                    <a href="{{ '/terms.html' | relative_url }}">Terms of Service</a> |
-                    <a href="{{ '/disclaimer.html' | relative_url }}">Disclaimer</a> |
-                    <a href="#top">Back To Top</a>
-                </p>
-                <p>Dibuat dengan <strong>❤️</strong> dan Semangat <strong>Belajar</strong> | Powered by:<a href="">Jekyll</a>, & <a href="">Github pages</a>.</p>
-                <p>&copy; {{ site.time | date: '%Y' }} - {{ site.owner }} | Semua hak Dilindungi.</p>
-            </section>
-            <!-- END : COPYRIGHT -->
-            
-        </footer>
-        <!-- END : MAIN FOOTER -->
-        
+---
+layout: page
+title: Home
+---
+<section class="hero">
+    <div class="hero-welcome">
+        <h1 class="hero-title">
+            <span class="heading-start">Hei..! Saya</span>
+            <span class="heading-center">Putra.</span>
+            <span class="heading-end">Si Pembelajar Sejati!</span>
+        </h1>
+        <p>Selamat datang di website pertama saya yang saya buat setelah bertahan hidup dalam dunia pemrograman selama beberapa bulan. Tidak tahu juga kenapa bisa jadi begini, tapi ayo nikmati!</p>
     </div>
-    <!-- END : MAIN -->
-</body>
-</html>
+    <div class="hero-cta">
+        <a class="btn btn-cta" href="https://discord.gg/your-invite-link">Bergabung di Discord (Saya sendirian, tolong!)</a>
+        <a class="btn btn-cta" href="#learning">Jelajah Lebih Lanjut (atau kabur, terserah!)</a>
+    </div>
+</section>
+
+<!-- START : MY LEARNING -->
+<section class="learning" id="learning">
+    <div class="intro-section">
+        <h2>Apa yang sedang saya pelajari? (Jangan kaget!)</h2>
+        <p>Saya sedang mempelajari banyak hal, dan jika hasilnya tidak seperti yang diharapkan, jangan tanya saya, tanyakan saja ke Google. Tapi, mari kita lihat apa yang saya pelajari sejauh ini, siap?</p>
+    </div>
+    
+    <!-- HTML -->
+    <div class="card card-learning">
+        <article class="card-item">
+            <p>HTML itu kayak pondasi rumah. Tanpa HTML, web cuma bayangan! Saya sudah cukup lama belajar, jadi saya yakin website ini nggak bakal runtuh… mudah-mudahan.</p>
+            <h3>HTML</h3>
+        </article>
+    </div>
+    
+    <!-- CSS -->
+    <div class="card card-learning">
+        <article class="card-item">
+            <p>CSS adalah si penyihir yang mengubah halaman web dari polos jadi kece! Saya belajar membuat website saya terlihat keren, walaupun kadang berantakan. Tapi, ya... proses!</p>
+            <h3>CSS</h3>
+        </article>
+    </div>
+    
+    <!-- JAVASCRIPT -->
+    <div class="card card-learning">
+        <article class="card-item">
+            <p>JavaScript itu kayak magic. Tapi kalau nggak hati-hati, bisa jadi sihir hitam yang bikin bug! Saya sedang berusaha agar nggak menghancurkan web saya dengan kode-kode aneh.</p>
+            <h3>JAVASCRIPT</h3>
+        </article>
+    </div>
+    
+    <!-- SCSS -->
+    <div class="card card-learning">
+        <article class="card-item">
+            <p>SCSS itu kayak CSS, tapi lebih pintar! Saya sudah mulai memahaminya, walaupun kadang SCSS ngomong "Error!" dan saya cuma bisa diam bingung.</p>
+            <h3>SCSS</h3>
+        </article>
+    </div>
+    
+    <!-- PHP -->
+    <div class="card card-learning">
+        <article class="card-item">
+            <p>PHP itu bikin saya pusing! Tapi saya yakin jika saya belajar lebih banyak, saya bisa membuat web saya punya "otak" dan bekerja seperti yang saya mau... atau setidaknya tidak error terus.</p>
+            <h3>PHP</h3>
+        </article>
+    </div>
+    
+    <!-- DATABASE -->
+    <div class="card card-learning">
+        <article class="card-item">
+            <p>Database itu tempat menyimpan semua rahasia dan kenangan indah kita... atau data pengguna, tapi intinya mirip lah. Saya belajar supaya bisa mengatur semuanya tanpa bingung.</p>
+            <h3>Database</h3>
+        </article>
+    </div>
+    
+    <!-- PYTHON -->
+    <div class="card card-learning">
+        <article class="card-item">
+            <p>Python itu bahasa yang lucu, katanya. Tapi saya belum begitu paham, jadi saya terus mencari tutorial dan berharap akhirnya bisa paham tanpa menambah kesalahan yang lebih besar!</p>
+            <h3>Python</h3>
+        </article>
+    </div>
+    
+    <!-- LINUX -->
+    <div class="card card-learning">
+        <article class="card-item">
+            <p>Linux itu seperti dunia misteri. Saya lebih suka menggunakan terminalnya daripada klik-klik di GUI. Tapi, kadang terminalnya nggak mau nurut, dan saya cuma bisa... reboot!</p>
+            <h3>Linux</h3>
+        </article>
+    </div>
+    
+    <!-- BOOTSTRAP -->
+    <div class="card card-learning">
+        <article class="card-item">
+            <p>Bootstrap itu seperti jalan pintas menuju desain keren. Tapi, saya lebih suka mengotak-atik desain saya sendiri. Ya, saya kadang-kadang melawan konvensi, hidup hanya sekali!</p>
+            <h3>Bootstrap</h3>
+        </article>
+    </div>
+    
+    <!-- TAILWIND -->
+    <div class="card card-learning">
+        <article class="card-item">
+            <p>Tailwind adalah super power dalam dunia CSS! Tapi, belajar dengan Tailwind kadang membuat saya berpikir, "Apakah saya benar-benar menguasai CSS?" (Jawabannya: tidak.)</p>
+            <h3>Tailwind</h3>
+        </article>
+    </div>
+    
+    <!-- COPY PASTE -->
+    <div class="card card-learning">
+        <article class="card-item">
+            <p>Ilmu Copy Paste adalah seni yang harus dikuasai oleh setiap developer. Tentu saja, setelah menulis kode sendiri, karena kalau copy paste terus, nggak bakal belajar, kan?</p>
+            <h3>Ilmu Copy Paste</h3>
+        </article>
+    </div>
+</section>
+<!-- END : MY LEARNING -->
+
+<!-- START : MY BLOG -->
+<section class="blog">
+    <div class="intro-section">
+        <h2>Blog / Catatan Saya (Sangat Mendalam... atau mungkin tidak)</h2>
+        <p>Selamat datang di blog saya! Di sini saya akan menulis tentang banyak hal, seperti tips pemrograman, kejadian lucu di dunia coding, dan tentunya kesalahan-kesalahan keren yang saya buat! Siap untuk membaca?</p>
+    </div>
+    
+    <!-- START : CARD LOOPING -->
+    <div class="card card-blog">
+        {% assign categories = site.categories %}
+        {% for category in categories %}
+        <div class="category-section">
+            <h3>{{ category[0] }}</h3>
+            <div class="category-articles">
+                {% for post in category[1] %}
+                <article class="card-item">
+                    <h4>{{ post.title }}</h4>
+                    <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+                    <a href="{{ post.url | relative_url }}">Read more...</a>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- END : CARD LOOPING -->
+</section>
