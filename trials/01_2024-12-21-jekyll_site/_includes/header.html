@@ -1,0 +1,36 @@
+<!-- START : HEADER -->
+<header class="header">
+    <!-- START : BRAND * -->
+    <a class="brand" href="">
+        <img src="{{ '/assets/images/logo/logo.png' | relative_url }}" alt="Logo {{ site.title }}">
+        <div class="brand-title">
+            <h1>{{ site.title }}</h1>
+            <p>{{ site.description }}</p>
+        </div>
+    </a>
+    <!-- END : BRAND * -->
+
+    <!-- START : HEADER NAV -->
+    <nav>
+        <button class="btn" id="btnMenuOpen">
+            <i class="bi-list"></i>
+        </button>
+        <div class="nav-menu">
+            <button class="btn" id="btnMenuClose">
+                <i class="bi-x"></i>
+            </button>
+            <!-- START : NAV ITEM * -->
+            <ul>
+                <li><a href=""><i class="bi bi-house-door"></i> Home</a></li>
+                <li><a href=""><i class="bi bi-pencil-square"></i> Blog</a></li>
+                <li><a href=""><i class="bi bi-folder2-open"></i> Portfolio</a></li>
+                <li><a href=""><i class="bi bi-kanban"></i> Projects</a></li>
+                <li><a href=""><i class="bi bi-images"></i> Gallery</a></li>
+                <li><a href=""><i class="bi bi-person-circle"></i> About</a></li>
+            </ul>            
+            <!-- END : NAV ITEM * -->
+        </div>
+    </nav>
+    <!-- END : HEADER NAV -->
+</header>
+<!-- END : HEADER -->

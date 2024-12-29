@@ -1,0 +1,25 @@
+:root[data-theme=dark] {
+    --base-font: 'Arial', sans-serif;
+    --primary-font: 'Roboto', sans-serif;
+    --secondary-font: 'Montserrat', sans-serif;
+    --monospace-font: 'Courier New', monospace;
+
+    --background-color: #121212; 
+    --primary-color: #0f74f8;
+    --secondary-color: #9C27B0;
+    --accent-color: #FF9800;
+    --text-color: #FFFFFF;
+}
+
+:root[data-theme=light] {
+    --base-font: 'Arial', sans-serif;
+    --primary-font: 'Roboto', sans-serif;
+    --secondary-font: 'Montserrat', sans-serif;
+    --monospace-font: 'Courier New', monospace;
+
+    --background-color: #FFFFFF;
+    --primary-color: #1A73E8;
+    --secondary-color: #F44336;
+    --accent-color: #4CAF50;
+    --text-color: #212121;
+}

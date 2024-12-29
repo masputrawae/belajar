@@ -1,0 +1,12 @@
+<aside class="right-side">
+    <nav class="post__nav">
+        <div class="post__nav-toc">
+            <h4>Daftar Isi</h4>
+            {{ content | toc_only }}
+        </div>
+        <div class="post__nav-related">
+            <h4>Related</h4>
+            {% include components/related.html %}
+        </div>
+    </nav>
+</aside>
