@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<body class="layout layout__page">
+    <header class="page__header">
+        {% include elements/brand.html %}
+        <nav class="page__header-nav">
+            <button class="btn" id="btnMenuOpen">
+                <i class="bi-list"></i>
+            </button>
+            <div class="nav-menu">
+                <button class="btn" id="btnMenuClose">
+                    <i class="bi-x"></i>
+                </button>
+                {% include elements/main-nav.html %}
+            </div>
+        </nav>
+    </header>
+    <main class="page__main">
+        {{ content }}
+    </main>
+    <footer class="page__footer">
+        {% include elements/social-link.htnl %}
+        {% include elements/copyright.html %}
+    </footer>
+</body>

@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<body class="layout layout__post">
+    <aside class="post__left">
+        <header class="post__left-header">
+            {% include elements/brand.html %}
+            <button class="btn" id="btnLeftClose">
+                <i class="bi-x"></i>
+            </button>
+        </header>
+        
+        <nav class="post__left-nav">
+            <div class="main-nav">
+                <h3>Main Menu</h3>
+                {% include elements/main-nav.html %}
+            </div>
+        </nav>
+    </aside>
+    <div class="post__main">
+        <header class="post__header">
+            <div class="post__header-info">
+                <h1>{{ page.title }}</h1>
+            </div>
+            
+            <div class="post__header-btn">
+                <button class="btn" id="btnLeftOpen">
+                    <i class="bi-list"></i>
+                </button>
+                <button class="btn btn-search" id="btnSearchOpen">
+                    <i class="bi-search"></i>
+                    <span class="text-search">Pencarian</span>
+                </button>
+                <button class="btn" id="btnRightOpen">
+                    <i class="bi-three-dots-vertical"></i>
+                </button>
+            </div>
+        </header>
+        
+    </div>
+</body>
