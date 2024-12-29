@@ -1,0 +1,63 @@
+---
+layout: default
+---
+<body class="layout layout-post">
+
+    <aside class="post__leftside">
+        <header class="post__leftside-header">
+            {% include components/brand.html %}
+            <button class="btn" id="btnSideBarClose">x</button>
+        </header>
+
+        <nav>
+            <h3>Main Menu</h3>
+            {% include components/main-nav.html %}
+        </nav>
+    </aside>
+
+    <div class="post">
+        <header class="post__header">
+
+            <div class="btn-nav">
+                <button class="btn" id="btnLeftsideOpen"><i class="bi-list"></i></button>
+                {% include components/btn-search.html %}
+                <button class="btn" id="btnLeftsideOpen"><i class="bi bi-three-dots-vertical"></i></button>
+            </div>
+
+            {% include components/search.html %}
+
+            <h1>{{ page.title }}</h1>
+            <p>
+                <span>{{ page.description }}</span><br>
+                <span><strong>Publish on:</strong> {{ page.date | date: "%d %B %Y" }} by {{ site.author }}</span><br>
+                {% if page.last_modified_at %}
+                <span><strong>Last modified at:</strong> {{ page.last_modified_at | date: "%d %B %Y" }}</span><br>
+                {% endif %}
+                {% if page.image %}
+            </p>
+            <img src="{{ page.image }}" alt="{{ page.title }}">
+            {% endif %}
+        </header>
+
+        <main class="post__content">
+            <article>
+                {{ content }}
+            </article>
+            <nav class="post__nav">
+                <div class="post__nav-toc">
+                    <h4>Daftar Isi</h4>
+                    {{ content | toc_only }}
+                </div>
+                <div class="post__nav-related">
+                    <h4>Related</h4>
+                    {% include components/related.html %}
+                </div>
+            </nav>
+        </main>
+
+        <footer class="footer post__footer">
+            {% include partials/footer.html %}
+        </footer>
+
+    </div>
+</body>

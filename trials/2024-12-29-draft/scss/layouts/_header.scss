@@ -1,0 +1,45 @@
+@use '../utils/variables' as v;
+@use '../utils/mixins' as m;
+
+// PAGE HEADER
+.page__header {
+    @include m.shadow(4);
+    border-bottom: 2px solid var(--accent-color);
+    position: sticky;
+    top: 0;
+    &,.page__header-brand {
+        @include m.flex-justify();
+        padding: 5px;
+    }
+
+    // BRAND
+    h1, p {
+        color: var(--accent-color);
+        line-height: 1;
+        padding-left: 5px;
+    }
+
+    // NAV MENU
+    &-nav--menu {
+        @include m.area-calculation(100%, 100%);
+        background-color: var(--background-color);
+        position: fixed;
+        top: -100%;
+        left: 0;
+        transition: top 1s ease;
+        padding: 20px;
+        &.open {
+            top: 0;
+        }
+    }
+
+    // LOGO
+    img {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid var(--accent-color);
+    }
+}
+
+// POST HEADER 
