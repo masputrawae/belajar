@@ -2,9 +2,10 @@
 @use '../utils/mixins' as m;
 
 .btn {
-    @include m.shadow(4);
+    @include m.shadow(2);
     @include m.area-calculation(30px, 30px);
+    @include m.hover-scale();
     color: var(--accent-color);
-    border: 1px solid var(--accent-color);
+    border: 2px solid var(--accent-color);
     border-radius: 5px;
 }

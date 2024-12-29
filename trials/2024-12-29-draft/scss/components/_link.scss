@@ -1,0 +1,11 @@
+@use '../utils/variables' as v;
+@use '../utils/mixins' as m;
+
+a {
+    display: inline-block;
+    color: var(--accent-color);
+
+    &:hover {
+        color: var(--additional-color);
+    }
+}
