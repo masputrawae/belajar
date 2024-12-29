@@ -4,6 +4,7 @@
 // PAGE HEADER
 .page__header {
     @include m.shadow(4);
+    background-color: var(--background-color);
     border-bottom: 2px solid var(--accent-color);
     position: sticky;
     top: 0;
@@ -21,15 +22,22 @@
 
     // NAV MENU
     &-nav--menu {
-        @include m.area-calculation(100%, 100%);
+        @include m.area-calculation(90%, 90%);
+        border-bottom: 2px solid var(--accent-color);
+        border-top: 2px solid var(--accent-color);
+        border-radius: 5px;
         background-color: var(--background-color);
+        box-shadow: 0px 0px 10px 40px rgba(0, 0, 0, 0.651);
         position: fixed;
-        top: -100%;
-        left: 0;
-        transition: top 1s ease;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: scale 0.3s ease, box-shadow 3s ease;
         padding: 20px;
+        scale: 0;
         &.open {
-            top: 0;
+            scale: 1;
+            box-shadow: 0px 0px 60px 40px rgba(0, 0, 0, 0.75);
         }
     }
 
