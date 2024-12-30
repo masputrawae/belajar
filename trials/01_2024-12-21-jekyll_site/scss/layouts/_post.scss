@@ -1,7 +1,0 @@
-@use '../utils/variables' as v;
-@use '../utils/mixins' as m;
-
-.button-nav {
-    padding: 20px;
-    @include m.flex-justify(space-between, center, row, 0px);
-}

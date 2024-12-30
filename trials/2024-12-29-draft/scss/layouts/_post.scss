@@ -1,9 +1,0 @@
-@use '../utils/variables' as v;
-@use '../utils/mixins' as m;
-
-img {
-    @include m.area-calculation(50px, 50px);
-    border-radius: 5px;
-    border: 1px solid var(--accent-color);
-    @include m.shadow(2);
-}
