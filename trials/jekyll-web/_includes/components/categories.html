@@ -1,0 +1,13 @@
+{% assign categories = site.categories %}
+{% for category in categories %}
+<nav>
+    <button>{{ category[0] }}</button>
+    <div>
+        <ul>
+            {% for post in category[1] %}
+                <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
+{% endfor %}

@@ -8,13 +8,11 @@ gem "webrick"
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-sitemap"
-  gem "jekyll-toc"
 end
 
 #=================================[=] Tambahkan gem lain sesuai kebutuhan
 gem "kramdown"
 gem "dotenv"
-gem 'jekyll-tidy'
 #=================================[=] Pastikan untuk menginstal bundler jika belum
 gem "bundler", "~> 2.0" 
 gem "html-proofer"
