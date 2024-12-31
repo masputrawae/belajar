@@ -6,9 +6,11 @@ keywoard: ""
 timezone: Asia/Jakarta
 author: "Putra Jaya"
 data-theme: 'dark' # dark/light
+
 # ============[]
 url: ""
 baseurl: ""
+
 # ============[]
 collections:
   projects:
@@ -17,13 +19,12 @@ collections:
     output: true
 
 # ============[]
-facebook: ""
-twitter: ""
-instagram: ""
-youtube: ""
-linkedin: ""
-github: ""
-discord: ""
+facebook: "https://www.facebook.com/profile.php?id=61566134978045"
+twitter: "https://x.com/Masputrawae"
+instagram: "https://www.instagram.com/masputrawae/"
+youtube: "https://www.youtube.com/@masputrawae"
+github: "https://github.com/masputrawae/"
+discord: "https://discord.gg/nM4EP8DJFZ"
 rss-feed: "/feed.xml"
 # ============[]
 defaults:
@@ -34,6 +35,7 @@ defaults:
       layout: "post"
       permalink: "/:title/"
       toc: true
+
 # ============[]
 exclude:
   - Gemfile
@@ -43,6 +45,7 @@ exclude:
   - drafts
   - .sass-cache/
   - .jekyll-cache/
+
 # ============[]
 plugins:
   - jekyll-feed
@@ -51,5 +54,7 @@ plugins:
 
 highlighter: rouge
 markdown: kramdown
-
+kramdown: 
+  syntax_highlighter_opts:
+    disable : true
 # ============[]

@@ -1,5 +1,58 @@
 ---
-layout: page
+layout: home
 title: Home
 ---
-{% include components/tag.html %}
+<header class="full-header">
+    {% include partials/header.html %}
+    <section class="hero">
+        <div class="welcome">
+            <h2>Selamat Datang, Pejuang Internet!</h2>
+            <p>Ini adalah situs pertama yang aku buat. Kalau kalian menemukan <i>bug</i>, pura-pura aja nggak lihat ya.Semoga kalian betah di sini, jangan lupa bawa kopi kalau mau ngoding bareng!</p>
+        </div>
+        <div class="cta">
+            <a href="#">Cek Isinya, Tapi Pelan-Pelan</a>
+            <a href="{{ site.discord }}">Join Discordku, Biar Nggak Kesepian</a>
+        </div>
+    </section>
+</header>
+<main>
+    <section class="skill">
+        <div class="skill__intro">
+            <h3>Apa yang sedang saya pelajari? (Jangan kaget!)</h3>
+            <p>Saya sedang mempelajari banyak hal, dan jika hasilnya tidak seperti yang diharapkan, jangan tanya saya, tanyakan saja ke Google. Tapi, mari kita lihat apa yang saya pelajari sejauh ini, siap?</p>
+        </div>
+        <div class="skill__card flex-justify">
+            {% for skill in site.data.skills.skill %}
+            <div class="skill__card-item">
+                <img src="{{ skill.img }}" alt="{{ skill.name }}">
+                <h4>{{ skill.name }}</h4>
+                <p>{{ skill.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+    <section class="blog">
+        <div class="blog__intro">
+            <h3>Blog / Catatan Saya (Sangat Mendalam... atau mungkin tidak)</h3>
+            <p>Selamat datang di blog saya! Di sini saya akan menulis tentang banyak hal, seperti tips pemrograman, kejadian lucu di dunia coding, dan tentunya kesalahan-kesalahan keren yang saya buat! Siap untuk membaca?</p>
+        </div>
+
+        {% assign categories = site.categories %}
+        {% for category in categories %}
+        <div class="blog__card">
+            <h3>{{ category[0] }}</h3>
+            <div class="blog__card-category">
+                {% for post in category[1] %}
+                <article class="blog__card-item">
+                    <h4>{{ post.title }}</h4>
+                    <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+                    <a href="{{ post.url | relative_url }}">Read more...</a>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+</main>
+{% include partials/footer.html %}
