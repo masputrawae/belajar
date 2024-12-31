@@ -24,6 +24,7 @@ youtube: ""
 linkedin: ""
 github: ""
 discord: ""
+rss-feed: "/feed.xml"
 # ============[]
 defaults:
   - scope:

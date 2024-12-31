@@ -1,2 +1,6 @@
 @use '../utils/variables' as v;
 @use '../utils/mixins' as m;
+
+.flex-justify {
+    @include m.flex-justify();
+}

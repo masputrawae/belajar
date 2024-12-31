@@ -1,7 +1,7 @@
 {% assign categories = site.categories %}
 {% for category in categories %}
 <nav>
-    <button>{{ category[0] }}</button>
+    <button class="btn btn-category"><i class="bi bi-folder"></i> {{ category[0] }}</button>
     <div>
         <ul>
             {% for post in category[1] %}

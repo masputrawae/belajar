@@ -12,8 +12,8 @@ layout: default
             <button class="btn btn-primary" id="btnLeftClose">
                 <i class="bi-x"></i>
             </button>
-            {% include components/tag.html %}
         </div>
+        {% include components/categories.html %}
     </aside>
     <main>
         <article class="content">
@@ -32,7 +32,7 @@ layout: default
                 <img src="https://picsum.photos/320/150" alt="{{ page.title }}">
             </header>
             <section>
-                {{ content }}
+                {% include components/anchor_headings.html html=content anchorBody="#" %}
             </section>
         </article>
         
@@ -46,12 +46,11 @@ layout: default
                 </button>
             </div>
             <nav>
-                <div>
+                <div class="toc">
                     {% include components/toc.html html=content %}
                 </div>
-                <div>
-                    {% include components/categories.html %}
-                    
+                <div class="related">
+                    {% include components/related.html %}
                 </div>
             </nav>
         </aside>
