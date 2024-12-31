@@ -2,5 +2,11 @@
 @use '../utils/mixins' as m;
 
 .flex-justify {
-    @include m.flex-justify();
+    @include m.flex-justify(space-between, center, row, 10px);
+}
+
+@include m.breakpoint(desktop){
+    .desktop-none {
+        display: none;
+    }
 }

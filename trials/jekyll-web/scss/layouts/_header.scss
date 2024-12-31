@@ -1,0 +1,27 @@
+@use '../utils/variables' as v;
+@use '../utils/mixins' as m;
+
+// HEADER BRAND
+.brand {
+    h1, p{
+        font-family: var(--heading-font);
+        line-height: 1.2;
+    }
+    h1 {font-size: 2rem;}
+    p {font-size: 0.8rem}
+
+    // LOGO
+    img {
+        @include m.area-calculation(45px, 45px);
+        border: 1px solid var(--accent-color);
+        border-radius: 5px;
+    }
+}
+
+.nav-menu {
+    @include m.area-calculation(100%, 100%);
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: var(--background-color);
+}

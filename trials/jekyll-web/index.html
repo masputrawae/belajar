@@ -24,7 +24,7 @@ title: Home
         <div class="skill__card flex-justify">
             {% for skill in site.data.skills.skill %}
             <div class="skill__card-item">
-                <img src="{{ skill.img }}" alt="{{ skill.name }}">
+                <img src="https://picsum.photos/150" alt="{{ skill.name }}">
                 <h4>{{ skill.name }}</h4>
                 <p>{{ skill.description }}</p>
             </div>
@@ -42,7 +42,7 @@ title: Home
         {% for category in categories %}
         <div class="blog__card">
             <h3>{{ category[0] }}</h3>
-            <div class="blog__card-category">
+            <div class="blog__card-category flex-justify">
                 {% for post in category[1] %}
                 <article class="blog__card-item">
                     <h4>{{ post.title }}</h4>

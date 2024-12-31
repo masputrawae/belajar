@@ -9,7 +9,7 @@ skill:
     description: "JavaScript itu kayak magic. Tapi kalau nggak hati-hati, bisa jadi sihir hitam yang bikin bug! Saya sedang berusaha agar nggak menghancurkan web saya dengan kode-kode aneh."
     img: "/assets/images/skill/javascript.png"
   - name: "SCSS"
-    description: "SCSS itu kayak CSS, tapi lebih pintar! Saya sudah mulai memahaminya, walaupun kadang SCSS ngomong "Error!" dan saya cuma bisa diam bingung."
+    description: "SCSS itu kayak CSS, tapi lebih pintar! Saya sudah mulai memahaminya, walaupun kadang SCSS ngomong \"Error!\" dan saya cuma bisa diam bingung."
     img: "/assets/images/skill/scss.png"
   - name: "PHP"
     description: "PHP itu bikin saya pusing! Tapi saya yakin jika saya belajar lebih banyak, saya bisa membuat web saya punya otak dan bekerja seperti yang saya mau... atau setidaknya tidak error terus."
