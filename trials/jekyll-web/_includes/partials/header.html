@@ -1,0 +1,27 @@
+<div class="flex-justify">
+    <div class="brand flex-justify">
+        <img src="{{ '/assets/images/logo/logo.png' | relative_url | default: https://placehold.co/50 }}" alt="">
+        <a href="{{ '/' | relative_url }}">
+            <h1>{{ site.title }}</h1>
+            <p>{{ site.description }}</p>
+        </a>
+    </div>
+    <nav>
+        <button class="btn btn-primary desktop-none">
+            <i class="bi-list"></i>
+        </button>
+        <div class="nav-menu">
+            <button class="btn btn-primary desktop-none">
+                <i class="bi-x"></i>
+            </button>
+            <ul>
+                <h3>Main Menu</h3>
+                <li><a href="{{ '/' | relative_url }}"> Home</a></li>
+                <li><a href="{{ '/' | relative_url }}"> Blog</a></li>
+                <li><a href="{{ '/' | relative_url }}"> Portfolio</a></li>
+                <li><a href="{{ '/' | relative_url }}"> Gallery</a></li>
+                <li><a href="{{ '/' | relative_url }}"> About</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>

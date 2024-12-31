@@ -1,0 +1,11 @@
+// MAIN SCSS
+
+@use 'base/reset';
+@use 'base/root';
+@use 'base/typography';
+@use 'base/global';
+
+@use 'layouts/header';
+@use 'layouts/footer';
+@use 'layouts/post';
+@use 'layouts/page';

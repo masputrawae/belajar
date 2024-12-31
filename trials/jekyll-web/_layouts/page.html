@@ -2,4 +2,11 @@
 layout: default
 ---
 <body class="page">
+    <header>
+        {% include partials/header.html %}
+    </header>
+    <main>
+        {{ content }}
+    </main>
+    {% include partials/footer.html %}
 </body>

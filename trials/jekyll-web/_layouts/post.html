@@ -3,24 +3,38 @@ layout: default
 ---
 <body class="post">
     <header>
-        
+        {% include partials/header.html %}
+        {% include partials/button-nav.html %}
     </header>
-
-    <main class="post__main">
-        <aside class="post__left-side">
-            
-        </aside>
-
-        <article class="post__main-content">
-
+    <aside class="left">
+        <div class="flex-justify">
+            <img src="{{ '/assets/images/logo/logo.png' | default: https://placehold.co/50 }}" alt="">
+            <button class="btn btn-primary" id="btnLeftClose">
+                <i class="bi-x"></i>
+            </button>
+        </div>
+    </aside>
+    <main>
+        <article class="content">
+            <header>
+                <h1>{{ page.title }}</h1>
+                <p>{{ page.description }}</p>
+            </header>
+            <section>
+                {{ content }}
+            </section>
         </article>
-
-        <aside class="post__main-right">
-
+        
+        <aside class="right">
+            <div class="flex-justify">
+                <button class="btn btn-primary" id="switchTheme">
+                    <i class="bi-moon"></i>
+                </button>
+                <button class="btn btn-primary" id="btnRightClose">
+                    <i class="bi-x"></i>
+                </button>
+            </div>
         </aside>
     </main>
-
-    <footer>
-
-    </footer>
+    {% include partials/footer.html %}
 </body>
