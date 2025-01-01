@@ -1,0 +1,59 @@
+---
+layout: default
+---
+<div class="post">
+    <aside class="post__left" aria-label="Sidebar">
+        <header class="post__left-header">
+            <!-- * -->
+            <img src="https://placehold.co/150" alt="Site Logo for {{ site.title }}">
+            <a href="">
+                <h1>{{ site.title }}</h1>
+                <p>{{ site.description }}</p>
+            </a>
+            <!-- * -->
+        </header>
+        <nav class="post__left-nav" aria-label="Main Menu">
+            <h2>Main Menu</h2>
+            <ul>
+                <!-- * -->
+                <li><a href="{{ '/' | relative_url }}"><i class="bi bi-house-door"></i> Home</a></li>
+                <li><a href="{{ '/blog' | relative_url }}"><i class="bi bi-journal-text"></i> Blog</a></li>
+                <li><a href="{{ '/portfolio' | relative_url }}"><i class="bi bi-briefcase"></i> Portfolio</a></li>
+                <li><a href="{{ '/gallery' | relative_url }}"><i class="bi bi-images"></i> Gallery</a></li>
+                <li><a href="{{ '/about' | relative_url }}"><i class="bi bi-person"></i> About</a></li>
+                <!-- * -->
+            </ul>
+        </nav>
+    </aside>
+    <main class="post__main">
+        <article>
+            <header class="post__main-header">
+                <h1>{{ page.title }}</h1>
+                <p>
+                    <span>{{ page.description }}</span><br>
+                    <span>
+                        <strong>Publish on:</strong>
+                        <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%d %B %Y" }}</time>
+                        <strong>by</strong> {{ page.author | default: site.author }}
+                    </span><br>
+                    {% if page.last_modified_at %}
+                    <span>
+                        <strong>Last modified at:</strong>
+                        <time datetime="{{ page.last_modified_at | date: '%Y-%m-%d' }}">{{ page.last_modified_at | date: "%d %B %Y" }}</time>
+                    </span><br>
+                    {% endif %}
+                </p>
+                {% if page.image %}
+                <img src="{{ page.image }}" alt="Featured image for {{ page.title }}">
+                {% endif %}
+            </header>
+            <section class="post__main-content">
+                {{ content }}
+            </section>
+        </article>
+        <footer class="post__main-footer">
+            {% include partials/sosial-link.html %}
+            {% include partials/copyright.html %}
+        </footer>
+    </main>
+</div>

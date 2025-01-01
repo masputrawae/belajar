@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<div class="page">
+    <header class="page__header">
+        <div class="page__header-brand">
+            <!-- * -->
+            <img src="https://placehold.co/150" alt="Site Logo for {{ site.title }}">
+            <a href="">
+                <h1>{{ site.title }}</h1>
+                <p>{{ site.description }}</p>
+            </a>
+            <!-- * -->
+        </div>
+        <nav class="page__header-nav">
+            <button>=</button>
+            <div class="nav-menu">
+                <button>x</button>
+                <ul>
+                    <h2>Main Menu</h2>
+                    <!-- * -->
+                    <li><a href="{{ '/' | relative_url }}"><i class="bi bi-house-door"></i> Home</a></li>
+                    <li><a href="{{ '/blog' | relative_url }}"><i class="bi bi-journal-text"></i> Blog</a></li>
+                    <li><a href="{{ '/portfolio' | relative_url }}"><i class="bi bi-briefcase"></i> Portfolio</a></li>
+                    <li><a href="{{ '/gallery' | relative_url }}"><i class="bi bi-images"></i> Gallery</a></li>
+                    <li><a href="{{ '/about' | relative_url }}"><i class="bi bi-person"></i> About</a></li>
+                    <!-- * -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="page__main">
+        {{ content }}
+    </main>
+    <footer class="page__footer">
+        {% include partials/sosial-link.html %}
+        {% include partials/copyright.html %}
+    </footer>
+</div>
