@@ -5,7 +5,10 @@ lang: "id"
 keywoard: ""
 timezone: Asia/Jakarta
 author: "Putra Jaya"
-data-theme: 'dark' # dark/light
+default_image: /assets/images/logo/logo.png
+data-theme: "dark" # dark/light
+slogan: "Tempat Berbagi Keluh Kesah"
+owner: "Putra Jaya"
 
 # ============[]
 url: ""

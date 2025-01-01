@@ -2,88 +2,35 @@
 layout: default
 ---
 <div class="wrapper">
-
-<div class="post">
-    <!-- START : LEFT SIDE -->
-    <aside class="sidebar">
-        <div class="brand">
-            <img src="https://placehold.co/150" alt="">
-            <a href="{{'/'}}">
-                <h2>{{ site.title }}</h2>
-                <p>{{ site.slogan }}</p>
-            </a>
-        </div>
-        <nav class="tabs">
-            <div class="tab-nav">
-                <div class="tab-pane active" id="tabMainMenu">
-                    <h3>Main Menu</h3>
-                    <ul>
-                        <!-- * -->
-                        <li><a href=""> Home</a></li>
-                        <li><a href=""> Blog</a></li>
-                        <li><a href=""> Portfolio</a></li>
-                        <li><a href=""> About</a></li>
-                        <li><a href=""> Help</a></li>
-                        <!-- * -->
-                    </ul>
-                </div>
-                <div class="tab-pane" id="tabCategory">
-                    <h3>All Categories</h3>
-                    <!-- fill in later  -->
-                </div>
-                <div class="tab-pane" id="tabSearch">
-                    <h3>Search</h3>
-                    <!-- fill in later  -->
-                </div>
-                <div class="tab-pane" id="tabToc">
-                    <h3>Table Of Content</h3>
-                    <!-- fill in later  -->
-                </div>
-                <div class="tab-pane" id="tabRelated">
-                    <h3>Related</h3>
-                    {% include components/toc.html html=content %}
-                </div>
-            </div>
-            <div class="tab-btn">
-                <button class="btn" id="switchTheme">💡</button>
-                <button class="btn" data-tab="tabCategory">🗃️</button>
-                <button class="btn" data-tab="tabMainMenu">🏠</button>
-                <button class="btn" data-tab="tabSearch">🔍</button>
-                <button class="btn" data-tab="tabToc">📖</button>
-                <button class="btn" data-tab="tabRelated">🔗</button>
-                <button class="btn" id="btnLeftClose">❌</button>
-            </div>
-        </nav>
-    </aside>
-    <!-- END : LEFT SIDE -->
-    
-    <!-- START : MAIN -->
-    <main>
-        <article class="post-content">
-            <header class="post-header">
-                <button class="btn" id="btnLeftOpen">=</button>
-                <h1>{{ page.title }}</h1>
-                <p>
-                    <span>{{ page.description }}</span><br>
-                    <span><strong>Publish on:</strong> {{ page.date | date: "%d %B %Y" }} <strong>by</strong> {{ page.author | default: site.author }}</span><br>
-                    {% if page.last_modified_at %}
-                    <span><strong>Last modified at:</strong> {{ page.last_modified_at | date: "%d %B %Y" }}</span><br>
-                    {% endif %}
-                </p>
-                {% if page.image %}
-                <img src="{{ page.image }}" alt="{{ page.title }}">
-                {% endif %}
-            </header>
-            <section>
-                {% include components/anchor_headings.html html=content anchorBody="#" %}
-            </section>
-        </article>
+    <div class="post">
+        <!-- START : LEFT SIDE -->
+        <aside class="sidebar">
+            {% include partials/brand.html %}
+            {% include partials/tabs.html %}
+        </aside>
+        <!-- END : LEFT SIDE -->
         
-        <footer>
-            {% include partials/footer.html %}
-        </footer>
-    </main>
-    <!-- END : MAIN -->
-</div>
-
+        <!-- START : MAIN -->
+        <main>
+            <article class="post-content">
+                <header class="post-header">
+                    <button class="btn" id="btnLeftOpen">
+                        <i class="bi-list"></i>
+                    </button>
+                    {% include partials/post-info.html %}
+                </header>
+                <div>
+                    {% include components/anchor_headings.html html=content anchorBody="#" %}
+                </div>
+            </article>
+            
+            <!-- START : FOOTER -->
+            <footer>
+                {% include partials/social-link.html %}
+                {% include partials/copyright.html %}
+            </footer>
+            <!-- END : FOOTER -->
+        </main>
+        <!-- END : MAIN -->
+    </div>
 </div>

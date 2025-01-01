@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="in">
-{{ include partials/head.html }}
+<html lang="{{ site.lang | default: en}}" data-theme="{{ site.data-theme }}">
+{% include partials/head.html %}
 <body>
     {{ content }}
 </body>

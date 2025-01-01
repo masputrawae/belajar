@@ -1,0 +1,9 @@
+<ul>
+    {% for category in page.categories %}
+    {% for post in site.posts %}
+    {% if post.categories contains category and post.url != page.url %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+</ul>

@@ -2,11 +2,11 @@
 layout: default 
 ---
 <div class="wrapper">
-
-<div class="page">
-    <header>
-        
-    </header>
-</div>
-
+    <div class="page">
+        {{ content }}
+        <footer>
+            {% include partials/social-link.html %}
+            {% include partials/copyright.html %}
+        </footer>
+    </div>
 </div>
