@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="in">
+<html lang="{{ site.lang | default: 'en-US' }}" data-theme="{{ site.data-theme | default: dark}}">
 {% include partials/head.html %}
 <body>
-    {{ content }}
+    <div class="wrapper">
+        {{ content }}
+    </div>
 </body>
 </html>

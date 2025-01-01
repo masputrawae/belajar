@@ -1,0 +1,22 @@
+:root[data-theme=dark] {
+    --base-font: 'Roboto', sans-serif;
+    --article-font: 'Merriweather', serif;
+    --heading-font: 'Poppins', sans-serif;
+    --monospace-font: 'Courier New', monospace;
+
+    --background-color: rgb(20, 20, 20);
+    --accent-color: rgb(255, 90, 0);
+    --text-color: rgb(230, 230, 230);
+}
+
+
+:root[data-theme=light] {
+    --base-font: 'Roboto', sans-serif;
+    --article-font: 'Merriweather', serif;
+    --heading-font: 'Poppins', sans-serif;
+    --monospace-font: 'Courier New', monospace;
+
+    --background-color: rgb(240, 240, 240);
+    --accent-color: rgb(255, 90, 0);
+    --text-color: rgb(45, 45, 45);
+}

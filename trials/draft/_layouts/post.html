@@ -2,58 +2,93 @@
 layout: default
 ---
 <div class="post">
-    <aside class="post__left" aria-label="Sidebar">
-        <header class="post__left-header">
-            <!-- * -->
-            <img src="https://placehold.co/150" alt="Site Logo for {{ site.title }}">
-            <a href="">
-                <h1>{{ site.title }}</h1>
-                <p>{{ site.description }}</p>
-            </a>
-            <!-- * -->
-        </header>
-        <nav class="post__left-nav" aria-label="Main Menu">
-            <h2>Main Menu</h2>
-            <ul>
-                <!-- * -->
-                <li><a href="{{ '/' | relative_url }}"><i class="bi bi-house-door"></i> Home</a></li>
-                <li><a href="{{ '/blog' | relative_url }}"><i class="bi bi-journal-text"></i> Blog</a></li>
-                <li><a href="{{ '/portfolio' | relative_url }}"><i class="bi bi-briefcase"></i> Portfolio</a></li>
-                <li><a href="{{ '/gallery' | relative_url }}"><i class="bi bi-images"></i> Gallery</a></li>
-                <li><a href="{{ '/about' | relative_url }}"><i class="bi bi-person"></i> About</a></li>
-                <!-- * -->
-            </ul>
-        </nav>
-    </aside>
-    <main class="post__main">
-        <article>
-            <header class="post__main-header">
-                <h1>{{ page.title }}</h1>
-                <p>
-                    <span>{{ page.description }}</span><br>
-                    <span>
-                        <strong>Publish on:</strong>
-                        <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%d %B %Y" }}</time>
-                        <strong>by</strong> {{ page.author | default: site.author }}
-                    </span><br>
-                    {% if page.last_modified_at %}
-                    <span>
-                        <strong>Last modified at:</strong>
-                        <time datetime="{{ page.last_modified_at | date: '%Y-%m-%d' }}">{{ page.last_modified_at | date: "%d %B %Y" }}</time>
-                    </span><br>
-                    {% endif %}
-                </p>
-                {% if page.image %}
-                <img src="{{ page.image }}" alt="Featured image for {{ page.title }}">
-                {% endif %}
+    <div class="post__wrapper">
+        <!-- LEFT SIDE -->
+        <aside class="post__left">
+            <button class="btn btn-primary desktop-none" id="btnLeftClose">
+                <i class="bi-x"></i>
+            </button>
+    
+            <header class="post__left-header">
+                <img src="{{ '/assets/images/logo/logo.png' | relative_url }}" alt="Logo">
+                <a href="{{ '/' | relative_url }}">
+                    <h1>{{ site.title }}</h1>
+                    <p>{{ site.description }}</p>
+                </a>
             </header>
-            <section class="post__main-content">
-                {{ content }}
-            </section>
-        </article>
-        <footer class="post__main-footer">
-            {% include partials/sosial-link.html %}
-            {% include partials/copyright.html %}
-        </footer>
-    </main>
+    
+            <nav class="post__left-nav">
+                <h2>List Article</h2>
+                {% for category in site.categories %}
+                    <button class="btn btn-category">
+                        <i class="bi-folder"></i> {{ category[0] }}
+                    </button>
+                    <div class="post__left-nav-list">
+                        <ul>
+                            {% for post in category[1] %}
+                                <li class="post__left-nav-item">
+                                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+            </nav>
+        </aside>
+    
+        <!-- MAIN CONTENT -->
+        <main class="post__main">
+    
+            <nav class="post__main-nav">
+                <button class="btn btn-primary" id="btnLeftOpen"><i class="bi-list"></i></button>
+                <button class="btn btn-primary" id="btnMenuOpen"><i class="bi-three-dots-vertical"></i></button>
+                <div class="nav-menu mobile-none">
+                    <ul>
+                        <!-- * link nav * -->
+                        <li><a href="{{ '/' | relative_url }}"><i class="bi bi-house-door"></i> Home</a></li>
+                        <li><a href="{{ '/blog' | relative_url }}"><i class="bi bi-journal-text"></i> Blog</a></li>
+                        <li><a href="{{ '/portfolio' | relative_url }}"><i class="bi bi-briefcase"></i> Portfolio</a></li>
+                        <li><a href="{{ '/gallery' | relative_url }}"><i class="bi bi-images"></i> Gallery</a></li>
+                        <li><a href="{{ '/about' | relative_url }}"><i class="bi bi-person"></i> About</a></li>
+                        <!-- * link nav * -->
+                    </ul>
+                </div>
+            </nav>
+    
+            <article class="post__main-content">
+                <header class="post__main-header">
+                    <h1>{{ page.title }}</h1>
+                    {% if page.image %}
+                    <img src="{{ page.image }}" alt="{{ page.title }}">
+                    {% endif %}
+                    <p>
+                        <span>{{ page.description }}</span><br>
+                        <span><strong>Publish on:</strong> {{ page.date | date: "%d %B %Y" }} <strong>by</strong> {{ page.author | default: site.author }}</span><br>
+                        {% if page.last_modified_at %}
+                            <span><strong>Last modified at:</strong> {{ page.last_modified_at | date: "%d %B %Y" }}</span>
+                        {% endif %}
+                    </p>
+                </header>
+                <section class="post__main-article">
+                    {% include components/anchor_headings.html html=content anchorBody="#" %} <!-- Menampilkan konten tanpa menggunakan {{ content }} -->
+                </section>
+                <aside class="post__main-right mobile-none">
+                    <div class="post__main-right-toc">
+                        {% include components/toc.html html=content %}
+                    </div>
+                    <div class="post__main-right-related">
+                        {% include components/related.html %}
+                    </div>
+                </aside>
+            </article>
+    
+            <footer class="post__main-footer">
+            </footer>
+        </main>
+    </div>
+
+    <!-- MODAL HERE -->
+    <div id="tocModalContent">
+        {% include components/toc.html html=content %}
+    </div>
 </div>

@@ -1,0 +1,60 @@
+# ============[]
+title: "Testing On"
+description: "Tempat Berbagi Keluh Kesah"
+lang: "id"
+keywoard: ""
+timezone: Asia/Jakarta
+author: "Putra Jaya"
+data-theme: 'dark' # dark/light
+
+# ============[]
+url: ""
+baseurl: ""
+
+# ============[]
+collections:
+  projects:
+    output: true
+  pages:
+    output: true
+
+# ============[]
+facebook: "https://www.facebook.com/profile.php?id=61566134978045"
+twitter: "https://x.com/Masputrawae"
+instagram: "https://www.instagram.com/masputrawae/"
+youtube: "https://www.youtube.com/@masputrawae"
+github: "https://github.com/masputrawae/"
+discord: "https://discord.gg/nM4EP8DJFZ"
+rss-feed: "/feed.xml"
+# ============[]
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      permalink: "/:title/"
+      toc: true
+
+# ============[]
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - drafts
+  - .sass-cache/
+  - .jekyll-cache/
+
+# ============[]
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+highlighter: rouge
+markdown: kramdown
+kramdown: 
+  syntax_highlighter_opts:
+    disable : true
+# ============[]
