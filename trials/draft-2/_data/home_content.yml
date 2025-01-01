@@ -1,0 +1,51 @@
+# Content for landing page, index or home
+
+welcome_greeting:
+  - heading: "Selamat Datang"
+    paragraph: "Ini adalah situs pertama yang aku buat. Kalau kalian menemukan bug, pura-pura aja nggak lihat ya.Semoga kalian betah di sini, jangan lupa bawa kopi kalau mau ngoding bareng!"
+
+# for skill intro
+skill_intro:
+  - heading: "Apa yang sedang saya pelajari? (Jangan kaget!)"
+    paragraph: "Saya sedang mempelajari banyak hal, dan jika hasilnya tidak seperti yang diharapkan, jangan tanya saya, tanyakan saja ke Google. Tapi, mari kita lihat apa yang saya pelajari sejauh ini, siap?"
+
+# for blog intro 
+blog_intro:
+  - heading: "Blog / Catatan Saya (Sangat Mendalam... atau mungkin tidak)"
+    paragraph: "Selamat datang di blog saya! Di sini saya akan menulis tentang banyak hal, seperti tips pemrograman, kejadian lucu di dunia coding, dan tentunya kesalahan-kesalahan keren yang saya buat! Siap untuk membaca?"
+
+# looping skill
+skill:
+  - name: "HTML"
+    description: "HTML itu kayak pondasi rumah. Tanpa HTML, web cuma bayangan! Saya sudah cukup lama belajar, jadi saya yakin website ini nggak bakal runtuh… mudah-mudahan."
+    img: "/assets/images/skill/html.png"
+  - name: "CSS"
+    description: "CSS adalah si penyihir yang mengubah halaman web dari polos jadi kece! Saya belajar membuat website saya terlihat keren, walaupun kadang berantakan. Tapi, ya... proses!"
+    img: "/assets/images/skill/css.png"
+  - name: "Javascript"
+    description: "JavaScript itu kayak magic. Tapi kalau nggak hati-hati, bisa jadi sihir hitam yang bikin bug! Saya sedang berusaha agar nggak menghancurkan web saya dengan kode-kode aneh."
+    img: "/assets/images/skill/javascript.png"
+  - name: "SCSS"
+    description: "SCSS itu kayak CSS, tapi lebih pintar! Saya sudah mulai memahaminya, walaupun kadang SCSS ngomong \"Error!\" dan saya cuma bisa diam bingung."
+    img: "/assets/images/skill/scss.png"
+  - name: "PHP"
+    description: "PHP itu bikin saya pusing! Tapi saya yakin jika saya belajar lebih banyak, saya bisa membuat web saya punya otak dan bekerja seperti yang saya mau... atau setidaknya tidak error terus."
+    img: "/assets/images/skill/php.png"
+  - name: "Database"
+    description: "Database itu tempat menyimpan semua rahasia dan kenangan indah kita... atau data pengguna, tapi intinya mirip lah. Saya belajar supaya bisa mengatur semuanya tanpa bingung."
+    img: "/assets/images/skill/database.png"
+  - name: "Python"
+    description: "Python itu bahasa yang lucu, katanya. Tapi saya belum begitu paham, jadi saya terus mencari tutorial dan berharap akhirnya bisa paham tanpa menambah kesalahan yang lebih besar!"
+    img: "/assets/images/skill/python.png"
+  - name: "Linux"
+    description: "Linux itu seperti dunia misteri. Saya lebih suka menggunakan terminalnya daripada klik-klik di GUI. Tapi, kadang terminalnya nggak mau nurut, dan saya cuma bisa... reboot!"
+    img: "/assets/images/skill/linux.png"
+  - name: "Bootstrap"
+    description: "Bootstrap itu seperti jalan pintas menuju desain keren. Tapi, saya lebih suka mengotak-atik desain saya sendiri. Ya, saya kadang-kadang melawan konvensi, hidup hanya sekali!"
+    img: "/assets/images/skill/bootstrap.png"
+  - name: "Tailwind"
+    description: "Tailwind adalah super power dalam dunia CSS! Tapi, belajar dengan Tailwind kadang membuat saya berpikir, Apakah saya benar-benar menguasai CSS? Jawabannya: tidak."
+    img: "/assets/images/skill/tailwind.png"
+  - name: "Ilmu Copy Paste"
+    description: "Ilmu Copy Paste adalah seni yang harus dikuasai oleh setiap developer. Tentu saja, setelah menulis kode sendiri, karena kalau copy paste terus, nggak bakal belajar, kan?"
+    img: "/assets/images/skill/copy-paste.png"

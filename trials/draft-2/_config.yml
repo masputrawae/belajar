@@ -1,0 +1,55 @@
+# ============[]
+title: "Testing On"
+description: "Tempat Berbagi Keluh Kesah"
+keywoard: ""
+slogan: "Tempat Berbagi Keluh Kesah"
+owner: "Putra Jaya"
+author: "Putra Jaya"
+
+# ============[]
+url: ""
+baseurl: ""
+
+# ============[]
+lang: "id"
+timezone: Asia/Jakarta
+data-theme: "dark" # dark/light
+default_image: /assets/images/logo/logo.png
+collections:
+  projects:
+    output: true
+  pages:
+    output: true
+
+# ============[]
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      permalink: "/:title/"
+      toc: true
+
+# ============[]
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - drafts
+  - .sass-cache/
+  - .jekyll-cache/
+
+# ============[]
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+highlighter: rouge
+markdown: kramdown
+kramdown: 
+  syntax_highlighter_opts:
+    disable : true
+# ============[]
