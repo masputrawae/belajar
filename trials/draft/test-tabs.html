@@ -1,0 +1,96 @@
+<aside class="sidebar">
+    <div class="brand">
+        <img src="https://placehold.co/150" alt="">
+        <a href="{{'/'}}">
+            <h1>{{ site.title }}</h1>
+            <p>{{ site.slogan }}</p>
+        </a>
+    </div>
+    <nav class="tabs">
+        <div class="tab-nav">
+            <div class="tab-pane active" id="tabMainMenu">
+                <h2>Main Menu</h2>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Blog</a></li>
+                    <li><a href="">Portfolio</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Help</a></li>
+                </ul>
+            </div>
+            <div class="tab-pane" id="tabCategory">
+                <h2>All Categories</h2>
+                <!-- fill in later -->
+            </div>
+            <div class="tab-pane" id="tabSearch">
+                <h2>Search</h2>
+                <!-- fill in later -->
+            </div>
+        </div>
+        <div class="tab-btn">
+            <button class="btn" id="switchTheme">💡</button>
+            <button class="btn" data-tab="tabCategory">🗃️</button>
+            <button class="btn" data-tab="tabMainMenu">🏠</button>
+            <button class="btn" data-tab="tabSearch">🔍</button>
+            <button class="btn" id="btnLeftClose">❌</button>
+        </div>
+    </nav>
+</aside>
+
+
+<style>
+    .tab-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.tab-btn {
+    bottom:0;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+.tab-btn .btn {
+    margin: 5px 0;
+}
+.sidebar{
+    position: fixed;
+    left: 0;
+    top:0;
+    transition: all 5s ease;
+    height: 100%;
+    width: 100%;
+}
+</style>
+
+<script>
+    // Menambahkan event listener ke setiap tombol tab
+document.querySelectorAll('.tab-btn .btn[data-tab]').forEach(button => {
+    button.addEventListener('click', function() {
+        const targetTab = this.getAttribute('data-tab');
+        
+        // Hapus kelas 'active' dari semua tab-pane
+        document.querySelectorAll('.tab-pane').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        // Menambahkan kelas 'active' ke tab yang sesuai
+        document.getElementById(targetTab).classList.add('active');
+    });
+});
+
+// Tombol untuk menutup sidebar atau menambah fitur lainnya bisa disesuaikan
+document.getElementById('btnLeftClose').addEventListener('click', () => {
+    // Misalnya, bisa menyembunyikan sidebar jika ada elemen khusus untuk itu
+    document.querySelector('.sidebar').style.left = '-100%';
+});
+</script>
