@@ -1,5 +1,11 @@
-# Content for landing page, index or home
+# For About Page 
+bio:
+  - name: "Your Name"
+    introduction: "Write about yourself"
+    avatar: "/assets/image/avatar.png"
+    email: "example@mail.com"
 
+# Content for landing page, index or home
 welcome_greeting:
   - heading: "Selamat Datang"
     paragraph: "Ini adalah situs pertama yang aku buat. Kalau kalian menemukan bug, pura-pura aja nggak lihat ya.Semoga kalian betah di sini, jangan lupa bawa kopi kalau mau ngoding bareng!"
@@ -49,3 +55,43 @@ skill:
   - name: "Ilmu Copy Paste"
     description: "Ilmu Copy Paste adalah seni yang harus dikuasai oleh setiap developer. Tentu saja, setelah menulis kode sendiri, karena kalau copy paste terus, nggak bakal belajar, kan?"
     img: "/assets/images/skill/copy-paste.png"
+
+# Social Link
+social:
+  - name: "facebook"
+    icon: "bi-facebook"
+    link: "https://www.facebook.com/profile.php?id=61566134978045"
+    
+  - name: "twitter"
+    icon: "bi-twitter-x"
+    link: "https://x.com/Masputrawae"
+    
+  - name: "instagram"
+    icon: "bi-instagram"
+    link: "https://www.instagram.com/masputrawae/"
+    
+  - name: "youtube"
+    icon: "bi-youtube"
+    link: "https://www.youtube.com/@masputrawae"
+    
+  - name: "github"
+    icon: "bi-github"
+    link: "https://github.com/masputrawae/"
+    
+  - name: "discord"
+    icon: "bi-discord"
+    link: "https://discord.gg/nM4EP8DJFZ"
+    
+  - name: "rss-feed"
+    icon: "bi-rss"
+    link: "/feed.xml"
+    
+# Add and customize for other links
+
+document:
+  - name: "Disclaimer"
+    content: "Write disclaimer here"
+  - name: "Privacy Policy"
+    content: "Write Here"
+  - name: "Copyright"
+    content: "&copy; 2025 - Your Name | All rights reserved"
