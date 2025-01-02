@@ -3,23 +3,20 @@ layout: default
 ---
 <div class="page">
     <header>
-        <div class="brand">
-            <img src="" alt="">
-            <a href="">
-                <h1></h1>
-                <p></p>
-            </a>
-        </div>
+        {% include brand.html %}
         <nav>
+            <button class="btn desktop-none" id="btnMenuOpen"><i class="bi bi-list"></i></button>
             <div class="nav-menu">
-                
+                <button class="btn desktop-none" id="btnMenuClose"><i class="bi bi-x"></i></button>
+                <ul>
+                    <h3 class="desktop-none">Main Menu</h3>
+                    {% include nav-link.html %} 
+                </ul>
             </div>
         </nav>
     </header>
     <main>
         {{ content }}
     </main>
-    <footer>
-        
-    </footer>
+    {% include footer.html %}
 </div>

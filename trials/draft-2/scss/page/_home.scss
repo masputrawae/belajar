@@ -1,0 +1,55 @@
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+
+.hero {
+    @include m.area-calculation(100vw, 100vh);
+    padding-top: 1px;
+    background-image: var(--linier-gradien),
+        url('/assets/img/background/mobile-bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    text-align: center;
+    
+    #welcome {
+        padding: 25% 30px;
+    }
+
+    @include m.breakpoint(desktop){
+        background-image: var(--linier-gradien),
+        url('/assets/img/background/desktop-bg.webp');
+
+        #welcome {
+            padding: 10% 30px;
+        }
+    }
+}
+#skills {
+    
+    .skill-intro {
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .skill__card {
+        text-align: center;
+        padding: 40px;
+        .skill__card-item {
+            @include m.shadow(4);
+            padding: 15px;
+            margin-top: 60px;
+            border-radius: 5px;
+            border: 2px solid var(--accent-color);
+
+            img {
+                width: 100%;
+                border-radius: 5px;
+            }
+        }
+
+        @include m.breakpoint(desktop) {
+            @include m.grid-setting(1fr 1fr 1fr 1fr, auto, 20px);
+        }
+    }
+}

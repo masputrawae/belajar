@@ -4,62 +4,8 @@ layout: default
 <div class="post">
     <!-- START : SIDEBAR -->
     <aside class="sidebar" class="leftSide">
-        <div class="brand">
-            <img src="" alt="">
-            <a href="">
-                <h1></h1>
-                <p></p>
-            </a>
-        </div>
-        <nav class="tabs">
-            <div class="tab-pane active" id="tabMainMenu">
-                <h3>Main Menu</h3>
-                <ul>
-                    <!-- * -->
-                    <li><a href=""> Home</a></li>
-                    <li><a href=""> Blog</a></li>
-                    <li><a href=""> Portfolio</a></li>
-                    <li><a href=""> About</a></li>
-                    <li><a href=""> Help</a></li>
-                    <!-- * -->
-                </ul>
-            </div>
-            <div class="tab-pane" id="tabCategories">
-                <!-- Content -->
-            </div>
-            <div class="tab-pane" id="tabSearch">
-                <!-- Content -->
-            </div>
-            <div class="tab-pane" id="tabToc">
-                <!-- Content -->
-            </div>
-            <div class="tab-pane" id="tabRelated">
-                <!-- Content -->
-            </div>
-            <div class="btn-tabs">
-                <button class="btn btn-tab" id="switchTheme">
-                    <i class="bi bi-sun"></i>
-                </button>
-                <button class="btn btn-tab" data-tab="tabCategories">
-                    <i class="bi bi-archive"></i>
-                </button>
-                <button class="btn btn-tab" data-tab="tabMainMenu">
-                    <i class="bi bi-house-door"></i>
-                </button>
-                <button class="btn btn-tab" data-tab="tabSearch">
-                    <i class="bi bi-search"></i>
-                </button>
-                <button class="btn btn-tab" data-tab="tabToc">
-                    <i class="bi bi-book"></i>
-                </button>
-                <button class="btn btn-tab" data-tab="tabRelated">
-                    <i class="bi bi-link-45deg"></i>
-                </button>
-                <button class="btn btn-tab" id="btnLeftClose">
-                    <i class="bi bi-x-circle"></i>
-                </button>
-            </div>
-        </nav>
+        {% include brand.html %}
+        {% include tabs.html %}
     </aside>
     <!-- END : SIDEBAR -->
     
@@ -74,16 +20,36 @@ layout: default
                     <i class="bi-book"></i>
                 </button>
             </div>
-            <h1>Article Title</h1>
+            <div class="post-info">
+                <div class="post-title">
+                    <h1>{{ page.title }}</h1>
+                </div>
+            
+                <div class="post-meta-section">
+                    <p class="post-meta">
+                        <span>Author: {{ page.author | default: site.author }}</span><br>
+                        {% if page.description %}
+                        <span>{{ page.description }}</span><br>
+                        {% endif %}
+                        <span><time datetime="{{ page.date | date: '%Y-%m-%dT%H:%M:%S' }}">Publish on: {{ page.date | date: "%d %B %Y" }}</time></span><br>
+                        {% if page.last_modified_at %}
+                        <span><time datetime="{{ page.last_modified_at | date: '%Y-%m-%dT%H:%M:%S' }}">Last modified on: {{ page.last_modified_at | date: "%d %B %Y" }}</time></span>
+                        {% endif %}
+                    </p>
+                </div>
+            
+                {% if page.image %}
+                <figure class="post-image">
+                    <img src="{{ page.image }}" alt="Image related to {{ page.title }} showcasing {{ page.image_caption | default: 'the content' }}" style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto;">
+                </figure>
+                {% endif %}
+            </div>
         </header>
         
         <article>
-            {{ content }}
+            {% include components/anchor_headings.html html=content anchorBody="#" %}
         </article>
-        
-        <footer>
-            
-        </footer>
+        {% include footer.html %}
     </div>
     <!-- END : MAIN -->
     

@@ -1,37 +1,36 @@
-:root[data-theme=dark]{
-    --base-font: ;
-    --primary-font: ;
-    --article-font: ;
-    --monospace-font: ;
-    
-    // Primary Color
-    --bg-img: ;
-    --bg-color: ;
-    --accent-color: ;
-    --text-color: ;
-    
-    // Color Options (only if needed)
-    --hover-color: ;
-    --active-color: ;
-    --focus-color: ;
-    --muted-color: ;
-}
+:root[data-theme=dark] {
+    --base-font: 'Roboto', sans-serif;
+    --article-font: 'Merriweather', serif;
+    --heading-font: 'Poppins', sans-serif;
+    --monospace-font: 'Courier New', monospace;
 
-:root[data-theme=light]{
-    --base-font: ;
-    --primary-font: ;
-    --article-font: ;
-    --monospace-font: ;
-    
-    // Primary Color
-    --bg-img: ;
-    --bg-color: ;
-    --accent-color: ;
-    --text-color: ;
-    
-    // Color Options (only if needed)
-    --hover-color: ;
-    --active-color: ;
-    --focus-color: ;
-    --muted-color: ;
+    /* Primary Color */
+    --background-color: rgb(14, 14, 14);
+    --accent-color: rgb(255, 45, 45);
+    --text-color: rgb(240, 240, 240);
+    --linier-gradien: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+
+    /* Color Options */
+    --hover-color: rgb(255, 90, 90);
+    --active-color: rgb(255, 30, 30);
+    --focus-color: rgb(255, 110, 110);
+    --muted-color: rgb(130, 130, 130);
+}
+:root[data-theme=light] {
+    --base-font: 'Roboto', sans-serif;
+    --article-font: 'Merriweather', serif;
+    --heading-font: 'Poppins', sans-serif;
+    --monospace-font: 'Courier New', monospace;
+
+    /* Primary Color */
+    --background-color: rgb(240, 240, 240);
+    --accent-color: rgb(255, 45, 45);
+    --text-color: rgb(40, 40, 40);
+    --linier-gradien: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+
+    /* Color Options */
+    --hover-color: rgb(255, 100, 100);
+    --active-color: rgb(255, 30, 30);
+    --focus-color: rgb(255, 120, 120);
+    --muted-color: rgb(160, 160, 160);
 }

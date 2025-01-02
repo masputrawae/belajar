@@ -1,0 +1,11 @@
+//Keyframe fallAndBounce
+@keyframes fallAndBounce {
+    0% {
+        transform: translateY(-100%);
+        animation-timing-function: ease-in;
+    }
+    
+    100% {
+        transform: translateY(0);
+    }
+}

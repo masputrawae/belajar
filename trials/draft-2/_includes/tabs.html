@@ -1,0 +1,51 @@
+<nav class="tabs">
+    <div class="tab-wrapper">
+        <div class="tab-pane active" id="tabMainMenu">
+            <h3>Main Menu</h3>
+            <ul>{% include nav-link.html %}</ul>
+        </div>
+        <div class="tab-pane" id="tabCategories">
+            <h3>All Categories</h3>
+            <div>
+                {% assign categories = site.categories %}
+                {% for category in categories %}
+                <h4><i class="bi bi-folder"></i> {{ category[0] }}</h4>
+                <ul>
+                    {% for post in category[1] %}
+                        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tab-pane" id="tabSearch">
+            <h3>Search</h3>
+            <div class="search">{% include components/search.html %}</div>
+        </div>
+        <div class="tab-pane" id="tabToc">
+            <h3>Table of Content</h3>
+            <div class="toc">{% include components/toc.html html=content %}</div>
+        </div>
+        <div class="tab-pane" id="tabRelated">
+            <h3>Related</h3>
+            <ul>
+                {% for category in page.categories %}
+                {% for post in site.posts %}
+                {% if post.categories contains category and post.url != page.url %}
+                <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="btn-tabs">
+        <button class="btn btn-tab" id="switchTheme"><i class="bi bi-sun"></i></button>
+        <button class="btn btn-tab" data-tab="tabCategories"><i class="bi bi-archive"></i></button>
+        <button class="btn btn-tab" data-tab="tabMainMenu"><i class="bi bi-house-door"></i></button>
+        <button class="btn btn-tab" data-tab="tabSearch"><i class="bi bi-search"></i></button>
+        <button class="btn btn-tab" data-tab="tabToc"><i class="bi bi-book"></i></button>
+        <button class="btn btn-tab" data-tab="tabRelated"><i class="bi bi-link-45deg"></i></button>
+        <button class="btn btn-tab" id="btnLeftClose"><i class="bi bi-x-circle"></i></button>
+    </div>
+</nav>

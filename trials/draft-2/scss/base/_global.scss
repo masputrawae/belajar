@@ -1,0 +1,12 @@
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    max-width: 100%;
+}
+
+@include m.breakpoint(desktop){
+    .desktop-none {display: none;}
+}

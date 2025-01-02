@@ -1,12 +1,52 @@
 ---
 layout: page
+title: Home
 ---
 <div class="hero">
-    
+    <section id="welcome">
+        <h3>{{ site.data.adjustment.welcome_greeting[0].heading }}</h3>
+        <p>{{ site.data.adjustment.welcome_greeting[0].paragraph }}</p>
+    </section>
+    <div class="btn-action">
+        <a href="#skills">Cek Isinya, Tapi Pelan-Pelan</a>
+        <a href="{{ site.discord }}">Join Discordku, Biar Nggak Kesepian</a>
+    </div>
 </div>
-<div class="skill">
-    
-</div>
-<div class="blog">
-    
-</div>
+
+<section id="skills">
+    <div class="skill-intro">
+        <h3>{{ site.data.adjustment.skill_intro[0].heading }}</h3>
+        <p>{{ site.data.adjustment.skill_intro[0].paragraph }}</p>
+    </div>
+    <div class="card skill__card">
+        {% for skill in site.data.adjustment.skill %}
+        <div class="skill__card-item">
+            <img src="https://picsum.photos/150" alt="{{ skill.name }}">
+            <h4>{{ skill.name }}</h4>
+            <p>{{ skill.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="blog">
+    <div class="blog-intro">
+        <h3>{{ site.data.adjustment.blog_intro[0].heading }}</h3>
+        <p>{{ site.data.adjustment.blog_intro[0].paragraph }}</p>
+    </div>
+    {% assign categories = site.categories %}
+    {% for category in categories %}
+    <div class="card blog__card">
+        <h3>{{ category[0] }}</h3>
+        <div class="blog__card-category flex-justify">
+            {% for post in category[1] %}
+            <article class="blog__card-item">
+                <h4>{{ post.title }}</h4>
+                <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+                <a href="{{ post.url | relative_url }}">Read more...</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</section>
