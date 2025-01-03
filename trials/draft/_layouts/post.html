@@ -1,0 +1,106 @@
+---
+layout: default
+---
+<div class="post">
+    <aside id="sidebar">
+        <header>
+            <div class="brand">
+                <img src="{{ site.logo }}" alt="Logo {{ site.title }}">
+                <a href="{{ '/' | relarive_url }}">
+                    <h2>{{ site.title }}</h2>
+                    <p>{{ site.slogan }}</p>
+                </a>
+            </div>
+            <button class="btn btn-primary" id="btnSideBarClose">
+                <i class="bi-x"></i>
+            </button>
+        </header>
+        <nav class="tabs">
+            <div class="btn-wrapper">
+                <button class="btn btn-tab" data-tab="tabMenuNav">🏠</button>
+                <button class="btn btn-tab" data-tab="tabSearch">🔍</button>
+                <button class="btn btn-tab" data-tab="tabCategories">🗃️</button>
+            </div>
+            <div class="tab-pane" id="tabMenuNav">
+                <h3>Main Menu</h3>
+                <ul>
+                    {% for nav-link in data.general.nav-link %}
+                    <li><a href="{{ nav-link.url }}"><i class="{{ nav-link.icon }}"></i> {{ nav-link.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="tab-pane" id="tabSearch">
+                <h3>Search</h3>
+            </div>
+            <div class="tab-pane" id="tabCategories">
+                <h3>Categories</h3>
+            </div>
+        </nav>
+    </aside>
+    <div class="post-main">
+        <header>
+            <div class="nav-btn">
+                <button class="btn btn-primary" id="btnSideBarOpen"><i class="bi-list"></i></button>
+                <button class="btn btn-primary" id="btnTocOpen"><i class="bi-book"></i></button>
+            </div>
+            <h1>{{ page.title }}</h1>
+        </header>
+        <main>
+            <div class="content-info">
+                <p>
+                    <span>{{ page.description }}</span><br>
+                    <span><strong>Publish on:</strong> {{ page.date | date: "%d %B %Y" }} <strong>by</strong> {{ page.author | default: site.author }}</span><br>
+                    {% if page.last_modified_at %}
+                    <span><strong>Last modified at:</strong> {{ page.last_modified_at | date: "%d %B %Y" }}</span><br>
+                    {% endif %}
+                </p>
+                {% if page.image %}
+                <img src="{{ page.image }}" alt="{{ page.title }}">
+                {% endif %}
+            </div>
+            <article>
+                {% include components/anchor_headings.html html=content anchorBody="#" %}
+            </article>
+            <aside class="right-side" id="rightSide">
+                <div class="toc">
+                    <!--  -->
+                </div>
+                <div class="tags">
+                    <!--  -->
+                </div>
+                <div class="categories">
+                    <!--  -->
+                </div>
+                <div class="related">
+                    <!--  -->
+                </div>
+            </aside>
+        </main>
+        
+        <footer>
+            <div class="social">
+                <ul>
+                    {% for social in data.profile.social %}
+                    <li><a href="{{ social.link }}" target="_blank" rel="noopener noreferrer"><i class="{{ social.icon }}"></i></a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="copyright">
+                <ul>
+                    {% for document in data.copyright.document %}
+                    <li><a href="{{ document.url }}"> {{ document.name }}</a></li>
+                    {% endfor %}
+                </ul>
+                <p>
+                    <span>{{ data.copyright.text }}. {{ data.copyright.credit }}</span>
+                    {% for credit in data.copyright.credit %}
+                    <span><a href="{{ credit.link }}">{{ credit.name }}</a></span>
+                    {% endfor %}
+                    <span>{{ data.copyright.closing_remarks }}</span>
+                </p>
+                <p>{{ data.copyright.copyright }}</p>
+            </div>
+        </footer>
+        
+    </div>
+</div>

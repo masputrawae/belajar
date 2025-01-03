@@ -1,0 +1,55 @@
+---
+layout: default
+---
+<div class="pages">
+    <header>
+        <section class="brand">
+            <img src="{{ site.logo }}" alt="Logo {{ site.title }}">
+            <a href="{{ '/' | relarive_url }}">
+                <h1>{{ site.title }}</h1>
+                <p>{{ site.slogan }}</p>
+            </a>
+        </section>
+        <nav>
+            <button class="btn btn-primary" id="btnMenuOpen"><i class="bi bi-list"></i></button>
+            <div class="nav-menu">
+                <button class="btn btn-primary" id="btnMenuClose"><i class="bi bi-x"></i></button>
+                <ul>
+                    <p>Main Menu</p>
+                    {% for nav-link in data.general.nav-link %}
+                    <li><a href="{{ nav-link.url }}"><i class="{{ nav-link.icon }}"></i> {{ nav-link.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        {{ content }}
+    </main>
+    
+    <footer>
+        <div class="social">
+            <ul>
+                {% for social in data.profile.social %}
+                <li><a href="{{ social.link }}" target="_blank" rel="noopener noreferrer"><i class="{{ social.icon }}"></i></a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="copyright">
+            <ul>
+                {% for document in data.copyright.document %}
+                <li><a href="{{ document.url }}"> {{ document.name }}</a></li>
+                {% endfor %}
+            </ul>
+            <p>
+                <span>{{ data.copyright.text }}. {{ data.copyright.credit }}</span>
+                {% for credit in data.copyright.credit %}
+                <span><a href="{{ credit.link }}">{{ credit.name }}</a></span>
+                {% endfor %}
+                <span>{{ data.copyright.closing_remarks }}</span>
+            </p>
+            <p>{{ data.copyright.copyright }}</p>
+        </div>
+    </footer>
+</div>

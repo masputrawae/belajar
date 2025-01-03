@@ -1,0 +1,63 @@
+nav-link:
+  - name: "Home"
+    icon: "bi-house-door"
+    url: "/"
+    
+  - name: "Blog"
+    icon: "bi-journal-text"
+    url: "/blog.html"
+    
+  - name: "Portfolio"
+    icon: "bi-briefcase"
+    url: "/portfolio.html"
+    
+  - name: "About"
+    icon: "bi-person"
+    url: "/about.html"
+    
+  - name: "Help"
+    icon: "bi-info"
+    url: "/help.html"
+    
+# Content for landing page, index or home
+welcome_greeting:
+  heading: "Selamat Datang"
+  paragraph: "Ini adalah situs pertama yang aku buat. Kalau kalian menemukan bug, pura-pura aja nggak lihat ya.Semoga kalian betah di sini, jangan lupa bawa kopi kalau mau ngoding bareng!"
+
+# CTA
+btn_action:
+  - name: "Explore"
+    url: "#"
+  - name: "Join Discord"
+    url: "#"
+
+# for skill intro
+skill_intro:
+  heading: "Apa yang sedang saya pelajari? (Jangan kaget!)"
+  paragraph: "Saya sedang mempelajari banyak hal, dan jika hasilnya tidak seperti yang diharapkan, jangan tanya saya, tanyakan saja ke Google. Tapi, mari kita lihat apa yang saya pelajari sejauh ini, siap?"
+
+# for blog intro 
+blog_intro:
+  heading: "Blog / Catatan Saya (Sangat Mendalam... atau mungkin tidak)"
+  paragraph: "Selamat datang di blog saya! Di sini saya akan menulis tentang banyak hal, seperti tips pemrograman, kejadian lucu di dunia coding, dan tentunya kesalahan-kesalahan keren yang saya buat! Siap untuk membaca?"
+
+skill:
+  - name: "HTML, CSS"
+    content: "🤔"
+    img: /assets/img/skill/html-css.webp
+    
+  - name: "Python"
+    content: "🤔"
+    img: /assets/img/skill/python.webp
+    
+  - name: "PHP"
+    content: "🤔"
+    img: /assets/img/skill/php.webp
+    
+  - name: "Javascript"
+    content: "🤔"
+    img: /assets/img/skill/javascript.webp
+    
+  - name: "Ilmu Copy Paste"
+    content: "🤔"
+    img: /assets/img/skill/copy-paste.webp

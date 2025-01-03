@@ -1,0 +1,16 @@
+copyright: "&copy; {{ site.time | date: '%Y' }} - {{ site.title }}. Semua Hak Dilindungi."
+text: "Dibuat dengan ♥️ dan semangat Belajar"
+credit: "Powered by"
+  - name: "Jekyll"
+    link: "https://jekyllrb.com/"
+  - name: "Github Pages"
+    link: "https://pages.github.com/"
+closing_remarks: "Website ini dibuat dan dikelola oleh {{ site.owner }}"
+
+document:
+  - name: "Disclaimer"
+    url: "/disclaimer.html"
+  - name: "Privacy Policy"
+    url: "/privacy-policy.html"
+  - name: "Terms of Service"
+    url: "/terms.html"
