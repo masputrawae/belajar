@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Belajar Javascript</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Javascript</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form id="hobiForm">
+      <label><input type="checkbox" name="hobi" value="Membaca"> Membaca</label>
+      <label><input type="checkbox" name="hobi" value="Olahraga"> Olahraga</label>
+      <label><input type="checkbox" name="hobi" value="Memasak"> Memasak</label>
+      <button type="submit">Kirim</button>
+    </form>
+    <p id="hasil"></p>
   
-  <script src="script.js"></script>
-</body>
+    <script>
+      document.getElementById("hobiForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        let hobiTerpilih = [];
+        document.querySelectorAll("input[name='hobi']:checked").forEach((checkbox) => {
+          hobiTerpilih.push(checkbox.value);
+        });
+  
+        if (hobiTerpilih.length > 0) {
+          document.getElementById("hasil").innerText = "Hobi kamu: " + hobiTerpilih.join(", ");
+        } else {
+          document.getElementById("hasil").innerText = "Pilih minimal satu hobi!";
+        }
+      });
+    </script>
+  </body>  
 </html>
