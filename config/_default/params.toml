@@ -1,0 +1,30 @@
+#====================================#
+#========== PARAMS SETTING ==========#
+name          = "John Doe"
+subtitle      = "Write Your Catchy Subtitle Here!"
+logo          = "logo/logo.webp"
+twitter       = "@johndoe"
+
+#====================================#
+#=========== SOCIAL LINK ============#
+[social]
+[social.facebook]
+    name = "Facebook"
+    url  = "https://facebook.com/johndoe"
+    icon = "bi-facebook"
+[social.twitter]
+    name = "TwitterX"
+    url  = "https://x.com/johndoe"
+    icon = "bi-twitter-x"
+[social.instagram]
+    name = "Instagram"
+    url  = "https://instagram.com/johndoe"
+    icon = "bi-instagram"
+[social.github]
+    name = "Github"
+    url  = "https://github.com/johndoe"
+    icon = "bi-github"
+[social.discord]
+    name = "Discord"
+    url  = "https://discord.com/users/johndoe"
+    icon = "bi-discord"

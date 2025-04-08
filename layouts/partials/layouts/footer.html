@@ -1,0 +1,16 @@
+<ul class="nav">
+  {{- with site.Params.social }} {{- range $key, $value := . }}
+  <li class="nav__item">
+    <a
+      href="{{ $value.url }}"
+      class="nav__link"
+      rel="noopener noreferrer nofollow"
+      target="_blank"
+      aria-label="Go to {{ $value.name }}"
+    >
+      <i class="bi {{ $value.icon }}"></i>
+    </a>
+  </li>
+  {{- end }} {{- end }}
+</ul>
+<p>Copyright {{ now.Year }}. All rights reserved.</p>

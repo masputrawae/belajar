@@ -1,0 +1,47 @@
+<header class="sidebar__header">
+  <strong class="sidebar__title">Folder</strong>
+
+  <button class="btn btn--icon" data-toggle-offcanvas="sidebarThird">
+    <i class="bi bi-x"></i>
+  </button>
+</header>
+
+<nav class="navbar">
+  <button class="navbar__label" id="toggle-all-collapse">Collapse All</button>
+  <ul class="nav nav--tree">
+    {{- template "tree_view" .Site.Home -}}
+  </ul>
+</nav>
+
+{{- define "tree_view" -}}
+  {{- if .Pages -}}
+
+    {{/* |===========| Iterasi Folder Dulu |===========| */}}
+    {{- range .Pages -}}
+      {{- if .IsSection -}}
+        <li class="nav__item">
+          <button class="nav__link nav__link--folder" data-toggle-collapse="{{- .RelPermalink | md5 -}}">
+            {{- .LinkTitle -}}
+          </button>
+          <ul class="nav nav--tree" data-collapse="{{- .RelPermalink | md5 -}}">
+            {{- template "tree_view" . -}}
+          </ul>
+        </li>
+      {{- end -}}
+    {{- end -}}
+
+    {{/* |===========| Iterasi File Setelahnya |===========| */}}
+    {{- range .Pages -}}
+      {{- if .IsPage -}}
+        {{- if .File.BaseFileName -}}
+          <li class="nav__item">
+            <a class="nav__link nav__link--file" href="{{- .RelPermalink -}}">
+              {{- .LinkTitle -}}
+            </a>
+          </li>
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+  {{- end -}}
+{{- end -}}

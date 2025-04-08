@@ -1,0 +1,76 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-first) var(--bg-first);
+
+  &:hover {
+    scrollbar-color: var(--border-second) var(--bg-first);
+  }
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: v.$font__size--default;
+  text-size-adjust: 100%;
+  font-family: sans-serif;
+}
+
+html,
+body {
+  color: var(--text-paragraph);
+  background-color: var(--bg-first);
+  font-family: v.$font__family;
+  scroll-behavior: smooth;
+}
+
+main {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  border: none;
+  outline: none;
+  font: inherit;
+  background: none;
+  color: inherit;
+  display: inline-block;
+}
+
+strong,
+b {
+  font-weight: bolder;
+}
+
+button {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}

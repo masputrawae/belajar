@@ -1,0 +1,118 @@
+<header class="sidebar__header">
+  {{/* |===========| START: FORM SEARCH |===========| */}}
+  <form 
+    class="search" 
+    id="search" 
+    onsubmit="handleSearch(event)" 
+    method="get" 
+    id="search" 
+    data-search-url="{{ "search.json" | relURL }}"
+    >
+      <i class="bi bi-search"></i>
+      <input 
+        class="search__input" 
+        type="search" 
+        id="search-input" 
+        name="query" 
+        placeholder="Pencarian" 
+        autocomplete="off" 
+        autocorrect="off" 
+        spellcheck="false" 
+        >
+  </form>
+  {{/* |===========| END: FORM SEARCH |===========| */}}
+
+  <button class="btn btn--icon" data-toggle-offcanvas="sidebarSecond">
+    <i class="bi bi-x"></i>
+  </button>
+</header>
+
+{{/* |===========| START: SEARCH RESULTS |===========| */}}
+<nav class="navbar" id="resultsPanel" style="display: none;">
+  <strong class="navbar__label">Results</strong>
+  <ul class="nav" id="results"></ul>
+</nav>
+{{/* |===========| END: SEARCH RESULTS |===========| */}}
+
+<nav class="navbar">
+  {{ if .IsPage }}
+
+    {{/* |===========| START: TABLE OF CONTENT |===========| */}}
+      {{ $toc := .TableOfContents }}
+      {{ $toc := replaceRE `<ul>` `<ul class="nav">` $toc }}
+      {{ $toc := replaceRE `<li>` `<li class="nav__item">` $toc }}
+      {{ $toc := replaceRE `<a href=` `<a class="nav__link" href=` $toc }}
+      {{ if $toc }}
+        <div class="navbar__label">Table Of Content</div>
+        {{ $toc | safeHTML }}
+      {{ end }}
+    {{/* |===========| END: TABLE OF CONTENT |===========| */}}
+
+    {{/* |===========| START: RELATED POSTS |===========| */}}
+      {{ $related := .Site.RegularPages.Related . | first 5 }}
+      {{ if $related }}
+        <div class="navbar__label">Related Posts</div>
+        <ul class="nav">
+          {{ range $related }}
+            <li class="nav__item">
+              <a href="{{ .RelPermalink }}" class="nav__link">{{ .Title }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    {{/* |===========| END: RELATED POSTS |===========| */}}
+
+  {{ else }}
+
+    {{/* |===========| START: PINNED |===========| */}}
+      {{ $pinned := where .Site.RegularPages "Params.pinned" true }}
+      {{ if $pinned }}
+        <strong class="navbar__label">Pinned</strong>
+        <ul class="nav nav--widget">
+          {{ range $pinned | first 5 }}
+            <li class="nav__item">
+              <a href="{{ .RelPermalink }}" class="nav__link">{{ .Title }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    {{/* |===========| END: PINNED |===========| */}}
+
+    {{/* |===========| START: RECENT POSTS |===========| */}}
+      {{ $recent := .Site.RegularPages }}
+      {{ if $recent }}
+        <strong class="navbar__label">Recent Posts</strong>
+        
+        <ul class="nav">
+          {{ range $recent | first 5 }}
+            <li class="nav__item">
+              <a href="{{ .RelPermalink }}" class="nav__link">{{ .Title }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    {{/* |===========| END: RECENT POSTS |===========| */}}
+
+    {{/* |===========| START: SWITCH LANGUAGE |===========| */}}
+      {{ if gt (len $.Site.Home.AllTranslations) 1 }}
+        <strong class="navbar__label">Language</strong>
+        <ul class="nav" id="languageList">
+          {{ range $.Site.Home.AllTranslations }}
+            <li class="nav__item">
+              <label class="nav__link" for="lang-{{ .Language.Lang }}">
+                <input
+                  type="radio"
+                  name="lang"
+                  id="lang-{{ .Language.Lang }}"
+                  value="{{ .RelPermalink }}"
+                  {{ if eq .Language.Lang $.Site.Language.Lang }}checked{{ end }}>
+                {{ .Language.LanguageName }}
+              </label>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    {{/* |===========| END: SWITCH LANGUAGE |===========| */}}
+    
+  {{ end }}
+</nav>

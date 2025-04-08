@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+  {{ partial "head/head.html" . }}
+</head>
+<body class="layout">
+  <aside class="sidebar sidebar--left" id="sidebarFirst" data-offcanvas="sidebarFirst">
+    {{ partial "layouts/left-sidebar.html" (dict "menuID" "main" "page" .) }}
+  </aside>
+
+  <div class="main">
+    <header class="header">
+      {{ partial "layouts/header.html" . }}
+    </header>
+    <main class="markdown">
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer class="footer">
+      {{ partial "layouts/footer.html" . }}
+    </footer>
+  </div>
+
+  <aside class="sidebar sidebar--left sidebar--offcanvas" data-offcanvas="sidebarSecond">
+    {{ partial "layouts/sidebar-second.html" . }}
+  </aside>
+  <aside class="sidebar sidebar--right sidebar--offcanvas" data-offcanvas="sidebarThird">
+    {{ partial "layouts/offcanvas-third.html" . }}
+  </aside>
+</body>
+</html>

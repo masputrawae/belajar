@@ -1,0 +1,101 @@
+#=================================================#
+#=================== INDONESIA ===================#
+[id]
+    title           = "Nama Situs Kamu"
+    languageCode    = "id"
+    languageName    = "Indonesia"
+    weight          = 1
+    contentDir      = "content/"
+    rtl             = false
+
+    [id.params]
+        i18nDir             = "i18n"
+        dateFormat          = "Senin, 2 Januari 2006"
+        subtitle            = "Tulis Subjudul Menarik Anda di Sini!"
+
+    #=================================================#
+    #===================== MENUS =====================#
+    [id.menus]
+    [[id.menus.main]]
+        name    = "Beranda"
+        pageRef = "/"
+        pre     = "<i class='bi bi-house'></i>"
+        weight  = 10
+
+    [[id.menus.main]]
+        name    = "Tentang"
+        pageRef = "/documents/about"
+        pre     = "<i class='bi bi-person'></i>"
+        weight  = 20
+
+    [[id.menus.main]]
+        name    = "Proyek"
+        pageRef = "/projects"
+        pre     = "<i class='bi bi-folder'></i>"
+        weight  = 30
+
+    [[id.menus.main]]
+        name    = "Konten"
+        pageRef = "/posts"
+        pre     = "<i class='bi bi-journal-text'></i>"
+        weight  = 40
+
+    [[id.menus.main]]
+        name    = "Kategori"
+        pageRef = "/categories"
+        pre     = "<i class='bi bi-grid'></i>"
+        weight  = 50
+
+    [[id.menus.main]]
+        name    = "Tag"
+        pageRef = "/tags"
+        pre     = "<i class='bi bi-tag'></i>"
+        weight  = 60
+#=================================================#
+#==================== English ====================#
+# [en]
+#     title           = "Your Site Name"
+#     languageCode    = "en"
+#     languageName    = "English"
+#     weight          = 2
+#     contentDir      = "content/en"
+#     rtl             = false
+
+#     [en.params]
+#         i18nDir             = "i18n"
+#         dateFormat          = "Monday, January 2, 2006"
+#         subtitle            = "Write Your Catchy Subtitle Here!"
+
+#     #=================================================#
+#     #===================== MENUS =====================#
+#     [en.menus]
+#     [[en.menus.main]]
+#         name    = "Home"
+#         pageRef = "/"
+#         pre     = "<i class='bi bi-house'></i>"
+#         weight  = 10
+#     [[en.menus.main]]
+#         name    = "About"
+#         pageRef = "/documents/about"
+#         pre     = "<i class='bi bi-person'></i>"
+#         weight  = 20
+#     [[en.menus.main]]
+#         name    = "Projects"
+#         pageRef = "/projects"
+#         pre     = "<i class='bi bi-folder'></i>"
+#         weight  = 30
+#     [[en.menus.main]]
+#         name    = "Content"
+#         pageRef = "/posts"
+#         pre     = "<i class='bi bi-journal-text'></i>"
+#         weight  = 40
+#     [[en.menus.main]]
+#         name    = "Categories"
+#         pageRef = "/categories"
+#         pre     = "<i class='bi bi-grid'></i>"
+#         weight  = 50
+#     [[en.menus.main]]
+#         name    = "Tags"
+#         pageRef = "/tags"
+#         pre     = "<i class='bi bi-tag'></i>"
+#         weight  = 60
