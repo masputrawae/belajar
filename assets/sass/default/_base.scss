@@ -13,46 +13,68 @@
 
   .sidebar--left {
     flex-basis: 280px;
+    left: 0;
+    transform: translateX(0%);
   }
 
   .main {
-    flex-basis: 100%;
+    flex: 1;
+    flex-basis: 0;
+    width: 100%;
+    overflow-x: hidden;
   }
-
 }
 
 .sidebar {
   top: 0;
   height: 100vh;
+  max-width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+  background-color: gray; // SEMENTARA
+  @include m.transition(transform, visibility);
 
   &--offcanvas {
     position: fixed;
-  }
+    transform: translateX(-100%);
+    visibility: hidden;
 
-  &--left {
-    left: 0;
-
-    &[data-offcanvas="sidebarSecond"]{
-      transform: translateX(-100%);
+    &.is-active {
+      transform: translateX(0%);
+      visibility: visible;
     }
   }
 
-  &--right {
-    right: 0;
+  // LEFT SIDEBAR SPECIAL
+  &#sidebarFirst {
+    display: block;
 
-    &[data-offcanvas="sidebarThird"]{
-      transform: translateX(100%);
+    &.is-active {
+      display: none;
     }
   }
 
-  &.is-open {
-    transform: translateX(0%);
-  }
-  
   @include b.max(md){
     width: 360px;
     max-width: 100%;
+
+    &#sidebarFirst {
+      transform: translateX(-100%);
+      position: fixed;
+      visibility: hidden;
+
+      &.is-active {
+        display: block;
+        transform: translateX(0%);
+        visibility: visible;
+      }
+    }
   }
 }
+
+// COLLAPSE
+.is-collapse {
+  display: none;
+}
+
+//

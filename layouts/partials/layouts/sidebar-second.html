@@ -41,7 +41,7 @@
       {{ $toc := .TableOfContents }}
       {{ $toc := replaceRE `<ul>` `<ul class="nav">` $toc }}
       {{ $toc := replaceRE `<li>` `<li class="nav__item">` $toc }}
-      {{ $toc := replaceRE `<a href=` `<a class="nav__link" href=` $toc }}
+      {{ $toc := replaceRE `<a href=` `<a class="nav__link nav__link--toc" href=` $toc }}
       {{ if $toc }}
         <div class="navbar__label">Table Of Content</div>
         {{ $toc | safeHTML }}
@@ -111,6 +111,14 @@
             </li>
           {{ end }}
         </ul>
+        <script>
+          document.getElementById("languageList")?.addEventListener("change", e => {
+            const t = e.target;
+            if (t?.name === "lang" && t.checked && t.value) {
+              window.location.href = t.value;
+            }
+          });
+        </script>
       {{ end }}
     {{/* |===========| END: SWITCH LANGUAGE |===========| */}}
     

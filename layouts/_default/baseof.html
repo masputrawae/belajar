@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme="dark">
 <head>
   {{ partial "head/head.html" . }}
 </head>
@@ -8,7 +8,7 @@
     {{ partial "layouts/left-sidebar.html" (dict "menuID" "main" "page" .) }}
   </aside>
 
-  <div class="main">
+  <div class="u-container main">
     <header class="header">
       {{ partial "layouts/header.html" . }}
     </header>
@@ -23,7 +23,7 @@
   <aside class="sidebar sidebar--left sidebar--offcanvas" data-offcanvas="sidebarSecond">
     {{ partial "layouts/sidebar-second.html" . }}
   </aside>
-  <aside class="sidebar sidebar--right sidebar--offcanvas" data-offcanvas="sidebarThird">
+  <aside class="sidebar sidebar--left sidebar--offcanvas" data-offcanvas="sidebarThird">
     {{ partial "layouts/offcanvas-third.html" . }}
   </aside>
 </body>

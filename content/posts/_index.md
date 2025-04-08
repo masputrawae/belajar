@@ -1,7 +1,9 @@
-+++
-title = 'Posts'
-date = 2023-01-01T08:30:00-07:00
-draft = false
-+++
-
-Tempor est exercitation ad qui pariatur quis adipisicing aliquip nisi ea consequat ipsum occaecat. Nostrud consequat ullamco laboris fugiat esse esse adipisicing velit laborum ipsum incididunt ut enim. Dolor pariatur nulla quis fugiat dolore excepteur. Aliquip ad quis aliqua enim do consequat.
+---
+title: Halo dan Selamat Datang!
+image: https://picsum.photos/1080/520
+description: "Guide to view all typography elements in the My Notes theme."
+date: 2025-04-02T01:19:10+07:00
+lastModified: 2025-04-02T01:19:10+07:00
+---
+Kami senang Anda di sini! Jelajahi berbagai catatan, panduan, dan inspirasi yang telah kami siapkan khusus untuk Anda. Semoga perjalanan Anda di My Notes penuh manfaat dan keseruan.
+Selamat membaca dan menikmati!
