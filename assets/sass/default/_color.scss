@@ -1,0 +1,69 @@
+$light: (
+  "bg": (
+    "first": #ffffff,
+    "second": #f6f8fa,
+    "third": #e7ebf0,
+  ),
+  "text": (
+    "title": #24292f,
+    "paragraph": #24292f,
+    "third": #57606a,
+  ),
+  "accent": (
+    "first": #0969da,
+    "second": #0550ae,
+    "third": #218bff,
+  ),
+  "shadow": (
+    "sm": 0 1px 3px rgba(27, 31, 35, 0.12),
+    "md": 0 8px 24px rgba(140, 149, 159, 0.2),
+    "lg": 0 4px 32px rgba(140, 149, 159, 0.35),
+  ),
+  "border": (
+    "first": #d0d7de,
+    "second": #d8dee4,
+  ),
+);
+
+$dark: (
+  "bg": (
+    "first": #0d1117,
+    "second": #161b22,
+    "third": #21262d,
+  ),
+  "text": (
+    "title": #e6edf3,
+    "paragraph": #7d8590,
+    "third": #6e7681,
+  ),
+  "accent": (
+    "first": #2f81f7,
+    "second": #1f6feb,
+    "third": #58a6ff,
+  ),
+  "shadow": (
+    "sm": 0 0 0 1px rgba(201, 211, 219, 0.1),
+    "md": 0 8px 24px rgba(1, 4, 9, 0.5),
+    "lg": 0 12px 48px rgba(1, 4, 9, 0.5),
+  ),
+  "border": (
+    "first": #30363d,
+    "second": #363b42,
+  ),
+);
+
+[data-theme="light"] {
+  @each $key, $value in $light {
+    @each $subkey, $subvalue in $value {
+      --#{$key}-#{$subkey}: #{$subvalue};
+    }
+  }
+}
+
+[data-theme="dark"] {
+  @each $key, $value in $dark {
+    @each $subkey, $subvalue in $value {
+      --#{$key}-#{$subkey}: #{$subvalue};
+    }
+  }
+}

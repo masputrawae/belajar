@@ -1,14 +1,7 @@
-<header class="sidebar__header">
-  <strong class="sidebar__title">Folder</strong>
-
-  <button class="btn btn--icon" data-toggle-offcanvas="sidebarThird">
-    <i class="bi bi-x"></i>
-  </button>
-</header>
-
 <nav class="navbar">
-  <button class="navbar__label" id="toggle-all-collapse">
+  <button class="navbar__label" id="toggle-all-collapse" aria-label="{{ i18n "directory" }}">
     <i class="bi bi-arrows-expand"></i>
+    <span>{{ i18n "directory" }}</span>
   </button>
   <ul class="nav nav--tree">
     {{- template "tree_view" .Site.Home -}}

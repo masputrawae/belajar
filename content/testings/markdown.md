@@ -128,18 +128,120 @@ See complete Visit: [Alert Collection](callout.md)
 
 ### Python
 ```python
-# Simple Python Program
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# This is a sample Python script to test syntax highlighting
+
+import re
+from typing import List, Dict
+
+# Constants
+HEX_VALUE = 0xFF
+PI = 3.14159
+CONFIG_PATH = "/etc/config.yaml"
+
+class Shape:
+    """A simple class with a method and a property."""
+    def __init__(self, name: str, sides: int = 0):
+        self.name = name
+        self.sides = sides
+
+    @property
+    def description(self) -> str:
+        return f"{self.name} with {self.sides} sides"
+
+    def area(self) -> float:
+        raise NotImplementedError("Subclasses should implement this!")
+
+class Circle(Shape):
+    def __init__(self, radius: float):
+        super().__init__("Circle")
+        self.radius = radius
+
+    def area(self) -> float:
+        return PI * self.radius ** 2
+
+def parse_config(text: str) -> Dict[str, str]:
+    """Parses a config file using regex."""
+    return dict(re.findall(r"^(\w+):\s*(.+)$", text, re.MULTILINE))
+
 def main():
-    print("Hello, World!")
-    
-    # Addition operation
-    a = 5
-    b = 3
-    hasil = a + b
-    print(f"Hasil penjumlahan {a} + {b} = {hasil}")
+    shapes: List[Shape] = [
+        Circle(5.5),
+        Shape("Triangle", 3)
+    ]
+    for shape in shapes:
+        try:
+            print(shape.description)
+            print(f"Area: {shape.area():.2f}")
+        except Exception as e:
+            print(f"Error: {e}")
 
 if __name__ == "__main__":
     main()
+
+```
+
+### Bash
+```bash
+#!/bin/bash
+# A sample Bash script to test syntax highlighting
+
+# Constants and variables
+readonly FILE_PATH="/etc/passwd"
+USER_NAME="$(whoami)"
+NUMBER=42
+PI=3.14
+
+# Function with parameters
+greet_user() {
+  local name="$1"
+  echo "Hello, $name"
+}
+
+# Control flow
+if [[ -f "$FILE_PATH" ]]; then
+  echo "File exists: $FILE_PATH"
+else
+  echo "File not found."
+fi
+
+# Loops
+for i in {1..5}; do
+  echo "Number $i"
+done
+
+# While loop with arithmetic
+count=0
+while (( count < NUMBER )); do
+  ((count++))
+done
+
+# Case statement
+case "$USER_NAME" in
+  root) echo "You're root!" ;;
+  *)    echo "You're a regular user." ;;
+esac
+
+# Heredoc and command substitution
+cat <<EOF
+User: $USER_NAME
+PI: $PI
+Date: $(date)
+EOF
+
+# Arrays and regex
+fruits=("apple" "banana" "cherry")
+for fruit in "${fruits[@]}"; do
+  if [[ "$fruit" =~ ^a.* ]]; then
+    echo "$fruit starts with 'a'"
+  fi
+done
+
+# Export and function call
+export PATH="$PATH:/custom/bin"
+greet_user "$USER_NAME"
+
 ```
 
 ### Golang

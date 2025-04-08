@@ -1,0 +1,60 @@
+# Untuk Aria Label Sidebar
+[sidebar_first]
+    other = "Bilah Sisi Kiri Utama"
+[sidebar_second]
+    other = "Bilah Sisi Kiri Sekunder"
+[sidebar_directory]
+    other = "Bilah Sisi Kiri Direktori"
+
+# Untuk Aria Label Tombol
+[button_sidebar_first]
+    other = "Tombol Tampil/Sembunyikan Bilah Utama"
+[button_sidebar_second]
+    other = "Tombol Tampil/Sembunyikan Bilah Sekunder"
+[button_sidebar_directory]
+    other = "Tombol Tampil/Sembunyikan Bilah Direktori"
+[button_home]
+    other = "Halaman Utama"
+[button_theme]
+    other = "Beralih Tema"
+[button_back_to_top]
+    other = "Kembali ke Atas"
+
+# Untuk Label Navigasi
+[main_menu]
+    other = "Menu Utama"
+[social_media]
+    other = "Media Sosial"
+[table_of_content]
+    other = "Daftar Isi"
+[related]
+    other = "Konten Terkait"
+[pinned]
+    other = "Disematkan"
+[recent_posts]
+    other = "Posting Terbaru"
+[result]
+    other = "Hasil"
+[search]
+    other = "Pencarian"
+[directory]
+    other = "Direktori"
+
+# Untuk Footer
+[copy_right_by]
+    other = "Dibuat dengan ❤️. Dibangun menggunakan:"
+[copy_right]
+    other = "Hak Cipta"
+[copy_right_reserved]
+    other = "Seluruh hak dilindungi undang-undang."
+
+# Lainnya
+# Nama Bahasa
+[language]
+    other = "Bahasa"
+[english]
+    other = "Bahasa Inggris"
+[indonesian]
+    other = "Bahasa Indonesia"
+[javanese]
+    other = "Bahasa Jawa"

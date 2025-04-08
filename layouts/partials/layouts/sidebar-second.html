@@ -14,22 +14,18 @@
         type="search" 
         id="search-input" 
         name="query" 
-        placeholder="Pencarian" 
+        placeholder="{{ i18n "search" }}" 
         autocomplete="off" 
         autocorrect="off" 
         spellcheck="false" 
         >
   </form>
   {{/* |===========| END: FORM SEARCH |===========| */}}
-
-  <button class="btn btn--icon" data-toggle-offcanvas="sidebarSecond">
-    <i class="bi bi-x"></i>
-  </button>
 </header>
 
 {{/* |===========| START: SEARCH RESULTS |===========| */}}
 <nav class="navbar" id="resultsPanel" style="display: none;">
-  <strong class="navbar__label">Results</strong>
+  <strong class="navbar__label">{{ i18n "result" }}</strong>
   <ul class="nav" id="results"></ul>
 </nav>
 {{/* |===========| END: SEARCH RESULTS |===========| */}}
@@ -39,11 +35,11 @@
 
     {{/* |===========| START: TABLE OF CONTENT |===========| */}}
       {{ $toc := .TableOfContents }}
-      {{ $toc := replaceRE `<ul>` `<ul class="nav">` $toc }}
+      {{ $toc := replaceRE `<ul>` `<ul class="nav nav--tree">` $toc }}
       {{ $toc := replaceRE `<li>` `<li class="nav__item">` $toc }}
       {{ $toc := replaceRE `<a href=` `<a class="nav__link nav__link--toc" href=` $toc }}
       {{ if $toc }}
-        <div class="navbar__label">Table Of Content</div>
+        <strong class="navbar__label">{{ i18n "table_of_content" }}</strong>
         {{ $toc | safeHTML }}
       {{ end }}
     {{/* |===========| END: TABLE OF CONTENT |===========| */}}
@@ -51,7 +47,7 @@
     {{/* |===========| START: RELATED POSTS |===========| */}}
       {{ $related := .Site.RegularPages.Related . | first 5 }}
       {{ if $related }}
-        <div class="navbar__label">Related Posts</div>
+        <strong class="navbar__label">{{ i18n "related" }}</strong>
         <ul class="nav">
           {{ range $related }}
             <li class="nav__item">
@@ -67,8 +63,8 @@
     {{/* |===========| START: PINNED |===========| */}}
       {{ $pinned := where .Site.RegularPages "Params.pinned" true }}
       {{ if $pinned }}
-        <strong class="navbar__label">Pinned</strong>
-        <ul class="nav nav--widget">
+        <strong class="navbar__label">{{ i18n "pinned" }}</strong>
+        <ul class="nav">
           {{ range $pinned | first 5 }}
             <li class="nav__item">
               <a href="{{ .RelPermalink }}" class="nav__link">{{ .Title }}</a>
@@ -81,7 +77,7 @@
     {{/* |===========| START: RECENT POSTS |===========| */}}
       {{ $recent := .Site.RegularPages }}
       {{ if $recent }}
-        <strong class="navbar__label">Recent Posts</strong>
+        <strong class="navbar__label">{{ i18n "recent_posts" }}</strong>
         
         <ul class="nav">
           {{ range $recent | first 5 }}
@@ -95,7 +91,7 @@
 
     {{/* |===========| START: SWITCH LANGUAGE |===========| */}}
       {{ if gt (len $.Site.Home.AllTranslations) 1 }}
-        <strong class="navbar__label">Language</strong>
+        <strong class="navbar__label">{{ i18n "language" }}</strong>
         <ul class="nav" id="languageList">
           {{ range $.Site.Home.AllTranslations }}
             <li class="nav__item">

@@ -1,0 +1,60 @@
+# For Aria Label Sidebar
+[sidebar_first]
+    other = "Primary Left Sidebar"
+[sidebar_second]
+    other = "Secondary Left Sidebar"
+[sidebar_directory]
+    other = "Directory Left Sidebar"
+
+# For Aria Label Button
+[button_sidebar_first]
+    other = "Toggle Primary Sidebar"
+[button_sidebar_second]
+    other = "Toggle Secondary Sidebar"
+[button_sidebar_directory]
+    other = "Toggle Directory Sidebar"
+[button_home]
+    other = "Home Page"
+[button_theme]
+    other = "Switch Theme"
+[button_back_to_top]
+    other = "Back to Top"
+
+# For Navigation Label
+[main_menu]
+    other = "Main Menu"
+[social_media]
+    other = "Social Media"
+[table_of_content]
+    other = "Table of Contents"
+[related]
+    other = "Related Content"
+[pinned]
+    other = "Pinned"
+[recent_posts]
+    other = "Recent Posts"
+[result]
+    other = "Result"
+[search]
+    other = "Search"
+[directory]
+    other = "Directory"
+
+# For Footer
+[copy_right_by]
+    other = "Made with ❤️. Built with"
+[copy_right]
+    other = "Copyright"
+[copy_right_reserved]
+    other = "All rights reserved."
+
+# Other
+# Lang Name
+[language]
+    other = "Language"
+[english]
+    other = "English"
+[indonesian]
+    other = "Indonesian"
+[javanese]
+    other = "Javanese"

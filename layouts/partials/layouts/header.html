@@ -1,19 +1,23 @@
-<button class="btn btn--icon" data-toggle-offcanvas="sidebarFirst">
+<button class="btn btn--icon" data-toggle-offcanvas="sidebarFirst" aria-label="{{ i18n "button_sidebar_first" }}" title="{{ i18n "button_sidebar_first" }}">
   <i class="bi bi-list"></i>
 </button>
 
-<button class="btn btn--icon" data-toggle-offcanvas="sidebarThird">
+<button class="btn btn--icon" data-toggle-offcanvas="sidebarThird" aria-label="{{ i18n "button_sidebar_directory" }}" title="{{ i18n "button_sidebar_directory" }}">
   <i class="bi bi-folder"></i>
 </button>
 
-<a href="{{ site.BaseURL | absURL }}" class="btn btn--icon">
+<a href="{{ site.BaseURL | absURL }}" class="btn btn--icon" aria-label="{{ i18n "button_home" }}" title="{{ i18n "button_home" }}">
   <i class="bi bi-house"></i>
 </a>
 
-<button class="btn btn--icon" id="switchTheme">
+<button class="btn btn--icon" id="switchTheme" aria-label="{{ i18n "button_theme" }}" title="{{ i18n "button_theme" }}">
   <i class="bi bi-sun"></i>
 </button>
 
-<button class="btn btn--icon" data-toggle-offcanvas="sidebarSecond">
-  <div class="bi bi-book"></div>
+<button class="btn btn--icon" data-toggle-offcanvas="sidebarSecond" aria-label="{{ i18n "button_sidebar_second" }}" title="{{ i18n "button_sidebar_second" }}">
+  <i class="bi bi-book"></i>
+</button>
+
+<button id="backToTop" class="btn btn--icon btn--back-to-top" aria-label="{{ i18n "button_back_to_top" }}" title="{{ i18n "button_back_to_top" }}">
+  <i class="bi bi-arrow-up"></i>
 </button>

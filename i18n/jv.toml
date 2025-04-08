@@ -1,0 +1,60 @@
+# Kanggo Aria Label Sidebar
+[sidebar_first]
+    other = "Bilih Samping Kiwa Utami"
+[sidebar_second]
+    other = "Bilih Samping Kiwa Sekunder"
+[sidebar_directory]
+    other = "Bilih Samping Kiwa Direktori"
+
+# Kanggo Aria Label Tombol
+[button_sidebar_first]
+    other = "Tombol Mbukak/Landhep Bilih Utami"
+[button_sidebar_second]
+    other = "Tombol Mbukak/Landhep Bilih Sekunder"
+[button_sidebar_directory]
+    other = "Tombol Mbukak/Landhep Bilih Direktori"
+[button_home]
+    other = "Kaca Ngarep"
+[button_theme]
+    other = "Gentos Tema"
+[button_back_to_top]
+    other = "Wangsul Menyang Ndhuwur"
+
+# Kanggo Label Navigasi
+[main_menu]
+    other = "Menu Utami"
+[social_media]
+    other = "Médhia Sosial"
+[table_of_content]
+    other = "Dhaptar Isiné"
+[related]
+    other = "Isiné Gegandhèngan"
+[pinned]
+    other = "Disemataké"
+[recent_posts]
+    other = "Kiriman Anyar"
+[result]
+    other = "Asilipun"
+[search]
+    other = "Padosan"
+[directory]
+    other = "Direktori"
+
+# Kanggo Footer
+[copy_right_by]
+    other = "Damel kanthi ❤️. Ginayuh mawi:"
+[copy_right]
+    other = "Hak Cipta"
+[copy_right_reserved]
+    other = "Kabeh hak kapangku hukum."
+
+# Liyane
+# Asma Basa
+[language]
+    other = "Basa"
+[english]
+    other = "Basa Inggris"
+[indonesian]
+    other = "Basa Indonesia"
+[javanese]
+    other = "Basa Jawa"

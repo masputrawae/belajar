@@ -1,9 +1,9 @@
-+++
-title = 'Home'
-date = 2023-01-01T08:00:00-07:00
-draft = false
-+++
-
-Laborum voluptate pariatur ex culpa magna nostrud est incididunt fugiat
-pariatur do dolor ipsum enim. Consequat tempor do dolor eu. Non id id anim anim
-excepteur excepteur pariatur nostrud qui irure ullamco.
+---
+title: Halo dan Selamat Datang!
+image: https://picsum.photos/1080/520
+description: "Guide to view all typography elements in the My Notes theme."
+date: 2025-04-02T01:19:10+07:00
+lastModified: 2025-04-02T01:19:10+07:00
+---
+Kami senang Anda di sini! Jelajahi berbagai catatan, panduan, dan inspirasi yang telah kami siapkan khusus untuk Anda. Semoga perjalanan Anda di My Notes penuh manfaat dan keseruan.
+Selamat membaca dan menikmati!

@@ -11,10 +11,30 @@
   display: flex;
   align-items: stretch;
 
-  .sidebar--left {
+  #sidebarFirst {
     flex-basis: 280px;
-    left: 0;
-    transform: translateX(0%);
+    visibility: visible;
+
+    &.is-active {
+      flex-basis: 0px;
+      transform: translateX(-100%);
+      visibility: hidden;
+    }
+
+    @include b.max(md){
+      flex-basis: unset;
+      &#sidebarFirst {
+        transform: translateX(-100%);
+        position: fixed;
+        visibility: hidden;
+  
+        &.is-active {
+          display: block;
+          transform: translateX(0%);
+          visibility: visible;
+        }
+      }
+    }
   }
 
   .main {
@@ -25,56 +45,47 @@
   }
 }
 
-.sidebar {
-  top: 0;
-  height: 100vh;
-  max-width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  background-color: gray; // SEMENTARA
-  @include m.transition(transform, visibility);
-
-  &--offcanvas {
-    position: fixed;
-    transform: translateX(-100%);
-    visibility: hidden;
-
-    &.is-active {
-      transform: translateX(0%);
-      visibility: visible;
-    }
-  }
-
-  // LEFT SIDEBAR SPECIAL
-  &#sidebarFirst {
-    display: block;
-
-    &.is-active {
-      display: none;
-    }
-  }
+.header {
+  @include m.flex-between();
+  flex-direction: column;
+  gap: 1rem;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 200;
 
   @include b.max(md){
-    width: 360px;
-    max-width: 100%;
+    flex-direction: row;
+    width: 100%;
+    height: 4rem;
+    bottom: 0;
+    right: 0;
 
-    &#sidebarFirst {
-      transform: translateX(-100%);
-      position: fixed;
-      visibility: hidden;
-
-      &.is-active {
-        display: block;
-        transform: translateX(0%);
-        visibility: visible;
-      }
-    }
+    background-color: var(--bg-second);
+    border-top: 2px solid var(--border-first);
+    padding: 1rem;
   }
 }
 
-// COLLAPSE
-.is-collapse {
-  display: none;
+.content {
+  min-height: 100dvh;
+  padding-block: 1rem;
+  max-width: 75ch;
+  margin: auto;
 }
 
-//
+.hero {
+  text-align: center;
+
+  &__title {
+    font-size: v.$font__size--8xl;
+    border: none;
+  }
+}
+
+.footer {
+  padding-bottom: 1rem;
+  @include b.max(md) {
+    padding-bottom: 4.5rem;
+  }
+}

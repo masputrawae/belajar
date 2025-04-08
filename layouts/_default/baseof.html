@@ -4,7 +4,7 @@
   {{ partial "head/head.html" . }}
 </head>
 <body class="layout">
-  <aside class="sidebar sidebar--left" id="sidebarFirst" data-offcanvas="sidebarFirst">
+  <aside class="sidebar sidebar--left" id="sidebarFirst" data-offcanvas="sidebarFirst" aria-label="{{ i18n "sidebar_first" }}">
     {{ partial "layouts/left-sidebar.html" (dict "menuID" "main" "page" .) }}
   </aside>
 
@@ -12,18 +12,18 @@
     <header class="header">
       {{ partial "layouts/header.html" . }}
     </header>
-    <main class="markdown">
+    <main class="u-container markdown">
       {{ block "main" . }}{{ end }}
     </main>
-    <footer class="footer">
+    <footer class="u-container footer">
       {{ partial "layouts/footer.html" . }}
     </footer>
   </div>
 
-  <aside class="sidebar sidebar--left sidebar--offcanvas" data-offcanvas="sidebarSecond">
+  <aside class="sidebar sidebar--left sidebar--offcanvas" data-offcanvas="sidebarSecond" aria-label="{{ i18n "sidebar_second" }}">
     {{ partial "layouts/sidebar-second.html" . }}
   </aside>
-  <aside class="sidebar sidebar--left sidebar--offcanvas" data-offcanvas="sidebarThird">
+  <aside class="sidebar sidebar--left sidebar--offcanvas" data-offcanvas="sidebarThird" aria-label="{{ i18n "sidebar_directory" }}">
     {{ partial "layouts/offcanvas-third.html" . }}
   </aside>
 </body>
