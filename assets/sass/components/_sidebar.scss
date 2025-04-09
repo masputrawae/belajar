@@ -3,7 +3,7 @@
 @use "../abstracts/variables" as v;
 
 .sidebar {
-  width: 280px;
+  width: 300px;
   position: sticky;
   display: block;
   top: 0;
@@ -51,15 +51,29 @@
 .brand {
   @extend %placehold-brand;
 
-  &__logo {
-    @include m.width-height(150px, 150px);
+  &__picture {
+    @include m.width-height(180px, 180px);
+    position: relative;
     border-radius: 50%;
     border: 3px solid var(--border-second);
     box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  &__logo {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    @include m.transition(scale);
+
+    &:hover {
+      scale: 1.1;
+    }
   }
 
   &__caption {
     @extend %placehold-brand;
+    margin-top: 0.5rem;
   }
 
   &__title {
@@ -73,5 +87,6 @@
   &__subtitle {
     font-size: v.$font__size--sm;
     font-style: normal;
+    margin-top: 0.5rem;
   }
 }

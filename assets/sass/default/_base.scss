@@ -12,7 +12,7 @@
   align-items: stretch;
 
   #sidebarFirst {
-    flex-basis: 280px;
+    flex-basis: 300px;
     visibility: visible;
 
     &.is-active {
@@ -70,7 +70,7 @@
 .content {
   min-height: 100dvh;
   padding-block: 1rem;
-  max-width: 85ch;
+  max-width: 95ch;
   margin: auto;
 }
 

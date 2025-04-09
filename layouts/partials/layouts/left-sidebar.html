@@ -4,7 +4,9 @@
 {{- with index site.Menus $menuID }}
 <header class="sidebar__header">
   <figure class="brand">
-    <img class="brand__logo" src="https://placehold.co/100" alt="{{ site.Title }}">
+    <picture class="brand__picture">
+      <img class="brand__logo" src="https://placehold.co/100" alt="{{ site.Title }}">
+    </picture>
     <figcaption class="brand__caption">
       <a href="{{ site.BaseURL | absURL }}" class="brand__title">{{ site.Title }}</a>
       <em class="brand__subtitle">{{ site.Params.subtitle }}</em>
@@ -17,23 +19,20 @@
   <ul class="nav">
     {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
   </ul>
-  <strong class="navbar__label">{{ i18n "social_media" }}</strong>
-  <ul class="nav">
-    {{- with site.Params.social }} {{- range $key, $value := . }}
-    <li class="nav__item">
-      <a
-        href="{{ $value.url }}"
-        class="nav__link nav__link--active"
-        rel="noopener noreferrer nofollow"
-        target="_blank"
-        aria-label="Go to {{ $value.name }}"
-      >
-        <i class="bi {{ $value.icon }}"></i>
-        {{ $value.name }}
-      </a>
-    </li>
-    {{- end }} {{- end }}
-  </ul>
+</nav>
+<nav class="navbar navbar--social">
+  {{- with site.Params.social }} {{- range $key, $value := . }}
+    <a
+    href="{{ $value.url }}"
+    class="btn btn--icon btn--social"
+    rel="noopener noreferrer nofollow"
+    target="_blank"
+    title="{{ $value.name }}"
+    aria-label="Go to {{ $value.name }}"
+    >
+      <i class="bi {{ $value.icon }}"></i>
+    </a>
+  {{- end }} {{- end }}
 </nav>
 {{- end }}
 

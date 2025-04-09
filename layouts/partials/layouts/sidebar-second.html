@@ -1,35 +1,3 @@
-<header class="sidebar__header">
-  {{/* |===========| START: FORM SEARCH |===========| */}}
-  <form 
-    class="search" 
-    id="search" 
-    onsubmit="handleSearch(event)" 
-    method="get" 
-    id="search" 
-    data-search-url="{{ "search.json" | relURL }}"
-    >
-      <i class="bi bi-search"></i>
-      <input 
-        class="search__input" 
-        type="search" 
-        id="search-input" 
-        name="query" 
-        placeholder="{{ i18n "search" }}" 
-        autocomplete="off" 
-        autocorrect="off" 
-        spellcheck="false" 
-        >
-  </form>
-  {{/* |===========| END: FORM SEARCH |===========| */}}
-</header>
-
-{{/* |===========| START: SEARCH RESULTS |===========| */}}
-<nav class="navbar" id="resultsPanel" style="display: none;">
-  <strong class="navbar__label">{{ i18n "result" }}</strong>
-  <ul class="nav" id="results"></ul>
-</nav>
-{{/* |===========| END: SEARCH RESULTS |===========| */}}
-
 <nav class="navbar">
   {{ if .IsPage }}
 

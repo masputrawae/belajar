@@ -23,6 +23,12 @@
     @include m.width-height(2.5rem, 2.5rem);
   }
 
+  &--social {
+    @include m.width-height(3rem, 3rem);
+    font-size: v.$font__size--5xl;
+    border-radius: 50%;
+  }
+
   &--back-to-top {
     display: none;
     &.show {
