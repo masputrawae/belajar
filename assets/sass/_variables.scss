@@ -28,6 +28,7 @@ $breakpoints: (
 }
 
 $font__family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+$font__family--serif: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 $font__family--mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
 
 $font__size--default          : 14px;
@@ -48,4 +49,5 @@ $font__size--4xl              : scale(5);
 $font__size--5xl              : scale(6);
 $font__size--6xl              : scale(7);
 $font__size--7xl              : scale(8);
-$font__size--8xl              : scale(9);
+
+$font__size--8xl              : scale(14);

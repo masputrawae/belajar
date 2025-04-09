@@ -1,0 +1,180 @@
+$light: (
+  "bg": (
+    "body": #f9fafb,
+    "second": #f3f4f6,
+    "third": #e5e7eb,
+  ),
+
+  "ui": (
+    "internal-link": #2563eb,
+    "external-link": #1d4ed8,
+    "hover-link": #1e40af,
+    "border-default": #e5e7eb,
+  ),
+
+  "state": (
+    "color-info": #0c4a6e,
+    "color-tip": #166534,
+    "color-warning": #b45309,
+    "color-danger": #991b1b,
+    "color-error": #b91c1c,
+    "color-bug": #a21caf,
+    "color-quote": #374151,
+
+    "bg-info": #e0f2fe,
+    "bg-tip": #dcfce7,
+    "bg-warning": #fef3c7,
+    "bg-danger": #fee2e2,
+    "bg-error": #fee2e2,
+    "bg-bug": #f5d0fe,
+    "bg-quote": #f3f4f6,
+
+    "border-info": #38bdf8,
+    "border-tip": #4ade80,
+    "border-warning": #fbbf24,
+    "border-danger": #f87171,
+    "border-error": #f87171,
+    "border-bug": #e879f9,
+    "border-quote": #d1d5db,
+  ),
+  "text": (
+    "default": #111827,
+    "heading": #0f172a,
+    "bold": #1e293b,
+    "muted": #6b7280,
+    "error": #dc2626,
+    "line-highlight": #fef3c7,
+    "line-number": #9ca3af,
+    "line-number-muted": #d1d5db,
+
+    "keyword": #7c3aed,
+    "keyword-constant": #8b5cf6,
+    "keyword-pseudo": #a78bfa,
+
+    "name-class": #0ea5e9,
+    "name-constant": #0284c7,
+    "name-decorator": #7e22ce,
+    "name-entity": #0369a1,
+    "name-exception": #dc2626,
+    "name-function": #2563eb,
+    "name-label": #ca8a04,
+    "name-namespace": #4b5563,
+    "name-property": #0d9488,
+    "name-tag": #9333ea,
+    "name-variable": #059669,
+
+    "literal": #16a34a,
+    "literal-alt": #22c55e,
+
+    "operator": #e11d48,
+
+    "comment": #9ca3af,
+    "comment-strong": #6b7280,
+
+    "generic-deleted-fg": #991b1b,
+    "generic-deleted-bg": #fee2e2,
+    "generic-inserted-fg": #065f46,
+    "generic-inserted-bg": #d1fae5,
+
+    "traceback": #ef4444,
+  ),
+);
+
+$dark: (
+  "bg": (
+    "body": #0a0a0a,
+    "second": #171717,
+    "third": #262626,
+  ),
+
+  "ui": (
+    "internal-link": #60a5fa,
+    "external-link": #3b82f6,
+    "hover-link": #1d4ed8,
+    "border-default": #374151,
+  ),
+
+  "state": (
+    "color-info": #38bdf8,
+    "color-tip": #4ade80,
+    "color-warning": #facc15,
+    "color-danger": #ef4444,
+    "color-error": #f87171,
+    "color-bug": #e879f9,
+    "color-quote": #d1d5db,
+
+    "bg-info": #0c4a6e,
+    "bg-tip": #14532d,
+    "bg-warning": #78350f,
+    "bg-danger": #7f1d1d,
+    "bg-error": #7f1d1d,
+    "bg-bug": #701a75,
+    "bg-quote": #1f2937,
+
+    "border-info": #0ea5e9,
+    "border-tip": #22c55e,
+    "border-warning": #eab308,
+    "border-danger": #dc2626,
+    "border-error": #dc2626,
+    "border-bug": #d946ef,
+    "border-quote": #4b5563,
+  ),
+
+  "text": (
+    "default": #f3f4f6,
+    "heading": #ffffff,
+    "bold": #e5e7eb,
+    "muted": #9ca3af,
+    "error": #f87171,
+    "line-highlight": #3f3f46,
+    "line-number": #6b7280,
+    "line-number-muted": #4b5563,
+
+    "keyword": #c084fc,
+    "keyword-constant": #a78bfa,
+    "keyword-pseudo": #ddd6fe,
+
+    "name-class": #38bdf8,
+    "name-constant": #0ea5e9,
+    "name-decorator": #d946ef,
+    "name-entity": #22d3ee,
+    "name-exception": #f87171,
+    "name-function": #60a5fa,
+    "name-label": #fde047,
+    "name-namespace": #9ca3af,
+    "name-property": #34d399,
+    "name-tag": #d8b4fe,
+    "name-variable": #4ade80,
+
+    "literal": #86efac,
+    "literal-alt": #bbf7d0,
+
+    "operator": #f43f5e,
+
+    "comment": #6b7280,
+    "comment-strong": #9ca3af,
+
+    "generic-deleted-fg": #fca5a5,
+    "generic-deleted-bg": #7f1d1d,
+    "generic-inserted-fg": #86efac,
+    "generic-inserted-bg": #14532d,
+
+    "traceback": #f87171,
+  ),
+);
+
+[data-theme="light"] {
+  @each $key, $value in $light {
+    @each $subkey, $subvalue in $value {
+      --#{$key}-#{$subkey}: #{$subvalue};
+    }
+  }
+}
+
+[data-theme="dark"] {
+  @each $key, $value in $dark {
+    @each $subkey, $subvalue in $value {
+      --#{$key}-#{$subkey}: #{$subvalue};
+    }
+  }
+}

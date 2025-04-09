@@ -1,44 +1,62 @@
+{{/* =============== START: SIDEBAR LEFT =============== */}}
 <header class="sidebar__header">
+  
+  <div class="sidebar__wrapper-brand">
+    <a href="{{ site.BaseURL | relURL }}" class="brand">
+      <em class="brand__title">{{ site.Title }}</em>
+    </a>
+
+    <button class="btn btn--icon" data-toggle-sidebar="sidebarLeft" aria-label="Toggle Menu Navigation">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+
   {{/* |===========| START: FORM SEARCH |===========| */}}
   <form 
+
     class="search" 
     id="search" 
     onsubmit="handleSearch(event)" 
     method="get" 
     id="search" 
     data-search-url="{{ "search.json" | relURL }}"
+
+  >
+    <i class="bi bi-search"></i>
+    <input 
+    
+      class="search__input" 
+      type="search" 
+      id="search-input" 
+      name="query" 
+      placeholder="Search notes or pages" 
+      autocomplete="off" 
+      autocorrect="off" 
+      spellcheck="false" 
+
     >
-      <i class="bi bi-search"></i>
-      <input 
-        class="search__input" 
-        type="search" 
-        id="search-input" 
-        name="query" 
-        placeholder="{{ i18n "search" }}" 
-        autocomplete="off" 
-        autocorrect="off" 
-        spellcheck="false" 
-        >
   </form>
   {{/* |===========| END: FORM SEARCH |===========| */}}
 </header>
 
 {{/* |===========| START: SEARCH RESULTS |===========| */}}
 <nav class="navbar" id="resultsPanel" style="display: none;">
-  <strong class="navbar__label">{{ i18n "result" }}</strong>
+  <strong class="navbar__label">Results</strong>
   <ul class="nav" id="results"></ul>
 </nav>
 {{/* |===========| END: SEARCH RESULTS |===========| */}}
 
+{{/* |===========| START: DIRECTORY NAVIGATION |===========| */}}
 <nav class="navbar">
-  <button class="navbar__label" id="toggle-all-collapse" aria-label="{{ i18n "directory" }}">
+  <button class="navbar__label" id="toggle-all-collapse" aria-label="Directory">
     <i class="bi bi-arrows-expand"></i>
-    <span>{{ i18n "directory" }}</span>
+    <span>Directory</span>
   </button>
-  <ul class="nav nav--tree">
+  <ul class="nav">
     {{- template "tree_view" .Site.Home -}}
   </ul>
 </nav>
+{{/* |===========| START: DIRECTORY NAVIGATION |===========| */}}
 
 {{- define "tree_view" -}}
   {{- if .Pages -}}
@@ -48,10 +66,9 @@
       {{- if .IsSection -}}
         <li class="nav__item">
           <button class="nav__link nav__link--folder" data-toggle-collapse="{{- .RelPermalink | md5 -}}">
-            <i class="bi bi-folder2"></i>
-            <span>{{- .LinkTitle -}}</span>
+            <i class="bi bi-folder2"></i>{{- .LinkTitle -}}
           </button>
-          <ul class="nav nav--tree" data-collapse="{{- .RelPermalink | md5 -}}">
+          <ul class="nav" data-collapse="{{- .RelPermalink | md5 -}}">
             {{- template "tree_view" . -}}
           </ul>
         </li>
@@ -64,8 +81,7 @@
         {{- if .File.BaseFileName -}}
           <li class="nav__item">
             <a class="nav__link nav__link--file" href="{{- .RelPermalink -}}" data-href="{{- .RelPermalink -}}">
-              <i class="bi bi-file-text-fill"></i>
-              <span>{{- .LinkTitle -}}</span>
+              <i class="bi bi-file-text-fill"></i>{{- .LinkTitle -}}
             </a>
           </li>
         {{- end -}}
@@ -74,3 +90,4 @@
 
   {{- end -}}
 {{- end -}}
+{{/* =============== END: SIDEBAR LEFT =============== */}}

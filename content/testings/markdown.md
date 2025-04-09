@@ -18,8 +18,7 @@ mathjax: true
 draft: false
 ---
 
-This content shows a preview of typography elements supported by the **My Notes** theme.  
-**Happy Reading!**
+This content shows a preview of typography elements supported by the My Notes theme.  Happy Reading!
 
 ## Headings
 Here are examples of various **headings**:

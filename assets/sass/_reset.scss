@@ -1,5 +1,5 @@
-@use "../abstracts/mixins" as m;
-@use "../abstracts/variables" as v;
+@use "./mixins" as m;
+@use "./variables" as v;
 
 *,
 *::after,
@@ -28,8 +28,9 @@ html {
 
 html,
 body {
-  color: var(--text-paragraph);
-  background-color: var(--bg-first);
+  font-weight: 400;
+  color: var(--text-default);
+  background-color: var(--bg-body);
   font-family: v.$font__family;
   scroll-behavior: smooth;
 }

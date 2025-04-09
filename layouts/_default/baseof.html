@@ -1,30 +1,49 @@
 <!DOCTYPE html>
-<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme="dark">
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme="">
 <head>
   {{ partial "head/head.html" . }}
 </head>
 <body class="layout">
-  <aside class="sidebar sidebar--left" id="sidebarFirst" data-offcanvas="sidebarFirst" aria-label="{{ i18n "sidebar_first" }}">
-    {{ partial "layouts/left-sidebar.html" (dict "menuID" "main" "page" .) }}
-  </aside>
+  <aside 
 
-  <div class="u-container main">
-    <header class="header">
-      {{ partial "layouts/header.html" . }}
-    </header>
-    <main class="u-container markdown">
-      {{ block "main" . }}{{ end }}
-    </main>
-    <footer class="u-container footer">
-      {{ partial "layouts/footer.html" . }}
-    </footer>
+    class="u-container sidebar sidebar--left" 
+    role="navigation" 
+    aria-label="Main Navigation" 
+    data-sidebar="sidebarLeft"
+
+  >
+    {{ partial "sidebar-left.html" . }}
+  </aside>
+  
+  <div class="main-area">
+    <div class="u-container markdown">
+
+      <header class="header header--main">
+        {{ partial "header.html" . }}
+      </header>
+      <main class="main">
+        {{ block "main" . }}{{ end }}
+      </main>
+      <footer class="footer">
+        {{ partial "footer.html" . }}
+      </footer>
+      
+    </div>
   </div>
 
-  <aside class="sidebar sidebar--left sidebar--offcanvas" data-offcanvas="sidebarSecond" aria-label="{{ i18n "sidebar_second" }}">
-    {{ partial "layouts/sidebar-second.html" . }}
-  </aside>
-  <aside class="sidebar sidebar--left sidebar--offcanvas" data-offcanvas="sidebarThird" aria-label="{{ i18n "sidebar_directory" }}">
-    {{ partial "layouts/offcanvas-third.html" . }}
-  </aside>
+  {{ $excluded := .Site.Params.toc_exclude_sections | default (slice) }}
+  {{ $showToc := and (.TableOfContents) (not (in $excluded .Section)) }}
+  {{ if not (or (eq .Params.toc false) (not $showToc)) }}
+    <aside 
+    
+      class="u-container sidebar sidebar--right" 
+      role="complementary" 
+      aria-label="Table Of Contents" 
+      data-sidebar="sidebarRight"
+    
+    >
+      {{ partial "sidebar-right.html" . }}
+    </aside>
+  {{ end }}
 </body>
 </html>

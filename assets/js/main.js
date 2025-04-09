@@ -1,73 +1,122 @@
-const SIDEBAR_FIRST_ID = "sidebarFirst";
-const SIDEBAR_FIRST_KEY = "sidebarFirstState";
-const sidebarFirst = document.getElementById(SIDEBAR_FIRST_ID);
+// === Sidebar Logic ===
+const BREAKPOINT = 48 * 16; // 48em in pixels
+const SIDEBAR_ATTR = 'data-sidebar';
+const TOGGLE_ATTR = 'data-toggle-sidebar';
+const HIDE_BTN_ATTR = 'data-button-hidden';
+const CLASS_OPEN = 'is-open';
+const CLASS_BTN_HIDDEN = 'btn--sidebar-hidden';
 
-// Pulihkan status sidebarFirst
-if (sidebarFirst) {
-  const saved = localStorage.getItem(SIDEBAR_FIRST_KEY);
-  sidebarFirst.classList.toggle("is-active", saved === "show");
+const sidebars = Array.from(document.querySelectorAll(`[${SIDEBAR_ATTR}]`));
+const toggles = Array.from(document.querySelectorAll(`[${TOGGLE_ATTR}]`));
+const toggleMap = new Map();
+
+function isDesktop() {
+  return window.innerWidth >= BREAKPOINT;
 }
 
-document.body.addEventListener("click", (e) => {
-  const toggle = e.target.closest("[data-toggle-offcanvas]");
-  const isInsideSidebar = sidebarFirst && sidebarFirst.contains(e.target);
+// Mapping tombol ke sidebar
+toggles.forEach(btn => {
+  const target = btn.getAttribute(TOGGLE_ATTR);
+  if (!toggleMap.has(target)) toggleMap.set(target, []);
+  toggleMap.get(target).push(btn);
+});
 
-  // Fungsi bantu untuk toggle icon tombol
-  const toggleIcon = (btn, active) => {
-    const icon = btn?.querySelector("i");
-    if (!icon) return;
+// Update class tombol toggle (sembunyikan jika perlu)
+function updateButtonVisibility(targetName, isOpen) {
+  const buttons = toggleMap.get(targetName) || [];
+  buttons.forEach(btn => {
+    const shouldHide = btn.getAttribute(HIDE_BTN_ATTR) === 'true';
+    if (!shouldHide) return;
+    btn.classList.toggle(CLASS_BTN_HIDDEN, isOpen);
+  });
+}
 
-    icon.classList.toggle("bi-x", active);
-    icon.dataset.original =
-      icon.dataset.original ||
-      [...icon.classList].find(
-        (cls) => cls.startsWith("bi-") && cls !== "bi-x"
-      );
+// Buka sidebar
+function openSidebar(el, targetName) {
+  el.classList.add(CLASS_OPEN);
+  if (isDesktop()) localStorage.setItem(`sidebar:${targetName}`, 'open');
+  updateButtonVisibility(targetName, true);
+}
 
-    if (!active && icon.dataset.original) {
-      icon.classList.add(icon.dataset.original);
-      icon.classList.remove("bi-x");
-    } else {
-      icon.classList.remove(icon.dataset.original);
-    }
-  };
+// Tutup sidebar
+function closeSidebar(el, targetName) {
+  el.classList.remove(CLASS_OPEN);
+  if (isDesktop()) localStorage.setItem(`sidebar:${targetName}`, 'closed');
+  updateButtonVisibility(targetName, false);
+}
 
-  if (toggle) {
-    const key = toggle.dataset.toggleOffcanvas;
-    const target = document.querySelector(`[data-offcanvas="${key}"]`);
-    if (!target) return;
+// Toggle sidebar
+function toggleSidebar(targetName) {
+  const el = document.querySelector(`[${SIDEBAR_ATTR}="${targetName}"]`);
+  if (!el) return;
 
-    const isSidebarFirst = target.id === SIDEBAR_FIRST_ID;
-
-    if (isSidebarFirst) {
-      const active = target.classList.toggle("is-active");
-      localStorage.setItem(SIDEBAR_FIRST_KEY, active ? "show" : "hidden");
-      toggleIcon(toggle, active);
-    } else {
-      document.querySelectorAll("[data-offcanvas]").forEach((el) => {
-        if (el !== target && el.id !== SIDEBAR_FIRST_ID)
-          el.classList.remove("is-active");
-      });
-      const active = target.classList.toggle("is-active");
-      toggleIcon(toggle, active);
-    }
-    return;
+  const isOpen = el.classList.contains(CLASS_OPEN);
+  if (isOpen) {
+    closeSidebar(el, targetName);
+  } else {
+    openSidebar(el, targetName);
   }
+}
 
-  // Klik di luar semua offcanvas: tutup semua (kecuali sidebarFirst)
-  if (!e.target.closest("[data-offcanvas]") && !isInsideSidebar) {
-    document.querySelectorAll("[data-offcanvas]").forEach((el) => {
-      if (el.id !== SIDEBAR_FIRST_ID) {
-        el.classList.remove("is-active");
+// Inisialisasi state saat load
+function initSidebarState() {
+  sidebars.forEach(el => {
+    const name = el.getAttribute(SIDEBAR_ATTR);
+    const savedState = localStorage.getItem(`sidebar:${name}`);
 
-        // Reset icon jika ada tombol toggle yang tertaut
-        const btn = document.querySelector(
-          `[data-toggle-offcanvas="${el.dataset.offcanvas}"]`
-        );
-        if (btn) toggleIcon(btn, false);
+    if (isDesktop()) {
+      if (savedState === 'closed') {
+        closeSidebar(el, name);
+      } else {
+        openSidebar(el, name);
       }
-    });
+    } else {
+      closeSidebar(el, name);
+    }
+  });
+}
+
+// Event listener tombol toggle
+toggles.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.getAttribute(TOGGLE_ATTR);
+    toggleSidebar(target);
+  });
+});
+
+// Responsif terhadap resize
+let lastIsDesktop = isDesktop();
+window.addEventListener('resize', () => {
+  const nowIsDesktop = isDesktop();
+  if (nowIsDesktop !== lastIsDesktop) {
+    lastIsDesktop = nowIsDesktop;
+    initSidebarState(); // Reset state sesuai mode
   }
+});
+
+// Klik di luar sidebar untuk tutup (mobile)
+document.addEventListener('click', (event) => {
+  if (isDesktop()) return;
+
+  sidebars.forEach(el => {
+    const name = el.getAttribute(SIDEBAR_ATTR);
+    if (!el.classList.contains(CLASS_OPEN)) return;
+
+    const clickedInsideSidebar = el.contains(event.target);
+    const clickedToggleButton = toggles.some(btn =>
+      btn.getAttribute(TOGGLE_ATTR) === name && btn.contains(event.target)
+    );
+
+    if (!clickedInsideSidebar && !clickedToggleButton) {
+      closeSidebar(el, name);
+    }
+  });
+});
+
+// Tambahkan class js-ready & jalankan init saat dokumen siap
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('js-ready');
+  initSidebarState();
 });
 
 // === Collapsible Folder Tree ===

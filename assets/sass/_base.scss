@@ -1,0 +1,129 @@
+@use './mixins' as m;
+@use './breakpoints' as b;
+@use './variables' as v;
+
+.layout {
+  max-width: 100vw;
+  min-height: 100dvh;
+
+  width: 100%;
+  overflow-x: hidden;
+
+  display: flex;
+  align-items: stretch;
+
+  .sidebar {
+    width: 0px;
+    min-height: 100dvh;
+    height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    opacity: 0;
+    visibility: hidden;
+    flex-shrink: 0;
+
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-body);
+    border: 2px solid transparent;
+
+    @include m.transition(transform, opacity, visibility);
+
+    &__wrapper-brand {
+      @include m.flex-between();
+      gap: 0.5rem;
+    }
+
+    &--left {
+      transform: translateX(-100%);
+      order: 0;
+      border-right-color: var(--ui-border-default);
+    }
+
+    &--right {
+      order: 2;
+      transform: translateX(100%);
+    }
+
+    &.is-open {
+      transform: translateX(0%);
+      width: 280px;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    body:not(.js-ready) & {
+      transition: none !important;
+    }
+  }
+
+  .main-area {
+    flex-grow: 1;
+    width: 100%;
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  @include b.max(md){
+    .sidebar {
+      width: 360px;
+      max-width: 100%;
+      position: fixed;
+
+      &--left {
+        left: 0;
+      }
+
+      &--right {
+        right: 0;
+      }
+    }
+  }
+}
+
+.header {
+  @include m.flex-between();
+  gap: 1rem;
+  padding: 1rem;
+  z-index: 200;
+  
+  &--main {
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.brand {
+  padding: 0.25rem;
+  text-decoration: none!important;
+  
+  &__title {
+    font-size: v.$font__size--8xl;
+    font-weight: 900;
+    font-style: normal;
+    font-family: v.$font__family--serif;
+  }
+
+  &--mobile {
+    display: none;
+  }
+}
+
+.search {
+  @include m.flex-center();
+  gap: 0.75rem;
+  padding-inline: 1rem;
+  width: 100%;
+  height: 2.5rem;
+  border: 1px solid var(--ui-border-default);
+  border-radius: 0.25rem;
+  margin-block: 1rem;
+
+  &__input {
+    width: 100%;
+  }
+}

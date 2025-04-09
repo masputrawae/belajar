@@ -1,0 +1,25 @@
+{{/* =============== START: HEADER =============== */}}
+<button class="btn btn--icon" data-toggle-sidebar="sidebarLeft" aria-label="Toggle Menu Navigation" data-button-hidden="true">
+  <i class="bi bi-list"></i>
+</button>
+
+<a href="{{ site.BaseURL | relURL }}" class="brand brand--mobile">
+  <i class="bi bi-house"></i>
+</a>
+
+<button class="btn btn--icon" id="switchTheme">
+  <i class="bi bi-sun"></i>
+</button>
+
+<button id="backToTop" class="btn btn--icon btn--back-to-top">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+{{ $excluded := .Site.Params.toc_exclude_sections | default (slice) }}
+{{ $showToc := and (.TableOfContents) (not (in $excluded .Section)) }}
+{{ if not (or (eq .Params.toc false) (not $showToc)) }}
+  <button class="btn btn--icon" data-toggle-sidebar="sidebarRight" aria-label="Toggle Table Of Contents" data-button-hidden="true">
+    <i class="bi bi-book"></i>
+  </button>
+{{ end }}
+{{/* =============== END: HEADER =============== */}}

@@ -1,0 +1,17 @@
+{{/* =============== START: SIDEBAR RIGHT =============== */}}
+<header class="header">
+  <strong class="navbar__label">Table Of Content</strong>
+
+  <button class="btn btn--icon" data-toggle-sidebar="sidebarRight" aria-label="Toggle Sidebar Right">
+    <i class="bi bi-x"></i>
+  </button>
+</header>
+
+<nav class="navbar">
+  {{ $toc := .TableOfContents }}
+  {{ $toc := replaceRE `<ul>` `<ul class="nav">` $toc }}
+  {{ $toc := replaceRE `<li>` `<li class="nav__item">` $toc }}
+  {{ $toc := replaceRE `<a href=` `<a class="nav__link nav__link--toc" href=` $toc }}
+  {{ $toc | safeHTML }}
+</nav>
+{{/* =============== END: SIDEBAR RIGHT =============== */}}

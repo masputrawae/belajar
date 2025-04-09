@@ -1,2 +1,8 @@
-@forward 'default';
-@forward 'components';
+@use './reset';
+@use './colors';
+@use './icons';
+@use './utility';
+@use './button';
+@use './typography';
+@use './base';
+@use './navigation';

@@ -1,0 +1,45 @@
+@use './mixins' as m;
+@use './breakpoints' as b;
+@use './variables' as v;
+
+.navbar {
+  &__label {
+    font-size: v.$font__size--xl;
+    color: var(--text-heading);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+}
+
+.nav {
+  list-style: none;
+  padding-block: 0.2rem;
+
+  .nav {
+    border-left: 1px solid var(--ui-border-default);
+    padding-left: 0.25rem;
+    margin-left: 0.75rem;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem;
+    width: 100%;
+    @include m.text-ellipsis();
+    &:is(.nav__link--active, :hover, :focus-visible) {
+      color: var(--ui-internal-link);
+    }
+  }
+}
+
+[data-collapse]{
+  display: block;
+  
+  &.is-collapse {
+    display: none;
+  }
+}
