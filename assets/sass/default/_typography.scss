@@ -1,20 +1,31 @@
 @use "../abstracts/mixins" as m;
 @use "../abstracts/variables" as v;
+
 :is(h1, h2, h3, h4, h5, h6, strong, b){
   color: var(--text-title);
   font-weight: 600;
 }
-:is(h1, h2, h3, h4, h5, h6, .heading){
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: start;
-  gap: 1rem;
-  line-height: 1.25;
-}
 
 :is(h1, h2, h3){
   border-bottom: 1px solid var(--text-third);
+}
+
+.heading {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  padding-bottom: 0.25rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+
+  &__anchor {
+    opacity: 0;
+  }
+
+  &:hover &__anchor {
+    opacity: 1;
+  }
 }
 
 h1 {font-size: v.$font__size--6xl;}
@@ -56,6 +67,8 @@ hr {
 
 .markdown {
   line-height: 1.6;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
   
   p {
     margin-bottom: 1.25rem;
@@ -77,3 +90,4 @@ hr {
     margin-bottom: 0.5rem;
   }
 }
+

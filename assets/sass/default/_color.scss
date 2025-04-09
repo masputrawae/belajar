@@ -23,6 +23,46 @@ $light: (
     "first": #d0d7de,
     "second": #d8dee4,
   ),
+  "code": (
+    fg-default: #24292f,
+    bg-default: #ffffff,
+
+    error: #cf222e,
+    line-highlight: #f6f8fa,
+    line-number: #6e7781,
+    line-number-muted: #d0d7de,
+
+    keyword: #cf222e,
+    keyword-constant: #0550ae,
+    keyword-pseudo: #0550ae,
+
+    name-class: #8250df,
+    name-constant: #0a3069,
+    name-decorator: #8250df,
+    name-entity: #116329,
+    name-exception: #8250df,
+    name-function: #8250df,
+    name-label: #0550ae,
+    name-namespace: #cf222e,
+    name-property: #0550ae,
+    name-tag: #116329,
+    name-variable: #0550ae,
+
+    literal: #0a3069,
+    literal-alt: #0550ae,
+
+    operator: #cf222e,
+
+    comment: #6e7781,
+    comment-strong: #6e7781,
+
+    generic-deleted-fg: #82071e,
+    generic-deleted-bg: #ffebe9,
+    generic-inserted-fg: #116329,
+    generic-inserted-bg: #dafbe1,
+
+    traceback: #cf222e,
+  ),
 );
 
 $dark: (
@@ -50,6 +90,46 @@ $dark: (
     "first": #30363d,
     "second": #363b42,
   ),
+  "code": (
+    fg-default: #e6edf3,
+    bg-default: #0d1117,
+
+    error: #f85149,
+    line-highlight: #6e7681,
+    line-number: #6e7681,
+    line-number-muted: #737679,
+
+    keyword: #ff7b72,
+    keyword-constant: #79c0ff,
+    keyword-pseudo: #79c0ff,
+
+    name-class: #f0883e,
+    name-constant: #79c0ff,
+    name-decorator: #d2a8ff,
+    name-entity: #ffa657,
+    name-exception: #f0883e,
+    name-function: #d2a8ff,
+    name-label: #79c0ff,
+    name-namespace: #ff7b72,
+    name-property: #79c0ff,
+    name-tag: #7ee787,
+    name-variable: #79c0ff,
+
+    literal: #a5d6ff,
+    literal-alt: #79c0ff,
+
+    operator: #ff7b72,
+
+    comment: #8b949e,
+    comment-strong: #8b949e,
+
+    generic-deleted-fg: #ffa198,
+    generic-deleted-bg: #490202,
+    generic-inserted-fg: #56d364,
+    generic-inserted-bg: #0f5323,
+
+    traceback: #ff7b72,
+  )
 );
 
 [data-theme="light"] {
