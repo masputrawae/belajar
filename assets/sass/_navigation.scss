@@ -4,12 +4,12 @@
 
 .navbar {
   &__label {
-    font-size: v.$font__size--xl;
+    font-size: v.$font__size--5xl;
+    font-family: v.$font__family--serif;
     color: var(--text-heading);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
+    margin-block: 1rem;
+    font-weight: 600;
+    gap: 0.5rem;
   }
 }
 
@@ -29,9 +29,23 @@
     gap: 0.5rem;
     padding: 0.25rem;
     width: 100%;
+    color: var(--text-muted);
     @include m.text-ellipsis();
-    &:is(.nav__link--active, :hover, :focus-visible) {
-      color: var(--ui-internal-link);
+
+    &--folder {
+      font-weight: 500;
+    }
+
+    &--file {
+      font-size: v.$font__size--sm;
+    }
+
+    &:is(:hover, :focus-visible) {
+      color: var(--text-default);
+    }
+
+    &--active{
+      color: var(--ui-link);
     }
   }
 }

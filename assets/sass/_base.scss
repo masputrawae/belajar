@@ -29,7 +29,13 @@
 
     @include m.transition(transform, opacity, visibility);
 
-    &__wrapper-brand {
+    &__header {
+      position: sticky;
+      background-color: var(--bg-body);
+      top: 0;
+    }
+
+    &__wrapper {
       @include m.flex-between();
       gap: 0.5rem;
     }

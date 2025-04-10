@@ -1,43 +1,72 @@
-@use './mixins' as m;
-@use './breakpoints' as b;
-@use './variables' as v;
+@use "./mixins" as m;
+@use "./breakpoints" as b;
+@use "./variables" as v;
 
-.markdown{
-  max-width: 95ch;
+.markdown {
+  max-width: 100ch;
   margin: 0 auto;
   line-height: 1.6;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 
-  :is(h1, h2, h3, h4, h5, h6){
-    color: var(--text-title);
+  :is(h1, h2, h3, h4, h5, h6, .heading) {
+    color: var(--text-heading);
     font-weight: 600;
-    display: flex;
-    align-items: start;
-    gap: 1rem;
-    padding-bottom: 0.25rem;
+    padding-bottom: 0.5rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     line-height: 1.25;
-    font-family: v.$font__family--serif;
+
+    border-bottom: 1px solid var(--ui-border-default);
   }
-  
-  h1 {font-size: v.$font__size--8xl;}
-  h2 {font-size: v.$font__size--7xl;}
-  h3 {font-size: v.$font__size--6xl;}
-  h4 {font-size: v.$font__size--5xl;}
-  h5 {font-size: v.$font__size--4xl;}
-  h6 {font-size: v.$font__size--3xl;}
-  
+
+  .heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    &__anchor {
+      opacity: 0;
+      visibility: hidden;
+      @include m.transition(visibility, opacity);
+    }
+
+    &:hover {
+      .heading__anchor {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  h1 {
+    font-size: v.$font__size--6xl;
+  }
+  h2 {
+    font-size: v.$font__size--5xl;
+  }
+  h3 {
+    font-size: v.$font__size--4xl;
+  }
+  h4 {
+    font-size: v.$font__size--3xl;
+  }
+  h5 {
+    font-size: v.$font__size--2xl;
+  }
+  h6 {
+    font-size: v.$font__size--xl;
+  }
+
   blockquote {
-    border-left: 4px solid var(--accent-first);
+    border-left: 4px solid var(--state-border-info);
     margin: 1.5rem 0;
     padding-left: 1rem;
     color: var(--text-muted);
     font-style: italic;
     font-family: v.$font__family--serif;
   }
-  
+
   /* Tables */
   table {
     width: 100%;
@@ -45,42 +74,45 @@
     margin: 2rem 0;
     font-size: 0.95rem;
   }
-  th, td {
+  th,
+  td {
     padding: 0.75rem;
     border: 1px solid var(--ui-border-default);
     text-align: left;
   }
   th {
-    background-color: var(--bg-body);
+    background-color: var(--bg-second);
     font-weight: 600;
   }
-  
+
   hr {
     border: none;
     border-top: 1px solid var(--ui-border-default);
     margin: 2rem 0;
   }
-  
+
   p {
     margin-bottom: 1.25rem;
   }
 
   a {
-    color: var(--accent-first);
+    color: var(--ui-link);
+    font-weight: 600;
 
     &:hover {
       text-decoration: underline;
-      color: var(--accent-second);
+      color: var(--ui-hover-link);
     }
   }
-  ul, ol {
+
+  ul,
+  ol {
     padding-left: 1.5rem;
     margin-bottom: 1.25rem;
   }
   li {
     margin-bottom: 0.5rem;
   }
-
 }
 
 .chroma {
@@ -157,322 +189,322 @@
   .line {
     display: flex;
   }
-  
+
   // Keyword
   .k {
     color: var(--text-keyword);
   }
-  
+
   // KeywordConstant
   .kc {
     color: var(--text-keyword-constant);
   }
-  
+
   // KeywordDeclaration
   .kd {
     color: var(--text-keyword);
   }
-  
+
   // KeywordNamespace
   .kn {
     color: var(--text-keyword);
   }
-  
+
   // KeywordPseudo
   .kp {
     color: var(--text-keyword-pseudo);
   }
-  
+
   // KeywordReserved
   .kr {
     color: var(--text-keyword);
   }
-  
+
   // KeywordType
   .kt {
     color: var(--text-keyword);
   }
-  
+
   // NameClass
   .nc {
     color: var(--text-name-class);
     font-weight: bold;
   }
-  
+
   // NameConstant
   .no {
     color: var(--text-name-constant);
     font-weight: bold;
   }
-  
+
   // NameDecorator
   .nd {
     color: var(--text-name-decorator);
     font-weight: bold;
   }
-  
+
   // NameEntity
   .ni {
     color: var(--text-name-entity);
   }
-  
+
   // NameException
   .ne {
     color: var(--text-name-exception);
     font-weight: bold;
   }
-  
+
   // NameFunction
   .nf {
     color: var(--text-name-function);
     font-weight: bold;
   }
-  
+
   // NameLabel
   .nl {
     color: var(--text-name-label);
     font-weight: bold;
   }
-  
+
   // NameNamespace
   .nn {
     color: var(--text-name-namespace);
   }
-  
+
   // NameProperty
   .py {
     color: var(--text-name-property);
   }
-  
+
   // NameTag
   .nt {
     color: var(--text-name-tag);
   }
-  
+
   // NameVariable
   .nv {
     color: var(--text-name-variable);
   }
-  
+
   // Literal
   .l {
     color: var(--text-literal);
   }
-  
+
   // LiteralDate
   .ld {
     color: var(--text-literal);
   }
-  
+
   // LiteralString
   .s {
     color: var(--text-literal);
   }
-  
+
   // LiteralStringAffix
   .sa {
     color: var(--text-literal);
   }
-  
+
   // LiteralStringBacktick
   .sb {
     color: var(--text-literal);
   }
-  
+
   // LiteralStringChar
   .sc {
     color: var(--text-literal);
   }
-  
+
   // LiteralStringDelimiter
   .dl {
     color: var(--text-literal-alt);
   }
-  
+
   // LiteralStringDoc
   .sd {
     color: var(--text-literal);
   }
-  
+
   // LiteralStringDouble
   .s2 {
     color: var(--text-literal);
   }
-  
+
   // LiteralStringEscape
   .se {
     color: var(--text-literal-alt);
   }
-  
+
   // LiteralStringHeredoc
   .sh {
     color: var(--text-literal);
   }
-  
+
   // LiteralStringInterpol
   .si {
     color: var(--text-literal);
   }
-  
+
   // LiteralStringOther
   .sx {
     color: var(--text-literal);
   }
-  
+
   // LiteralStringRegex
   .sr {
     color: var(--text-literal-alt);
   }
-  
+
   // LiteralStringSingle
   .s1 {
     color: var(--text-literal);
   }
-  
+
   // LiteralStringSymbol
   .ss {
     color: var(--text-literal);
   }
-  
+
   // LiteralNumber
   .m {
     color: var(--text-literal);
   }
-  
+
   // LiteralNumberBin
   .mb {
     color: var(--text-literal);
   }
-  
+
   // LiteralNumberFloat
   .mf {
     color: var(--text-literal);
   }
-  
+
   // LiteralNumberHex
   .mh {
     color: var(--text-literal);
   }
-  
+
   // LiteralNumberInteger
   .mi {
     color: var(--text-literal);
   }
-  
+
   // LiteralNumberIntegerLong
   .il {
     color: var(--text-literal);
   }
-  
+
   // LiteralNumberOct
   .mo {
     color: var(--text-literal);
   }
-  
+
   // Operator
   .o {
     color: var(--text-operator);
     font-weight: bold;
   }
-  
+
   // OperatorWord
   .ow {
     color: var(--text-operator);
     font-weight: bold;
   }
-  
+
   // Comment
   .c {
     color: var(--text-comment);
     font-style: italic;
   }
-  
+
   // CommentHashbang
   .ch {
     color: var(--text-comment);
     font-style: italic;
   }
-  
+
   // CommentMultiline
   .cm {
     color: var(--text-comment);
     font-style: italic;
   }
-  
+
   // CommentSingle
   .c1 {
     color: var(--text-comment);
     font-style: italic;
   }
-  
+
   // CommentSpecial
   .cs {
     color: var(--text-comment-strong);
     font-weight: bold;
     font-style: italic;
   }
-  
+
   // CommentPreproc
   .cp {
     color: var(--text-comment-strong);
     font-weight: bold;
     font-style: italic;
   }
-  
+
   // CommentPreprocFile
   .cpf {
     color: var(--text-comment-strong);
     font-weight: bold;
     font-style: italic;
   }
-  
+
   // GenericDeleted
   .gd {
     color: var(--text-generic-deleted-fg);
     background-color: var(--text-generic-deleted-bg);
   }
-  
+
   // GenericEmph
   .ge {
     font-style: italic;
   }
-  
+
   // GenericError
   .gr {
     color: var(--text-error);
   }
-  
+
   // GenericInserted
   .gi {
     color: var(--text-generic-inserted-fg);
     background-color: var(--text-generic-inserted-bg);
   }
-  
+
   // GenericOutput
   .go {
     color: var(--text-comment);
   }
-  
+
   // GenericPrompt
   .gp {
     color: var(--text-comment);
   }
-  
+
   // GenericStrong
   .gs {
     font-weight: bold;
   }
-  
+
   // GenericTraceback
   .gt {
     color: var(--text-traceback);
   }
-  
+
   // GenericUnderline
   .gl {
     text-decoration: underline;
   }
-  
+
   // TextWhitespace
   .w {
     color: var(--text-line-number-muted);

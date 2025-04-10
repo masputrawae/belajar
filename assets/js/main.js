@@ -25,9 +25,14 @@ toggles.forEach(btn => {
 function updateButtonVisibility(targetName, isOpen) {
   const buttons = toggleMap.get(targetName) || [];
   buttons.forEach(btn => {
-    const shouldHide = btn.getAttribute(HIDE_BTN_ATTR) === 'true';
-    if (!shouldHide) return;
-    btn.classList.toggle(CLASS_BTN_HIDDEN, isOpen);
+    const hideOnOpen = btn.hasAttribute(HIDE_BTN_ATTR);
+
+    // Hanya berlaku di desktop
+    if (isDesktop() && hideOnOpen) {
+      btn.classList.toggle(CLASS_BTN_HIDDEN, isOpen);
+    } else {
+      btn.classList.remove(CLASS_BTN_HIDDEN);
+    }
   });
 }
 
@@ -136,8 +141,8 @@ function updateFolderIcon(key, collapsed) {
 function updateGlobalIcon(allCollapsed) {
   const icon = toggleAllBtn?.querySelector("i.bi");
   if (!icon) return;
-  icon.classList.toggle("bi-arrows-expand", allCollapsed);
-  icon.classList.toggle("bi-arrows-collapse", !allCollapsed);
+  icon.classList.toggle("bi-folder2", allCollapsed);
+  icon.classList.toggle("bi-folder2-open", !allCollapsed);
 }
 
 document.querySelectorAll("[data-collapse]").forEach((ul) => {

@@ -11,10 +11,10 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--bg-second) var(--bg-second);
+  scrollbar-color:  var(--bg-body) var(--bg-body);
 
   &:hover {
-    scrollbar-color: var(--border-second) var(--bg-first);
+    scrollbar-color: var(--text-muted) var(--bg-body);
   }
 }
 

@@ -1,0 +1,12 @@
+<a
+    href="{{ if eq .Destination `internalwiki`}}
+        {{if hasPrefix .Title `http`}}
+            {{.Title}}
+        {{else}}
+            {{ ref (.Page.Site.GetPage `/`) (.Title | lower | urlize) }}
+        {{end}}
+    {{else}}
+        {{ .Destination | safeURL }}
+    {{end}}">
+    {{ .Text | safeHTML }}
+</a>

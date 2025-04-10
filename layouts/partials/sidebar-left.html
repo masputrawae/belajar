@@ -1,7 +1,7 @@
 {{/* =============== START: SIDEBAR LEFT =============== */}}
-<header class="sidebar__header">
+<header class="u-container sidebar__header">
   
-  <div class="sidebar__wrapper-brand">
+  <div class="sidebar__wrapper">
     <a href="{{ site.BaseURL | relURL }}" class="brand">
       <em class="brand__title">{{ site.Title }}</em>
     </a>
@@ -12,46 +12,49 @@
   </div>
 
   {{/* |===========| START: FORM SEARCH |===========| */}}
-  <form 
-
-    class="search" 
-    id="search" 
-    onsubmit="handleSearch(event)" 
-    method="get" 
-    id="search" 
-    data-search-url="{{ "search.json" | relURL }}"
-
-  >
-    <i class="bi bi-search"></i>
-    <input 
-    
-      class="search__input" 
-      type="search" 
-      id="search-input" 
-      name="query" 
-      placeholder="Search notes or pages" 
-      autocomplete="off" 
-      autocorrect="off" 
-      spellcheck="false" 
-
+  <div class="sidebar__wrapper">
+    <form 
+  
+      class="search" 
+      id="search" 
+      onsubmit="handleSearch(event)" 
+      method="get" 
+      id="search" 
+      data-search-url="{{ "search.json" | relURL }}"
+  
     >
-  </form>
+      <i class="bi bi-search"></i>
+      <input 
+      
+        class="search__input" 
+        type="search" 
+        id="search-input" 
+        name="query" 
+        placeholder="Search notes or pages" 
+        autocomplete="off" 
+        autocorrect="off" 
+        spellcheck="false" 
+  
+      >
+    </form>
+
+    <button class="btn btn--icon" id="toggle-all-collapse" aria-label="Directory">
+      <i class="bi bi-folder2"></i>
+    </button>
+
+  </div>
   {{/* |===========| END: FORM SEARCH |===========| */}}
 </header>
 
 {{/* |===========| START: SEARCH RESULTS |===========| */}}
-<nav class="navbar" id="resultsPanel" style="display: none;">
+<nav class="u-container navbar" id="resultsPanel" style="display: none;">
   <strong class="navbar__label">Results</strong>
   <ul class="nav" id="results"></ul>
 </nav>
 {{/* |===========| END: SEARCH RESULTS |===========| */}}
 
 {{/* |===========| START: DIRECTORY NAVIGATION |===========| */}}
-<nav class="navbar">
-  <button class="navbar__label" id="toggle-all-collapse" aria-label="Directory">
-    <i class="bi bi-arrows-expand"></i>
-    <span>Directory</span>
-  </button>
+<nav class="u-container navbar">
   <ul class="nav">
     {{- template "tree_view" .Site.Home -}}
   </ul>

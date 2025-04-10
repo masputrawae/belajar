@@ -1,0 +1,48 @@
+{{ $icons := dict
+  "note" "bi-note"
+  "abstracts" "bi-abstract"
+  "info" "bi-info"
+  "todo" "bi-todo"
+  "tip" "bi-tip"
+  "success" "bi-success"
+  "question" "bi-question"
+  "check" "bi-check"
+  "done" "bi-done"
+  "warning" "bi-warning"
+  "help" "bi-help"
+  "faq" "bi-faq"
+  "caution" "bi-caution"
+  "failure" "bi-failure"
+  "fall" "bi-fall"
+  "missing" "bi-missing"
+  "danger" "bi-danger"
+  "error" "bi-error"
+  "bug" "bi-bug"
+  "example" "bi-example"
+  "quote" "bi-quote"
+  "cite" "bi-cite"
+}}
+
+{{ $icon := index $icons .AlertType }}
+
+{{ if eq .Type "alert" }}
+  <blockquote class="callout callout--{{ .AlertType }}">
+    <header class="callout__header">
+      <i class="bi {{ $icon }}"></i>
+      {{ with .AlertTitle }}
+        <strong class="callout__title">{{ . }}</strong>
+      {{ else }}
+        {{ or (i18n .AlertType) (title .AlertType) }}
+      {{ end }}
+    </header>
+    <div class="callout__content">
+      {{ .Text }}
+    </div>
+  </blockquote>
+{{ else }}
+<blockquote {{ with .Attributes.cite }}cite="{{ . }}"{{ end }} class="callout">
+  <div class="callout__content">
+    {{ .Text }}
+  </div>
+</blockquote>
+{{ end }}
