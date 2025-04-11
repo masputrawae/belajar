@@ -2,11 +2,11 @@
 <header class="u-container sidebar__header">
   
   <div class="sidebar__wrapper">
-    <a href="{{ site.BaseURL | relURL }}" class="brand">
+    <a href="{{ site.BaseURL | relLangURL }}" class="brand">
       {{ site.Title }}
     </a>
 
-    <button class="btn btn--icon" data-toggle-sidebar="sidebarLeft" aria-label="Toggle Menu Navigation">
+    <button class="btn btn--icon" data-toggle-sidebar="sidebarLeft" aria-label="{{ i18n "btn_sidebar_left" }}" title="{{ i18n "btn_sidebar_left" }}">
       <i class="bi bi-chevron-double-left"></i>
     </button>
   </div>
@@ -30,7 +30,7 @@
         type="search" 
         id="search-input" 
         name="query" 
-        placeholder="Search notes or pages" 
+        placeholder="{{ i18n "search" }}" 
         autocomplete="off" 
         autocorrect="off" 
         spellcheck="false" 
@@ -38,7 +38,7 @@
       >
     </form>
 
-    <button class="btn btn--icon" id="toggle-all-collapse" aria-label="Directory">
+    <button class="btn btn--icon" id="toggle-all-collapse" aria-label="{{ i18n "directory" }}">
       <i class="bi bi-folder2"></i>
     </button>
 

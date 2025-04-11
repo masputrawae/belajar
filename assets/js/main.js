@@ -364,7 +364,6 @@ const initSearch = async () => {
       this.field("title", { boost: 40 });
       this.field("tags", { boost: 30 });
       this.field("description", { boost: 20 });
-      this.field("excerpt", { boost: 15 });
       this.field("category", { boost: 10 });
       this.field("content");
       store.forEach((doc) => this.add(doc));

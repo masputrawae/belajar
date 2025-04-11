@@ -1,60 +1,62 @@
-# For Aria Label Sidebar
-[sidebar_first]
-    other = "Primary Left Sidebar"
-[sidebar_second]
-    other = "Secondary Left Sidebar"
-[sidebar_directory]
-    other = "Directory Left Sidebar"
+[home]
+other = "Home page"
 
-# For Aria Label Button
-[button_sidebar_first]
-    other = "Toggle Primary Sidebar"
-[button_sidebar_second]
-    other = "Toggle Secondary Sidebar"
-[button_sidebar_directory]
-    other = "Toggle Directory Sidebar"
-[button_home]
-    other = "Home Page"
-[button_theme]
-    other = "Switch Theme"
-[button_back_to_top]
-    other = "Back to Top"
+[error_404]
+other = "Sorry, the page you are looking for was not found. It may have been moved or the link is invalid. Please return to:"
 
-# For Navigation Label
-[main_menu]
-    other = "Main Menu"
-[social_media]
-    other = "Social Media"
-[table_of_content]
-    other = "Table of Contents"
-[related]
-    other = "Related Content"
-[pinned]
-    other = "Pinned"
-[recent_posts]
-    other = "Recent Posts"
-[result]
-    other = "Result"
+[btn_sidebar_left]
+other = "Toggle Sidebar Navigation"
+
+[btn_switch_theme]
+other = "Toggle Theme"
+
+[btn_back_to_top]
+other = "Back to Top"
+
+[btn_toc]
+other = "Toggle Table of Contents"
+
+[properties]
+other = "Properties"
+
+[title]
+other = "Title"
+
+[author]
+other = "Author"
+
+[description]
+other = "Description"
+
+[date]
+other = "Date"
+
+[last_modified]
+other = "Last Modified"
+
 [search]
-    other = "Search"
+other = "Search..."
+
 [directory]
-    other = "Directory"
+other = "Directory"
 
-# For Footer
-[copy_right_by]
-    other = "Made with ❤️. Built with"
-[copy_right]
-    other = "Copyright"
-[copy_right_reserved]
-    other = "All rights reserved."
+[toc]
+other = "Table of Contents"
 
-# Other
-# Lang Name
-[language]
-    other = "Language"
+[select_language]
+other = "Select Language:"
+
 [english]
-    other = "English"
+other = "English"
+
 [indonesian]
-    other = "Indonesian"
+other = "Indonesian"
+
 [javanese]
-    other = "Javanese"
+other = "Javanese"
+
+[footer_credit]
+other = "Made with ❤️ using"
+
+[footer_copyright]
+other = "All rights reserved."

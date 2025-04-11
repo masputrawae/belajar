@@ -1,60 +1,62 @@
-# Kanggo Aria Label Sidebar
-[sidebar_first]
-    other = "Bilih Samping Kiwa Utami"
-[sidebar_second]
-    other = "Bilih Samping Kiwa Sekunder"
-[sidebar_directory]
-    other = "Bilih Samping Kiwa Direktori"
+[home]
+other = "Kaca ngarep"
 
-# Kanggo Aria Label Tombol
-[button_sidebar_first]
-    other = "Tombol Mbukak/Landhep Bilih Utami"
-[button_sidebar_second]
-    other = "Tombol Mbukak/Landhep Bilih Sekunder"
-[button_sidebar_directory]
-    other = "Tombol Mbukak/Landhep Bilih Direktori"
-[button_home]
-    other = "Kaca Ngarep"
-[button_theme]
-    other = "Gentos Tema"
-[button_back_to_top]
-    other = "Wangsul Menyang Ndhuwur"
+[error_404]
+other = "Nuwun sewu, kaca sing panjenengan goleki ora ditemokake. Bisa wae wis dipindhah utawa pranalané ora bener. Mangga bali menyang:"
 
-# Kanggo Label Navigasi
-[main_menu]
-    other = "Menu Utami"
-[social_media]
-    other = "Médhia Sosial"
-[table_of_content]
-    other = "Dhaptar Isiné"
-[related]
-    other = "Isiné Gegandhèngan"
-[pinned]
-    other = "Disemataké"
-[recent_posts]
-    other = "Kiriman Anyar"
-[result]
-    other = "Asilipun"
+[btn_sidebar_left]
+other = "Tampilna/Sumputna Navigasi Samping"
+
+[btn_switch_theme]
+other = "Genti Téma"
+
+[btn_back_to_top]
+other = "Mundur Menyang Ndhuwur"
+
+[btn_toc]
+other = "Tampilna/Sumputna Dhaftar Isi"
+
+[properties]
+other = "Pratélan"
+
+[title]
+other = "Irah-irahan"
+
+[author]
+other = "Pangripta"
+
+[description]
+other = "Panjelasan"
+
+[date]
+other = "Tanggal"
+
+[last_modified]
+other = "Pungkasan Diedit"
+
 [search]
-    other = "Padosan"
+other = "Golèk..."
+
 [directory]
-    other = "Direktori"
+other = "Direktori"
 
-# Kanggo Footer
-[copy_right_by]
-    other = "Damel kanthi ❤️. Ginayuh mawi:"
-[copy_right]
-    other = "Hak Cipta"
-[copy_right_reserved]
-    other = "Kabeh hak kapangku hukum."
+[toc]
+other = "Dhaftar Isi"
 
-# Liyane
-# Asma Basa
-[language]
-    other = "Basa"
+[select_language]
+other = "Pilih Basa:"
+
 [english]
-    other = "Basa Inggris"
+other = "Basa Inggris"
+
 [indonesian]
-    other = "Basa Indonesia"
+other = "Basa Indonesia"
+
 [javanese]
-    other = "Basa Jawa"
+other = "Basa Jawa"
+
+[footer_credit]
+other = "Digawe nganggo ❤️ nganggo"
+
+[footer_copyright]
+other = "Kabèh hak dilindhungi."

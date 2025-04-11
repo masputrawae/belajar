@@ -3,6 +3,11 @@
 title                           = "My Notes"
 baseURL                         = "https://masputrawae.github.io/belajar"
 defaultContentLanguage          = 'id'
+enableEmoji                     = true
+capitalizeListTitles            = false
+defaultContentLanguageInSubdir  = false
+disableDefaultLanguageRedirect  = false
+i18nDir = "i18n"
 
 #====================================#
 #========== PARAMS SETTING ==========#
@@ -26,12 +31,6 @@ defaultContentLanguage          = 'id'
   group     = "grouping"
   series    = "series"
 
-enableEmoji                     = true
-capitalizeListTitles            = false
-defaultContentLanguageInSubdir  = false
-disableDefaultLanguageRedirect  = false
-i18nDir = "i18n"
-
 [languages]
 #=================================================#
 #=================== INDONESIA ===================#
@@ -39,11 +38,11 @@ i18nDir = "i18n"
     languageCode    = "id"
     languageName    = "Bahasa Indonesia"
     weight          = 1
-    contentDir      = "content/id"
+    contentDir      = "content/id/"
 
     [languages.id.params]
       dateFormat          = "Senin, 2 Januari 2006"
-      subtitle            = "🤖 Ngoding? Bisa. Paham? Nanti dulu. 🎨 CSS magician, tapi kadang kena kutukan sendiri. 🐛 Bug adalah sahabat, debugger adalah penyelamat."
+      description         = "Halo"
 #=================================================#
 #==================== ENGLISH ====================#
   [languages.en]
@@ -54,7 +53,7 @@ i18nDir = "i18n"
 
     [languages.en.params]
       dateFormat          = "Monday, January 2, 2006"
-      subtitle            = "🤖 Coding? Sure. Understand it? Not quite. 🎨 CSS magician, sometimes cursed by my own spells. 🐛 Bugs are friends, debuggers are saviors."
+      description         = "Halo"
 #=================================================#
 #===================== JAWA ======================#
   [languages.jv]
@@ -65,7 +64,7 @@ i18nDir = "i18n"
     
     [languages.jv.params]
       dateFormat          = "Senin, 2 Januari 2006"
-      subtitle            = "🤖 Ngoding? Inggih. Ngertos? Dereng mesthi. 🎨 Pinter ngatur CSS, nanging sok dadi kutukan piyambak. 🐛 Bug kuwi kanca, debugger iku panuntun."
+      description         = "Halo"
 
 #====================================#
 #============== MARKUP ==============#
@@ -81,8 +80,8 @@ i18nDir = "i18n"
     style               = "github-dark"
     noClasses           = false
     lineNumbersInTable  = false
-    lineNos             = true
-    anchorLineNos       = true
+    lineNos             = false
+    anchorLineNos       = false
     lineAnchors         = ''
     lineNoStart         = 1
     tabWidth            = 4

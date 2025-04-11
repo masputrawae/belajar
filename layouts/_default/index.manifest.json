@@ -3,7 +3,7 @@
     "short_name": "{{ site.Title }}",
     "start_url": "{{ site.BaseURL | absURL }}",
     "display": "standalone",
-    "description": "A description for your application",
+    "description": "{{ site.Params.description }}",
     "lang": "{{ site.Language.LanguageCode }}",
     "dir": "auto",
     "background_color": "#ffffff",
@@ -39,14 +39,14 @@
             "src": "{{ "favicons/screen-desktop.png" | absURL }}",
             "sizes": "988x568",
             "type": "image/png",
-            "description": "A screenshot of the home page",
+            "description": "{{ site.Params.description }}",
             "form_factor": "wide"
         },
         {
             "src": "{{ "favicons/screen-mobile.png" | absURL }}",
             "sizes": "320x682",
             "type": "image/png",
-            "description": "A screenshot of the home page"
+            "description": "{{ site.Params.description }}"
         }
     ]
 }

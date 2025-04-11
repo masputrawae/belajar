@@ -4,9 +4,7 @@
 @use "../abstracts/variables" as v;
 
 // Base code styles
-tt,
-code:not(pre code),
-samp {
+:is(tt, code:not(pre code), samp) {
   font-size: v.$font__size--3xs;
   color: var(--code-text);
   background-color: var(--code-bg);
@@ -15,16 +13,12 @@ samp {
   border-radius: 4px;
 }
 
-code,
-pre,
-samp,
-tt {
+:is(code, pre, samp, tt) {
   font-family: v.$font__family--mono;
   font-weight: 400;
 }
 
 pre {
-  line-height: 1.6;
   margin-bottom: 1.2em;
   letter-spacing: 0;
 }
@@ -49,10 +43,10 @@ pre + pre {
   border: 1px solid var(--cl-border);
   border-radius: 0.25rem;
   margin: 1rem;
+  padding: 1rem;
 
   // General styles
-  .x,
-  .cl {
+  :is(.x, .cl) {
     color: var(--text-first);
   }
   .err {
@@ -66,35 +60,18 @@ pre + pre {
   }
 
   // Table and line styles
-  .lntd,
-  .lntable {
+  :is(.lntd, .lntable) {
     padding: 0;
     margin: 0;
     border: 0;
   }
+
   .lntd {
     vertical-align: top;
   }
-  .lntable {
-    border-spacing: 0;
-  }
+
   .hl {
     background-color: var(--code-highlight-bg);
-  }
-
-  // Line numbers
-  .lnt,
-  .ln {
-    white-space: pre;
-    -webkit-user-select: none;
-    user-select: none;
-    margin-right: 1rem;
-    padding: 0 0.4em;
-    color: var(--code-line-number);
-    border-right: 1px solid var(--cl-border);
-    background-color: var(--bg-secondary);
-    position: sticky;
-    left: 0;
   }
 
   // Code line
@@ -103,66 +80,24 @@ pre + pre {
   }
 
   // Syntax highlighting colors
-  .k,
-  .kc,
-  .kd,
-  .kp,
-  .kr,
-  .kt,
-  .no {
+  :is(.k, .kc, .kd, .kp, .kr, .kt, .no) {
     color: var(--code-keyword);
   }
-  .kn,
-  .nt,
-  .o,
-  .ow,
-  .gd {
+  :is(.kn, .nt, .o, .ow, .gd) {
     color: var(--code-operator);
   }
-  .na,
-  .nc,
-  .nd,
-  .ne,
-  .nf,
-  .nx,
-  .gi {
+  :is(.na, .nc, .nd, .ne, .nf, .nx, .gi) {
     color: var(--code-function);
   }
-  .l,
-  .se,
-  .m,
-  .mb,
-  .mf,
-  .mh,
-  .mi,
-  .il,
-  .mo {
+  :is(.l, .se, .m, .mb, .mf, .mh, .mi, .il, .mo) {
     color: var(--code-number);
   }
-  .ld,
-  .s,
-  .sa,
-  .sb,
-  .sc,
-  .dl,
-  .sd,
-  .s2,
-  .sh,
-  .si,
-  .sx,
-  .sr,
-  .s1,
-  .ss {
+
+  :is(.ld, .s, .sa, .sb, .sc, .dl, .sd, .s2, .sh, .si, .sx, .sr, .s1, .ss) {
     color: var(--code-string);
   }
-  .c,
-  .ch,
-  .cm,
-  .c1,
-  .cs,
-  .cp,
-  .cpf,
-  .gu {
+
+  :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf, .gu) {
     color: var(--code-comment);
   }
 

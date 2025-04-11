@@ -1,60 +1,62 @@
-# Untuk Aria Label Sidebar
-[sidebar_first]
-    other = "Bilah Sisi Kiri Utama"
-[sidebar_second]
-    other = "Bilah Sisi Kiri Sekunder"
-[sidebar_directory]
-    other = "Bilah Sisi Kiri Direktori"
+[home]
+other = "Beranda"
 
-# Untuk Aria Label Tombol
-[button_sidebar_first]
-    other = "Tombol Tampil/Sembunyikan Bilah Utama"
-[button_sidebar_second]
-    other = "Tombol Tampil/Sembunyikan Bilah Sekunder"
-[button_sidebar_directory]
-    other = "Tombol Tampil/Sembunyikan Bilah Direktori"
-[button_home]
-    other = "Halaman Utama"
-[button_theme]
-    other = "Beralih Tema"
-[button_back_to_top]
-    other = "Kembali ke Atas"
+[error_404]
+other = "Maaf, halaman yang Anda cari tidak ditemukan. Mungkin telah dipindahkan atau tautannya tidak valid. Silakan kembali ke:"
 
-# Untuk Label Navigasi
-[main_menu]
-    other = "Menu Utama"
-[social_media]
-    other = "Media Sosial"
-[table_of_content]
-    other = "Daftar Isi"
-[related]
-    other = "Konten Terkait"
-[pinned]
-    other = "Disematkan"
-[recent_posts]
-    other = "Posting Terbaru"
-[result]
-    other = "Hasil"
+[btn_sidebar_left]
+other = "Tampilkan/Sembunyikan Navigasi Samping"
+
+[btn_switch_theme]
+other = "Ganti Tema"
+
+[btn_back_to_top]
+other = "Kembali ke Atas"
+
+[btn_toc]
+other = "Tampilkan/Sembunyikan Daftar Isi"
+
+[properties]
+other = "Properti"
+
+[title]
+other = "Judul"
+
+[author]
+other = "Penulis"
+
+[description]
+other = "Deskripsi"
+
+[date]
+other = "Tanggal"
+
+[last_modified]
+other = "Terakhir Diubah"
+
 [search]
-    other = "Pencarian"
+other = "Cari..."
+
 [directory]
-    other = "Direktori"
+other = "Direktori"
 
-# Untuk Footer
-[copy_right_by]
-    other = "Dibuat dengan ❤️. Dibangun menggunakan:"
-[copy_right]
-    other = "Hak Cipta"
-[copy_right_reserved]
-    other = "Seluruh hak dilindungi undang-undang."
+[toc]
+other = "Daftar Isi"
 
-# Lainnya
-# Nama Bahasa
-[language]
-    other = "Pilih Bahasa"
+[select_language]
+other = "Pilih Bahasa:"
+
 [english]
-    other = "Bahasa Inggris"
+other = "Bahasa Inggris"
+
 [indonesian]
-    other = "Bahasa Indonesia"
+other = "Bahasa Indonesia"
+
 [javanese]
-    other = "Bahasa Jawa"
+other = "Bahasa Jawa"
+
+[footer_credit]
+other = "Dibuat dengan ❤️ menggunakan"
+
+[footer_copyright]
+other = "Seluruh hak cipta dilindungi."

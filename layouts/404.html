@@ -1,4 +1,4 @@
 {{ define "main" }}
   <h1 class="heading">404</h1>
-  <p>Maaf, halaman yang Anda cari tidak ditemukan. Mungkin halaman telah dipindahkan atau tautannya tidak valid. Silakan kembali ke <a href="{{ "/" | relLangURL }}">beranda</a> atau periksa kembali URL Anda.</p>
+  <p>{{ i18n "error_404" }}<a href="{{ site.BaseURL | relLangURL }}">{{ i18n "home" }}</a></p>
 {{ end }}

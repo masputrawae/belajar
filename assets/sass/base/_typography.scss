@@ -13,7 +13,8 @@ body {
 }
 
 .markdown {
-  max-width: 95ch;
+  max-width: 90ch;
+  padding-inline: 1rem;
   margin: 0 auto;
   line-height: 1.6;
   font-size: v.$font__size--md;
@@ -111,7 +112,6 @@ body {
   :is(ul, ol) {
     margin: 1em 0;
     padding-left: 2em;
-    font-size: 1rem;
   }
 
   li {
@@ -122,7 +122,7 @@ body {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     padding-left: 1.5em;
-    font-size: 0.95rem;
+    font-size: v.$font__size--sm;
   }
 
   // DEFINITION LIST
@@ -166,14 +166,12 @@ body {
     text-align: left;
   }
 
-  th,
-  td {
+  :is(th, td) {
     padding: 0.75em 1em;
     border: 1px solid var(--cl-border);
   }
 
-  tbody tr:nth-child(even),
-  tbody tr:hover {
+  :is(tbody tr:nth-child(even), tbody tr:hover) {
     background-color: var(--bg-secondary);
   }
 
@@ -198,7 +196,6 @@ body {
     background-color: var(--bg-alert-quote);
     color: var(--cl-text);
     font-style: italic;
-    position: relative;
     font-family: v.$font__family--serif;
 
     &__text {

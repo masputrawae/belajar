@@ -4,6 +4,7 @@
 
 .search {
   @include m.flex-between;
+  gap: 0.5rem;
   box-shadow: var(--shadow-md);
   border-radius: 0.25rem;
   background-color: var(--bg-tertiary);
