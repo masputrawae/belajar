@@ -75,7 +75,10 @@ Dolore Lorem qui ex ea in velit enim exercitation. Occaecat velit laboris velit 
 
 ## Images  
 
-Inline: ini adalah gambar ![Logo](https://picsum.photos/100) di dalam teks.
+Inline: ini adalah gambar di dalam teks.
+
+![Logo](https://picsum.photos/100)
+
 Magna anim elit culpa pariatur ut culpa magna cupidatat ipsum minim dolore. Enim quis fugiat velit sint adipisicing incididunt. Excepteur qui non consequat do ipsum. Minim proident et aliquip quis exercitation. Id ad enim mollit sit ex proident quis qui aute.
 
 Block:

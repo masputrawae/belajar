@@ -26,7 +26,6 @@
   z-index: 100;
 
   &__header {
-    padding-block: 1rem;
     position: sticky;
     top: 0;
     background-color: var(--bg-primary);
@@ -36,7 +35,7 @@
   &__wrapper {
     @include m.flex-between;
     gap: 0.5rem;
-    padding-block: 1rem;
+    padding-block: 0.25rem;
   }
 
   &--left {
