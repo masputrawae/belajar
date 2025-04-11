@@ -92,6 +92,8 @@ i18nDir = "i18n"
       unsafe    = true
 
     [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+      
       [markup.goldmark.parser.attribute]
         block = true
         title = true

@@ -1,14 +1,13 @@
-{{- $src := .Destination | safeURL | relURL -}}
-{{- $alt := .PlainText | default "Image" -}}
-{{- $titleParts := split .Title "|" -}}
-{{- $align := index $titleParts 0 | default "center" -}}
-{{- $caption := index $titleParts 1 | default "" -}}
-
-<figure class="figure figure--{{ $align }}">
-  <picture class="figure__picture">
-    <img class="figure__img" src="{{ $src }}" alt="{{ $alt }}" loading="lazy">
-  </picture>
-  {{- if $caption }}
-    <figcaption class="figure__caption">{{ $caption | markdownify }}</figcaption>
-  {{- end }}
-</figure>
+{{- if .IsBlock -}}
+  <figure class="figure">
+    <img class="figure__image" loading="lazy" src="{{ .Destination | safeURL }}"
+      {{- with .PlainText }} alt="{{ . }}"{{ end -}}
+    >
+    {{- with .Title }}<figcaption class="figure__caption">{{ . }}</figcaption>{{ end -}}
+  </figure>
+{{- else -}}
+  <img class="figure__image figure__image--inline" loading="lazy" src="{{ .Destination | safeURL }}"
+    {{- with .PlainText }} alt="{{ . }}"{{ end -}}
+    {{- with .Title }} title="{{ . }}"{{ end -}}
+  >
+{{- end -}}

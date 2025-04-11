@@ -61,7 +61,7 @@ console.log(angka == "10");  // true (tidak cek tipe)
 console.log(angka === "10"); // false (cek tipe)
 ```
 
-### Operator Logika (digunakan dalam [kondisi](kondisi-if-else) `if`)
+### Operator Logika (digunakan dalam [[kondisi-if-else|Kondisi]] `if`)
 
 Dalam JavaScript, **AND (`&&`), OR (`||`), dan NOT (`!`)** adalah operator logika yang digunakan untuk menggabungkan atau membalik nilai boolean (true/false)
 

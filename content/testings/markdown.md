@@ -74,26 +74,14 @@ Dolore Lorem qui ex ea in velit enim exercitation. Occaecat velit laboris velit 
 | Agung | 21   | Reading   | Student |  
 
 ## Images  
-### Left Aligned Image  
-Anim nostrud cupidatat aliquip nulla fugiat fugiat ullamco exercitation dolore proident culpa laborum adipisicing anim. Officia nisi laborum laborum non reprehenderit consectetur qui culpa consequat. In amet nulla dolore nostrud proident duis laboris et officia sit. Tempor dolore voluptate in mollit deserunt non incididunt ex nostrud non officia nisi ut dolore.
 
-![This is an image](https://picsum.photos/200/150 "left|Left aligned image")
+Inline: ini adalah gambar ![Logo](https://picsum.photos/100) di dalam teks.
+Magna anim elit culpa pariatur ut culpa magna cupidatat ipsum minim dolore. Enim quis fugiat velit sint adipisicing incididunt. Excepteur qui non consequat do ipsum. Minim proident et aliquip quis exercitation. Id ad enim mollit sit ex proident quis qui aute.
 
-Reprehenderit enim nisi magna cillum aute eiusmod aute laboris ut. Aliqua voluptate exercitation ea sint deserunt magna et. Aliqua quis esse id consequat consequat irure quis eu occaecat exercitation officia nisi do est. Sint minim duis minim adipisicing consequat duis.
+Block:
 
-### Right Aligned Image  
-Consequat anim aliquip veniam consequat officia aliqua. Ullamco tempor deserunt cillum irure. Et est ut laborum ad laboris consectetur laborum consectetur esse minim ad. Est ut cillum fugiat occaecat adipisicing ipsum irure Lorem elit reprehenderit sit anim anim incididunt. Magna sunt velit in laboris ad proident aliqua magna fugiat irure aliqua consectetur. Esse anim sit ad pariatur commodo occaecat est quis.
+![Diagram Arsitektur](https://picsum.photos/1080/720 "Diagram ini menjelaskan struktur sistem")
 
-![This is an image](https://picsum.photos/200/150 "right|Right aligned image")
-
-Duis eiusmod amet est aliquip cillum labore consectetur deserunt. Labore aliqua cillum mollit cupidatat ullamco. Mollit dolore aliqua nostrud occaecat labore cillum et labore. Sint velit culpa et fugiat incididunt excepteur reprehenderit Lorem duis voluptate voluptate occaecat. Est quis labore irure in adipisicing nisi. Sunt et dolor in Lorem irure laborum deserunt. Incididunt aute id ad Lorem nostrud culpa elit ipsum id.
-
-### Center Aligned Image  
-Laborum ex duis voluptate tempor consequat veniam velit sunt elit. Elit et ipsum ullamco amet aliquip ea ullamco incididunt consequat do aliquip cillum. Anim ullamco non excepteur ullamco consectetur.
-
-![This is an image](https://picsum.photos/200/150 "|Without Parameters")
-
-Reprehenderit veniam enim adipisicing duis anim aliquip sint laboris esse sint. Officia adipisicing esse aliquip cupidatat. Commodo nostrud laboris dolore ut incididunt fugiat est nostrud duis et non ullamco velit. Veniam duis nisi irure occaecat veniam adipisicing dolor commodo. Cupidatat culpa id nisi do dolore pariatur.
 
 ## Links  
 
@@ -327,6 +315,22 @@ gantt
   +----+   +----+
 ```
 
+```goat
+.
+   .---------.                       / \
+  |   START   |                     /   \        .-+-------+-.      ___________
+   '----+----'    .-------.    A   /     \   B   | |COMPLEX| |     /           \      .-.
+        |        |   END   |<-----+CHOICE +----->| |       | +--->+ PREPARATION +--->| X |
+        v         '-------'        \     /       | |PROCESS| |     \___________/      '-'
+    .---------.                     \   /        '-+---+---+-'
+   /  INPUT  /                       \ /
+  '-----+---'                         '
+        |                             ^
+        v                             |
+  .-----------.                 .-----+-----.        .-.
+  |  PROCESS  +---------------->|  PROCESS  |<------+ X |
+  '-----------'                 '-----------'        '-'
+```
 ## YouTube
 
 ## HTML in Markdown

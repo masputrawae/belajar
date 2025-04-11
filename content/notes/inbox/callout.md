@@ -34,303 +34,93 @@ Untuk membuat callout, tambahkan `[!tipe]` di awal blok kutipan (`>`). Tipe call
 > Callout ini memberikan informasi tambahan.
 
 ---
+> Some text
+> Excepteur minim mollit adipisicing id minim ea aute nisi ea minim enim aliqua cillum.
+
+> Some text
+> Excepteur minim mollit adipisicing id minim ea aute nisi ea minim enim aliqua cillum.
+> ![[https://picsum.photos/150/200]]
+> Minim nulla quis nostrud aute. In id tempor velit fugiat dolore voluptate ullamco ad commodo. Ex proident velit proident magna sint sint ad. Sit nulla fugiat incididunt mollit exercitation veniam magna ad in ad. Tempor nulla exercitation nostrud elit qui magna sit.
+{cite="https://gohugo.io" source="Hugo Docs" caption="Some caption"}
+
+---
 
 ### 🔥 Jenis Callout yang Didukung
 Berikut adalah beberapa jenis callout yang dapat digunakan:
 
-> [!info]
-> ```markdown
-> > [!info]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!success]
-> ```markdown
-> > [!success]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!warning]
-> ```markdown
-> > [!warning]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!danger]
-> ```markdown
-> > [!danger]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!error]
-> ```markdown
-> > [!error]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!bug]
-> ```markdown
-> > [!bug]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!note]
-> ```markdown
-> > [!note]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!abstract]
-> ```markdown
-> > [!abstract]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!todo]
-> ```markdown
-> > [!todo]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!question]
-> ```markdown
-> > [!question]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!failure]
-> ```markdown
-> > [!failure]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!example]
-> ```markdown
-> > [!example]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!quote]
-> ```markdown
-> > [!quote]
-> > Lorem ipsum dolor sit amet
-> ```
+>[!note] With Image
+> Nostrud ea velit incididunt nulla voluptate.
+> ![[https://picsum.photos/120/200]]
+> Minim nulla quis nostrud aute. In id tempor velit fugiat dolore voluptate ullamco ad commodo. Ex proident velit proident magna sint sint ad. Sit nulla fugiat incididunt mollit exercitation veniam magna ad in ad. Tempor nulla exercitation nostrud elit qui magna sit.
 
----
+>[!note]
+> Testing
 
-> [!important]
-> ```markdown
-> > [!important]
-> > Lorem ipsum dolor sit amet
-> ```
+>[!abstract]
+> Testing
 
----
+>[!info]
+> Testing
 
-> [!history]
-> ```markdown
-> > [!history]
-> > Lorem ipsum dolor sit amet
-> ```
+>[!todo]
+> Testing
 
----
+>[!tip]
+> Testing
 
-> [!journal]
-> ```markdown
-> > [!journal]
-> > Lorem ipsum dolor sit amet
-> ```
+>[!success]
+> Testing
 
----
+>[!check]
+> Testing
 
-> [!date]
-> ```markdown
-> > [!date]
-> > Lorem ipsum dolor sit amet
-> ```
+>[!done]
+> Testing
 
----
+>[!question]
+> Testing
 
-> [!book]
-> ```markdown
-> > [!book]
-> > Lorem ipsum dolor sit amet
-> ```
+>[!help]
+> Testing
 
----
+>[!faq]
+> Testing
 
-> [!search]
-> ```markdown
-> > [!search]
-> > Lorem ipsum dolor sit amet
-> ```
+>[!warning]
+> Testing
 
----
+>[!caution]
+> Testing
 
-> [!person]
-> ```markdown
-> > [!person]
-> > Lorem ipsum dolor sit amet
-> ```
+>[!attention]
+> Testing
 
----
+>[!failure]
+> Testing
 
-> [!code]
-> ```markdown
-> > [!code]
-> > Lorem ipsum dolor sit amet
-> ```
+>[!fall]
+> Testing
 
----
+>[!missing]
+> Testing
 
-> [!facebook]
-> ```markdown
-> > [!facebook]
-> > Lorem ipsum dolor sit amet
-> ```
+>[!danger]
+> Testing
 
----
+>[!error]
+> Testing
 
-> [!discord]
-> ```markdown
-> > [!discord]
-> > Lorem ipsum dolor sit amet
-> ```
+>[!bug]
+> Testing
 
----
+>[!example]
+> Testing
 
-> [!github]
-> ```markdown
-> > [!github]
-> > Lorem ipsum dolor sit amet
-> ```
+>[!quote]
+> Testing
 
----
-
-> [!instagram]
-> ```markdown
-> > [!instagram]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!linkedin]
-> ```markdown
-> > [!linkedin]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!youtube]
-> ```markdown
-> > [!youtube]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!reddit]
-> ```markdown
-> > [!reddit]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!behance]
-> ```markdown
-> > [!behance]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!dribbble]
-> ```markdown
-> > [!dribbble]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!medium]
-> ```markdown
-> > [!medium]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!pinterest]
-> ```markdown
-> > [!pinterest]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!snapchat]
-> ```markdown
-> > [!snapchat]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!vimeo]
-> ```markdown
-> > [!vimeo]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!tiktok]
-> ```markdown
-> > [!tiktok]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!twitterx]
-> ```markdown
-> > [!twitterx]
-> > Lorem ipsum dolor sit amet
-> ```
-
----
-
-> [!whatsapp]
-> ```markdown
-> > [!whatsapp]
-> > Lorem ipsum dolor sit amet
-> ```
+>[!cite]
+> Testing
 
 ---
 

@@ -15,3 +15,5 @@ Selamat membaca dan menikmati!
 [[Tes salah Only]]
 
 [[Tes salah Only]]
+
+[[notes/javascript|Javascript]]

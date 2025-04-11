@@ -13,7 +13,7 @@
     </a>
   {{ end }}
 {{ else }}
-  <a class="link link--external" href="{{ .Destination | safeURL }}">
+  <a class="link link--external" href="{{ .Destination | safeURL }}" rel="external noopener noreferrer nofollow" target="_blank">
     {{ .Text | safeHTML }}
     <i class="bi bi-box-arrow-up-right icon--small"></i>
   </a>

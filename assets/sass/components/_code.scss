@@ -41,7 +41,7 @@ pre + pre {
 }
 
 .chroma {
-  font-size: v.$font__size--xs;
+  font-size: v.$font__size--3xs;
   font-weight: 400;
   overflow-x: auto;
   overflow-y: hidden;
@@ -53,8 +53,7 @@ pre + pre {
   code {
     position: relative;
 
-    &::before,
-    &::after {
+    &::before {
       position: sticky;
       left: 0;
       margin-bottom: 1rem;
@@ -74,13 +73,6 @@ pre + pre {
       padding: 0.2rem 1rem;
     }
 
-    &::after {
-      content: "";
-      padding: 0;
-      border-color: var(--border-first);
-      margin-top: 0.25rem;
-      display: block;
-    }
 
     &:hover::before,
     &:hover::after {
@@ -131,7 +123,8 @@ pre + pre {
     margin-right: 1rem;
     padding: 0 0.4em;
     color: var(--code-line-number);
-    border: 1px solid var(--border-first);
+    border: 1px solid var(--cl-border);
+    background-color: var(--bg-second);
     border-top: none;
     border-bottom: none;
   }

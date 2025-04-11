@@ -49,6 +49,13 @@
         left: -6px;
         width: 1px;
         height: 100%;
+      }
+      
+      &.nav__link--active::before {
+        background-color: var(--cl-primary);
+      }
+
+      &:is(:hover, :focus-visible)::before{
         background-color: var(--cl-text);
       }
     }
