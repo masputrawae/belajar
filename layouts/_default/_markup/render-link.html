@@ -1,12 +1,20 @@
-<a
-    href="{{ if eq .Destination `internalwiki`}}
-        {{if hasPrefix .Title `http`}}
-            {{.Title}}
-        {{else}}
-            {{ ref (.Page.Site.GetPage `/`) (.Title | lower | urlize) }}
-        {{end}}
-    {{else}}
-        {{ .Destination | safeURL }}
-    {{end}}">
+{{ if and .Page (eq .Destination "internalwiki") }}
+  {{ $target := .Title | lower | urlize }}
+  {{ $page := or (.Page.GetPage $target) (.Page.Site.GetPage (printf "/%s" $target)) }}
+  {{ if $page }}
+    <a class="link link--internal" href="{{ $page.RelPermalink }}">
+      {{ .Text | safeHTML }}
+      <i class="bi bi-folder-symlink icon--small"></i>
+    </a>
+  {{ else }}
+    <a class="link link--missing" href="{{ $target }}">
+      {{ .Text | safeHTML }}
+      <i class="bi bi-exclamation-circle icon--small"></i>
+    </a>
+  {{ end }}
+{{ else }}
+  <a class="link link--external" href="{{ .Destination | safeURL }}">
     {{ .Text | safeHTML }}
-</a>
+    <i class="bi bi-box-arrow-up-right icon--small"></i>
+  </a>
+{{ end }}

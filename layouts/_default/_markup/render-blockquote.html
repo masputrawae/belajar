@@ -26,23 +26,21 @@
 {{ $icon := index $icons .AlertType }}
 
 {{ if eq .Type "alert" }}
-  <blockquote class="callout callout--{{ .AlertType }}">
-    <header class="callout__header">
+  <blockquote class="alert alert--{{ .AlertType }}">
+    <header class="alert__header">
       <i class="bi {{ $icon }}"></i>
       {{ with .AlertTitle }}
-        <strong class="callout__title">{{ . }}</strong>
+        <strong class="alert__title">{{ . }}</strong>
       {{ else }}
         {{ or (i18n .AlertType) (title .AlertType) }}
       {{ end }}
     </header>
-    <div class="callout__content">
+    <div class="alert__content">
       {{ .Text }}
     </div>
   </blockquote>
 {{ else }}
-<blockquote {{ with .Attributes.cite }}cite="{{ . }}"{{ end }} class="callout">
-  <div class="callout__content">
+  <blockquote {{ with .Attributes.cite }}cite="{{ . }}"{{ end }}>
     {{ .Text }}
-  </div>
-</blockquote>
+  </blockquote>
 {{ end }}

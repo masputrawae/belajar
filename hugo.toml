@@ -15,6 +15,7 @@ defaultContentLanguage          = 'id'
 
 [permalinks]
   posts = "/:sections/:year/:month/:day/:title/"
+  testings = "/:sections/:year/:month/:day/:title/"
 
 #====================================#
 #======== TAXONOMIES SETTING ========#

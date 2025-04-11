@@ -7,8 +7,7 @@
   <aside 
 
     class="u-container sidebar sidebar--left" 
-    role="navigation" 
-    aria-label="Main Navigation" 
+    role="navigation"
     data-sidebar="sidebarLeft"
 
   >
@@ -16,15 +15,15 @@
   </aside>
   
   <div class="main-area">
-    <div class="u-container markdown">
+    <div class="markdown">
 
-      <header class="header header--main">
+      <header class="header">
         {{ partial "header.html" . }}
       </header>
-      <main class="main">
+      <main class="u-container main">
         {{ block "main" . }}{{ end }}
       </main>
-      <footer class="footer">
+      <footer class="u-container footer">
         {{ partial "footer.html" . }}
       </footer>
       
@@ -37,8 +36,7 @@
     <aside 
     
       class="u-container sidebar sidebar--right" 
-      role="complementary" 
-      aria-label="Table Of Contents" 
+      role="complementary"
       data-sidebar="sidebarRight"
     
     >

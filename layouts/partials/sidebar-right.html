@@ -1,13 +1,15 @@
 {{/* =============== START: SIDEBAR RIGHT =============== */}}
-<header class="header">
-  <strong class="navbar__label">Table Of Content</strong>
-
-  <button class="btn btn--icon" data-toggle-sidebar="sidebarRight" aria-label="Toggle Sidebar Right">
-    <i class="bi bi-x"></i>
-  </button>
+<header class="u-container sidebar__header">
+  <div class="sidebar__wrapper">
+    <button class="btn btn--icon" data-toggle-sidebar="sidebarRight" aria-label="Toggle Sidebar Right">
+      <i class="bi bi-chevron-double-right"></i>
+    </button>
+    
+    <strong class="navbar__label">Table Of Content</strong>
+  </div>
 </header>
 
-<nav class="navbar">
+<nav class="u-container navbar">
   {{ $toc := .TableOfContents }}
   {{ $toc := replaceRE `<ul>` `<ul class="nav">` $toc }}
   {{ $toc := replaceRE `<li>` `<li class="nav__item">` $toc }}

@@ -1,0 +1,36 @@
+$alert-types: (
+  "note",
+  "abstracts",
+  "info",
+  "todo",
+  "tip",
+  "success",
+  "question",
+  "check",
+  "done",
+  "warning",
+  "help",
+  "faq",
+  "caution",
+  "failure",
+  "fall",
+  "missing",
+  "danger",
+  "error",
+  "bug",
+  "example",
+  "quote",
+  "cite"
+);
+
+.alert {
+  background-color: var(--bg-alert-info);
+  color: var(--cl-alert-info);
+
+  @each $type in $alert-types {
+    &--#{$type} {
+      background-color: var(--bg-alert-#{$type});
+      color: var(--cl-alert-#{$type});
+    }
+  }
+}

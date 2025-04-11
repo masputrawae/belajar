@@ -1,3 +1,8 @@
+/*!
+ * Custom Script for []
+ * Author: Putra Jaya
+ * License: MIT
+ */
 // === Sidebar Logic ===
 const BREAKPOINT = 48 * 16; // 48em in pixels
 const SIDEBAR_ATTR = 'data-sidebar';

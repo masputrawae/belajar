@@ -4,11 +4,11 @@
 {{- $align := index $titleParts 0 | default "center" -}}
 {{- $caption := index $titleParts 1 | default "" -}}
 
-<div class="image-wrapper">
-  <figure class="image image--{{ $align }}">
-    <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy">
-    {{- if $caption }}
-      <figcaption class="image__caption">{{ $caption | markdownify }}</figcaption>
-    {{- end }}
-  </figure>
-</div>
+<figure class="figure figure--{{ $align }}">
+  <picture class="figure__picture">
+    <img class="figure__img" src="{{ $src }}" alt="{{ $alt }}" loading="lazy">
+  </picture>
+  {{- if $caption }}
+    <figcaption class="figure__caption">{{ $caption | markdownify }}</figcaption>
+  {{- end }}
+</figure>

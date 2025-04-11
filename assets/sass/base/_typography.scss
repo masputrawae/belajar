@@ -1,0 +1,93 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/breakpoints' as b;
+@use '../abstracts/variables' as v;
+
+html,
+body {
+  background-color: var(--bg-primary);
+  color: var(--cl-text);
+  font-size: v.$font__size--default;
+  font-family: v.$font__family;
+  font-weight: 400;
+  -webkit-text-size-adjust: 100%;
+}
+
+.markdown {
+  max-width: 95ch;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: v.$font__size--md;
+
+  // Heading (h1 - h6)
+  .heading {
+    font-family: v.$font__family--serif;
+    font-weight: 600;
+    color: var(--cl-heading);
+    border-bottom: 1px solid var(--cl-border);
+    letter-spacing: 0.02em;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+
+    // Heading Anchor
+    &__anchor {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &:hover {
+      .heading__anchor {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  // Heading Size
+  h1 {
+    font-size: v.$font__size--6xl;
+  }
+  h2 {
+    font-size: v.$font__size--5xl;
+  }
+  h3 {
+    font-size: v.$font__size--4xl;
+  }
+  h4 {
+    font-size: v.$font__size--3xl;
+  }
+  h5 {
+    font-size: v.$font__size--2xl;
+  }
+  h6 {
+    font-size: v.$font__size--xl;
+  }
+
+  .link,
+  a {
+    color: var(--cl-primary);
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      color: var(--cl-primary-dark);
+      text-decoration: underline;
+    }
+  }
+
+  .link {
+    .bi {
+      font-size: v.$font__size--xs;
+    }
+    &--external {
+      color: var(--cl-primary-light);
+    }
+
+    &--missing {
+      color: var(--cl-alert-error);
+      &:hover {
+        color: var(--cl-alert-error);
+      }
+    }
+  }
+}
