@@ -5,7 +5,7 @@
 <link rel="canonical" href="{{ .Permalink }}">
 <meta name="robots" content="index, follow">
 <meta name="keywords" content="{{ .Site.Params.keywords }}">
-<meta name="author" content="{{ .Site.Params.name }}">
+<meta name="author" content="{{ .Site.Params.author }}">
 <meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}">
 <link rel="alternate" hreflang="{{ site.Language.Lang }}" href="{{ .Permalink }}" />
 
@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="{{ .Title }}">
 <meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Description }}{{ end }}">
 <meta name="twitter:image" content="{{ .Params.image }}">
-<meta name="twitter:site" content="{{ site.Params.author.twitter }}"/>
+<meta name="twitter:site" content="{{ site.Params.twitter }}"/>
 
 <link rel="icon" href="{{ "favicons/favicon.ico" | absURL }}" type="image/x-icon">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "favicons/apple-touch-icon.png" | absURL }}">
@@ -38,5 +38,5 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ "index.xml" | relURL }}">
 
 {{ template "_internal/google_analytics.html" . }}
-{{ partialCached "head/css.html" . }}
-{{ partialCached "head/js.html" . }}
+{{ partial "head/css.html" . }}
+{{ partial "head/js.html" . }}

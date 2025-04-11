@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme="">
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme="dark">
 <head>
   {{ partial "head/head.html" . }}
 </head>
 <body class="layout">
-  <aside 
-
-    class="u-container sidebar sidebar--left" 
-    role="navigation"
-    data-sidebar="sidebarLeft"
-
-  >
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+  <aside class="u-container sidebar sidebar--left" data-sidebar="sidebarLeft">
     {{ partial "sidebar-left.html" . }}
   </aside>
   
@@ -33,13 +30,7 @@
   {{ $excluded := .Site.Params.toc_exclude_sections | default (slice) }}
   {{ $showToc := and (.TableOfContents) (not (in $excluded .Section)) }}
   {{ if not (or (eq .Params.toc false) (not $showToc)) }}
-    <aside 
-    
-      class="u-container sidebar sidebar--right" 
-      role="complementary"
-      data-sidebar="sidebarRight"
-    
-    >
+    <aside class="u-container sidebar sidebar--right" data-sidebar="sidebarRight">
       {{ partial "sidebar-right.html" . }}
     </aside>
   {{ end }}

@@ -50,7 +50,14 @@ Berikut adalah beberapa jenis callout yang dapat digunakan:
 
 >[!note] With Image
 > Nostrud ea velit incididunt nulla voluptate.
-> ![[https://picsum.photos/120/200]]
+> ![[https://picsum.photos/1080/720]]
+> Minim nulla quis nostrud aute. In id tempor velit fugiat dolore voluptate ullamco ad commodo. Ex proident velit proident magna sint sint ad. Sit nulla fugiat incididunt mollit exercitation veniam magna ad in ad. Tempor nulla exercitation nostrud elit qui magna sit.
+
+>[!note] With Image Block
+> Nostrud ea velit incididunt nulla voluptate.
+>
+> ![Diagram Arsitektur](https://picsum.photos/1080/720 "Diagram ini menjelaskan struktur sistem")
+>
 > Minim nulla quis nostrud aute. In id tempor velit fugiat dolore voluptate ullamco ad commodo. Ex proident velit proident magna sint sint ad. Sit nulla fugiat incididunt mollit exercitation veniam magna ad in ad. Tempor nulla exercitation nostrud elit qui magna sit.
 
 >[!note]

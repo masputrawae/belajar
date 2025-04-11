@@ -38,49 +38,17 @@ pre + pre {
 .chroma {
   color: var(--code-text);
   background-color: var(--code-bg);
+  box-shadow: var(--shadow-md);
 }
 
 .chroma {
   font-size: v.$font__size--3xs;
-  font-weight: 400;
   overflow-x: auto;
   overflow-y: hidden;
   max-width: 100%;
   border: 1px solid var(--cl-border);
-  border-radius: 0.5rem;
-  padding: 1rem;
-
-  code {
-    position: relative;
-
-    &::before {
-      position: sticky;
-      left: 0;
-      margin-bottom: 1rem;
-      box-shadow: var(--shadow-md);
-      color: var(--text-first);
-      background-color: var(--bg-second);
-      border: 1px solid transparent;
-      text-transform: capitalize;
-      border-radius: 0.5rem;
-      text-align: center;
-      @include m.transition(color, border-color, box-shadow);
-    }
-
-    &::before {
-      content: attr(data-lang);
-      display: inline-block;
-      padding: 0.2rem 1rem;
-    }
-
-
-    &:hover::before,
-    &:hover::after {
-      box-shadow: var(--shadow-lg);
-      border-color: var(--accent-first);
-      color: var(--accent-first);
-    }
-  }
+  border-radius: 0.25rem;
+  margin: 1rem;
 
   // General styles
   .x,
@@ -123,10 +91,10 @@ pre + pre {
     margin-right: 1rem;
     padding: 0 0.4em;
     color: var(--code-line-number);
-    border: 1px solid var(--cl-border);
-    background-color: var(--bg-second);
-    border-top: none;
-    border-bottom: none;
+    border-right: 1px solid var(--cl-border);
+    background-color: var(--bg-secondary);
+    position: sticky;
+    left: 0;
   }
 
   // Code line

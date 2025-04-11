@@ -9,11 +9,13 @@
   background-color: var(--bg-tertiary);
   height: 2.5rem;
   padding-inline: 1rem;
+  width: 80%;
 
   &__input {
     width: 100%;
     background-color: transparent;
     border: none;
     outline: none;
+    color: var(--cl-muted);
   }
 }

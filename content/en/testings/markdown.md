@@ -109,7 +109,7 @@ Block:
 > [!ERROR] Error  
 > This is an error alert.
 
-See complete Visit: [Alert Collection](callout.md)  
+See complete Visit: [[/notes/inbox/callout|Alert Collection]]  
 
 ## Code  
 

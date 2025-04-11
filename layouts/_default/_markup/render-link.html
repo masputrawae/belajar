@@ -4,17 +4,17 @@
   {{ if $page }}
     <a class="link link--internal" href="{{ $page.RelPermalink }}">
       {{ .Text | safeHTML }}
-      <i class="bi bi-folder-symlink icon--small"></i>
+      <i class="bi bi-folder-symlink"></i>
     </a>
   {{ else }}
     <a class="link link--missing" href="{{ $target }}">
       {{ .Text | safeHTML }}
-      <i class="bi bi-exclamation-circle icon--small"></i>
+      <i class="bi bi-exclamation-circle"></i>
     </a>
   {{ end }}
 {{ else }}
   <a class="link link--external" href="{{ .Destination | safeURL }}" rel="external noopener noreferrer nofollow" target="_blank">
     {{ .Text | safeHTML }}
-    <i class="bi bi-box-arrow-up-right icon--small"></i>
+    <i class="bi bi-box-arrow-up-right"></i>
   </a>
 {{ end }}

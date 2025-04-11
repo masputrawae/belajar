@@ -3,7 +3,6 @@
 @use "../abstracts/variables" as v;
 
 .navbar{
-
   &__label {
     font-size: v.$font__size--5xl;
     font-family: v.$font__family--serif;

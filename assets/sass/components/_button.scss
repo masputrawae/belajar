@@ -3,11 +3,25 @@
 @use '../abstracts/variables' as v;
 
 .btn {
+  display: inline-block;
   background-color: transparent;
-  border: 1px solid transparent;
+  border: 1px solid var(--cl-border);
   color: var(--cl-heading);
   box-shadow: var(--shadow-md);
   border-radius: 0.25rem;
+  
+  @include m.transition(transform);
+
+  &:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+  
+  &--text {
+    padding: 0.75rem;
+    font-weight: 600;
+    border-color: var(--cl-border);
+  }
   
   &--icon {
     font-size: v.$font__size--2xl;

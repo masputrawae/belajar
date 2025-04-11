@@ -1,4 +1,7 @@
 {{ define "main" }}
-  {{ partial "content.html" . }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  <article class="content">
+    <h1 class="heading content__title">{{ .Title }}</h1>
+    {{ partial "meta-post.html" . }}
+    {{ partial "content.html" . }}
+  </article>
 {{ end }}

@@ -1,7 +1,5 @@
 {{ define "main" }}
-  {{ partial "content.html" . }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+  <article>
     {{ partial "content.html" . }}
-  {{ end }}
+  </article>
 {{ end }}

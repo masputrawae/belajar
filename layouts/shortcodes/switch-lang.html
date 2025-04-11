@@ -1,28 +1,8 @@
 {{/* |===========| START: SWITCH LANGUAGE |===========| */}}
 {{ if gt (len $.Site.Home.AllTranslations) 1 }}
-  <strong class="navbar__label">{{ i18n "language" }}</strong>
-  <ul class="nav" id="languageList">
-    {{ range $.Site.Home.AllTranslations }}
-      <li class="nav__item">
-        <label class="nav__link" for="lang-{{ .Language.Lang }}">
-          <input
-            type="radio"
-            name="lang"
-            id="lang-{{ .Language.Lang }}"
-            value="{{ .RelPermalink }}"
-            {{ if eq .Language.Lang $.Site.Language.Lang }}checked{{ end }}>
-          {{ .Language.LanguageName }}
-        </label>
-      </li>
-    {{ end }}
-  </ul>
-  <script>
-    document.getElementById("languageList")?.addEventListener("change", e => {
-      const t = e.target;
-      if (t?.name === "lang" && t.checked && t.value) {
-        window.location.href = t.value;
-      }
-    });
-  </script>
+  <strong class="btn btn--text">{{ i18n "language" }}:</strong>
+  {{ range $.Site.Home.AllTranslations }}
+    <a href="{{ .RelPermalink }}" class="btn btn--text">{{ .Language.LanguageName }}</a>
+  {{ end }}
 {{ end }}
 {{/* |===========| END: SWITCH LANGUAGE |===========| */}}

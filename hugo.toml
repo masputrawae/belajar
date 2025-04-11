@@ -7,7 +7,7 @@ defaultContentLanguage          = 'id'
 #====================================#
 #========== PARAMS SETTING ==========#
 [params]
-  name          = "John Doe"
+  author        = "John Doe"
   subtitle      = "🤖 Ngoding? Bisa. Paham? Nanti dulu. 🎨 CSS magician, tapi kadang kena kutukan sendiri. 🐛 Bug adalah sahabat, debugger adalah penyelamat."
   logo          = "logo/logo.webp"
   twitter       = "@johndoe"
@@ -39,7 +39,7 @@ i18nDir = "i18n"
     languageCode    = "id"
     languageName    = "Bahasa Indonesia"
     weight          = 1
-    contentDir      = "content/"
+    contentDir      = "content/id"
 
     [languages.id.params]
       dateFormat          = "Senin, 2 Januari 2006"
