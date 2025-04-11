@@ -1,7 +1,7 @@
 #====================================#
 #=========== BASE SETTING ===========#
 title                           = "My Notes"
-baseURL                         = "https://your-domain/"
+baseURL                         = "https://masputrawae.github.io/belajar"
 defaultContentLanguage          = 'id'
 
 #====================================#
