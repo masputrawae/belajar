@@ -1,7 +1,7 @@
 #====================================#
 #=========== BASE SETTING ===========#
 title                           = "My Notes"
-baseURL                         = "https://masputrawae.github.io/belajar"
+baseURL                         = "https://masputrawae.github.io/belajar/"
 defaultContentLanguage          = 'id'
 enableEmoji                     = true
 capitalizeListTitles            = false
