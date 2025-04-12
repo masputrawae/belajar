@@ -19,8 +19,7 @@ i18nDir = "i18n"
   toc_exclude_sections = ["documents"]
 
 [permalinks]
-  posts = "/:sections/:year/:month/:day/:title/"
-  testings = "/:sections/:year/:month/:day/:title/"
+  posts = "/:sections/:year/:month/:title/"
 
 #====================================#
 #======== TAXONOMIES SETTING ========#
@@ -38,7 +37,7 @@ i18nDir = "i18n"
     languageCode    = "id"
     languageName    = "Bahasa Indonesia"
     weight          = 1
-    contentDir      = "content/id/"
+    contentDir      = "content/"
 
     [languages.id.params]
       dateFormat          = "Senin, 2 Januari 2006"
