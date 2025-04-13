@@ -1,5 +1,5 @@
 /*!
- * Custom Script for []
+ * Custom Script for [Belajar (https://masputrawae.github.io/official/)]
  * Author: Putra Jaya
  * License: MIT
  */
