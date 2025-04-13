@@ -1,6 +1,6 @@
 #====================================#
 #=========== BASE SETTING ===========#
-baseURL                         = 'https://example.org/test/'
+baseURL                         = 'https://masputrawae.github.io/belajar/'
 languageCode                    = 'id'
 title                           = 'My Notes'
 cascade.keywords                = ["notes", "other"]
