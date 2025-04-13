@@ -33,7 +33,7 @@ if (workbox) {
   );
 
   self.addEventListener("install", (event) => {
-    const JSON_INDEX_URL = `/belajar/news.json?v=${CACHE_VERSION}`;
+    const JSON_INDEX_URL = `/official/news.json?v=${CACHE_VERSION}`; // Ganti dengan Url Yang Sesuai
 
     event.waitUntil(
       (async () => {
