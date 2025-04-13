@@ -17,8 +17,7 @@ Vivamus non nisl nec justo tincidunt gravida. Integer vitae magna vel massa **bl
 
 ## Subjudul Kedua: In Eleifend Purus
 
-> "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus."  
-> ![Hello World](https://picsum.photos/120/200 "Hello World")
+> "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus."
 > — _Aenean auctor elit_
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porttitor, **dui nec placerat** elementum, [[augue]] felis pharetra [[/documents/about|orci]], nec lacinia libero [[https://example.com|nulla]] in purus. [[aliases-testing|Etiam pretium]], lacus at bibendum fermentum, [[Dns Resolver]] ligula ex vehicula libero, nec fringilla augue sapien nec quam.

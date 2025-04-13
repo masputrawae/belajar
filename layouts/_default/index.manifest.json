@@ -1,14 +1,17 @@
 {
     "name": "{{ site.Title }}",
-    "short_name": "{{ site.Title }}",
+    "short_name": "{{ site.Params.shortTitle | default site.Title }}",
     "start_url": "{{ site.BaseURL | absURL }}",
     "display": "standalone",
     "description": "{{ site.Params.description }}",
     "lang": "{{ site.Language.LanguageCode }}",
+    "scope": "{{ site.BaseURL | absURL }}",
+    "id": "/{{ site.Params.shortTitle | default site.Title }}/?source=pwa",
     "dir": "auto",
     "background_color": "#ffffff",
     "theme_color": "#007bff",
     "orientation": "any",
+    "categories": ["productivity", "education", "technology"],
     "display_override": ["fullscreen", "minimal-ui"],
     "icons": [
         {
@@ -36,17 +39,30 @@
     ],
     "screenshots": [
         {
-            "src": "{{ "favicons/screen-desktop.png" | absURL }}",
-            "sizes": "988x568",
+            "src": "{{ "favicons/desktop-dark.png" | absURL }}",
+            "sizes": "1170x672",
             "type": "image/png",
-            "description": "{{ site.Params.description }}",
+            "description": "Desktop View Beautiful Dark Mode",
             "form_factor": "wide"
         },
         {
-            "src": "{{ "favicons/screen-mobile.png" | absURL }}",
-            "sizes": "320x682",
+            "src": "{{ "favicons/desktop-light.png" | absURL }}",
+            "sizes": "1170x672",
             "type": "image/png",
-            "description": "{{ site.Params.description }}"
+            "description": "Desktop View Beautiful Light Mode",
+            "form_factor": "wide"
+        },
+        {
+            "src": "{{ "favicons/mobile-dark.png" | absURL }}",
+            "sizes": "327x709",
+            "type": "image/png",
+            "description": "Mobile View Beautiful Dark Mode"
+        },
+        {
+            "src": "{{ "favicons/mobile-light.png" | absURL }}",
+            "sizes": "327x709",
+            "type": "image/png",
+            "description": "Mobile View Beautiful Light Mode"
         }
     ]
 }

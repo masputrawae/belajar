@@ -44,7 +44,7 @@ if (workbox) {
           if (!response.ok) throw new Error("Gagal fetch news.json");
 
           const allUrls = await response.json();
-          const urls = allUrls.slice(0, 100);
+          const urls = allUrls.slice(0, 1000);
 
           for (const rawUrl of urls) {
             try {
