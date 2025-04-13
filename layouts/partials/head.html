@@ -1,0 +1,116 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<meta name="description" content="{{ .Params.description | default .Description | default site.Params.description }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="robots" content="index, follow">
+<meta name="author" content="{{ site.Params.author }}">
+<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}">
+<link rel="alternate" hreflang="{{ site.Language.Lang }}" href="{{ .Permalink }}" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ .Params.description | default .Description | default site.Params.description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ .Params.image | absURL }}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ .Params.description | default .Description | default site.Params.description }}">
+<meta name="twitter:image" content="{{ .Params.image | absURL }}">
+<meta name="twitter:site" content="{{ site.Params.twitter }}"/>
+
+<link rel="icon" href="{{ "favicons/favicon.ico" | absURL }}" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "favicons/apple-touch-icon.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicons/favicon-32x32.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicons/favicon-16x16.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ "favicons/android-chrome-192x192.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="512x512" href="{{ "favicons/android-chrome-512x512.png" | absURL }}">
+<link rel="manifest" href="{{ "manifest.json" | absURL }}">
+
+<link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}" />
+{{ with .OutputFormats.Get "rss" }}
+  {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+{{ end }}
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{{ "index.xml" | relURL }}">
+
+{{ template "_internal/google_analytics.html" . }}
+
+{{/* |===========| START: SCSS |===========| */}}
+{{- with resources.Get "sass/main.scss" }}
+  {{- $opts := dict
+    "enableSourceMap" (not hugo.IsProduction)
+    "outputStyle" (cond hugo.IsProduction "compressed" "expanded")
+    "targetPath" "css/main.css"
+    "transpiler" "dartsass"
+  }}
+  {{- with . | toCSS $opts }}
+    {{- if hugo.IsProduction }}
+      {{- with . | fingerprint }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+      {{- end }}
+    {{- else }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{/* |===========| END: SCSS |===========| */}}
+
+
+<script src="{{ "js/lunr.min.js" | relURL }}" defer></script>
+
+{{ if .Params.mathjax }}
+  {{ partial "mathjax.html" . }}
+{{ end }}
+
+{{/* |===========| START: SW JS |===========| */}}
+{{- with resources.Get "js/sw.js" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- with . | js.Build | resources.Copy "sw.js" }}
+    <script defer>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('{{ .RelPermalink }}').then(reg => {
+                    console.log('Service worker registered with scope: ', reg.scope);
+                }).catch(err => {
+                    console.log('Service worker registration failed: ', err);
+                });
+            });
+        }
+      </script>
+    {{- end }}
+  {{- else }}
+    {{- $opts := dict "minify" true }}
+    {{- with . | js.Build $opts | resources.Copy "js/sw.js" }}
+    <script defer>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('{{ .RelPermalink }}').then(reg => {
+                    console.log('Service worker registered with scope: ', reg.scope);
+                }).catch(err => {
+                    console.log('Service worker registration failed: ', err);
+                });
+            });
+        }
+      </script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{/* |===========| END: SW JS |===========| */}}
+
+{{/* |===========| START: MAIN.JS |===========| */}}
+{{- with resources.Get "js/main.js" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- with . | js.Build }}
+      <script src="{{ .RelPermalink }}" defer></script>
+    {{- end }}
+  {{- else }}
+    {{- $opts := dict "minify" true }}
+    {{- with . | js.Build $opts | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous" defer></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{/* |===========| END: MAIN.JS |===========| */}}

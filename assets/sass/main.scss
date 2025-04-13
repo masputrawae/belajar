@@ -9,13 +9,10 @@
  * Copyright (c) Nicolas Gallagher
  * Licensed under MIT License
  * https://github.com/necolas/normalize.css
- *
- * Bootstrap Icons v1.11.3
- * Copyright 2019-2024 The Bootstrap Authors
- * Licensed under MIT License
- * https://github.com/twbs/icons
  */
-@forward 'base';
-@forward 'utility';
-@forward 'components';
-@forward 'layouts';
+
+@use './base/root';
+@use './base/utilities';
+@use './base/components';
+@use './base/typography';
+@use './base/layout';

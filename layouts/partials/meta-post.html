@@ -1,17 +1,16 @@
-<button class="btn btn--text" data-toggle-collapse="metaPost">{{ i18n "properties" }}</button>
-<div class="meta" data-collapse="metaPost">
-  <strong class="meta__label">{{ i18n "title" }} </strong><span class="meta__value">{{ .Title }}</span>
+<div class="u-container meta">
+  <strong class="meta__label">Title </strong><span class="meta__value">{{ .Title }}</span>
   {{ with .Params.author }}
-    <strong class="meta__label">{{ i18n "author" }} </strong><span class="meta__value">{{ . }}</span>
+    <strong class="meta__label">Author </strong><span class="meta__value">{{ . }}</span>
   {{ else }}
     {{ with site.Params.author }}
-      <strong class="meta__label">{{ i18n "author" }} </strong><span class="meta__value">{{ . }}</span>
+      <strong class="meta__label">Author </strong><span class="meta__value">{{ . }}</span>
     {{ end }}
   {{ end }}
   {{ with .Params.description }}
-    <strong class="meta__label">{{ i18n "description" }} </strong><span class="meta__value">{{ . }}</span>
+    <strong class="meta__label">Description </strong><span class="meta__value">{{ . }}</span>
   {{ end }}
-  <strong class="meta__label">{{ i18n "date" }} </strong><span class="meta__value">{{ .Date.Format site.Params.dateFormat }}</span>
-  <strong class="meta__label">{{ i18n "last_modified" }} </strong><span class="meta__value">{{ .Lastmod.Format site.Params.dateFormat }}</span>
+  <strong class="meta__label">Date </strong><span class="meta__value">{{ .Date.Format "Senin, 2 Januari 2006" }}</span>
+  <strong class="meta__label">Last Modified </strong><span class="meta__value">{{ .Lastmod.Format "Senin, 2 Januari 2006" }}</span>
   {{ partial "terms.html" . }}
 </div>

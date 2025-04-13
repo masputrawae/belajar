@@ -1,4 +1,5 @@
-{{/* =============== START: FOOTER =============== */}}
-<p>{{ i18n "footer_credit" }} <a href="https://gohugo.io/" rel="external noopener noreferrer nofollow" target="_blank">Hugo</a></p>
-<p>&copy; {{ now.Year }} · {{ site.Title }} {{ i18n "footer_copyright" }}</p>
-{{/* =============== END: FOOTER =============== */}}
+{{ partial "meta-post" . }}
+<section class="footer__copyright">
+  <p>Made with ❤️ using: <a href="https://gohugo.io/" rel="external noopener noreferrer nofollow" target="_blank">Hugo</a></p>
+  <p>&copy; {{ now.Year }} · {{ site.Title }} All rights reserved.</p>
+</section>

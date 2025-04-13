@@ -3,301 +3,149 @@
  * Author: Putra Jaya
  * License: MIT
  */
-// === Sidebar Logic ===
-// Optimized and Modular JavaScript UI Script
-const BREAKPOINT = 48 * 16;
-const SIDEBAR_ATTR = "data-sidebar";
-const TOGGLE_ATTR = "data-toggle-sidebar";
-const HIDE_BTN_ATTR = "data-button-hidden";
-const CLASS_OPEN = "is-open";
-const CLASS_BTN_HIDDEN = "btn--sidebar-hidden";
 
-const sidebars = Array.from(document.querySelectorAll(`[${SIDEBAR_ATTR}]`));
-const toggles = Array.from(document.querySelectorAll(`[${TOGGLE_ATTR}]`));
-const toggleMap = new Map();
-const htmlEl = document.documentElement;
-const documentBody = document.body;
-const backToTopBtn = document.getElementById("backToTop");
-const loader = document.getElementById("loader");
-const toggleAllBtn = document.getElementById("toggle-all-collapse");
-const switchBtn = document.getElementById("switchTheme");
-const iconEl = switchBtn?.querySelector("i.bi");
+// == Global Variables == //
+const $$ = document.querySelectorAll.bind(document);
+const $ = document.querySelector.bind(document);
 
-const FOLDER_STATE_KEY = "collapsedFolders";
-const ALL_COLLAPSE_KEY = "allCollapsed";
-const THEME_KEY = "user-theme";
-const MIN_DURATION = 500;
+const COLLAPSE_CLASS = 'collapse';
+const OPEN_CLASS = 'collapse--open';
+const TOGGLE_OPEN_CLASS = 'is-open';
 
-const storage = {
-  get(key, fallback = null) {
-    try {
-      return JSON.parse(localStorage.getItem(key)) ?? fallback;
-    } catch {
-      return fallback;
-    }
-  },
-  set(key, value) {
-    try {
-      localStorage.setItem(key, JSON.stringify(value));
-    } catch {}
-  },
-  getRaw(key) {
-    return localStorage.getItem(key);
-  },
-  setRaw(key, value) {
-    localStorage.setItem(key, value);
-  },
-  remove(key) {
-    localStorage.removeItem(key);
-  },
+const toggles = $$("[data-toggle]");
+const sidebars = $$("[data-sidebar]");
+
+// == Sidebar Function == //
+toggles.forEach((toggle) => {
+  toggle.addEventListener("click", () => {
+    const target = toggle.getAttribute("data-toggle");
+    const sidebar = $(`[data-sidebar="${target}"]`);
+    sidebar?.classList.toggle("sidebar--open");
+  });
+});
+
+if (sidebars.length) {
+  document.addEventListener("click", (e) => {
+    sidebars.forEach((sidebar) => {
+      if (!sidebar.classList.contains("sidebar--open")) return;
+
+      const targetKey = sidebar.getAttribute("data-sidebar");
+      const toggle = $(`[data-toggle="${targetKey}"]`);
+
+      if (
+        !sidebar.contains(e.target) &&
+        !toggle?.contains(e.target)
+      ) {
+        sidebar.classList.remove("sidebar--open");
+      }
+    });
+  });
+}
+
+// Restore state dari sessionStorage
+$$('[data-collapse]').forEach(ul => {
+  const key = ul.getAttribute('data-collapse');
+  const state = sessionStorage.getItem(`collapse:${key}`);
+  if (state === 'open') {
+    ul.classList.add(OPEN_CLASS);
+    const toggle = $(`[data-toggle-collapse="${key}"]`);
+    toggle?.classList.add(TOGGLE_OPEN_CLASS);
+  }
+});
+
+// Toggle per-section
+$$('[data-toggle-collapse]').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const key = toggle.getAttribute('data-toggle-collapse');
+    const target = $(`[data-collapse="${key}"]`);
+    if (!target) return;
+
+    const isOpen = target.classList.toggle(OPEN_CLASS);
+    toggle.classList.toggle(TOGGLE_OPEN_CLASS, isOpen);
+    sessionStorage.setItem(`collapse:${key}`, isOpen ? 'open' : 'closed');
+  });
+});
+
+// Global toggle
+const allCollapseBtn = $('#allCollapse');
+if (allCollapseBtn) {
+  allCollapseBtn.addEventListener('click', () => {
+    const collapses = $$('[data-collapse]');
+    const toggles = $$('[data-toggle-collapse]');
+    const anyOpen = Array.from(collapses).some(el => el.classList.contains(OPEN_CLASS));
+    const action = anyOpen ? 'closed' : 'open';
+
+    collapses.forEach(el => {
+      const key = el.getAttribute('data-collapse');
+      el.classList.toggle(OPEN_CLASS, action === 'open');
+      sessionStorage.setItem(`collapse:${key}`, action);
+    });
+
+    toggles.forEach(toggle => {
+      toggle.classList.toggle(TOGGLE_OPEN_CLASS, action === 'open');
+    });
+  });
+}
+
+// == SWITCH THEMES == //
+const themeToggle = document.getElementById('switchThemes');
+const html = document.documentElement;
+
+const THEMES = {
+  DARK: 'dark',
+  LIGHT: 'light'
 };
 
-function isDesktop() {
-  return window.innerWidth >= BREAKPOINT;
+function applyTheme(theme) {
+  html.classList.add('theme-transition');
+  html.setAttribute('data-theme', theme);
+  sessionStorage.setItem('theme', theme);
+  setTimeout(() => html.classList.remove('theme-transition'), 500);
 }
 
-toggles.forEach((btn) => {
-  const target = btn.getAttribute(TOGGLE_ATTR);
-  if (!toggleMap.has(target)) toggleMap.set(target, []);
-  toggleMap.get(target).push(btn);
+function getPreferredTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? THEMES.DARK
+    : THEMES.LIGHT;
+}
+
+// Inisialisasi tema saat pertama kali halaman dimuat
+(function initTheme() {
+  const savedTheme = sessionStorage.getItem('theme');
+  applyTheme(savedTheme || getPreferredTheme());
+})();
+
+// Toggle tema saat tombol diklik
+themeToggle?.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const newTheme = current === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK;
+  applyTheme(newTheme);
 });
 
-function updateButtonVisibility(targetName, isOpen) {
-  const buttons = toggleMap.get(targetName) || [];
-  buttons.forEach((btn) => {
-    const hideOnOpen = btn.hasAttribute(HIDE_BTN_ATTR);
-    if (isDesktop() && hideOnOpen) {
-      btn.classList.toggle(CLASS_BTN_HIDDEN, isOpen);
+// == ACTIVE LINK == //
+const links = $$('[data-href]');
+
+// Fungsi untuk memperbarui link aktif
+function updateActiveLink() {
+  const currentPath = window.location.pathname;
+
+  links.forEach(link => {
+    const linkHref = link.getAttribute('data-href');
+
+    if (linkHref === currentPath) {
+      link.classList.add('nav__link--active');
     } else {
-      btn.classList.remove(CLASS_BTN_HIDDEN);
+      link.classList.remove('nav__link--active');
     }
   });
 }
 
-function openSidebar(el, targetName) {
-  el.classList.add(CLASS_OPEN);
-  if (isDesktop()) storage.setRaw(`sidebar:${targetName}`, "open");
-  updateButtonVisibility(targetName, true);
-}
-
-function closeSidebar(el, targetName) {
-  el.classList.remove(CLASS_OPEN);
-  if (isDesktop()) storage.setRaw(`sidebar:${targetName}`, "closed");
-  updateButtonVisibility(targetName, false);
-}
-
-function toggleSidebar(targetName) {
-  const el = document.querySelector(`[${SIDEBAR_ATTR}="${targetName}"]`);
-  if (!el) return;
-  el.classList.contains(CLASS_OPEN)
-    ? closeSidebar(el, targetName)
-    : openSidebar(el, targetName);
-}
-
-function initSidebarState() {
-  sidebars.forEach((el) => {
-    const name = el.getAttribute(SIDEBAR_ATTR);
-    const savedState = storage.getRaw(`sidebar:${name}`);
-
-    if (isDesktop()) {
-      savedState === "closed" ? closeSidebar(el, name) : openSidebar(el, name);
-    } else {
-      closeSidebar(el, name);
-    }
-  });
-}
-
-toggles.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const target = btn.getAttribute(TOGGLE_ATTR);
-    toggleSidebar(target);
-  });
-});
-
-let lastIsDesktop = isDesktop();
-function debounce(fn, delay = 200) {
-  let timeout;
-  return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => fn(...args), delay);
-  };
-}
-
-window.addEventListener(
-  "resize",
-  debounce(() => {
-    const nowIsDesktop = isDesktop();
-    if (nowIsDesktop !== lastIsDesktop) {
-      lastIsDesktop = nowIsDesktop;
-      initSidebarState();
-    }
-  })
-);
-
-document.addEventListener("click", (event) => {
-  if (isDesktop()) return;
-  sidebars.forEach((el) => {
-    const name = el.getAttribute(SIDEBAR_ATTR);
-    if (!el.classList.contains(CLASS_OPEN)) return;
-
-    const clickedInside = el.contains(event.target);
-    const clickedToggle = toggles.some(
-      (btn) =>
-        btn.getAttribute(TOGGLE_ATTR) === name && btn.contains(event.target)
-    );
-
-    if (!clickedInside && !clickedToggle) closeSidebar(el, name);
-  });
-});
-
-// === Folder Collapse ===
-const collapsedMap = storage.get(FOLDER_STATE_KEY, {});
-
-function updateFolderIcon(key, collapsed) {
-  const btn = document.querySelector(`[data-toggle-collapse="${key}"]`);
-  const icon = btn?.querySelector("i.bi");
-  if (!icon) return;
-  icon.classList.toggle("bi-folder2", collapsed);
-  icon.classList.toggle("bi-folder2-open", !collapsed);
-}
-
-function updateGlobalIcon(allCollapsed) {
-  const icon = toggleAllBtn?.querySelector("i.bi");
-  if (!icon) return;
-  icon.classList.toggle("bi-folder2", allCollapsed);
-  icon.classList.toggle("bi-folder2-open", !allCollapsed);
-}
-
-document.querySelectorAll("[data-collapse]").forEach((ul) => {
-  const key = ul.dataset.collapse;
-  const isCollapsed = key in collapsedMap ? collapsedMap[key] : true;
-  ul.classList.toggle("is-collapse", isCollapsed);
-  updateFolderIcon(key, isCollapsed);
-});
-
-documentBody.addEventListener("click", (e) => {
-  const toggle = e.target.closest("[data-toggle-collapse]");
-  if (!toggle) return;
-
-  const key = toggle.dataset.toggleCollapse;
-  const target = document.querySelector(`[data-collapse="${key}"]`);
-  if (!target) return;
-
-  const collapsed = target.classList.toggle("is-collapse");
-  collapsedMap[key] = collapsed;
-  storage.set(FOLDER_STATE_KEY, collapsedMap);
-  updateFolderIcon(key, collapsed);
-});
-
-toggleAllBtn?.addEventListener("click", () => {
-  const allCollapsed = toggleAllBtn.classList.toggle("collapsed-mode");
-  document.querySelectorAll("[data-collapse]").forEach((ul) => {
-    const key = ul.dataset.collapse;
-    ul.classList.toggle("is-collapse", allCollapsed);
-    collapsedMap[key] = allCollapsed;
-    updateFolderIcon(key, allCollapsed);
-  });
-  storage.set(FOLDER_STATE_KEY, collapsedMap);
-  storage.setRaw(ALL_COLLAPSE_KEY, allCollapsed ? "1" : "0");
-  updateGlobalIcon(allCollapsed);
-});
-
-if (storage.getRaw(ALL_COLLAPSE_KEY) === "1") {
-  toggleAllBtn?.classList.add("collapsed-mode");
-  updateGlobalIcon(true);
-}
-
-// === Theme Switch ===
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-function applyTheme(mode) {
-  const theme =
-    mode === "auto" ? (prefersDark.matches ? "dark" : "light") : mode;
-
-  if (mode === "auto") storage.remove(THEME_KEY);
-  else storage.setRaw(THEME_KEY, mode);
-
-  htmlEl.setAttribute("data-theme", theme);
-  updateIcon(mode);
-}
-
-function updateIcon(mode) {
-  iconEl?.classList.remove("bi-sun", "bi-moon-stars-fill", "bi-circle-half");
-  iconEl?.classList.add(
-    mode === "light"
-      ? "bi-sun"
-      : mode === "dark"
-      ? "bi-moon-stars-fill"
-      : "bi-circle-half"
-  );
-}
-
-function getNextMode(current) {
-  return current === "auto" ? "light" : current === "light" ? "dark" : "auto";
-}
-
-switchBtn?.addEventListener("click", () => {
-  const current = storage.getRaw(THEME_KEY) || "auto";
-  applyTheme(getNextMode(current));
-});
-
-applyTheme(storage.getRaw(THEME_KEY) || "auto");
-
-prefersDark.addEventListener("change", () => {
-  if (!storage.getRaw(THEME_KEY)) applyTheme("auto");
-});
-
-// === Nav Link Highlight ===
-const navLinks = document.querySelectorAll("[data-href]");
-const currentPath = window.location.pathname.replace(/\/+\$/, "");
-
-let bestMatch = null;
-let bestLength = 0;
-
-navLinks.forEach((link) => {
-  const href = link.getAttribute("data-href").replace(/\/+\$/, "");
-  if (
-    (currentPath === href || currentPath.startsWith(href + "/")) &&
-    href.length > bestLength
-  ) {
-    bestMatch = link;
-    bestLength = href.length;
-  }
-});
-
-bestMatch?.classList.add("nav__link--active");
-
-// === TOC Observer ===
-const tocLinks = document.querySelectorAll(".nav__link--toc");
-const headingTargets = Array.from(tocLinks)
-  .map((link) => {
-    const id = decodeURIComponent(link.hash.slice(1));
-    const target = document.getElementById(id);
-    return target ? { id, target } : null;
-  })
-  .filter(Boolean);
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    const entry = entries.find(
-      (e) => e.isIntersecting && e.intersectionRatio > 0
-    );
-    if (!entry) return;
-    const id = entry.target.id;
-    tocLinks.forEach((link) => {
-      const match = decodeURIComponent(link.hash.slice(1)) === id;
-      link.classList.toggle("nav__link--active", match);
-    });
-  },
-  {
-    rootMargin: "0px 0px -70% 0px",
-    threshold: [0.1, 0.5, 1.0],
-  }
-);
-
-headingTargets.forEach(({ target }) => observer.observe(target));
+// Panggil fungsi saat halaman dimuat
+updateActiveLink();
+window.addEventListener('popstate', updateActiveLink);
 
 // === Back To Top ===
+const backToTopBtn = document.getElementById("backToTop");
 window.addEventListener("scroll", () => {
   if (window.scrollY > 1000) {
     backToTopBtn?.classList.add("show");
@@ -309,32 +157,6 @@ window.addEventListener("scroll", () => {
 backToTopBtn?.addEventListener("click", () => {
   window.scrollTo({ top: 0 });
 });
-
-// === Loader ===
-loader.classList.add("show");
-const start = Date.now();
-window.addEventListener("load", () => {
-  const elapsed = Date.now() - start;
-  const delay = Math.max(0, MIN_DURATION - elapsed);
-  setTimeout(() => {
-    loader.classList.remove("show");
-    loader.classList.add("hide");
-  }, delay);
-});
-
-document.querySelectorAll("a[href]").forEach((link) => {
-  const url = link.getAttribute("href");
-  if (url && !url.startsWith("#") && !url.startsWith("javascript:")) {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      loader.classList.remove("hide");
-      loader.classList.add("show");
-      setTimeout(() => (window.location.href = url), 100);
-    });
-  }
-});
-
-initSidebarState();
 
 // === Search ===
 const initSearch = async () => {

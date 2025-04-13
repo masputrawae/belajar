@@ -1,42 +1,26 @@
 {{ $icons := dict
-  "note" "bi-journal-text"
-  "abstract" "bi-layers"
-  "info" "bi-info-circle"
-  "todo" "bi-ui-checks-grid"
-  "tip" "bi-lightbulb"
-  "success" "bi-check2-circle"
-  "check" "bi-check-circle"
-  "done" "bi-patch-check"
-  "question" "bi-question-lg"
-  "help" "bi-life-preserver"
-  "faq" "bi-chat-left-text"
-  "warning" "bi-exclamation-diamond"
-  "caution" "bi-shield-exclamation"
-  "attention" "bi-eye"
-  "failure" "bi-x-octagon"
-  "fall" "bi-arrow-down-circle"
-  "missing" "bi-search"
-  "danger" "bi-lightning-fill"
-  "error" "bi-slash-circle"
-  "bug" "bi-bug-fill"
-  "example" "bi-file-earmark-code"
-  "quote" "bi-quote"
-  "cite" "bi-chat-quote"
+  "note" "icon--note"
+  "info" "icon--info"
+  "tip" "icon--tip"
+  "success" "icon--success"
+  "warning" "icon--warning"
+  "danger" "icon--danger"
+  "error" "icon--error"
 }}
 
 {{ $icon := index $icons .AlertType }}
 
 {{ if eq .Type "alert" }}
-  <blockquote class="alert alert--{{ .AlertType }}">
-    <strong class="alert__header">
-      <i class="bi {{ $icon }}"></i>
+  <blockquote class="callout callout--{{ .AlertType }}">
+    <strong class="callout__header">
+      {{ partial "callout.html" $icon }}
       {{ with .AlertTitle }}
-        <span class="alert__title">{{ . }}</span>
+        <span class="callout__title">{{ . }}</span>
       {{ else }}
         {{ or (i18n .AlertType) (title .AlertType) }}
       {{ end }}
     </strong>
-    <div class="alert__content">
+    <div class="callout__content">
       {{ .Text }}
     </div>
   </blockquote>

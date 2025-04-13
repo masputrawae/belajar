@@ -1,19 +1,38 @@
-{{/* =============== START: SIDEBAR RIGHT =============== */}}
 <header class="u-container sidebar__header">
-  <div class="sidebar__wrapper">
-    <button class="btn btn--icon" data-toggle-sidebar="sidebarRight" aria-label="{{ i18n "btn_toc" }}" title="{{ i18n "btn_toc" }}" >
-      <i class="bi bi-chevron-double-right"></i>
-    </button>
-    
-    <strong class="navbar__label">{{ i18n "toc" }}</strong>
-  </div>
+  <div class="sidebar__title">Table Of Contents</div>
 </header>
 
-<nav class="u-container navbar">
+<nav class="navbar">
   {{ $toc := .TableOfContents }}
   {{ $toc := replaceRE `<ul>` `<ul class="nav">` $toc }}
   {{ $toc := replaceRE `<li>` `<li class="nav__item">` $toc }}
   {{ $toc := replaceRE `<a href=` `<a class="nav__link nav__link--toc" href=` $toc }}
   {{ $toc | safeHTML }}
 </nav>
-{{/* =============== END: SIDEBAR RIGHT =============== */}}
+<script defer>
+  (function () {
+    const tocLinks = document.querySelectorAll('.nav__link--toc');
+    if (!tocLinks.length || !('IntersectionObserver' in window)) return;
+    const sectionMap = new Map();
+    tocLinks.forEach(link => {
+      const id = link.getAttribute('href')?.slice(1);
+      const target = document.getElementById(id);
+      if (target) sectionMap.set(target, link);
+    });
+    let activeLink = null;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const link = sectionMap.get(entry.target);
+        if (entry.isIntersecting) {
+          if (activeLink) activeLink.classList.remove('nav__link--active');
+          link.classList.add('nav__link--active');
+          activeLink = link;
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -70% 0px',
+      threshold: 0.1
+    });
+    sectionMap.forEach((_, section) => observer.observe(section));
+  })();
+</script>

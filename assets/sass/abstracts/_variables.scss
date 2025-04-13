@@ -53,28 +53,12 @@ $font__size--8xl              : scale(9);
 $font__size--9xl              : scale(10);
 $font__size--10xl             : scale(11);
 
-$alert-types: (
+$callout-types: (
   "note",
-  "abstract",
   "info",
-  "todo",
   "tip",
   "success",
-  "check",
-  "done",
-  "question",
-  "help",
-  "faq",
   "warning",
-  "caution",
-  "attention",
-  "failure",
-  "fall",
-  "missing",
   "danger",
   "error",
-  "bug",
-  "example",
-  "quote",
-  "cite",
 );

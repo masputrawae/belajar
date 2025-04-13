@@ -1,22 +1,21 @@
 #====================================#
 #=========== BASE SETTING ===========#
-title                           = "My Notes"
-baseURL                         = "https://masputrawae.github.io/belajar/"
-defaultContentLanguage          = 'id'
+baseURL                         = 'https://example.org/test/'
+languageCode                    = 'id'
+title                           = 'My Notes'
+cascade.keywords                = ["notes", "other"]
+cascade.description             = "Site Description"
 enableEmoji                     = true
 capitalizeListTitles            = false
-defaultContentLanguageInSubdir  = false
-disableDefaultLanguageRedirect  = false
-i18nDir = "i18n"
+disableAliases                  = false
 
 #====================================#
 #========== PARAMS SETTING ==========#
 [params]
   author        = "John Doe"
-  subtitle      = "🤖 Ngoding? Bisa. Paham? Nanti dulu. 🎨 CSS magician, tapi kadang kena kutukan sendiri. 🐛 Bug adalah sahabat, debugger adalah penyelamat."
   logo          = "logo/logo.webp"
   twitter       = "@johndoe"
-  toc_exclude_sections = ["documents"]
+  toc           = true
 
 [permalinks]
   posts = "/:sections/:year/:month/:title/"
@@ -30,41 +29,6 @@ i18nDir = "i18n"
   group     = "grouping"
   series    = "series"
 
-[languages]
-#=================================================#
-#=================== INDONESIA ===================#
-  [languages.id]
-    languageCode    = "id"
-    languageName    = "Bahasa Indonesia"
-    weight          = 1
-    contentDir      = "content/"
-
-    [languages.id.params]
-      dateFormat          = "Senin, 2 Januari 2006"
-      description         = "Halo"
-#=================================================#
-#==================== ENGLISH ====================#
-  [languages.en]
-    languageCode    = "en"
-    languageName    = "English"
-    weight          = 2
-    contentDir      = "content/en/"
-
-    [languages.en.params]
-      dateFormat          = "Monday, January 2, 2006"
-      description         = "Halo"
-#=================================================#
-#===================== JAWA ======================#
-  [languages.jv]
-    languageCode    = "jv"
-    languageName    = "Javanese"
-    weight          = 3
-    contentDir      = "content/jv/"
-    
-    [languages.jv.params]
-      dateFormat          = "Senin, 2 Januari 2006"
-      description         = "Halo"
-
 #====================================#
 #============== MARKUP ==============#
 [markup]
@@ -74,8 +38,8 @@ i18nDir = "i18n"
     startLevel  = 2
 
   [markup.highlight]
-    codeFences          = true
-    guessSyntax         = true
+    codeFences          = false
+    guessSyntax         = false
     style               = "github-dark"
     noClasses           = false
     lineNumbersInTable  = false
@@ -122,12 +86,6 @@ i18nDir = "i18n"
 [services]
   [services.rss]
     limit = 42
-
-#====================================#
-#============ PAGINATION ============#
-[pagination]
-  disableAliases = false
-  pagerSize = 6
 
 #====================================#
 #============== MODULE ==============#
