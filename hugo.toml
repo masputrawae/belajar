@@ -12,8 +12,8 @@ disableAliases                  = false
 #====================================#
 #========== PARAMS SETTING ==========#
 [params]
-  description = "Catatan pribadi tentang teknologi, pemrograman, dan pembelajaran."
-  shortTitle = "Notes"
+  description   = "Catatan pribadi tentang teknologi, pemrograman, dan pembelajaran."
+  shortTitle    = "Notes"
   author        = "John Doe"
   logo          = "logo/logo.webp"
   twitter       = "@johndoe"
