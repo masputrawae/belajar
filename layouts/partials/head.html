@@ -36,8 +36,6 @@
 {{ end }}
 <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ "index.xml" | relURL }}">
 
-{{ template "_internal/google_analytics.html" . }}
-
 {{/* |===========| START: SCSS |===========| */}}
 {{- with resources.Get "sass/main.scss" }}
   {{- $opts := dict
@@ -57,13 +55,6 @@
   {{- end }}
 {{- end }}
 {{/* |===========| END: SCSS |===========| */}}
-
-
-<script src="{{ "js/lunr.min.js" | relURL }}" defer></script>
-
-{{ if .Params.mathjax }}
-  {{ partial "mathjax.html" . }}
-{{ end }}
 
 {{/* |===========| START: SW JS |===========| */}}
 {{- with resources.Get "js/sw.js" }}
@@ -114,3 +105,9 @@
   {{- end }}
 {{- end }}
 {{/* |===========| END: MAIN.JS |===========| */}}
+
+<script src="{{ "js/lunr.min.js" | relURL }}" defer></script>
+
+{{ if .Params.mathjax }}
+  {{ partial "mathjax.html" . }}
+{{ end }}

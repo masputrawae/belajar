@@ -78,9 +78,15 @@ disableAliases                  = false
     baseName        = "manifest"
     isPlainText     = true
     notAlternative  = true
+  
+  [outputFormats.news]
+    mediaType       = "application/json"
+    baseName        = "news"
+    isPlainText     = true
+    notAlternative  = true
 
 [outputs]
-  home = ["HTML", "search", "manifest", 'rss']
+  home = ["HTML", "search", "manifest", 'rss', 'news']
   section = ['html', 'rss']
   
 [services]
@@ -93,3 +99,10 @@ disableAliases                  = false
   [module.hugoVersion]
     extended = true
     min = "0.145.0"
+
+#====================================#
+#============== CACHES ==============#
+[caches]
+  [caches.assets]
+    dir = ":resourceDir/_gen"
+    maxAge = -1
