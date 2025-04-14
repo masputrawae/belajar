@@ -63,7 +63,7 @@
     <script defer>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('{{ .RelPermalink }}').then(reg => {
+                navigator.serviceWorker.register('{{ .RelPermalink }}', { scope: '{{ site.BaseURL | absURL }}' }).then(reg => {
                     console.log('Service worker registered with scope: ', reg.scope);
                 }).catch(err => {
                     console.log('Service worker registration failed: ', err);
@@ -78,7 +78,7 @@
     <script defer>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('{{ .RelPermalink }}').then(reg => {
+                navigator.serviceWorker.register('{{ .RelPermalink }}', { scope: '{{ site.BaseURL | absURL }}' }).then(reg => {
                     console.log('Service worker registered with scope: ', reg.scope);
                 }).catch(err => {
                     console.log('Service worker registration failed: ', err);
