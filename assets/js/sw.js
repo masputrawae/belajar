@@ -16,7 +16,7 @@ if (workbox) {
   console.log("[SW] Workbox berhasil dimuat.");
 
   workbox.core.clientsClaim();
-  self.skipWaiting();
+  self.skipWaiting(); // Ditambahkan di sini
 
   // Caching file statis (CSS dan JS)
   workbox.routing.registerRoute(
@@ -33,7 +33,7 @@ if (workbox) {
   );
 
   self.addEventListener("install", (event) => {
-    const JSON_INDEX_URL = `/official/news.json?v=${CACHE_VERSION}`; // Ganti dengan Url Yang Sesuai
+    const JSON_INDEX_URL = `/official/news.json?v=${CACHE_VERSION}`;
 
     event.waitUntil(
       (async () => {
@@ -46,22 +46,23 @@ if (workbox) {
           const allUrls = await response.json();
           const urls = allUrls.slice(0, 1000);
 
-          for (const rawUrl of urls) {
-            try {
-              const url = new URL(rawUrl, self.location.origin).toString();
-              const fetchResponse = await fetch(url);
-
-              if (!fetchResponse.ok) {
-                console.warn(`[SW] Skip (status ${fetchResponse.status}): ${url}`);
-                continue;
+          // Ganti for loop dengan Promise.allSettled
+          await Promise.allSettled(
+            urls.map(async (rawUrl) => {
+              try {
+                const url = new URL(rawUrl, self.location.origin).toString();
+                const fetchResponse = await fetch(url);
+                if (!fetchResponse.ok) {
+                  console.warn(`[SW] Skip (status ${fetchResponse.status}): ${url}`);
+                  return;
+                }
+                await htmlCache.put(url, fetchResponse.clone());
+                console.log(`[SW] Cached: ${url}`);
+              } catch (err) {
+                console.warn(`[SW] Gagal cache: ${rawUrl}`, err);
               }
-
-              await htmlCache.put(url, fetchResponse.clone());
-              console.log(`[SW] Cached: ${url}`);
-            } catch (err) {
-              console.warn(`[SW] Gagal cache: ${rawUrl}`, err);
-            }
-          }
+            })
+          );
         } catch (err) {
           console.warn("[SW] Gagal mengambil atau parsing news.json:", err);
         }
