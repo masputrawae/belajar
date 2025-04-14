@@ -196,7 +196,6 @@ dd {
 
 // ALERT / CALLOUT
 .callout {
-  font-family: v.$font__family;
   border-radius: 0.5rem;
   color: var(--cl-callout-info);
   background-color: var(--bg-callout-info);
@@ -218,7 +217,6 @@ dd {
 
   @each $type in v.$callout-types {
     &--#{$type} {
-      border-left-color: var(--cl-callout-#{$type});
       color: var(--cl-callout-#{$type});
       background-color: var(--bg-callout-#{$type});
       border-color: var(--bg-callout-#{$type});
