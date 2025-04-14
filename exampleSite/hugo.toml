@@ -1,10 +1,9 @@
 #====================================#
 #=========== BASE SETTING ===========#
-baseURL                         = 'https://your-name.github.io/repo/'
-languageCode                    = 'en-US'
-title                           = 'Your Site Name'
-cascade.keywords                = ["notes", "other"]
-cascade.description             = "Site Description"
+baseURL                         = 'https://github-name.github.io/'
+languageCode                    = 'id'
+title                           = 'Site Title'
+# theme                           = "belajar"
 enableEmoji                     = true
 capitalizeListTitles            = false
 disableAliases                  = false
@@ -12,15 +11,21 @@ disableAliases                  = false
 #====================================#
 #========== PARAMS SETTING ==========#
 [params]
-  description   = "Catatan pribadi tentang teknologi, pemrograman, dan pembelajaran."
+  description   = "Deskripsi Disini"
+  keywords      = ["notes"]
   shortTitle    = "Notes"
   author        = "John Doe"
-  logo          = "logo/logo.webp"
+  logo          = "logo/logo.png"
+  image         = "logo/logo.png"
   twitter       = "@johndoe"
-  toc           = true
+  toc           = false
 
 [permalinks]
-  posts = "/:sections/:year/:month/:title/"
+  notes         = "/:sections/:year/:month/:title/"
+  projects      = "/:sections/:year/:month/:title/"
+  reference     = "/:sections/:year/:month/:title/"
+  resources     = "/:sections/:year/:month/:title/"
+  daily         = "/:sections/:year/:month/:title/"
 
 #====================================#
 #======== TAXONOMIES SETTING ========#
@@ -28,8 +33,8 @@ disableAliases                  = false
   category  = "categories"
   tag       = "tags"
   status    = "status"
-  group     = "grouping"
-  series    = "series"
+  topic     = "topics"
+  context   = "contexts"
 
 #====================================#
 #============== MARKUP ==============#
@@ -87,8 +92,15 @@ disableAliases                  = false
     isPlainText     = true
     notAlternative  = true
 
+  [outputFormats.sw]
+    mediaType       = "text/javascript"
+    baseName        = "sw"
+    isPlainText     = true
+    notAlternative  = true
+
+
 [outputs]
-  home = ["HTML", "search", "manifest", 'rss', 'news']
+  home = ["HTML", "search", "manifest", 'rss', 'news', 'sw']
   section = ['html', 'rss']
   
 [services]

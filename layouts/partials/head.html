@@ -4,23 +4,23 @@
 <meta name="description" content="{{ .Params.description | default .Description | default site.Params.description }}">
 <link rel="canonical" href="{{ .Permalink }}">
 <meta name="robots" content="index, follow">
-<meta name="author" content="{{ site.Params.author }}">
+<meta name="author" content="{{ .Params.author | default site.Params.author }}">
 <meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}">
-<link rel="alternate" hreflang="{{ site.Language.Lang }}" href="{{ .Permalink }}" />
+<link rel="alternate" hreflang="{{ site.Language.Lang }}" href="{{ .Permalink }}">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="article">
 <meta property="og:title" content="{{ .Title }}">
 <meta property="og:description" content="{{ .Params.description | default .Description | default site.Params.description }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ .Params.image | absURL }}">
+<meta property="og:image" content="{{ .Params.image | default site.Params.image | absURL }}">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ .Title }}">
 <meta name="twitter:description" content="{{ .Params.description | default .Description | default site.Params.description }}">
-<meta name="twitter:image" content="{{ .Params.image | absURL }}">
-<meta name="twitter:site" content="{{ site.Params.twitter }}"/>
+<meta name="twitter:image" content="{{ .Params.image | default site.Params.image | absURL }}">
+<meta name="twitter:site" content="{{ site.Params.twitter }}">
 
 <link rel="icon" href="{{ "favicons/favicon.ico" | absURL }}" type="image/x-icon">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "favicons/apple-touch-icon.png" | absURL }}">
@@ -56,40 +56,7 @@
 {{- end }}
 {{/* |===========| END: SCSS |===========| */}}
 
-{{/* |===========| START: SW JS |===========| */}}
-{{- with resources.Get "js/sw.js" }}
-  {{- if eq hugo.Environment "development" }}
-    {{- with . | js.Build | resources.Copy "sw.js" }}
-    <script defer>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('{{ .RelPermalink }}', { scope: '{{ site.BaseURL | absURL }}' }).then(reg => {
-                    console.log('Service worker registered with scope: ', reg.scope);
-                }).catch(err => {
-                    console.log('Service worker registration failed: ', err);
-                });
-            });
-        }
-      </script>
-    {{- end }}
-  {{- else }}
-    {{- $opts := dict "minify" true }}
-    {{- with . | js.Build $opts | resources.Copy "sw.js" }}
-    <script defer>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('{{ .RelPermalink }}', { scope: '{{ site.BaseURL | absURL }}' }).then(reg => {
-                    console.log('Service worker registered with scope: ', reg.scope);
-                }).catch(err => {
-                    console.log('Service worker registration failed: ', err);
-                });
-            });
-        }
-      </script>
-    {{- end }}
-  {{- end }}
-{{- end }}
-{{/* |===========| END: SW JS |===========| */}}
+<script src="{{ "js/lunr.min.js" | relURL }}" defer></script>
 
 {{/* |===========| START: MAIN.JS |===========| */}}
 {{- with resources.Get "js/main.js" }}
@@ -106,8 +73,23 @@
 {{- end }}
 {{/* |===========| END: MAIN.JS |===========| */}}
 
-<script src="{{ "js/lunr.min.js" | relURL }}" defer></script>
+{{/* |===========| START: SW JS |===========| */}}
+<script defer>
+  if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+          navigator.serviceWorker.register('{{ "sw.js" | relURL }}', { scope: '{{ .Site.BaseURL | relURL | strings.TrimSuffix "/" }}/' }).then(reg => {
+              console.log('Service worker registered with scope: ', reg.scope);
+          }).catch(err => {
+              console.log('Service worker registration failed: ', err);
+          });
+      });
+  }
+</script>
+{{/* |===========| END: SW JS |===========| */}}
 
+{{/* |===========| START: MATHJAX |===========| */}}
 {{ if .Params.mathjax }}
   {{ partial "mathjax.html" . }}
 {{ end }}
+{{/* |===========| END: MATHJAX |===========| */}}
+
