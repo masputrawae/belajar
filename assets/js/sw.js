@@ -20,7 +20,7 @@ if (workbox) {
 
   // Caching file statis (CSS dan JS)
   workbox.routing.registerRoute(
-    ({ request }) => ["style", "script"].includes(request.destination),
+    ({ request }) => request.destination === 'style' || request.destination === 'script',
     new workbox.strategies.CacheFirst({
       cacheName: `${CACHE_NAME}-static`,
       plugins: [
@@ -31,6 +31,7 @@ if (workbox) {
       ],
     })
   );
+  
 
   self.addEventListener("install", (event) => {
     const JSON_INDEX_URL = `/official/news.json?v=${CACHE_VERSION}`;
